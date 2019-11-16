@@ -4,6 +4,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 var cleanCSS = require('gulp-clean-css');
+var browserSync = require('browser-sync');
+
 
 // Sassをコンパイルするタスクの設定
 gulp.task("css", function () {
@@ -27,26 +29,55 @@ gulp.task("mincss", function () {
             }));
 });
 
-function browserSyncFunc(done){
-  browserSync.init({
-      server: {
-          baseDir: paths.rootDir,
-          middleware: [
-            ssi({
-              baseDir: paths.rootDir,
-              notify: false, //通知
-              ext: ".html"
-            })
-          ]
-      },
-      port: 4000,
-      reloadOnRestart: true
+gulp.task("browserSyncTask", function() {
+  browserSync({
+    server: {
+      baseDir: "./hidari-kikino-eren",
+      index  : "test.html" 
+    }
   });
-  done();
-}
+
+  // srcフォルダ以下のファイルを監視
+  gulp.watch("./hidari-kikino-eren/src/*.scss", function(done) {
+    browserSync.reload(); // ファイルに変更があれば同期しているブラウザをリロード
+    done();
+  });
+});
 
 
 gulp.task("default", function () {
     // scssフォルダを監視し、変更があったらコンパイルする
     gulp.watch('./hidari-kikino-eren/src/*.scss',gulp.series('css', 'mincss'));
 });
+
+
+/*
+
+
+gulp.task('sass', function () {
+  gulp.src('./hidari-kikino-eren/src/*.scss')
+      .pipe(sass())
+      .pipe(gulp.dest('./hidari-kikino-eren/'));
+});
+
+gulp.task('watch', function(){
+  gulp.watch('./hidari-kikino-eren/src/*.scss', sass);
+});
+
+gulp.task('browser-sync', function() {
+  browserSync({
+      server: {
+           baseDir: "./hidari-kikino-eren"       
+          ,index  : "test.html"      
+      }
+  });
+});
+
+gulp.task('bs-reload', function () {
+  browserSync.reload();
+});
+
+gulp.task('default', browserSync, function () {
+  gulp.watch('./hidari-kikino-eren/src/*.scss', browserReload);
+});
+*/
