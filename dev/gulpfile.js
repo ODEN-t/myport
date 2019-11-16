@@ -8,15 +8,15 @@ var browserSync = require('browser-sync');
 
 // Sassコンパイル
 gulp.task('css', function () {
-    return gulp.src('./web/src/sass/*.scss')// コンパイル対象のSassファイル
+    return gulp.src('./web/src/sass/**/index.scss')// indexのみコンパイル
             .pipe(sass()) // コンパイル実行
             .pipe(autoprefixer({cascade: false})) // ベンダープレフィックスの付与,package.json browserslistで設定
-            .pipe(gulp.dest('./web/asset/')); // 出力
+            .pipe(gulp.dest('./web/asset/css/')); // 出力
 });
 
 //css minify
 gulp.task('mincss', function () {
-  return gulp.src('./web/asset/*.css')
+  return gulp.src('./web/asset/css/test/*.css') // test部分は適宜フォルダ名に変更する！
               .pipe(cleanCSS()) // cssを圧縮
               .pipe(rename({extname:'.min.css'})) // 名前を.min.cssにする
               .pipe(gulp.dest('./web/asset/min/')) // 出力
@@ -24,7 +24,7 @@ gulp.task('mincss', function () {
 
 //Sassコンパイルとcss minify タスク
 gulp.task('watch',function(){
-  gulp.watch('./web/src/sass/*.scss', gulp.series('css','mincss'));
+  gulp.watch('./web/src/sass/**/*.scss', gulp.series('css','mincss')); //監視対象は全てのSassファイル
 })
 
 // browserSync リロード
@@ -38,12 +38,12 @@ gulp.task('browser-sync', function(done) {
   browserSync({
     server: {
         baseDir: "./web/",    //ルート設定
-        index  : "./data/test.html"    //インデックスファイル ここは適宜書き換える
+        index  : "./data/test/test.html"    //インデックスファイル フォルダ・ファイル名は適宜書き換える！
     }
   });
-  gulp.watch('./web/data/*.html',gulp.task('bs-reload')); //監視対象
-  gulp.watch('./web/src/sass/*.scss',gulp.task('bs-reload')); //監視対象
-  gulp.watch('./web/src/js/*.js',gulp.task('bs-reload')); //監視対象
+  gulp.watch('./web/data/**/*.html',gulp.task('bs-reload')); //監視対象
+  gulp.watch('./web/src/sass/**/*.scss',gulp.task('bs-reload')); //監視対象
+  gulp.watch('./web/src/js/**/*.js',gulp.task('bs-reload')); //監視対象
   done();
 });
 
