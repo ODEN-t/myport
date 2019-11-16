@@ -10,7 +10,7 @@ var browserSync = require('browser-sync');
 gulp.task('css', function () {
     return gulp.src('./web/src/sass/*.scss')// コンパイル対象のSassファイル
             .pipe(sass()) // コンパイル実行
-            .pipe(autoprefixer({cascade: false})) // ベンダープレフィックスの付与
+            .pipe(autoprefixer({cascade: false})) // ベンダープレフィックスの付与,package.json browserslistで設定
             .pipe(gulp.dest('./web/asset/')); // 出力
 });
 
@@ -37,7 +37,7 @@ gulp.task('bs-reload', function (done) {
 gulp.task('browser-sync', function(done) {
   browserSync({
     server: {
-        baseDir: "./web/",    //対象ディレクトリ
+        baseDir: "./web/",    //ルート設定
         index  : "./data/test.html"    //インデックスファイル ここは適宜書き換える
     }
   });
