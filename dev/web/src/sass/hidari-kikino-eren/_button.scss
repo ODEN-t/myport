@@ -1,0 +1,127 @@
+.btnSideMenu {
+  position: relative;
+  border: solid .26667vw #fff;
+  background-color: #000;
+  transition: background-color .4s cubic-bezier(.19,1,.22,1);
+  transform: translateZ(0); //ちらつき防止
+  backface-visibility: hidden; //ちらつき防止
+  overflow: hidden;
+  @include mediaQuery {
+    border: solid .06944vw #fff;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 101%;
+    height: 51%;
+    background-color: #02d0d0;
+    transition: transform .4s cubic-bezier(.19,1,.22,1);
+    transform: scaleX(0);
+    backface-visibility: hidden;
+    z-index: 0;
+    @include mediaQuery {
+      width: 51%;
+      height: 102%;
+      transform: scaleY(0);
+    }
+  }
+  &:before {
+    top: 0;
+    left: 0;
+    transform-origin: center left;
+    @include mediaQuery {
+      transform-origin: bottom center;
+    }
+  }
+  &:after {
+    top: auto;
+    bottom: 0;
+    transform-origin: center right;
+    @include mediaQuery {
+      right: 0;
+      left: auto; 
+      transform-origin: top center;
+    }
+  }
+
+  &_inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    > span {
+      position: relative;
+      color: #fff;
+      font-size: 5.06667vw;
+      letter-spacing: .16em;
+      text-indent: .16em;
+      transition: color .4s cubic-bezier(.19,1,.22,1);
+      transform: scaleX(.85);
+      z-index: 2;
+      @include mediaQuery {
+        writing-mode: vertical-rl;
+        text-align: center;
+        letter-spacing: .2em;
+        text-indent: .2em;
+      }
+      @include mediaQuery(mediumDesktop) {
+        font-size: 1.40541vw;
+      }
+
+      &:active {
+        color: #e50013;
+        transition-duration: .1s;
+      }
+    }
+
+    > svg {
+      position: absolute;
+      top: 0;
+      right: auto;
+      bottom: 0;
+      left: 3.2vw;
+      width: 5.33333vw;
+      height: 3.06667vw;
+      fill: #e50013;
+      margin: auto;
+      display: block;
+      z-index: 2;
+      @include mediaQuery {
+        left: .69444vw;
+      width: 1.38889vw;
+      height: .79861vw;
+      }
+    }
+  }
+
+  &:active {
+    background-color: #02d0d0; 
+    transition-duration: .1s;
+  }
+
+  @include mediaQuery { //desktopのみホバーイベント
+    &:hover {
+      &:before, &:after {
+        transform: scaleY(1);
+      }
+    }
+  }
+}
+
+/*
+以下のDOM構造で使用
+
+<div class="btnSideMenu">
+  <a class="btnSideMenu_inner" href="">
+    <span>トップ</span>
+    <svg>
+      <use xlink:href="#arrow">
+    </svg>
+  </a>
+</div>
+
+*/

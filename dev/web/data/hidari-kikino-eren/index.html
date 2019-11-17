@@ -22,10 +22,27 @@
   <meta name = "msapplication-TileImage" content = "./images/logo_icon.png">  <!-- windowsピン止めイメージ -->
   <meta name="msapplication-TileColor" content="#B90000"> <!-- windowsピン止め背景色 -->
   <link rel="stylesheet" href="/../../asset/css/hidari-kikino-eren/index.css"> 
-  <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.1/dist/css/yakuhanjp.min.css">
 </head>
 <body>
-  aaaaaaaaaaaa
+    <svg display="none">
+      <defs>
+        <symbol id="arrow" viewBox="0 0 40 23">
+          <path d="M40,11.523L0,23v-5.088l22.151-6.457L0,4.999V0L40,11.523z"></path>
+        </symbol>  
+      </defs>    
+    </svg>
+  
+  
+  <div class="btnSideMenu">
+    <a class="btnSideMenu_inner" href="">
+      <span>トップ</span>
+      <svg>
+        <use xlink:href="#arrow">
+      </svg>
+    </a>
+  </div>
+  
 
   <script type="text/javascript" src="../../lib/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="../../src/js/hidari-kikino-eren/index.js"></script>
