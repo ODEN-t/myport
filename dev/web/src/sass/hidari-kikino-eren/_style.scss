@@ -1,0 +1,106 @@
+.hidarikikinoEren{
+
+  .lp-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e50013;
+    z-index: 1000;
+    transition: visibility .2s linear,opacity .2s linear;
+
+    &_wrap {
+      position: absolute;
+      top: 26.93333vw;
+      left: 50%;
+      transform: translate(-50%);
+      width: 203.6vw;
+      height: 112.26667vw;
+    }
+
+    &_text {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      margin: 0 auto;
+      background: url('../../../data/hidari-kikino-eren/images/loading_txt.png') 50% no-repeat;
+      background-size: contain;
+      transform: translateY(150%);
+      width: 28.53333vw;
+      height: 2.66667vw;
+    }
+  }
+
+  .lp-loadingInner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    transition: transform .8s cubic-bezier(.19,1,.22,1);
+
+    &_item {
+      display: block;
+      width: 203.6vw;
+      height: 100%;
+      transition: transform .4s cubic-bezier(.19,1,.22,1);
+
+      &:before {
+        transition: transform .8s cubic-bezier(.19,1,.22,1) .4s;
+      }
+    }
+
+    .mod-item1 {
+      order: 2;
+      transform: scaleX(1);
+      &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #0e6cb2;
+        transition-delay: 0s;
+        transform: scaleY(.006);
+      }
+    }
+    .mod-item1.add-load {
+      // transform: scaleX(1);
+      &:before {
+        transform: scaleY(1)
+      }
+    }
+
+
+    .mod-item2 {
+      order: 3;
+      &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #fe3c00;
+        transition-delay: .2s;
+        transform: scaleY(0);
+      }
+    }
+    .mod-item3 {
+      display: none;
+    }
+    .mod-item4 {
+      order: 1;
+      &:before  {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #02d0d0;
+        transition-delay: .2s;
+        transform: scaleY(0);
+      }
+    }
+  }
+}
