@@ -154,8 +154,8 @@ input, select {
     -webkit-box-ordinal-group: 3;
     -ms-flex-order: 2;
     order: 2;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1); }
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0); }
     .hidarikikinoEren .lp-loadingInner .mod-item1:before {
       content: "";
       display: block;
