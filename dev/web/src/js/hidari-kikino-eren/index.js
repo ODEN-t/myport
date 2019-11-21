@@ -3,27 +3,49 @@ var $guage = $('.js-progressGauge');
 var imgCount = 0;
 var divideScale = 1 / $images.length;
 var scale = 0;
+var defer = $.Deferred();
 
 
-for(var i = 0, len = $images.length; i < len; i++){
-  var img = new Image();
-  img.onload = function() {
-    imgCount += 1;
+
+var requestMeter = function() {
+
+  for(var i = 0, len = $images.length; i < len; i++){
+    var img = new Image();
+    img.onload = function() {
+      imgCount += 1;
+    }
+    img.src = $images[i].src;
   }
-  img.src = $images[i].src;
+  
+  var loading = setInterval(function(){
+    scale = imgCount * divideScale;
+    console.log(imgCount);
+    console.log(divideScale);
+    $('.js-progressGauge').css('transform','scaleX(' + scale + ')');
+    if(imgCount == $images.length) {
+      clearInterval(loading);
+      defer.resolve();
+    }
+  }, 10);
+  
+  console.log(defer.promise()); 
+  return defer.promise();
+  // setTimeout(function(){
+  //   console.log('return!');
+  //   return defer.promise();
+  // }, 5000);
 }
 
+function scalingFigures() {
+  setTimeout(function(){
+    $('.js-scaleItem, .js-loading').addClass('add-loaded');
+  },2000);
+}
 
-var loading = setInterval(function(){
-  scale = imgCount * divideScale;
-  console.log(imgCount);
-  console.log(divideScale);
+requestMeter().done(scalingFigures);
 
-  $('.js-progressGauge').css('transform','scaleX(' + scale + ')');
-  if(imgCount == $images.length) {
-    clearInterval(loading);
-  }
-}, 10);  
+
+
 
 // $('.js-test').addClass('add-load');
 

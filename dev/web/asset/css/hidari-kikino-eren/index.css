@@ -121,6 +121,12 @@ input, select {
     width: 28.53333vw;
     height: 2.66667vw; }
 
+.hidarikikinoEren .lp-loading.add-loaded {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s; }
+
 .hidarikikinoEren .lp-loadingInner {
   position: absolute;
   left: 0;
@@ -150,6 +156,9 @@ input, select {
       transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
       transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
       transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s, -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s; }
+  .hidarikikinoEren .lp-loadingInner_item.add-loaded:before {
+    -webkit-transform: scaleY(1) !important;
+    transform: scaleY(1) !important; }
   .hidarikikinoEren .lp-loadingInner .mod-item1 {
     -webkit-box-ordinal-group: 3;
     -ms-flex-order: 2;
@@ -166,9 +175,6 @@ input, select {
       transition-delay: 0s;
       -webkit-transform: scaleY(0.006);
       transform: scaleY(0.006); }
-  .hidarikikinoEren .lp-loadingInner .mod-item1.add-load:before {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1); }
   .hidarikikinoEren .lp-loadingInner .mod-item2 {
     -webkit-box-ordinal-group: 4;
     -ms-flex-order: 3;
