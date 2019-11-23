@@ -1,5 +1,8 @@
 .hidarikikinoEren{
 
+/* ------------------
+		lp-loading 
+--------------------- */
   .lp-loading {
     position: fixed;
     top: 0;
@@ -8,7 +11,8 @@
     left: 0;
     background-color: #e50013;
     z-index: 1000;
-    transition: visibility .2s linear,opacity .2s linear;
+    transition: visibility .2s linear,
+                opacity .2s linear;
 
     &_wrap {
       position: absolute;
@@ -76,7 +80,6 @@
         transform: scaleY(.006);
       }
     }
-
     .mod-item2 {
       order: 3;
       &:before {
@@ -105,4 +108,218 @@
       }
     }
   }
+
+/* ------------------
+		lp-header 
+--------------------- */
+  .lp-header {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    cursor: pointer;
+    overflow: hidden;
+    height: 12vw;
+    transition: visibility .4s cubic-bezier(.19,1,.22,1),
+                transform .4s cubic-bezier(.19,1,.22,1);
+  }
+  
+  .lp-headerTicker {
+    background-image: url('../../../data/hidari-kikino-eren/images/header_ticker.png');
+    background-repeat: repeat-x;
+    background-size: 49.64103vw 12vw;
+    width: 100%;
+    height: 100%;
+    animation: headerMoving 6s linear infinite;
+    @keyframes headerMoving {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 268.88889px 0;
+      }
+    }
+  }
+/* ------------------
+		lp-menu
+--------------------- */
+  .lp-menuBtn {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 14vw;
+    height: 14vw;
+    background-color: #000;
+    transition: background-color .2s cubic-bezier(.19,1,.22,1);
+    z-index: 10;
+
+    &_open {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 5.6vw;
+      height: 4.26667vw;
+
+      > span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        height: .533vw;
+        transition: transform .4s cubic-bezier(.19,1,.22,1) .2s;
+      }
+      > span:nth-child(1) {
+        transform-origin: left center;
+        top: 0;
+      }
+      > span:nth-child(2) {
+        transform-origin: center center;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      > span:nth-child(3) {
+        transform-origin: right center;
+        bottom: 0;
+      }
+    }
+
+    &_close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      transform: rotate(45deg);
+      width: 5.33333vw;
+      height: 5.33333vw;
+      &:before, &:after {
+        content: '';
+        transform-origin: top left;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        transition: transform .4s cubic-bezier(.19,1,.22,1);
+      }
+      &:before {
+        width: .5333vw;
+        height: 100%;
+        transform: scaleY(0);
+      }
+      &:after {
+        height: .5333vw;
+        width: 100%;
+        transform: scaleX(0);
+      }
+    }
+  }
+
+  .lp-menuBtn.add-open {
+    background-color: #e50013;
+    .lp-menuBtn_open span {
+      transform: scaleX(0);
+      transition-delay: 0s;
+    }
+    .lp-menuBtn_close:before {
+      transform: scaleY(1);
+      transition-delay: .2s;
+    }
+    .lp-menuBtn_close:after {
+      transform: scaleX(1);
+      transition-delay: .4s;
+    }
+  }
+
+  .lp-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 82.4vw;
+    background-color: #000;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    transition: transform .4s cubic-bezier(.19,1,.22,1),
+                opacity .4s cubic-bezier(.19,1,.22,1),
+                visibility .4s cubic-bezier(.19,1,.22,1),
+                z-index .4s cubic-bezier(.19,1,.22,1);
+
+    &_wrap {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      min-height: 146.26667vw;
+      padding: 18vw 4vw 4vw;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    &_nav {
+      position: relative;
+      width: 100%;
+
+      > ul {
+        width: 100%;
+        > li {
+          width: 100%;
+          height: 26.4vw;
+          border-top-width: 0;
+        }
+        > li:first-child {
+          border-width: .26667vw;
+        }
+      }
+    }
+
+    &_sns {
+      position: relative;
+      width: 100%;
+      height: 14.66667vw;
+      margin-top: 4vw;
+      
+      > ul {
+        display: flex;
+        height: 100%;
+        > li {
+          width: 33.3%;
+          border-right-width: 0;
+        }
+        > li:last-child {
+          border-width: .26667vw;
+        }
+      }
+
+      svg {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 6.93333vw;
+        height: 6.93333vw;
+        fill: #fff;
+      }
+    }
+  }
+  .lp-menu.add-open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    z-index: 9;
+  }
+
+/* ------------------
+		lp-menu
+--------------------- */
 }

@@ -48,6 +48,8 @@
 
   &_inner {
     position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,8 +94,13 @@
       z-index: 2;
       @include mediaQuery {
         left: .69444vw;
-      width: 1.38889vw;
-      height: .79861vw;
+        width: 1.38889vw;
+        height: .79861vw;
+      }
+
+      &:active {
+        fill: #e50013;
+        transition-duration: .1s;
       }
     }
   }
@@ -118,9 +125,9 @@
 <div class="btnSideMenu">
   <a class="btnSideMenu_inner" href="">
     <span>トップ</span>
-    <svg>
-      <use xlink:href="#arrow">
-    </svg>
+      <svg>
+        <use xlink:href="#arrow">
+      </svg>
   </a>
 </div>
 
