@@ -45,6 +45,11 @@
       transform-origin: top center;
     }
   }
+  &:hover {
+    &:before, &:after {
+      transform: scaleX(1);
+    }
+  }
 
   &_inner {
     position: relative;
@@ -73,11 +78,6 @@
       @include mediaQuery(mediumDesktop) {
         font-size: 1.40541vw;
       }
-
-      &:active {
-        color: #e50013;
-        transition-duration: .1s;
-      }
     }
 
     > svg {
@@ -98,16 +98,18 @@
         height: .79861vw;
       }
 
-      &:active {
+      &:hover {
         fill: #e50013;
         transition-duration: .1s;
       }
     }
   }
 
-  &:active {
-    background-color: #02d0d0; 
-    transition-duration: .1s;
+  &_inner:hover {
+    > span {
+      color: #e50013;
+      transition-duration: .1s;
+    }
   }
 
   @include mediaQuery { //desktopのみホバーイベント
@@ -115,6 +117,32 @@
       &:before, &:after {
         transform: scaleY(1);
       }
+    }
+  }
+}
+
+.btnSideMenu.mod-vote {
+  background-color: #02d0d0;
+  span {
+    color: #e50013;
+  }
+  &:before, &:after {
+    background-color: #e50013;
+  }
+  .btnSideMenu_inner:hover {
+    > span {
+      color: #02d0d0;
+    }
+    > svg {
+      fill:  #02d0d0;
+    }
+  }
+}
+
+.btnSideMenu.mod-sns {
+  .btnSideMenu_inner:hover {
+    > svg {
+      fill:  #e50013;
     }
   }
 }

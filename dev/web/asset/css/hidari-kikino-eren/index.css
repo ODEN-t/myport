@@ -423,6 +423,10 @@ input, select {
     opacity: 1;
     visibility: visible;
     z-index: 9; }
+  .hidarikikinoEren .lp-main {
+    position: relative;
+    width: 100%;
+    padding-top: 12vw; }
 
 .btnSideMenu {
   position: relative;
@@ -480,6 +484,9 @@ input, select {
         left: auto;
         -webkit-transform-origin: top center;
         transform-origin: top center; } }
+  .btnSideMenu:hover:before, .btnSideMenu:hover:after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); }
   .btnSideMenu_inner {
     position: relative;
     width: 100%;
@@ -516,10 +523,6 @@ input, select {
       @media screen and (min-width: 800px) and (max-width: 1100px) {
         .btnSideMenu_inner > span {
           font-size: 1.40541vw; } }
-      .btnSideMenu_inner > span:active {
-        color: #e50013;
-        -webkit-transition-duration: .1s;
-        transition-duration: .1s; }
     .btnSideMenu_inner > svg {
       position: absolute;
       top: 0;
@@ -537,18 +540,32 @@ input, select {
           left: .69444vw;
           width: 1.38889vw;
           height: .79861vw; } }
-      .btnSideMenu_inner > svg:active {
+      .btnSideMenu_inner > svg:hover {
         fill: #e50013;
         -webkit-transition-duration: .1s;
         transition-duration: .1s; }
-  .btnSideMenu:active {
-    background-color: #02d0d0;
+  .btnSideMenu_inner:hover > span {
+    color: #e50013;
     -webkit-transition-duration: .1s;
     transition-duration: .1s; }
   @media screen and (min-width: 800px) {
     .btnSideMenu:hover:before, .btnSideMenu:hover:after {
       -webkit-transform: scaleY(1);
       transform: scaleY(1); } }
+
+.btnSideMenu.mod-vote {
+  background-color: #02d0d0; }
+  .btnSideMenu.mod-vote span {
+    color: #e50013; }
+  .btnSideMenu.mod-vote:before, .btnSideMenu.mod-vote:after {
+    background-color: #e50013; }
+  .btnSideMenu.mod-vote .btnSideMenu_inner:hover > span {
+    color: #02d0d0; }
+  .btnSideMenu.mod-vote .btnSideMenu_inner:hover > svg {
+    fill: #02d0d0; }
+
+.btnSideMenu.mod-sns .btnSideMenu_inner:hover > svg {
+  fill: #e50013; }
 
 /*
 以下のDOM構造で使用
