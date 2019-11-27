@@ -332,6 +332,7 @@
       width: 100%;
       max-width: 1600px;
       padding-top: 14.933vw;
+      overflow: hidden;
 
       &_characters {
         position: relative;
@@ -342,6 +343,24 @@
         width: 542.93333vw;
         height: 112.26667vw;
         margin: auto;
+        backface-visibility: hidden;
+        // transition: transform 2.5s linear;
+        will-change: transform;
+        // animation: loop 50s linear infinite;
+        // @keyframes loop {
+        //   0% {
+        //     transform: translateX(0%);
+        //   }
+        //   33% {
+        //     transform: translateX(-33%);
+        //   }
+        //   66% {
+        //     transform: translateX(-66%);
+        //   }
+        //   100% {
+        //     transform: translateX(-100%);
+        //   }
+        // }
       }
 
       .lp-character {

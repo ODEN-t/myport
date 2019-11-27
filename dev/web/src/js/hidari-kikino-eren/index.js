@@ -40,6 +40,39 @@ $('.js-menuBtn').on('click', function(){
   $('.js-menu').toggleClass('add-open');
 })
 
+function setPosition(startItemNum,endItemNum) {
+  var $itemList = $('.js-kv');
+  var itemWidth = $itemList.children().width();
+  var sideMargin = ($(window).width() - itemWidth) / 2;
+  var position = {
+    start: -(itemWidth * startItemNum) + sideMargin,
+    end: -(itemWidth * endItemNum) + sideMargin
+  };
+  return position;
+}
+
+
+
+
+// var xAxis = 0;
+// setInterval(function(){
+//   $('.js-kv').css('transform', 'translateX(' + (xAxis-=100) + 'px)');
+// }, 2500);
+
+// var xAxis = 0;
+// setInterval(function(){
+//   $('.js-kv').animate({
+//     left '+=50'
+//   },1000);
+// }, 200);
+
+
+
+
+// $(window).on('load',function(){
+//   $('.js-kv').css('transform','translateX(' + setPosition(2,5).start + 'px)' );
+// });
+
 
 // var requestMeter = function() {
 

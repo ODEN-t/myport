@@ -431,7 +431,8 @@ input, select {
       position: relative;
       width: 100%;
       max-width: 1600px;
-      padding-top: 14.933vw; }
+      padding-top: 14.933vw;
+      overflow: hidden; }
       .hidarikikinoEren .lp-main .lp-kv_characters {
         position: relative;
         display: -webkit-box;
@@ -447,7 +448,10 @@ input, select {
         align-items: flex-start;
         width: 542.93333vw;
         height: 112.26667vw;
-        margin: auto; }
+        margin: auto;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform; }
       .hidarikikinoEren .lp-main .lp-kv .lp-character {
         position: relative;
         height: 100%;
