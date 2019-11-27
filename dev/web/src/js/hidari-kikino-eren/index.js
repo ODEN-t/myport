@@ -67,10 +67,24 @@ function setPosition(startItemNum,endItemNum) {
 // }, 200);
 
 
+// $('.js-kv').css('transform','translateX(' + setPosition(2,5).start + 'px)' );
 
-
+var xAxis = 0;
+var timer = setInterval(function(){
+  $('.js-kv').css('transform', 'translateX(' + (xAxis-=1) + 'px)');
+  console.log(xAxis);
+  
+  if(xAxis <  -500) {
+    clearInterval(timer);
+  }
+  
+},30);
 // $(window).on('load',function(){
-//   $('.js-kv').css('transform','translateX(' + setPosition(2,5).start + 'px)' );
+
+//   var xAxis = 0;
+// setInterval(function(){
+//   $('.js-kv').css('transform', 'translateX(' + (xAxis-=100) + 'px)');
+// }, 2500);
 // });
 
 
