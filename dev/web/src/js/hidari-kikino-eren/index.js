@@ -93,12 +93,6 @@ function switchCharacter() {
 }
 // switchCharacter();
 
-
-
-
-
-
-
 // console.log(setPosition(2,5).end);
 
 

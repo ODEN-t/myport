@@ -636,11 +636,20 @@ input, select {
         top: 0;
         left: 0;
         background-color: #deff00; }
-    .hidarikikinoEren .lp-summery_relationship:before {
-      content: "";
-      display: block;
-      width: 100%;
-      padding-top: 100%; }
+    .hidarikikinoEren .lp-summery_relationship {
+      position: relative;
+      width: 100%; }
+      .hidarikikinoEren .lp-summery_relationship:before {
+        content: "";
+        display: block;
+        width: 100%;
+        padding-top: 100%; }
+      .hidarikikinoEren .lp-summery_relationship figure {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; }
 
 .btnSideMenu {
   position: relative;
