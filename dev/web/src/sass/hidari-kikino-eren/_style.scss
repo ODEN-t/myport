@@ -481,7 +481,7 @@
   }
 
 /* ------------------
-		lp-headContents
+		lp-summery
 --------------------- */
   .lp-summery {
     position: relative;
@@ -574,6 +574,97 @@
         left: 0;
         width: 100%;
         height: 100%;
+      }
+    }
+  }
+
+/* ------------------
+		lp-story
+--------------------- */
+  .lp-story {
+    position: relative;
+    width: 100%;
+    margin-top: 13.33333vw;
+    padding-top: 5.33333vw;
+
+    &_inner {
+      background-image: url('../../../data/hidari-kikino-eren/images/story_pattern.jpg');
+      background-repeat: repeat;
+      background-position: 50%;
+      background-size: 360px 365px;
+    }
+
+    &_tabs {
+      position: relative;
+      height: 19.45946vw;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background-color: #e50013;
+        border-color: #deff00;
+        border-width: .8vw;
+        height: 100%;
+        width: 4.26667vw;
+      }
+    }
+
+    &_tab {
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 45.33333vw;
+      height: 100%;
+      background-color: #000;
+      padding: 1.2vw 1.2vw 0;
+      z-index: 2;
+      &:nth-child(1) {
+        left: 4vw;
+      }
+      &:nth-child(2) {
+        right: 4vw;
+      }
+    }
+
+    .btn {
+      border: none;
+
+      &_inner svg {
+        left: 1.46667vw;
+        width: 3.6vw;
+        height: 2.13333vw;
+      }
+    }
+
+    &_label {
+      color: #fff;
+      font-size: 4.26667vw;
+      font-weight: 500;
+      letter-spacing: .14em;
+      white-space: nowrap;
+
+      > span {
+        font-size: 58%;
+        line-height: 1.4;
+        letter-spacing: .14em;
+        margin-top: .8em;
+      }
+    }
+
+    &_contents {
+      position: relative;
+    }
+
+    &_pages {
+      margin: auto;
+      padding: 9.33333vw 4vw;
+
+      > li:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 141.40625%;
+        background-color: #fff;
       }
     }
   }
