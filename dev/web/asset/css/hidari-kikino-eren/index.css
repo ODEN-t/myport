@@ -103,10 +103,19 @@ input, select {
 		lp-header 
 --------------------- */
   /* ------------------
+		lp-menuBtn
+--------------------- */
+  /* ------------------
 		lp-menu
 --------------------- */
   /* ------------------
 		lp-main
+--------------------- */
+  /* ------------------
+		lp-kv
+--------------------- */
+  /* ------------------
+		lp-headContents
 --------------------- */ }
   .hidarikikinoEren .lp-loading {
     position: fixed;
@@ -423,133 +432,215 @@ input, select {
     opacity: 1;
     visibility: visible;
     z-index: 9; }
-  .hidarikikinoEren .lp-main {
+  .hidarikikinoEren main {
     position: relative;
     width: 100%;
     padding-top: 12vw; }
-    .hidarikikinoEren .lp-main .lp-kv {
+  .hidarikikinoEren .lp-kv {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    padding-top: 14.933vw;
+    overflow: hidden; }
+    .hidarikikinoEren .lp-kv_characters {
       position: relative;
-      width: 100%;
-      max-width: 1600px;
-      padding-top: 14.933vw;
-      overflow: hidden; }
-      .hidarikikinoEren .lp-main .lp-kv_characters {
-        position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: flex-start;
-        width: 542.93333vw;
-        height: 112.26667vw;
-        margin: auto;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden; }
-      .hidarikikinoEren .lp-main .lp-kv .lp-character {
-        position: relative;
-        height: 100%;
-        width: 67.86667vw; }
-        .hidarikikinoEren .lp-main .lp-kv .lp-character_inner {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: 50%;
-          -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
-        .hidarikikinoEren .lp-main .lp-kv .lp-character_inner:after {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          -webkit-transform: scaleY(1);
-          transform: scaleY(1);
-          -webkit-transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
-      .hidarikikinoEren .lp-main .lp-kv .lp-character_inner.add-loaded:after {
-        -webkit-transform: scaleY(0);
-        transform: scaleY(0); }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item1 .lp-character_inner {
-        background-image: url("../../../data/hidari-kikino-eren/images/kv_img1.jpg");
-        -webkit-transition-delay: .1s;
-        transition-delay: .1s; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item1 .lp-character_inner:after {
-        background-color: #0e6cb2;
-        -webkit-transform-origin: bottom center;
-        transform-origin: bottom center; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item2 .lp-character_inner {
-        background-image: url("../../../data/hidari-kikino-eren/images/kv_img2.jpg");
-        -webkit-transition-delay: .2s;
-        transition-delay: .2s; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item2 .lp-character_inner:after {
-        background-color: #fe3c00;
-        -webkit-transform-origin: top center;
-        transform-origin: top center; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item3 .lp-character_inner {
-        background-image: url("../../../data/hidari-kikino-eren/images/kv_img3.jpg");
-        -webkit-transition-delay: .3s;
-        transition-delay: .3s; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item3 .lp-character_inner:after {
-        background-color: #deff00;
-        -webkit-transform-origin: bottom center;
-        transform-origin: bottom center; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item4 .lp-character_inner {
-        background-image: url("../../../data/hidari-kikino-eren/images/kv_img4.jpg");
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-item4 .lp-character_inner:after {
-        background-color: #02d0d0;
-        -webkit-transform-origin: top center;
-        transform-origin: top center; }
-      .hidarikikinoEren .lp-main .lp-kv > h1 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      width: 542.93333vw;
+      height: 112.26667vw;
+      margin: auto;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
+    .hidarikikinoEren .lp-kv .lp-character {
+      position: relative;
+      height: 100%;
+      width: 67.86667vw; }
+      .hidarikikinoEren .lp-kv .lp-character_inner {
         position: absolute;
         left: 0;
-        bottom: 0;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: flex-start;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column; }
-      .hidarikikinoEren .lp-main .lp-kv_title {
-        background-color: #000;
-        font-size: 6.933vw;
-        padding: .6em;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center; }
-      .hidarikikinoEren .lp-main .lp-kv_name {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+      .hidarikikinoEren .lp-kv .lp-character_inner:after {
+        content: "";
         position: absolute;
-        width: 70vw;
-        height: 15.333vw;
-        top: 2.6667vw;
-        left: 2.6667vw; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-title1 img {
-        width: 5.73333vw; }
-      .hidarikikinoEren .lp-main .lp-kv .mod-title2 img {
-        height: 5.6vw; }
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+    .hidarikikinoEren .lp-kv .lp-character_inner.add-loaded:after {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0); }
+    .hidarikikinoEren .lp-kv .mod-item1 .lp-character_inner {
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img1.jpg");
+      -webkit-transition-delay: .1s;
+      transition-delay: .1s; }
+    .hidarikikinoEren .lp-kv .mod-item1 .lp-character_inner:after {
+      background-color: #0e6cb2;
+      -webkit-transform-origin: bottom center;
+      transform-origin: bottom center; }
+    .hidarikikinoEren .lp-kv .mod-item2 .lp-character_inner {
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img2.jpg");
+      -webkit-transition-delay: .2s;
+      transition-delay: .2s; }
+    .hidarikikinoEren .lp-kv .mod-item2 .lp-character_inner:after {
+      background-color: #fe3c00;
+      -webkit-transform-origin: top center;
+      transform-origin: top center; }
+    .hidarikikinoEren .lp-kv .mod-item3 .lp-character_inner {
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img3.jpg");
+      -webkit-transition-delay: .3s;
+      transition-delay: .3s; }
+    .hidarikikinoEren .lp-kv .mod-item3 .lp-character_inner:after {
+      background-color: #deff00;
+      -webkit-transform-origin: bottom center;
+      transform-origin: bottom center; }
+    .hidarikikinoEren .lp-kv .mod-item4 .lp-character_inner {
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img4.jpg");
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s; }
+    .hidarikikinoEren .lp-kv .mod-item4 .lp-character_inner:after {
+      background-color: #02d0d0;
+      -webkit-transform-origin: top center;
+      transform-origin: top center; }
+    .hidarikikinoEren .lp-kv > h1 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+    .hidarikikinoEren .lp-kv_title {
+      background-color: #000;
+      font-size: 6.933vw;
+      padding: .6em;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+    .hidarikikinoEren .lp-kv_name {
+      position: absolute;
+      width: 70vw;
+      height: 15.333vw;
+      top: 2.6667vw;
+      left: 2.6667vw; }
+    .hidarikikinoEren .lp-kv .mod-title1 img {
+      width: 5.73333vw; }
+    .hidarikikinoEren .lp-kv .mod-title2 img {
+      height: 5.6vw; }
+  .hidarikikinoEren .lp-summery {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    margin: 14.6667vw auto auto; }
+    .hidarikikinoEren .lp-summery_heading {
+      position: relative;
+      background-color: #deff00;
+      background-image: url("../../../data/hidari-kikino-eren/images/summary_heading_bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100vw;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      overflow: hidden; }
+    .hidarikikinoEren .lp-summery_headingInner {
+      position: relative;
+      z-index: 1;
+      left: 4vw; }
+      .hidarikikinoEren .lp-summery_headingInner > h2 {
+        position: absolute;
+        top: -3.33333vw;
+        left: 4vw;
+        width: 9.73333vw;
+        background-color: #000;
+        padding: 3.2vw 2.66667vw;
+        z-index: 2; }
+        .hidarikikinoEren .lp-summery_headingInner > h2 img {
+          display: block;
+          width: 3.86667vw; }
+    .hidarikikinoEren .lp-summery_headingDesc {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start; }
+    .hidarikikinoEren .lp-summery_descLine {
+      position: relative;
+      display: inline-block;
+      font-size: 2.93333vw;
+      font-weight: bold;
+      line-height: 1.8;
+      letter-spacing: .06em;
+      white-space: nowrap;
+      margin-top: -.04em;
+      padding: .4em .4em .4em 7.6em;
+      background-color: #deff00;
+      -webkit-transform-origin: top left;
+      transform-origin: top left;
+      -webkit-transform: scaleX(0.9);
+      transform: scaleX(0.9); }
+      .hidarikikinoEren .lp-summery_descLine:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #deff00; }
+    .hidarikikinoEren .lp-summery_relationship:before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 100%; }
 
 .btnSideMenu {
   position: relative;

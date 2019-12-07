@@ -1,6 +1,4 @@
 
-
-
 function progressGauge() {
   var $images = $('img');
   var $guage = $('.js-progressGauge');
@@ -34,17 +32,17 @@ function scalingFigures() {
 }
 
 
-// $.when(
-//   progressGauge(),
-//   $('.js-kv').css('transform','translateX(' + setPosition(2).start + 'px)' ),
-//   console.log(setPosition(2).start),
-//   scalingFigures()
-// )
-// .done(
-//   setTimeout(function(){
-//     kvLoop(2,5)
-//   }, 4500)
-// );
+$.when(
+  progressGauge(),
+  $('.js-kv').css('transform','translateX(' + setPosition(2).start + 'px)' ),
+  console.log(setPosition(2).start),
+  scalingFigures()
+)
+.done(
+  setTimeout(function(){
+    kvLoop(2,5)
+  }, 4500)
+);
 
 
 
