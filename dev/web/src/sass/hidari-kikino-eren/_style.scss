@@ -629,6 +629,11 @@
     .btn {
       border: none;
 
+      &_inner {
+        border: .26667vw #fff;
+        border-style: solid solid none;
+      }
+
       &_inner svg {
         left: 1.46667vw;
         width: 3.6vw;
