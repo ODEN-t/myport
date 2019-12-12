@@ -91,6 +91,23 @@ function switchCharacter() {
     // console.log(items);
   }, 4000);
 }
+
+
+$('.js-tab').on('click', function() {
+  var index = $('.js-tab').index(this);
+  var switchFlag = !($('.js-pages').eq(index).hasClass('add-active'));
+  if(switchFlag) {
+    $('.js-pages').toggleClass('add-active');
+    $('.js-tab').toggleClass('add-active');
+  }
+  $('.lp-story').hasClass('add-prologue')?$('.lp-story').removeClass('add-prologue').addClass('add-main') : $('.lp-story').removeClass('add-main').addClass('add-prologue');
+})
+
+
+
+
+
+
 // switchCharacter();
 
 // console.log(setPosition(2,5).end);

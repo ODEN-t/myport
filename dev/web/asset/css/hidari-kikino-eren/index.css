@@ -60,7 +60,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
-ul {
+ul, ol {
   list-style: none; }
 
 blockquote, q {
@@ -906,14 +906,20 @@ input, select {
     .hidarikikinoEren .lp-story_tabs {
       position: relative;
       height: 19.45946vw; }
-      .hidarikikinoEren .lp-story_tabs:before {
+      .hidarikikinoEren .lp-story_tabs:before, .hidarikikinoEren .lp-story_tabs:after {
         content: "";
+        height: 100%;
         position: absolute;
         background-color: #e50013;
         border-color: #deff00;
         border-width: .8vw;
-        height: 100%;
-        width: 4.26667vw; }
+        border-bottom-style: solid;
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit; }
+      .hidarikikinoEren .lp-story_tabs:before {
+        left: 0; }
+      .hidarikikinoEren .lp-story_tabs:after {
+        right: 0; }
     .hidarikikinoEren .lp-story_tab {
       position: absolute;
       top: 0;
@@ -927,15 +933,29 @@ input, select {
         left: 4vw; }
       .hidarikikinoEren .lp-story_tab:nth-child(2) {
         right: 4vw; }
-    .hidarikikinoEren .lp-story .btn {
-      border: none; }
-      .hidarikikinoEren .lp-story .btn_inner {
-        border: .26667vw #fff;
-        border-style: solid solid none; }
-      .hidarikikinoEren .lp-story .btn_inner svg {
-        left: 1.46667vw;
-        width: 3.6vw;
-        height: 2.13333vw; }
+      .hidarikikinoEren .lp-story_tab:after {
+        content: "";
+        width: 100%;
+        position: absolute;
+        left: 0;
+        height: .8vw;
+        background-color: #deff00;
+        bottom: 0; }
+    .hidarikikinoEren .lp-story_tab.add-active {
+      background-color: transparent;
+      border-left-style: solid;
+      border-right-style: solid;
+      border-top-style: solid;
+      border-width: .8vw;
+      border-color: #deff00;
+      padding: 0;
+      pointer-events: none; }
+      .hidarikikinoEren .lp-story_tab.add-active:after {
+        opacity: 0; }
+      .hidarikikinoEren .lp-story_tab.add-active .tab_inner {
+        border-color: transparent; }
+      .hidarikikinoEren .lp-story_tab.add-active .tab_inner span {
+        color: #deff00; }
     .hidarikikinoEren .lp-story_label {
       color: #fff;
       font-size: 4.26667vw;
@@ -947,14 +967,55 @@ input, select {
         line-height: 1.4;
         letter-spacing: .14em;
         margin-top: .8em; }
-    .hidarikikinoEren .lp-story_contents {
+    .hidarikikinoEren .lp-story_wrap {
       position: relative; }
     .hidarikikinoEren .lp-story_pages {
       margin: auto;
-      padding: 9.33333vw 4vw; }
-      .hidarikikinoEren .lp-story_pages > li:before {
+      padding: 9.33333vw 4vw;
+      opacity: 0;
+      display: none; }
+      .hidarikikinoEren .lp-story_pages li {
+        max-width: 640px;
+        position: relative;
+        margin: 0 auto 5.06667vw; }
+      .hidarikikinoEren .lp-story_pages li:before {
         display: block;
         content: "";
         width: 100%;
         padding-top: 141.40625%;
         background-color: #fff; }
+      .hidarikikinoEren .lp-story_pages img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: block; }
+    .hidarikikinoEren .lp-story_pages.add-active {
+      display: block;
+      -webkit-animation-name: show;
+      animation-name: show;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards; }
+
+@-webkit-keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+  .hidarikikinoEren .lp-story.add-prologue .lp-story_tabs:before {
+    width: 4.26667vw; }
+  .hidarikikinoEren .lp-story.add-prologue .lp-story_tabs:after {
+    width: 50.66667vw; }
+  .hidarikikinoEren .lp-story.add-main .lp-story_tabs:before {
+    width: 50.66667vw; }
+  .hidarikikinoEren .lp-story.add-main .lp-story_tabs:after {
+    width: 4vw; }
