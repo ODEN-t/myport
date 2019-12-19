@@ -616,6 +616,27 @@
       }
     }
 
+    &_tabs.mod-bottomTab {
+      &:before, &:after {
+        border-bottom: none;
+        border-top-style: solid;
+      }
+
+      > button {
+        border-top: none;
+        border-bottom-style: solid;
+      }
+
+      > button:after {
+        top: 0;
+        bottom: auto;
+      }
+
+      .tab_inner {
+        border-style: none solid solid;
+      }
+    }
+
     &_tab {
       position: absolute;
       top: 0;
@@ -661,6 +682,15 @@
 
       .tab_inner span {
         color: #deff00;
+      }
+    }
+
+    &_tab.mod-bottomTab.add-active {
+      border-top: none;
+      border-bottom-style: solid;
+
+      .tab_inner {
+        border-style: none solid solid;
       }
     }
 
@@ -744,5 +774,173 @@
     .lp-story_tabs:after {
       width: 4vw;
     } 
+  }
+
+/* ------------------
+		lp-result
+--------------------- */
+  .lp-result {
+    position: relative;
+    width: 100%;
+    max-width: 1455.55556px;
+    margin: 18.66667vw auto auto;
+
+    &_bgWrap {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bgItem {
+      position: relative;
+      width: 100%;
+      height: 50%;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: repeat-x;
+        background-size: 327.45725vw 57.86667vw;
+      }
+    }
+
+    .mod-top {
+      background-color: #0e6cb2;
+      &:before {
+        background-image: url('../../../data/hidari-kikino-eren/images/result_bg1.jpg');
+      }
+    }
+
+    .mod-bottom {
+      background-color: #deff00;
+      &:before {
+        background-image: url('../../../data/hidari-kikino-eren/images/result_bg2.jpg');
+      }
+    }
+
+    &_inner {
+      position: relative;
+      z-index: 3;
+      padding: 18.26667vw 4vw 25.33333vw;
+    }
+
+    .lp-resultTitle, .lp-resultDate {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      z-index: 2;
+    }
+
+    .lp-resultTitle {
+      margin-bottom: 4vw;
+
+      &_inner {
+        height: 13.6vw;
+        margin-top: -.1em;
+      }
+      &_inner img {
+        display: block;
+        height: 100%;
+        width: auto;
+      }
+      &_inner:after {
+        background-color:#e50013;
+      }
+    }
+
+    .lp-resultDesc {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 9vw;
+      z-index: 2;
+
+      &_line {
+        position: relative;
+        color: #fff;
+        background-color:#e50013;
+        font-size: 3.06667vw;
+        font-weight: bold;
+        font-feature-settings: "palt";
+        line-height: 1.8;
+        letter-spacing: .06em;
+        padding: .4em;
+        margin-top: -.04em;
+        transform: scaleX(0.9);
+        transform-origin: center left;
+      }
+
+      &_line:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #e50013;
+        z-index: -1;
+        transform-origin: right bottom;
+      }
+    }
+
+    .lp-resultLogo {
+      position: absolute;
+      width: 21.73333vw;
+      height: 24.66667vw;
+      top: 58vw;
+      right: 6.53333vw;
+      z-index: 4;
+    }
+
+    .lp-resultImg1, .lp-resultImg2 {
+      position: absolute;
+    }
+
+    .lp-resultImg1 {
+      width: 40.4vw;
+      height: 27.86667vw;
+      bottom: 34.66667vw;
+      right: 7.46667vw;
+      transform: rotate(-3.5deg);
+    }
+
+    .lp-resultImg2 {
+      width: 42vw;
+      height: 29.6vw;
+      bottom: 6.93333vw;
+      right: 5.73333vw;
+    }
+
+    .lp-resultDate {
+      &_label {
+        background-color: #e50013;
+        position: relative;
+        height: 8.4vw;
+        z-index: inherit;
+      }
+
+      &_day {
+        height: 13.6vw;
+        margin-top: -.1em;
+        z-index: inherit;
+      }
+
+      &_label img, &_day img {
+        display: block;
+        height: 100%;
+        width: auto;
+      }
+    }
   }
 }

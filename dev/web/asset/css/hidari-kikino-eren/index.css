@@ -359,6 +359,9 @@ input, select {
 --------------------- */
   /* ------------------
 		lp-story
+--------------------- */
+  /* ------------------
+		lp-result
 --------------------- */ }
   .hidarikikinoEren .lp-loading {
     position: fixed;
@@ -920,6 +923,17 @@ input, select {
         left: 0; }
       .hidarikikinoEren .lp-story_tabs:after {
         right: 0; }
+    .hidarikikinoEren .lp-story_tabs.mod-bottomTab:before, .hidarikikinoEren .lp-story_tabs.mod-bottomTab:after {
+      border-bottom: none;
+      border-top-style: solid; }
+    .hidarikikinoEren .lp-story_tabs.mod-bottomTab > button {
+      border-top: none;
+      border-bottom-style: solid; }
+    .hidarikikinoEren .lp-story_tabs.mod-bottomTab > button:after {
+      top: 0;
+      bottom: auto; }
+    .hidarikikinoEren .lp-story_tabs.mod-bottomTab .tab_inner {
+      border-style: none solid solid; }
     .hidarikikinoEren .lp-story_tab {
       position: absolute;
       top: 0;
@@ -956,6 +970,11 @@ input, select {
         border-color: transparent; }
       .hidarikikinoEren .lp-story_tab.add-active .tab_inner span {
         color: #deff00; }
+    .hidarikikinoEren .lp-story_tab.mod-bottomTab.add-active {
+      border-top: none;
+      border-bottom-style: solid; }
+      .hidarikikinoEren .lp-story_tab.mod-bottomTab.add-active .tab_inner {
+        border-style: none solid solid; }
     .hidarikikinoEren .lp-story_label {
       color: #fff;
       font-size: 4.26667vw;
@@ -1019,3 +1038,150 @@ input, select {
     width: 50.66667vw; }
   .hidarikikinoEren .lp-story.add-main .lp-story_tabs:after {
     width: 4vw; }
+  .hidarikikinoEren .lp-result {
+    position: relative;
+    width: 100%;
+    max-width: 1455.55556px;
+    margin: 18.66667vw auto auto; }
+    .hidarikikinoEren .lp-result_bgWrap {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+    .hidarikikinoEren .lp-result .bgItem {
+      position: relative;
+      width: 100%;
+      height: 50%; }
+      .hidarikikinoEren .lp-result .bgItem:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: repeat-x;
+        background-size: 327.45725vw 57.86667vw; }
+    .hidarikikinoEren .lp-result .mod-top {
+      background-color: #0e6cb2; }
+      .hidarikikinoEren .lp-result .mod-top:before {
+        background-image: url("../../../data/hidari-kikino-eren/images/result_bg1.jpg"); }
+    .hidarikikinoEren .lp-result .mod-bottom {
+      background-color: #deff00; }
+      .hidarikikinoEren .lp-result .mod-bottom:before {
+        background-image: url("../../../data/hidari-kikino-eren/images/result_bg2.jpg"); }
+    .hidarikikinoEren .lp-result_inner {
+      position: relative;
+      z-index: 3;
+      padding: 18.26667vw 4vw 25.33333vw; }
+    .hidarikikinoEren .lp-result .lp-resultTitle, .hidarikikinoEren .lp-result .lp-resultDate {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      z-index: 2; }
+    .hidarikikinoEren .lp-result .lp-resultTitle {
+      margin-bottom: 4vw; }
+      .hidarikikinoEren .lp-result .lp-resultTitle_inner {
+        height: 13.6vw;
+        margin-top: -.1em; }
+      .hidarikikinoEren .lp-result .lp-resultTitle_inner img {
+        display: block;
+        height: 100%;
+        width: auto; }
+      .hidarikikinoEren .lp-result .lp-resultTitle_inner:after {
+        background-color: #e50013; }
+    .hidarikikinoEren .lp-result .lp-resultDesc {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      margin-bottom: 9vw;
+      z-index: 2; }
+      .hidarikikinoEren .lp-result .lp-resultDesc_line {
+        position: relative;
+        color: #fff;
+        background-color: #e50013;
+        font-size: 3.06667vw;
+        font-weight: bold;
+        -webkit-font-feature-settings: "palt";
+        font-feature-settings: "palt";
+        line-height: 1.8;
+        letter-spacing: .06em;
+        padding: .4em;
+        margin-top: -.04em;
+        -webkit-transform: scaleX(0.9);
+        transform: scaleX(0.9);
+        -webkit-transform-origin: center left;
+        transform-origin: center left; }
+      .hidarikikinoEren .lp-result .lp-resultDesc_line:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #e50013;
+        z-index: -1;
+        -webkit-transform-origin: right bottom;
+        transform-origin: right bottom; }
+    .hidarikikinoEren .lp-result .lp-resultLogo {
+      position: absolute;
+      width: 21.73333vw;
+      height: 24.66667vw;
+      top: 58vw;
+      right: 6.53333vw;
+      z-index: 4; }
+    .hidarikikinoEren .lp-result .lp-resultImg1, .hidarikikinoEren .lp-result .lp-resultImg2 {
+      position: absolute; }
+    .hidarikikinoEren .lp-result .lp-resultImg1 {
+      width: 40.4vw;
+      height: 27.86667vw;
+      bottom: 34.66667vw;
+      right: 7.46667vw;
+      -webkit-transform: rotate(-3.5deg);
+      transform: rotate(-3.5deg); }
+    .hidarikikinoEren .lp-result .lp-resultImg2 {
+      width: 42vw;
+      height: 29.6vw;
+      bottom: 6.93333vw;
+      right: 5.73333vw; }
+    .hidarikikinoEren .lp-result .lp-resultDate_label {
+      background-color: #e50013;
+      position: relative;
+      height: 8.4vw;
+      z-index: inherit; }
+    .hidarikikinoEren .lp-result .lp-resultDate_day {
+      height: 13.6vw;
+      margin-top: -.1em;
+      z-index: inherit; }
+    .hidarikikinoEren .lp-result .lp-resultDate_label img, .hidarikikinoEren .lp-result .lp-resultDate_day img {
+      display: block;
+      height: 100%;
+      width: auto; }
