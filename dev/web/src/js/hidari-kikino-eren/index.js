@@ -93,15 +93,52 @@ function switchCharacter() {
 }
 
 
-$('.js-tab').on('click', function() {
+function tabChange() {
   var index = $('.js-tab').index(this);
   var switchFlag = !($('.js-pages').eq(index).hasClass('add-active'));
   if(switchFlag) {
     $('.js-pages').toggleClass('add-active');
     $('.js-tab').toggleClass('add-active');
   }
-  $('.lp-story').hasClass('add-prologue')?$('.lp-story').removeClass('add-prologue').addClass('add-main') : $('.lp-story').removeClass('add-main').addClass('add-prologue');
+  $('.lp-story').hasClass('add-prologue')
+  ?$('.lp-story').removeClass('add-prologue').addClass('add-main')
+  : $('.lp-story').removeClass('add-main').addClass('add-prologue');
+}
+
+function smoothScroll() {
+  var speed = 400;
+  var position = 1328;
+  $('body, html').animate({scrollTop:position}, speed, 'swing');
+}
+
+$('.js-tab').on('click',tabChange);
+$('.js-tab').on('click',smoothScroll);
+
+
+// $('.js-tab').on('click', function() {
+//   var index = $('.js-tab').index(this);
+//   var switchFlag = !($('.js-pages').eq(index).hasClass('add-active'));
+//   if(switchFlag) {
+//     $('.js-pages').toggleClass('add-active');
+//     $('.js-tab').toggleClass('add-active');
+//   }
+//   $('.lp-story').hasClass('add-prologue')
+//   ?$('.lp-story').removeClass('add-prologue').addClass('add-main')
+//   : $('.lp-story').removeClass('add-main').addClass('add-prologue');
+// })
+
+$(window).on('scroll', function() {
+  console.log($(this).scrollTop());
+  if($(this).scrollTop() > 1327) {
+    $('.js-header').addClass('add-hide');
+  } else {
+    $('.js-header').removeClass('add-hide');
+  }
 })
+
+
+
+/// offset 1327px でsticky hide
 
 
 
