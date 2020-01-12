@@ -507,13 +507,13 @@ input, select {
   0% {
     background-position: 0 0; }
   100% {
-    background-position: 268.88889px 0; } }
+    background-position: 49.64103vw 0; } }
 
 @keyframes headerMoving {
   0% {
     background-position: 0 0; }
   100% {
-    background-position: 268.88889px 0; } }
+    background-position: 49.64103vw 0; } }
   .hidarikikinoEren .lp-menuBtn {
     position: fixed;
     right: 0;
