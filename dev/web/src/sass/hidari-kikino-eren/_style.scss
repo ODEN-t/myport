@@ -487,6 +487,12 @@
     }
   }
 
+  .lp-kv.add-fold {
+    .lp-kv_characters > li > div:after {
+      transform: scaleY(1);
+    }
+  }
+
 /* ------------------
 		lp-summery
 --------------------- */

@@ -2,13 +2,19 @@
 $.when(
   progressGauge(),
   $('html,body').animate({ scrollTop: 0 }, '1'),//リロード時画面トップへ移動
-  $('.js-kv').css('transform','translateX(' + setPosition(2).start + 'px)' ), //KVのスタートポジションをセット
+  $('.js-charaList').css('transform','translateX(' + setPosition(2).start + 'px)' ), //KVのスタートポジションをセット
   scalingFigures()
 )
 .done(
   setTimeout(function(){
-    kvLoop(2,5)
-  }, 4500)
+    kvLoop(2,5);
+  }, 4500),
+  setTimeout(function(){
+    foldCharacter();
+    setInterval(function(){
+      foldCharacter();
+    }, 6000);
+  }, 8500)
 );
 
 // menu開閉,タブ切り替え,タブクリック時のスクロール
@@ -51,7 +57,7 @@ function progressGauge() {
 //プログレスゲージ100%到達後,プログレスゲージを縦に展開する関数
 function scalingFigures() {
   setTimeout(function(){
-    $('.js-scaleItem, .js-loading').addClass('add-loaded').delay(1400).queue(function() {
+    $('.js-scaleItem, .js-loading').addClass('add-loaded').delay(1200).queue(function() {
       $('.lp-character_inner').addClass('add-loaded').dequeue();
     });
   },2000);
@@ -60,7 +66,7 @@ function scalingFigures() {
 
 //ロード後KVのポジションを決める関数
 function setPosition(startItemNum,endItemNum) {
-  var $itemList = $('.js-kv');
+  var $itemList = $('.js-charaList');
   var itemWidth = $itemList.children().width();
   var sideMargin = ($(window).width() - itemWidth) / 2;
   var position = {
@@ -77,11 +83,19 @@ function kvLoop(startItemNum,endItemNum) {
   var xAxis = position.start;
   
   setInterval(function(){
-    $('.js-kv').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
+    $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
     if(xAxis < position.end) {
       xAxis = position.start;
     }
   }, 30)
+}
+
+//キャラクターをfold → unfold 関数
+function foldCharacter() {
+  var $characters = $('.js-kv');
+  $characters.addClass('add-fold').delay(1200).queue(function(){
+    $(this).removeClass('add-fold').dequeue();
+  })
 }
 
 //menu開閉関数
@@ -126,17 +140,19 @@ function sticky() {
 
 
 
+
+
 // function switchCharacter() {
-//   var items = $('.js-kv > li');
+//   var items = $('.js-charaList > li');
 //   // console.log(items.last());
   
   
 //   setInterval(function(){
-//     var firstItem = ($('.js-kv > li').first());
+//     var firstItem = ($('.js-charaList > li').first());
 //     // console.log(firstItem);
 //     $('.lp-character_inner').removeClass('add-loaded').delay(1000).queue(function() {
 //       $('.lp-character_inner').addClass('add-loaded').dequeue();
-//       $('.js-kv').append(firstItem).remove(firstItem);
+//       $('.js-charaList').append(firstItem).remove(firstItem);
 //     });
     
 //     // console.log(items);
@@ -157,7 +173,7 @@ function sticky() {
 
 // var xAxis = 0;
 // var timer = setInterval(function(){
-//   $('.js-kv').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
+//   $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
 //   console.log(xAxis);
   
 //   if(xAxis <  -1400) {
@@ -169,7 +185,7 @@ function sticky() {
 
 //   var xAxis = 0;
 // setInterval(function(){
-//   $('.js-kv').css('transform', 'translateX(' + (xAxis-=100) + 'px)');
+//   $('.js-charaList').css('transform', 'translateX(' + (xAxis-=100) + 'px)');
 // }, 2500);
 // });
 

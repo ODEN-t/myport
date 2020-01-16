@@ -809,6 +809,9 @@ input, select {
       width: 5.73333vw; }
     .hidarikikinoEren .lp-kv .mod-title2 img {
       height: 5.6vw; }
+  .hidarikikinoEren .lp-kv.add-fold .lp-kv_characters > li > div:after {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
   .hidarikikinoEren .lp-summery {
     position: relative;
     width: 100%;
