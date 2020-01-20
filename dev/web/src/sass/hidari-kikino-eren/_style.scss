@@ -125,6 +125,9 @@
     transition: visibility .4s cubic-bezier(.19,1,.22,1),
                 opacity .4s cubic-bezier(.19,1,.22,1),
                 transform .4s cubic-bezier(.19,1,.22,1);
+    @include mediaQuery(smallDesktop) {
+      height: 4.0625vw;
+    }
   }
 
   .lp-header.add-hide {
@@ -138,8 +141,12 @@
     background-size: 49.64103vw 12vw;
     width: 100%;
     height: 100%;
-    animation: headerMoving 6s linear infinite;
-    @keyframes headerMoving {
+    animation: headerMovingS 6s linear infinite;
+    @include mediaQuery(smallDesktop) {
+      background-size: 16.80556vw 4.0625vw;
+      animation: headerMovingL 6s linear infinite;
+    }
+    @keyframes headerMovingS {
       0% {
         background-position: 0 0;
       }
@@ -148,6 +155,26 @@
         background-position: 49.64103vw 0;
       }
     }
+    @keyframes headerMovingL {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 16.80556vw 0;
+      }
+    }
+    @keyframes headerMovingLL {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 268.88889px 0;
+      }
+    }
+    
+
   }
 
 /* ------------------
@@ -265,6 +292,14 @@
                 opacity .4s cubic-bezier(.19,1,.22,1),
                 visibility .4s cubic-bezier(.19,1,.22,1),
                 z-index .4s cubic-bezier(.19,1,.22,1);
+    @include mediaQuery(smallDesktop) {
+      position: relative;
+      width: auto;
+      opacity: 1;
+      visibility: visible;
+      overflow: visible;
+      z-index: 1;
+    }           
 
     &_wrap {
       position: absolute;
@@ -275,11 +310,25 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
+      @include mediaQuery(smallDesktop) {
+        position: relative;
+        width: auto;
+        min-height: 0;
+        padding: 0;
+      }
     }
 
     &_nav {
       position: relative;
       width: 100%;
+      @include mediaQuery(smallDesktop) {
+        width: 6.48649vw;
+        background-color: #000;
+        padding: .41667vw;
+        position: absolute;
+        top: 5.41667vw;
+        right: 1.66667vw;
+      }
 
       > ul {
         width: 100%;
@@ -299,10 +348,25 @@
       width: 100%;
       height: 14.66667vw;
       margin-top: 4vw;
+      @include mediaQuery(smallDesktop) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 10.41667vw;
+        padding-left: .41667vw;
+        padding-right: .41667vw;
+        z-index: 53;
+      }
       
       > ul {
         display: flex;
         height: 100%;
+        @include mediaQuery(smallDesktop) {
+          background-color: #000;
+          width: 10.41667vw;
+          height: 100%;
+        }
         > li {
           width: 33.3%;
           border-right-width: 0;
@@ -337,6 +401,9 @@
     position: relative;
     width: 100%;
     padding-top: 12vw;
+    @include mediaQuery(smallDesktop) {
+      padding-top: 4.0625vw;
+    }
   }
 
 /* ------------------
