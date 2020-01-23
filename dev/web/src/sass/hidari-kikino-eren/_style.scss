@@ -1,4 +1,5 @@
 .hidarikikinoEren{
+  position: relative;
 
 /* ------------------
 		lp-loading 
@@ -284,7 +285,6 @@
     height: 100%;
     width: 82.4vw;
     background-color: #000;
-    transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     z-index: -1;
@@ -292,13 +292,16 @@
                 opacity .4s cubic-bezier(.19,1,.22,1),
                 visibility .4s cubic-bezier(.19,1,.22,1),
                 z-index .4s cubic-bezier(.19,1,.22,1);
+    @include mediaQuery(mobile) {
+      transform: translateX(100%);
+    }
     @include mediaQuery(smallDesktop) {
-      position: relative;
+      height: 4.0625vw;
       width: auto;
       opacity: 1;
       visibility: visible;
       overflow: visible;
-      z-index: 1;
+      z-index: 5;
     }           
 
     &_wrap {
@@ -310,7 +313,7 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      @include mediaQuery(smallDesktop) {
+      @include mediaQuery {
         position: relative;
         width: auto;
         min-height: 0;
@@ -321,24 +324,28 @@
     &_nav {
       position: relative;
       width: 100%;
-      @include mediaQuery(smallDesktop) {
-        width: 6.48649vw;
+      @include mediaQuery {
+        width: 4.75694vw;
         background-color: #000;
         padding: .41667vw;
         position: absolute;
         top: 5.41667vw;
         right: 1.66667vw;
       }
+      @include mediaQuery(mediumDesktop) {
+        width: 6.48649vw;
+      }
 
       > ul {
         width: 100%;
-        > li {
-          width: 100%;
-          height: 26.4vw;
+        > .buttonSquare {
           border-top-width: 0;
         }
-        > li:first-child {
+        > .buttonSquare:first-child {
           border-width: .26667vw;
+          @include mediaQuery {
+            border-width: .06944vw;
+          }
         }
       }
     }
@@ -347,43 +354,45 @@
       position: relative;
       width: 100%;
       height: 14.66667vw;
-      margin-top: 4vw;
-      @include mediaQuery(smallDesktop) {
+      @include mediaQuery(mobile) {
+        margin-top: 4vw;
+      }
+      @include mediaQuery {
         position: absolute;
         right: 0;
         top: 0;
         height: 100%;
-        width: 10.41667vw;
-        padding-left: .41667vw;
-        padding-right: .41667vw;
-        z-index: 53;
+        width: auto;
       }
       
       > ul {
         display: flex;
         height: 100%;
-        @include mediaQuery(smallDesktop) {
+        @include mediaQuery {
+          position: absolute;
+          right: 0;
+          top: 0;
           background-color: #000;
           width: 10.41667vw;
           height: 100%;
+          padding-left: .41667vw;
+          padding-right: .41667vw;
+          align-items: center;
         }
-        > li {
-          width: 33.3%;
+        > .buttonSquare.mod-sns {
+          width: 33%;
           border-right-width: 0;
+          @include mediaQuery {
+            width: 3.19444vw;
+            height: 3.19444vw;
+          }
         }
-        > li:last-child {
+        > .buttonSquare.mod-sns:last-child {
           border-width: .26667vw;
+          @include mediaQuery {
+            border-width: .06944vw;
+          }
         }
-      }
-
-      svg {
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 6.93333vw;
-        height: 6.93333vw;
-        fill: #fff;
       }
     }
   }
@@ -401,7 +410,7 @@
     position: relative;
     width: 100%;
     padding-top: 12vw;
-    @include mediaQuery(smallDesktop) {
+    @include mediaQuery {
       padding-top: 4.0625vw;
     }
   }
@@ -415,6 +424,10 @@
     max-width: 1600px;
     padding-top: 14.933vw;
     overflow: hidden;
+    @include mediaQuery {
+      height: 49.30556vw;
+      padding-top: 5.06944vw;
+    }
 
     &_characters {
       position: relative;
@@ -426,6 +439,10 @@
       height: 112.26667vw;
       margin: auto;
       backface-visibility: hidden;
+      @include mediaQuery {
+        width: 98.33333vw;
+        height: 40.69444vw;
+      }
       // transition: transform 2.5s linear;
       // will-change: transform;
       // animation: loop 50s linear infinite;

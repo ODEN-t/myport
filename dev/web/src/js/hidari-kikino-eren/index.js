@@ -2,19 +2,22 @@
 $.when(
   progressGauge(),
   $('html,body').animate({ scrollTop: 0 }, '1'),//リロード時画面トップへ移動
-  $('.js-charaList').css('transform','translateX(' + setPosition(2).start + 'px)' ), //KVのスタートポジションをセット
+  moveInit(), //KVのスタートポジションをセット
   scalingFigures()
 )
 .done(
   setTimeout(function(){
-    kvLoop(2,5);
+    if($(window).width() < 800) {
+      kvLoop(2,5);
+    }
   }, 4500),
-  setTimeout(function(){
-    foldCharacter();
-    setInterval(function(){
-      foldCharacter();
-    }, 6000);
-  }, 8500)
+  
+  // setTimeout(function(){
+  //   foldCharacter();
+  //     setInterval(function(){
+  //       foldCharacter();
+  //     }, 6000);
+  // }, 8500)
 );
 
 // menu開閉,タブ切り替え,タブクリック時のスクロール
@@ -23,7 +26,12 @@ $('.js-tab').on('click',tabChange);
 $('.js-tab').on('click',smoothScroll);
 $(window).on('scroll', sticky);
 
-
+//最初の移動
+function moveInit() {
+  if($(window).width() < 800) {
+    $('.js-charaList').css('transform','translateX(' + setPosition(2).start + 'px)' )
+  }
+}
 
 
 //openingのプログレスゲージの表示する関数
