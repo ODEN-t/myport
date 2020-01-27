@@ -241,8 +241,8 @@
     border: .26667vw #fff;
     border-style: solid solid none;
     overflow: hidden;
-
     @include mediaQuery {
+      border-width: .06944vw;
       &:before, &:after {
         position: absolute;
         content: '';
@@ -303,6 +303,11 @@
       left: 1.46667vw;
       width: 3.6vw;
       height: 2.13333vw;
+      @include mediaQuery(smallDesktop) {
+        left: .69444vw;
+        width: 1.38889vw;
+        height: .79861vw;
+      }
     }
   }
 }

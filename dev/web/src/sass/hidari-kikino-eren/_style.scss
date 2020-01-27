@@ -546,6 +546,9 @@
       display: flex;
       align-items: flex-start;
       flex-direction: column;
+      @include mediaQuery(smallDesktop) {
+        left: 4.51389vw;
+      }
     }
 
     &_title {
@@ -554,6 +557,9 @@
       padding: .6em;
       display: flex;
       align-items: center;
+      @include mediaQuery(smallDesktop) {
+        font-size: 3.125vw;
+      }
     }
 
     &_name {
@@ -562,12 +568,27 @@
       height: 15.333vw;
       top: 2.6667vw;
       left: 2.6667vw;
+      @include mediaQuery(smallDesktop) {
+        width: 22.74306vw;
+        height: 5.20833vw;
+        top: auto;
+        bottom: 0;
+        left: auto;
+        right: 4.51389vw;
+      }
     }
     .mod-title1 img {
       width: 5.73333vw;
+      @include mediaQuery(smallDesktop) {
+        width: 2.53472vw;
+      }
     }
     .mod-title2 img {
       height: 5.6vw;
+      @include mediaQuery(smallDesktop) {
+        height: 2.91667vw;
+        width: auto;
+      }
     }
   }
 
@@ -585,6 +606,13 @@
     width: 100%;
     max-width: 1600px;
     margin: 14.6667vw auto auto;
+    @include mediaQuery(smallDesktop) {
+      display: flex;
+      margin-top: 5.55556vw;
+      padding-top: 2.08333vw;
+      padding-left: 7.01389vw;
+      padding-right: 4.51389vw;
+    }
 
     &_heading {
       position: relative;
@@ -599,12 +627,20 @@
       justify-content: center;
       align-items: flex-start;
       overflow: hidden;
+      @include mediaQuery(smallDesktop) {
+        width: 50%;
+        height: 28.19444vw;
+        overflow: visible;
+      }
     }
 
     &_headingInner {
       position: relative;
       z-index: 1;
       left: 4vw;
+      @include mediaQuery(smallDesktop) {
+        left: -2.43056vw;
+      }
 
       > h2 {
         position: absolute;
@@ -614,10 +650,19 @@
         background-color: #000;
         padding: 3.2vw 2.66667vw;
         z-index: 2;
+        @include mediaQuery(smallDesktop) {
+          padding: 1.25vw 1.04167vw;
+          top: -1.38889vw;
+          left: 1.38889vw;
+          width: 3.92361vw;
+        }
 
         img {
           display: block;
           width: 3.86667vw;
+          @include mediaQuery(smallDesktop) {
+            width: 1.49306vw;
+          }
         }
       }
     }
@@ -642,6 +687,10 @@
       background-color: #deff00;
       transform-origin: top left;
       transform: scaleX(.9);
+      @include mediaQuery(smallDesktop) {
+        padding-left: 8em;
+        font-size: .90278vw;
+      }
 
       &:after {
         content: '';
@@ -657,12 +706,19 @@
     &_relationship {
       position: relative;
       width: 100%;
+      @include mediaQuery(smallDesktop) {
+        width: 50%;
+        top: 2.70833vw;
+      }
       
       &:before {
         content: "";
         display: block;
         width: 100%;
         padding-top: 100%;
+        @include mediaQuery {
+          padding-top: 63.57928%;
+        }
       }
 
       figure {
@@ -683,17 +739,27 @@
     width: 100%;
     margin-top: 13.33333vw;
     padding-top: 5.33333vw;
+    @include mediaQuery(smallDesktop) {
+      margin-top: 9.375vw;
+      padding-top: 2.08333vw;
+    }
 
     &_inner {
       background-image: url('../../../data/hidari-kikino-eren/images/story_pattern.jpg');
       background-repeat: repeat;
       background-position: 50%;
       background-size: 360px 365px;
+      @include mediaQuery(smallDesktop) {
+        background-size: 720px 730px;
+      }
     }
 
     &_tabs {
       position: relative;
       height: 19.45946vw;
+      @include mediaQuery(smallDesktop) {
+        height: 6.66667vw;
+      }
 
       &:before, &:after {
         content: "";
@@ -704,6 +770,9 @@
         border-width: .8vw;
         border-bottom-style: solid;
         box-sizing: inherit;
+        @include mediaQuery(smallDesktop) {
+          border-width: .20833vw;
+        }
       }
       &:before {
         left: 0;
@@ -743,11 +812,24 @@
       background-color: #000;
       padding: 1.2vw 1.2vw 0;
       z-index: 2;
+      @include mediaQuery(smallDesktop) {
+        width: 44.44444vw;
+        padding: .41667vw .41667vw 0;
+        cursor: pointer;
+      }
       &:nth-child(1) {
         left: 4vw;
+        @include mediaQuery(smallDesktop) { //tab切り替えのstyle
+          left: auto;
+          right: calc(50% + 1.04167vw);
+        }
       }
       &:nth-child(2) {
         right: 4vw;
+        @include mediaQuery(smallDesktop) { //tab切り替えのstyle
+          right: auto;
+          left: calc(50% + 1.04167vw);
+        }
       }
       &:after {
         content: "";
@@ -757,6 +839,9 @@
         height: .8vw;
         background-color: #deff00;
         bottom: 0;
+        @include mediaQuery(smallDesktop) {
+          height: .20833vw;
+        }
       }
     }
     &_tab.add-active {
@@ -768,6 +853,10 @@
       border-color: #deff00;
       padding: 0;
       pointer-events: none;
+      @include mediaQuery(smallDesktop) {
+        border-width: .20833vw;
+        cursor: default;
+      }
       
       &:after {
         opacity: 0;
@@ -775,6 +864,9 @@
 
       .tab_inner {
         border-color: transparent;
+        @include mediaQuery(smallDesktop) {
+          border-width: .06944vw;
+        }
       }
 
       .tab_inner span {
@@ -797,6 +889,9 @@
       font-weight: 500;
       letter-spacing: .14em;
       white-space: nowrap;
+      @include mediaQuery(smallDesktop) {
+        font-size: 1.80556vw;
+      }
 
       > span {
         font-size: 58%;
@@ -875,21 +970,41 @@
       }
     }
   }
-  .lp-story.add-prologue {
+  .lp-story.add-prologue { //tab切り替えのstyle
     .lp-story_tabs:before {
       width: 4.26667vw;
+      @include mediaQuery(smallDesktop) {
+        width: auto;
+        right: calc(50% + 45.48611vw);
+        left: 0;
+      }
     }
-    .lp-story_tabs:after {
+    .lp-story_tabs:after { //tab切り替えのstyle
       width: 50.66667vw;
+      @include mediaQuery(smallDesktop) {
+        width: auto;
+        left: calc(50% + -1.04167vw);
+        right: 0;
+      }
     }
   }
 
-  .lp-story.add-main {
+  .lp-story.add-main { //tab切り替えのstyle
     .lp-story_tabs:before {
       width: 50.66667vw;
+      @include mediaQuery(smallDesktop) {
+        width: auto;
+        right: calc(50% + -1.04167vw);
+        left: 0;
+      }
     }
-    .lp-story_tabs:after {
+    .lp-story_tabs:after { //tab切り替えのstyle
       width: 4vw;
+      @include mediaQuery(smallDesktop) {
+        width: auto;
+        left: calc(50% + 45.48611vw);
+        right: 0;
+      }
     } 
   }
 

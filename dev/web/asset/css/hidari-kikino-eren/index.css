@@ -330,35 +330,37 @@ input, select {
     border-style: solid solid none;
     overflow: hidden; }
     @media screen and (min-width: 800px) {
-      .tab_inner:before, .tab_inner:after {
-        position: absolute;
-        content: '';
-        display: block;
-        width: 101%;
-        height: 51%;
-        background-color: #02d0d0;
-        -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        transition: -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        z-index: 0; }
-      .tab_inner:before {
-        top: 0;
-        left: 0;
-        -webkit-transform-origin: center right;
-        transform-origin: center right; }
-      .tab_inner:after {
-        top: auto;
-        bottom: 0;
-        -webkit-transform-origin: center left;
-        transform-origin: center left; }
-      .tab_inner:hover:before, .tab_inner:hover:after {
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1); } }
+      .tab_inner {
+        border-width: .06944vw; }
+        .tab_inner:before, .tab_inner:after {
+          position: absolute;
+          content: '';
+          display: block;
+          width: 101%;
+          height: 51%;
+          background-color: #02d0d0;
+          -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+          transition: -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+          transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+          transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          z-index: 0; }
+        .tab_inner:before {
+          top: 0;
+          left: 0;
+          -webkit-transform-origin: center right;
+          transform-origin: center right; }
+        .tab_inner:after {
+          top: auto;
+          bottom: 0;
+          -webkit-transform-origin: center left;
+          transform-origin: center left; }
+        .tab_inner:hover:before, .tab_inner:hover:after {
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1); } }
     .tab_inner > span {
       color: #fff;
       -webkit-transform: scaleX(0.85);
@@ -389,6 +391,11 @@ input, select {
       left: 1.46667vw;
       width: 3.6vw;
       height: 2.13333vw; }
+      @media screen and (min-width: 800px) {
+        .tab_inner > svg {
+          left: .69444vw;
+          width: 1.38889vw;
+          height: .79861vw; } }
 
 .hidarikikinoEren {
   position: relative;
@@ -937,6 +944,9 @@ input, select {
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-kv > h1 {
+          left: 4.51389vw; } }
     .hidarikikinoEren .lp-kv_title {
       background-color: #000;
       font-size: 6.933vw;
@@ -947,16 +957,34 @@ input, select {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-kv_title {
+          font-size: 3.125vw; } }
     .hidarikikinoEren .lp-kv_name {
       position: absolute;
       width: 70vw;
       height: 15.333vw;
       top: 2.6667vw;
       left: 2.6667vw; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-kv_name {
+          width: 22.74306vw;
+          height: 5.20833vw;
+          top: auto;
+          bottom: 0;
+          left: auto;
+          right: 4.51389vw; } }
     .hidarikikinoEren .lp-kv .mod-title1 img {
       width: 5.73333vw; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-kv .mod-title1 img {
+          width: 2.53472vw; } }
     .hidarikikinoEren .lp-kv .mod-title2 img {
       height: 5.6vw; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-kv .mod-title2 img {
+          height: 2.91667vw;
+          width: auto; } }
   .hidarikikinoEren .lp-kv.add-fold .lp-kv_characters > li > div:after {
     -webkit-transform: scaleY(1);
     transform: scaleY(1); }
@@ -965,6 +993,15 @@ input, select {
     width: 100%;
     max-width: 1600px;
     margin: 14.6667vw auto auto; }
+    @media screen and (min-width: 800px) {
+      .hidarikikinoEren .lp-summery {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 5.55556vw;
+        padding-top: 2.08333vw;
+        padding-left: 7.01389vw;
+        padding-right: 4.51389vw; } }
     .hidarikikinoEren .lp-summery_heading {
       position: relative;
       background-color: #deff00;
@@ -987,10 +1024,18 @@ input, select {
       -ms-flex-align: start;
       align-items: flex-start;
       overflow: hidden; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-summery_heading {
+          width: 50%;
+          height: 28.19444vw;
+          overflow: visible; } }
     .hidarikikinoEren .lp-summery_headingInner {
       position: relative;
       z-index: 1;
       left: 4vw; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-summery_headingInner {
+          left: -2.43056vw; } }
       .hidarikikinoEren .lp-summery_headingInner > h2 {
         position: absolute;
         top: -3.33333vw;
@@ -999,9 +1044,18 @@ input, select {
         background-color: #000;
         padding: 3.2vw 2.66667vw;
         z-index: 2; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-summery_headingInner > h2 {
+            padding: 1.25vw 1.04167vw;
+            top: -1.38889vw;
+            left: 1.38889vw;
+            width: 3.92361vw; } }
         .hidarikikinoEren .lp-summery_headingInner > h2 img {
           display: block;
           width: 3.86667vw; }
+          @media screen and (min-width: 800px) {
+            .hidarikikinoEren .lp-summery_headingInner > h2 img {
+              width: 1.49306vw; } }
     .hidarikikinoEren .lp-summery_headingDesc {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1031,6 +1085,10 @@ input, select {
       transform-origin: top left;
       -webkit-transform: scaleX(0.9);
       transform: scaleX(0.9); }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-summery_descLine {
+          padding-left: 8em;
+          font-size: .90278vw; } }
       .hidarikikinoEren .lp-summery_descLine:after {
         content: '';
         position: absolute;
@@ -1040,11 +1098,18 @@ input, select {
     .hidarikikinoEren .lp-summery_relationship {
       position: relative;
       width: 100%; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-summery_relationship {
+          width: 50%;
+          top: 2.70833vw; } }
       .hidarikikinoEren .lp-summery_relationship:before {
         content: "";
         display: block;
         width: 100%;
         padding-top: 100%; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-summery_relationship:before {
+            padding-top: 63.57928%; } }
       .hidarikikinoEren .lp-summery_relationship figure {
         position: absolute;
         top: 0;
@@ -1056,14 +1121,24 @@ input, select {
     width: 100%;
     margin-top: 13.33333vw;
     padding-top: 5.33333vw; }
+    @media screen and (min-width: 800px) {
+      .hidarikikinoEren .lp-story {
+        margin-top: 9.375vw;
+        padding-top: 2.08333vw; } }
     .hidarikikinoEren .lp-story_inner {
       background-image: url("../../../data/hidari-kikino-eren/images/story_pattern.jpg");
       background-repeat: repeat;
       background-position: 50%;
       background-size: 360px 365px; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-story_inner {
+          background-size: 720px 730px; } }
     .hidarikikinoEren .lp-story_tabs {
       position: relative;
       height: 19.45946vw; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-story_tabs {
+          height: 6.66667vw; } }
       .hidarikikinoEren .lp-story_tabs:before, .hidarikikinoEren .lp-story_tabs:after {
         content: "";
         height: 100%;
@@ -1074,6 +1149,9 @@ input, select {
         border-bottom-style: solid;
         -webkit-box-sizing: inherit;
         box-sizing: inherit; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-story_tabs:before, .hidarikikinoEren .lp-story_tabs:after {
+            border-width: .20833vw; } }
       .hidarikikinoEren .lp-story_tabs:before {
         left: 0; }
       .hidarikikinoEren .lp-story_tabs:after {
@@ -1098,10 +1176,23 @@ input, select {
       background-color: #000;
       padding: 1.2vw 1.2vw 0;
       z-index: 2; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-story_tab {
+          width: 44.44444vw;
+          padding: .41667vw .41667vw 0;
+          cursor: pointer; } }
       .hidarikikinoEren .lp-story_tab:nth-child(1) {
         left: 4vw; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-story_tab:nth-child(1) {
+            left: auto;
+            right: calc(50% + 1.04167vw); } }
       .hidarikikinoEren .lp-story_tab:nth-child(2) {
         right: 4vw; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-story_tab:nth-child(2) {
+            right: auto;
+            left: calc(50% + 1.04167vw); } }
       .hidarikikinoEren .lp-story_tab:after {
         content: "";
         width: 100%;
@@ -1110,6 +1201,9 @@ input, select {
         height: .8vw;
         background-color: #deff00;
         bottom: 0; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-story_tab:after {
+            height: .20833vw; } }
     .hidarikikinoEren .lp-story_tab.add-active {
       background-color: transparent;
       border-left-style: solid;
@@ -1119,10 +1213,17 @@ input, select {
       border-color: #deff00;
       padding: 0;
       pointer-events: none; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-story_tab.add-active {
+          border-width: .20833vw;
+          cursor: default; } }
       .hidarikikinoEren .lp-story_tab.add-active:after {
         opacity: 0; }
       .hidarikikinoEren .lp-story_tab.add-active .tab_inner {
         border-color: transparent; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-story_tab.add-active .tab_inner {
+            border-width: .06944vw; } }
       .hidarikikinoEren .lp-story_tab.add-active .tab_inner span {
         color: #deff00; }
     .hidarikikinoEren .lp-story_tab.mod-bottomTab.add-active {
@@ -1136,6 +1237,9 @@ input, select {
       font-weight: 500;
       letter-spacing: .14em;
       white-space: nowrap; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-story_label {
+          font-size: 1.80556vw; } }
       .hidarikikinoEren .lp-story_label > span {
         font-size: 58%;
         line-height: 1.4;
@@ -1203,12 +1307,32 @@ input, select {
     opacity: 1; } }
   .hidarikikinoEren .lp-story.add-prologue .lp-story_tabs:before {
     width: 4.26667vw; }
+    @media screen and (min-width: 800px) {
+      .hidarikikinoEren .lp-story.add-prologue .lp-story_tabs:before {
+        width: auto;
+        right: calc(50% + 45.48611vw);
+        left: 0; } }
   .hidarikikinoEren .lp-story.add-prologue .lp-story_tabs:after {
     width: 50.66667vw; }
+    @media screen and (min-width: 800px) {
+      .hidarikikinoEren .lp-story.add-prologue .lp-story_tabs:after {
+        width: auto;
+        left: calc(50% + -1.04167vw);
+        right: 0; } }
   .hidarikikinoEren .lp-story.add-main .lp-story_tabs:before {
     width: 50.66667vw; }
+    @media screen and (min-width: 800px) {
+      .hidarikikinoEren .lp-story.add-main .lp-story_tabs:before {
+        width: auto;
+        right: calc(50% + -1.04167vw);
+        left: 0; } }
   .hidarikikinoEren .lp-story.add-main .lp-story_tabs:after {
     width: 4vw; }
+    @media screen and (min-width: 800px) {
+      .hidarikikinoEren .lp-story.add-main .lp-story_tabs:after {
+        width: auto;
+        left: calc(50% + 45.48611vw);
+        right: 0; } }
   .hidarikikinoEren .lp-result {
     position: relative;
     width: 100%;
