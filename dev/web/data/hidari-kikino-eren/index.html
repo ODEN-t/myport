@@ -42,7 +42,7 @@
         </symbol>
       </defs>
     </svg>
-    <!-- <div class="lp-loading js-loading">
+    <div class="lp-loading js-loading">
       <div class="lp-loading_wrap">
         <div class="lp-loadingInner">
           <div class="lp-loadingInner_item mod-item1 js-progressGauge js-scaleItem"></div>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <p class="lp-loading_text"></p>
-    </div> -->
+    </div>
     <header class="lp-header js-header">
       <div class="lp-headerTicker">
       </div>
@@ -181,8 +181,9 @@
               <p class="lp-summery_descLine">代表の三浦は相手にもならないとうそぶく、、、</p>
               <p class="lp-summery_descLine">商品であるバイオレットプラスは画期的ゆえに</p>
               <p class="lp-summery_descLine">広告では表現できないことも多い。</p>
-              <p class="lp-summery_descLine">混迷を極める状況のなか、</p>
-              <p class="lp-summery_descLine">二つのチームが出した企画とはー。</p>
+              <p class="lp-summery_descLine mod-displayNone_smallDesktop">混迷を極める状況のなか、</p>
+              <p class="lp-summery_descLine mod-displayNone_smallDesktop">二つのチームが出した企画とはー。</p>
+              <p class="lp-summery_descLine mod-displayNone_mobile" >混迷を極める状況のなか、二つのチームが出した企画とはー。</p>
             </div>
           </div>
         </div>
@@ -253,7 +254,7 @@
                 <svg>
                   <use xlink:href="#arrow">
                 </svg>
-                <span class="lp-story_label brn_inner">プロローグ<br><span>「新聞広告の日<br>THE NEWS FOR NEW TEAM」</span></span>
+                <span class="lp-story_label brn_inner">プロローグ<br class="mod-displayNone_smallDesktop"><span>「新聞広告の日<br>THE NEWS FOR NEW TEAM」</span></span>
               </div>
             </button>
             <button class="lp-story_tab js-tab">
@@ -261,7 +262,7 @@
                 <svg>
                   <use xlink:href="#arrow">
                 </svg>
-                <span class="lp-story_label">本編<br><span>「新聞広告の日<br>THE NEWS FOR NEW TEAM」</span></span>
+                <span class="lp-story_label">本編<br class="mod-displayNone_smallDesktop"><span>「新聞広告の日<br>THE NEWS FOR NEW TEAM」</span></span>
               </div>
             </button>
           </div>
@@ -279,18 +280,30 @@
             <span class="lp-resultTitle_inner"><img src="/data/hidari-kikino-eren/images/result_title2.png" alt=""></span>
           </h2>
           <div class="lp-resultDesc">
-            <p class="lp-resultDesc_line">10/20〜10/28の投票期間で</p>
-            <p class="lp-resultDesc_line">およそ2342人の参加ありがとうございました!</p>
-            <p class="lp-resultDesc_line">みなさんの投票の結果、採用されたのは</p>
-            <p class="lp-resultDesc_line">「目黒広告社」の広告でした!</p>
-            <p class="lp-resultDesc_line">実際の掲載を楽しみにしていてください。</p>
+            <p class="lp-resultDesc_line mod-displayNone_smallDesktop">10/20〜10/28の投票期間で</p>
+            <p class="lp-resultDesc_line mod-displayNone_smallDesktop">およそ2342人の参加ありがとうございました!</p>
+            <p class="lp-resultDesc_line mod-displayNone_smallDesktop">みなさんの投票の結果、採用されたのは</p>
+            <p class="lp-resultDesc_line mod-displayNone_smallDesktop">「目黒広告社」の広告でした!</p>
+            <p class="lp-resultDesc_line mod-displayNone_smallDesktop">実際の掲載を楽しみにしていてください。</p>
+            <p class="lp-resultDesc_line mod-displayNone_mobile">10/20〜10/28の投票期間でおよそ2342人の参加ありがとうございました!</p>
+            <p class="lp-resultDesc_line mod-displayNone_mobile">みなさんの投票の結果、採用されたのは「目黒広告社」の広告でした!</p>
+            <p class="lp-resultDesc_line mod-displayNone_mobile">実際の掲載を楽しみにしていてください。</p>
           </div>
           <div class="lp-resultLogo"><img src="/data/hidari-kikino-eren/images/result_logo_meguro.png" alt=""></div>
           <div class="lp-resultImg1"><img src="/data/hidari-kikino-eren/images/result_img1.png" alt=""></div>
           <div class="lp-resultImg2"><img src="/data/hidari-kikino-eren/images/result_img2.png" alt=""></div>
           <div class="lp-resultDate">
-            <p class="lp-resultDate_label"><img src="/data/hidari-kikino-eren/images/result_info_label.png" alt=""></p>
-            <p class="lp-resultDate_day"><img src="/data/hidari-kikino-eren/images/result_date.png" alt=""></p>
+            <p class="lp-resultDate_label">
+              <picture>
+                <source srcset="/data/hidari-kikino-eren/images/result_info_label_l.png" media="(min-width: 800px)">
+                <img src="/data/hidari-kikino-eren/images/result_info_label.png" alt=""></p>
+              </picture>
+            <p class="lp-resultDate_day">
+              <picture>
+                <source srcset="/data/hidari-kikino-eren/images/result_date_l.png" media="(min-width: 800px)">
+                <img src="/data/hidari-kikino-eren/images/result_date.png" alt="">
+              </picture>
+            </p>
           </div>
         </div>
       </section>

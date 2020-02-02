@@ -1,9 +1,9 @@
 //オープニングとループ処理
 $.when(
-  progressGauge(),
-  $('html,body').animate({ scrollTop: 0 }, '1'),//リロード時画面トップへ移動
-  moveInit(), //KVのスタートポジションをセット
-  scalingFigures()
+  // progressGauge(),
+  // $('html,body').animate({ scrollTop: 0 }, '1'),//リロード時画面トップへ移動
+  // moveInit(), //KVのスタートポジションをセット
+  // scalingFigures()
 )
 .done(
   setTimeout(function(){
@@ -19,6 +19,7 @@ $.when(
   //     }, 6000);
   // }, 8500)
 );
+
 
 // menu開閉,タブ切り替え,タブクリック時のスクロール
 $('.js-menuBtn').on('click', menuOpen);
