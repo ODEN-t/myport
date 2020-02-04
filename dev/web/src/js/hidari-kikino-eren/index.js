@@ -72,6 +72,27 @@ function scalingFigures() {
   },2000);
 }
 
+//KVキャラ入れ替え
+function chageChara() {
+  var $characters = $('.js-charaList').children();
+  var $firstChild = $characters.first();
+  console.log($characters);
+  [].shift.call($characters);
+  [].push($firstChild).call($characters);
+  console.log($characters);
+
+  // setInterval(function(){
+  //   $firstChild = $characters.first();
+  //   $characters.shift();
+  //   $characters.push($firstChild);
+  //   console.log($characters);
+  // }, 3000);
+  
+  
+}
+
+chageChara();
+
 
 //ロード後KVのポジションを決める関数
 function setPosition(startItemNum,endItemNum) {
