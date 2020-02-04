@@ -1,0 +1,257 @@
+.hidarikikinoEren{
+
+  .lp-loading.add-loaded {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 1s;
+  }
+
+  .lp-loadingInner {
+    &_item.add-loaded:before {
+      transform: scaleY(1) !important;
+    }
+  }
+
+  .lp-header.add-hide {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .lp-menuBtn.add-open {
+    background-color: #e50013;
+    .lp-menuBtn_open span {
+      transform: scaleX(0);
+      transition-delay: 0s;
+    }
+    .lp-menuBtn_close:before {
+      transform: scaleY(1);
+      transition-delay: .2s;
+    }
+    .lp-menuBtn_close:after {
+      transform: scaleX(1);
+      transition-delay: .4s;
+    }
+  }
+
+  .lp-menu.add-open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    z-index: 9;
+  }
+
+  .lp-kv_characters.add-onScreen {
+    .lp-character_inner:after {
+      transform: scaleY(0);
+    }
+  }
+
+  .lp-kv_characters.add-closed {
+    .lp-character_inner:after {
+      transform: scaleY(1) !important; //add-onScreenを上書き
+    }
+  }
+  
+  .add-step1 .lp-character {
+    &:nth-child(3) {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  
+    &:nth-child(7) {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  
+    &:nth-child(4) {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  
+    &:nth-child(8) {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  
+    &:first-child {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  
+    &:nth-child(5) {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  
+    &:nth-child(2) {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+
+    &:nth-child(6) {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+  }
+
+
+  .add-step2 .lp-character {
+    &:nth-child(3) {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+  
+    &:nth-child(7) {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+  
+    &:nth-child(4) {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  
+    &:nth-child(8) {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  
+    &:first-child {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  
+    &:nth-child(5) {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  
+    &:nth-child(2) {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  
+    &:nth-child(6) {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  }
+
+
+  .add-step3 .lp-character {
+    &:nth-child(3) {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  
+    &:nth-child(7) {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  
+    &:nth-child(4) {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+  
+    &:nth-child(8) {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+  
+    &:first-child {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  
+    &:nth-child(5) {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  
+    &:nth-child(2) {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  
+    &:nth-child(6) {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  }
+
+
+  .add-step4 .lp-character {
+    &:nth-child(3) {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  
+    &:nth-child(7) {
+      .lp-character_inner, &:after {
+        transition-delay: .2s;
+      }
+    }
+  
+    &:nth-child(4) {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  
+    &:nth-child(8) {
+      .lp-character_inner, &:after {
+        transition-delay: .3s;
+      }
+    }
+  
+    &:first-child {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+  
+    &:nth-child(5) {
+      .lp-character_inner, &:after {
+        transition-delay: 0s;
+      }
+    }
+  
+    &:nth-child(2) {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  
+    &:nth-child(6) {
+      .lp-character_inner, &:after {
+        transition-delay: .1s;
+      }
+    }
+  }
+}  

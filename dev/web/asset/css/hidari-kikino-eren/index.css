@@ -444,6 +444,11 @@ input, select {
       transform: translate(-50%);
       width: 203.6vw;
       height: 112.26667vw; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-loading_wrap {
+          top: 9.13194vw;
+          width: 98.33333vw;
+          height: 40.69444vw; } }
     .hidarikikinoEren .lp-loading_text {
       position: absolute;
       left: 0;
@@ -456,11 +461,12 @@ input, select {
       transform: translateY(150%);
       width: 28.53333vw;
       height: 2.66667vw; }
-  .hidarikikinoEren .lp-loading.add-loaded {
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition-delay: 1s;
-    transition-delay: 1s; }
+      @media screen and (min-width: 800px) {
+        .hidarikikinoEren .lp-loading_text {
+          -webkit-transform: translateY(400%);
+          transform: translateY(400%);
+          width: 7.43056vw;
+          height: .69444vw; } }
   .hidarikikinoEren .lp-loadingInner {
     position: absolute;
     left: 0;
@@ -490,9 +496,6 @@ input, select {
         transition: -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
         transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
         transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s, -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s; }
-    .hidarikikinoEren .lp-loadingInner_item.add-loaded:before {
-      -webkit-transform: scaleY(1) !important;
-      transform: scaleY(1) !important; }
     .hidarikikinoEren .lp-loadingInner .mod-item1 {
       -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
@@ -556,10 +559,6 @@ input, select {
     @media screen and (min-width: 800px) {
       .hidarikikinoEren .lp-header {
         height: 4.0625vw; } }
-  .hidarikikinoEren .lp-header.add-hide {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-    opacity: 0; }
   .hidarikikinoEren .lp-headerTicker {
     background-image: url("../../../data/hidari-kikino-eren/images/header_ticker.png");
     background-repeat: repeat-x;
@@ -688,23 +687,6 @@ input, select {
         width: 100%;
         -webkit-transform: scaleX(0);
         transform: scaleX(0); }
-  .hidarikikinoEren .lp-menuBtn.add-open {
-    background-color: #e50013; }
-    .hidarikikinoEren .lp-menuBtn.add-open .lp-menuBtn_open span {
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition-delay: 0s;
-      transition-delay: 0s; }
-    .hidarikikinoEren .lp-menuBtn.add-open .lp-menuBtn_close:before {
-      -webkit-transform: scaleY(1);
-      transform: scaleY(1);
-      -webkit-transition-delay: .2s;
-      transition-delay: .2s; }
-    .hidarikikinoEren .lp-menuBtn.add-open .lp-menuBtn_close:after {
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-      -webkit-transition-delay: .4s;
-      transition-delay: .4s; }
   .hidarikikinoEren .lp-menu {
     position: fixed;
     top: 0;
@@ -820,12 +802,6 @@ input, select {
           @media screen and (min-width: 800px) {
             .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns:last-child {
               border-width: .06944vw; } }
-  .hidarikikinoEren .lp-menu.add-open {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    z-index: 9; }
   .hidarikikinoEren main {
     position: relative;
     width: 100%;
@@ -895,37 +871,26 @@ input, select {
         transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
         transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
         transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
-    .hidarikikinoEren .lp-kv .lp-character_inner.add-loaded:after {
-      -webkit-transform: scaleY(0);
-      transform: scaleY(0); }
     .hidarikikinoEren .lp-kv .mod-item1 .lp-character_inner {
-      background-image: url("../../../data/hidari-kikino-eren/images/kv_img1.jpg");
-      -webkit-transition-delay: .1s;
-      transition-delay: .1s; }
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img1.jpg"); }
     .hidarikikinoEren .lp-kv .mod-item1 .lp-character_inner:after {
       background-color: #0e6cb2;
       -webkit-transform-origin: bottom center;
       transform-origin: bottom center; }
     .hidarikikinoEren .lp-kv .mod-item2 .lp-character_inner {
-      background-image: url("../../../data/hidari-kikino-eren/images/kv_img2.jpg");
-      -webkit-transition-delay: .2s;
-      transition-delay: .2s; }
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img2.jpg"); }
     .hidarikikinoEren .lp-kv .mod-item2 .lp-character_inner:after {
       background-color: #fe3c00;
       -webkit-transform-origin: top center;
       transform-origin: top center; }
     .hidarikikinoEren .lp-kv .mod-item3 .lp-character_inner {
-      background-image: url("../../../data/hidari-kikino-eren/images/kv_img3.jpg");
-      -webkit-transition-delay: .3s;
-      transition-delay: .3s; }
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img3.jpg"); }
     .hidarikikinoEren .lp-kv .mod-item3 .lp-character_inner:after {
       background-color: #deff00;
       -webkit-transform-origin: bottom center;
       transform-origin: bottom center; }
     .hidarikikinoEren .lp-kv .mod-item4 .lp-character_inner {
-      background-image: url("../../../data/hidari-kikino-eren/images/kv_img4.jpg");
-      -webkit-transition-delay: 0s;
-      transition-delay: 0s; }
+      background-image: url("../../../data/hidari-kikino-eren/images/kv_img4.jpg"); }
     .hidarikikinoEren .lp-kv .mod-item4 .lp-character_inner:after {
       background-color: #02d0d0;
       -webkit-transform-origin: top center;
@@ -974,9 +939,8 @@ input, select {
           bottom: 0;
           left: auto;
           right: 4.51389vw; } }
-    @media screen and (min-width: 800px) {
-      .hidarikikinoEren .lp-kv .mod-title1 {
-        padding-bottom: 0; } }
+    .hidarikikinoEren .lp-kv .mod-title1 {
+      padding-bottom: 0; }
     .hidarikikinoEren .lp-kv .mod-title1 img {
       width: 5.73333vw; }
       @media screen and (min-width: 800px) {
@@ -1694,3 +1658,179 @@ input, select {
         display: block;
         height: 100%;
         width: auto; }
+
+.hidarikikinoEren .lp-loading.add-loaded {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s; }
+
+.hidarikikinoEren .lp-loadingInner_item.add-loaded:before {
+  -webkit-transform: scaleY(1) !important;
+  transform: scaleY(1) !important; }
+
+.hidarikikinoEren .lp-header.add-hide {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity: 0; }
+
+.hidarikikinoEren .lp-menuBtn.add-open {
+  background-color: #e50013; }
+  .hidarikikinoEren .lp-menuBtn.add-open .lp-menuBtn_open span {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s; }
+  .hidarikikinoEren .lp-menuBtn.add-open .lp-menuBtn_close:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s; }
+  .hidarikikinoEren .lp-menuBtn.add-open .lp-menuBtn_close:after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-delay: .4s;
+    transition-delay: .4s; }
+
+.hidarikikinoEren .lp-menu.add-open {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  z-index: 9; }
+
+.hidarikikinoEren .lp-kv_characters.add-onScreen .lp-character_inner:after {
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0); }
+
+.hidarikikinoEren .lp-kv_characters.add-closed .lp-character_inner:after {
+  -webkit-transform: scaleY(1) !important;
+  transform: scaleY(1) !important; }
+
+.hidarikikinoEren .add-step1 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(3):after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }
+
+.hidarikikinoEren .add-step1 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(7):after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }
+
+.hidarikikinoEren .add-step1 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(4):after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step1 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(8):after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step1 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:first-child:after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step1 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(5):after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step1 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(2):after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step1 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(6):after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step2 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(3):after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step2 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(7):after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step2 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(4):after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }
+
+.hidarikikinoEren .add-step2 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(8):after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }
+
+.hidarikikinoEren .add-step2 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:first-child:after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step2 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(5):after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step2 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(2):after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step2 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(6):after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step3 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(3):after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step3 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(7):after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step3 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(4):after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step3 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(8):after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step3 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:first-child:after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }
+
+.hidarikikinoEren .add-step3 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(5):after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }
+
+.hidarikikinoEren .add-step3 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(2):after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step3 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(6):after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step4 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(3):after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step4 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(7):after {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s; }
+
+.hidarikikinoEren .add-step4 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(4):after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step4 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(8):after {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s; }
+
+.hidarikikinoEren .add-step4 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:first-child:after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step4 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(5):after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.hidarikikinoEren .add-step4 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(2):after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }
+
+.hidarikikinoEren .add-step4 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(6):after {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s; }

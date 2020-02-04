@@ -22,6 +22,11 @@
       transform: translate(-50%);
       width: 203.6vw;
       height: 112.26667vw;
+      @include mediaQuery {
+        top: 9.13194vw;
+        width: 98.33333vw;
+        height: 40.69444vw;
+      }
     }
 
     &_text {
@@ -35,12 +40,12 @@
       transform: translateY(150%);
       width: 28.53333vw;
       height: 2.66667vw;
+      @include mediaQuery {
+        transform: translateY(400%);
+        width: 7.43056vw;
+        height: .69444vw;
+      }
     }
-  }
-  .lp-loading.add-loaded {
-    opacity: 0;
-    visibility: hidden;
-    transition-delay: 1s;
   }
 
   .lp-loadingInner {
@@ -60,11 +65,6 @@
       transition: transform .4s cubic-bezier(.19,1,.22,1);
       &:before {
         transition: transform .8s cubic-bezier(.19,1,.22,1) .4s;
-      }
-    }
-    &_item.add-loaded {
-      &:before {
-        transform: scaleY(1) !important;
       }
     }
 
@@ -129,11 +129,6 @@
     @include mediaQuery {
       height: 4.0625vw;
     }
-  }
-
-  .lp-header.add-hide {
-    transform: translateY(-100%);
-    opacity: 0;
   }
   
   .lp-headerTicker {
@@ -259,22 +254,6 @@
     }
   }
 
-  .lp-menuBtn.add-open {
-    background-color: #e50013;
-    .lp-menuBtn_open span {
-      transform: scaleX(0);
-      transition-delay: 0s;
-    }
-    .lp-menuBtn_close:before {
-      transform: scaleY(1);
-      transition-delay: .2s;
-    }
-    .lp-menuBtn_close:after {
-      transform: scaleX(1);
-      transition-delay: .4s;
-    }
-  }
-
 /* ------------------
 		lp-menu
 --------------------- */
@@ -396,12 +375,6 @@
       }
     }
   }
-  .lp-menu.add-open {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    z-index: 9;
-  }
 
 /* ------------------
 		lp-main
@@ -443,23 +416,6 @@
         width: 98.33333vw;
         height: 40.69444vw;
       }
-      // transition: transform 2.5s linear;
-      // will-change: transform;
-      // animation: loop 50s linear infinite;
-      // @keyframes loop {
-      //   0% {
-      //     transform: translateX(0%);
-      //   }
-      //   33% {
-      //     transform: translateX(-33%);
-      //   }
-      //   66% {
-      //     transform: translateX(-66%);
-      //   }
-      //   100% {
-      //     transform: translateX(-100%);
-      //   }
-      // }
     }
 
     .lp-character {
@@ -490,15 +446,10 @@
       }
     }
 
-    .lp-character_inner.add-loaded:after {
-      transform: scaleY(0);
-    }
-
     .mod-item1 {
       
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img1.jpg');
-        transition-delay: .1s;
       }
       .lp-character_inner:after {
         background-color: #0e6cb2;
@@ -509,7 +460,6 @@
       
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img2.jpg');
-        transition-delay: .2s;
       }
       .lp-character_inner:after {
         background-color: #fe3c00;
@@ -520,7 +470,6 @@
       
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img3.jpg');
-        transition-delay: .3s;
       }
       .lp-character_inner:after {
         background-color: #deff00;
@@ -531,7 +480,6 @@
       
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img4.jpg');
-        transition-delay: 0s;
       }
       .lp-character_inner:after {
         background-color: #02d0d0;
@@ -579,9 +527,7 @@
     }
 
     .mod-title1 {
-      @include mediaQuery {
-        padding-bottom: 0; 
-      }
+      padding-bottom: 0; 
     }
     .mod-title1 img {
       width: 5.73333vw;

@@ -1,9 +1,9 @@
 //オープニングとループ処理
 $.when(
-  // progressGauge(),
-  // $('html,body').animate({ scrollTop: 0 }, '1'),//リロード時画面トップへ移動
-  // moveInit(), //KVのスタートポジションをセット
-  // scalingFigures()
+  progressGauge(),
+  $('html,body').animate({ scrollTop: 0 }, '1'),//リロード時画面トップへ移動
+  moveInit(), //KVのスタートポジションをセット
+  scalingFigures()
 )
 .done(
   setTimeout(function(){
@@ -67,7 +67,7 @@ function progressGauge() {
 function scalingFigures() {
   setTimeout(function(){
     $('.js-scaleItem, .js-loading').addClass('add-loaded').delay(1200).queue(function() {
-      $('.lp-character_inner').addClass('add-loaded').dequeue();
+      $('.js-charaList').addClass('add-onScreen').dequeue();
     });
   },2000);
 }
@@ -92,11 +92,11 @@ function kvLoop(startItemNum,endItemNum) {
   var xAxis = position.start;
   
   setInterval(function(){
-    $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
+    $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.7) + 'px)');
     if(xAxis < position.end) {
       xAxis = position.start;
     }
-  }, 30)
+  }, 26)
 }
 
 //キャラクターをfold → unfold 関数
