@@ -43,6 +43,14 @@ function progressGauge() {
   var divideScale = 1 / numberOfImages;
   var $guage = $('.js-progressGauge');
   var scaleX = 0;
+  var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
+  var toCenter =  center - $('.js-loadingWrap').offset().top;
+  
+  // opening ゲージをセンターへ移動
+  $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
+  
+  
+  
   
   //全imgのsrcを空にしてoriginImageSrcに退避
   for(var i = 0; i < numberOfImages; i++) {
@@ -54,6 +62,9 @@ function progressGauge() {
   $images.on('load', function(){
     scaleX += divideScale;
     $guage.css('transform','scaleX(' + scaleX + ')');
+    if(scaleX >= 1) {
+      $('.js-loadingWrap').css('top', '');
+    }
   })
 
   //全imgのsrcを代入
@@ -76,10 +87,10 @@ function scalingFigures() {
 function chageChara() {
   var $characters = $('.js-charaList').children();
   var $firstChild = $characters.first();
-  console.log($characters);
+  // console.log($characters);
   [].shift.call($characters);
   [].push($firstChild).call($characters);
-  console.log($characters);
+  // console.log($characters);
 
   // setInterval(function(){
   //   $firstChild = $characters.first();
@@ -117,7 +128,7 @@ function kvLoop(startItemNum,endItemNum) {
     if(xAxis < position.end) {
       xAxis = position.start;
     }
-  }, 26)
+  }, 30)
 }
 
 //キャラクターをfold → unfold 関数
