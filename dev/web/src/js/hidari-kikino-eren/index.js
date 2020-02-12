@@ -1,142 +1,109 @@
-//オープニングとループ処理
-$.when(
-  progressGauge(),
-  $('html,body').animate({ scrollTop: 0 }, '1'),//リロード時画面トップへ移動
-  moveInit(), //KVのスタートポジションをセット
-  scalingFigures()
-)
-.done(
-  setTimeout(function(){
-    if($(window).width() < 800) {
-      kvLoop(2,5);
-    }
-  }, 4500),
-  
-  // setTimeout(function(){
-  //   foldCharacter();
-  //     setInterval(function(){
-  //       foldCharacter();
-  //     }, 6000);
-  // }, 8500)
-);
-
-
 // menu開閉,タブ切り替え,タブクリック時のスクロール
 $('.js-menuBtn').on('click', menuOpen);
 $('.js-tab').on('click',tabChange);
 $('.js-tab').on('click',smoothScroll);
 $(window).on('scroll', sticky);
 
-//最初の移動
-function moveInit() {
-  if($(window).width() < 800) {
-    $('.js-charaList').css('transform','translateX(' + setPosition(2).start + 'px)' )
-  }
-}
-
-
-//openingのプログレスゲージの表示する関数
-function progressGauge() {
-  var $images = $('img');
-  var originImageSrc = [];
-  var numberOfImages = $('img').length;
-  var divideScale = 1 / numberOfImages;
-  var $guage = $('.js-progressGauge');
-  var scaleX = 0;
-  var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
-  var toCenter =  center - $('.js-loadingWrap').offset().top;
-  
-  // opening ゲージをセンターへ移動
-  $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
-  
-  
-  
-  
-  //全imgのsrcを空にしてoriginImageSrcに退避
-  for(var i = 0; i < numberOfImages; i++) {
-    originImageSrc.push($images[i].src);
-    $images[i].src = '';
-  }
-
-  //imgをロードする毎にscaleXの数値を加算
-  $images.on('load', function(){
-    scaleX += divideScale;
-    $guage.css('transform','scaleX(' + scaleX + ')');
-    if(scaleX >= 1) {
-      $('.js-loadingWrap').css('top', '');
-    }
-  })
-
-  //全imgのsrcを代入
-  for(var i = 0; i < numberOfImages; i++) {
-    $images[i].src = originImageSrc[i];
-  }
-}
-
-
-//プログレスゲージ100%到達後,プログレスゲージを縦に展開する関数
-function scalingFigures() {
+$.wait = function(ms) {
+  var d = new $.Deferred;
   setTimeout(function(){
-    $('.js-scaleItem, .js-loading').addClass('add-loaded').delay(1200).queue(function() {
-      $('.js-charaList').addClass('add-onScreen').dequeue();
-    });
-  },2000);
-}
+    d.resolve;
+    console.log(d);
+  }, ms);
+  
+  return d;
+};
+
+
+$.wait(5000).done(function(){console.log(0)}).always(function(){console.log(1);
+})
+
+
+
+var loading = {
+  setPosition: function(startItemNum,endItemNum) {
+    var $itemList = $('.js-charaList');
+    var itemWidth = $itemList.children().width();
+    var sideMargin = ($(window).width() - itemWidth) / 2;
+    var position = {
+      start: -(itemWidth * startItemNum) + sideMargin,
+      end: -(itemWidth * endItemNum) + sideMargin
+    };
+    return position;
+  },
+  moveInit: function() {
+    if($(window).width() < 800) {
+      $('.js-charaList').css('transform','translateX(' + this.setPosition(2).start + 'px)' )
+    }
+  },
+  progressGauge: function() {
+    var $images = $('img');
+    var originImageSrc = [];
+    var numberOfImages = $('img').length;
+    var divideScale = 1 / numberOfImages;
+    var $guage = $('.js-progressGauge');
+    var scaleX = 0;
+    var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
+    var toCenter =  center - $('.js-loadingWrap').offset().top;
+    
+    // opening ゲージをセンターへ移動
+    $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
+    
+    //全imgのsrcを空にしてoriginImageSrcに退避
+    for(var i = 0; i < numberOfImages; i++) {
+      originImageSrc.push($images[i].src);
+      $images[i].src = '';
+    }
+  
+    //imgをロードする毎にscaleXの数値を加算
+    $images.on('load', function(){
+      scaleX += divideScale;
+      $guage.css('transform','scaleX(' + scaleX + ')');
+    })
+  
+    //全imgのsrcを代入
+    for(var i = 0; i < numberOfImages; i++) {
+      $images[i].src = originImageSrc[i];
+    }
+  },
+  scalingFigures: function() {
+    $.wait(2000)
+      .then(function(ms){
+        $('.js-scaleItem, .js-loading').addClass('add-loaded');
+        console.log(ms + 'ミリ秒経過');
+        return $.wait(1200);
+      })
+      .done(function(ms){
+        console.log(ms + 'ミリ秒経過');
+        $('.js-charaList').addClass('add-onScreen');
+      })
+    // setTimeout(function(){
+    //   $('.js-scaleItem, .js-loading').addClass('add-loaded').delay(1200).queue(function() {
+    //     $('.js-charaList').addClass('add-onScreen').dequeue();
+    //   });
+    // },2000);
+  },
+  run: function() {
+    this.progressGauge(),
+    this.moveInit(), //KVのスタートポジションをセット
+    this.scalingFigures(),
+    $('html,body').animate({ scrollTop: 0 }, '1')//リロード時画面トップへ移動
+  }
+};
+
+// loading.run();
+
 
 //KVキャラ入れ替え
-function chageChara() {
-  var $characters = $('.js-charaList').children();
-  var $firstChild = $characters.first();
-  // console.log($characters);
-  [].shift.call($characters);
-  [].push($firstChild).call($characters);
-  // console.log($characters);
-
-  // setInterval(function(){
-  //   $firstChild = $characters.first();
-  //   $characters.shift();
-  //   $characters.push($firstChild);
-  //   console.log($characters);
-  // }, 3000);
-  
-  
-}
-
-chageChara();
-
-
-//ロード後KVのポジションを決める関数
-function setPosition(startItemNum,endItemNum) {
-  var $itemList = $('.js-charaList');
-  var itemWidth = $itemList.children().width();
-  var sideMargin = ($(window).width() - itemWidth) / 2;
-  var position = {
-    start: -(itemWidth * startItemNum) + sideMargin,
-    end: -(itemWidth * endItemNum) + sideMargin
-  };
-  return position;
-}
-
-
-//KVをループさせる関数
-function kvLoop(startItemNum,endItemNum) {
-  var position = setPosition(startItemNum,endItemNum)
-  var xAxis = position.start;
-  
-  setInterval(function(){
-    $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.7) + 'px)');
-    if(xAxis < position.end) {
-      xAxis = position.start;
-    }
-  }, 30)
-}
-
-//キャラクターをfold → unfold 関数
-function foldCharacter() {
-  var $characters = $('.js-kv');
-  $characters.addClass('add-fold').delay(1200).queue(function(){
-    $(this).removeClass('add-fold').dequeue();
-  })
+var loop = {
+  toggle: function() {
+    $('.js-charaList').toggleClass('add-closed');
+  },
+  changeOrder: function() {
+    var characters = $.makeArray($('.js-charaList').children());
+    var firstChara = characters.shift();
+    $('.js-charaList').append(firstChara);
+  }
 }
 
 //menu開閉関数
@@ -173,117 +140,3 @@ function sticky() {
     $('.js-header').removeClass('add-hide');
   }
 }
-
-
-
-
-
-
-
-
-
-
-// function switchCharacter() {
-//   var items = $('.js-charaList > li');
-//   // console.log(items.last());
-  
-  
-//   setInterval(function(){
-//     var firstItem = ($('.js-charaList > li').first());
-//     // console.log(firstItem);
-//     $('.lp-character_inner').removeClass('add-loaded').delay(1000).queue(function() {
-//       $('.lp-character_inner').addClass('add-loaded').dequeue();
-//       $('.js-charaList').append(firstItem).remove(firstItem);
-//     });
-    
-//     // console.log(items);
-//   }, 4000);
-// }
-
-/// offset 1327px でsticky hide
-
-
-
-
-
-
-// switchCharacter();
-
-// console.log(setPosition(2,5).end);
-
-
-// var xAxis = 0;
-// var timer = setInterval(function(){
-//   $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
-//   console.log(xAxis);
-  
-//   if(xAxis <  -1400) {
-//     xAxis = -400;
-//   }
-  
-// },30);
-// $(window).on('load',function(){
-
-//   var xAxis = 0;
-// setInterval(function(){
-//   $('.js-charaList').css('transform', 'translateX(' + (xAxis-=100) + 'px)');
-// }, 2500);
-// });
-
-
-// var requestMeter = function() {
-
-//   for(var i = 0, len = $images.length; i < len; i++){
-//     var img = new Image();
-//     img.onload = function() {
-//       imgCount += 1;
-//     }
-//     img.src = $images[i].src;
-//   }
-  
-//   var loading = setInterval(function(){
-//     scale = imgCount * divideScale;
-//     console.log(imgCount);
-//     console.log(divideScale);
-//     $('.js-progressGauge').css('transform','scaleX(' + scale + ')');
-//     if(imgCount == $images.length) {
-//       clearInterval(loading);
-//       defer.resolve();
-//     }
-//   }, 10);
-  
-//   console.log(defer.promise()); 
-//   return defer.promise();
-// }
-
-// function scalingFigures() {
-//   setTimeout(function(){
-//     $('.js-scaleItem, .js-loading').addClass('add-loaded');
-//   },2000);
-// }
-
-// requestMeter().done(scalingFigures);
-
-
-
-
-// $('.js-test').addClass('add-load');
-
-
-// var progress = 0;
-// var imgCount = $('img').length;
-// $("img").each(function(){
-//   var src = $(this).attr('src');
-//   $("<img>").attr('src',src).on('load',function(){
-//     progress++;
-//     console.log(progress);
-    
-//   });
-// });
-// setInterval(function(){
-//   console.log(progress);
-  
-// }, 1);
-// $(window).on('load' , function(){
-//   $('.mod-item1').addClass('add-load');
-// })

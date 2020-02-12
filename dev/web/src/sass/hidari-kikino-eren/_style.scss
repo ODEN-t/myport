@@ -40,6 +40,7 @@
       transform: translateY(150%);
       width: 28.53333vw;
       height: 2.66667vw;
+      transition: opacity .2s linear;
       @include mediaQuery {
         transform: translateY(400%);
         width: 7.43056vw;

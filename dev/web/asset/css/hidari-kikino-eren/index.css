@@ -460,7 +460,9 @@ input, select {
       -webkit-transform: translateY(150%);
       transform: translateY(150%);
       width: 28.53333vw;
-      height: 2.66667vw; }
+      height: 2.66667vw;
+      -webkit-transition: opacity .2s linear;
+      transition: opacity .2s linear; }
       @media screen and (min-width: 800px) {
         .hidarikikinoEren .lp-loading_text {
           -webkit-transform: translateY(400%);
@@ -1664,6 +1666,11 @@ input, select {
   visibility: hidden;
   -webkit-transition-delay: 1s;
   transition-delay: 1s; }
+  .hidarikikinoEren .lp-loading.add-loaded .lp-loading_wrap {
+    -webkit-transform: translate(-50%, 0) !important;
+    transform: translate(-50%, 0) !important; }
+  .hidarikikinoEren .lp-loading.add-loaded .lp-loading_text {
+    opacity: 0; }
 
 .hidarikikinoEren .lp-loadingInner_item.add-loaded:before {
   -webkit-transform: scaleY(1) !important;
