@@ -7,33 +7,16 @@ $(window).on('scroll', sticky);
 $.wait = function(ms) {
   var d = new $.Deferred;
   setTimeout(function(){
-    d.resolve;
-    console.log(d);
+    d.resolve(ms); //done,thenに引数としてmsを渡す
   }, ms);
-  
-  return d;
+  return d.promise();
 };
 
 
-$.wait(5000).done(function(){console.log(0)}).always(function(){console.log(1);
-})
-
-
-
 var loading = {
-  setPosition: function(startItemNum,endItemNum) {
-    var $itemList = $('.js-charaList');
-    var itemWidth = $itemList.children().width();
-    var sideMargin = ($(window).width() - itemWidth) / 2;
-    var position = {
-      start: -(itemWidth * startItemNum) + sideMargin,
-      end: -(itemWidth * endItemNum) + sideMargin
-    };
-    return position;
-  },
   moveInit: function() {
     if($(window).width() < 800) {
-      $('.js-charaList').css('transform','translateX(' + this.setPosition(2).start + 'px)' )
+      $('.js-charaList').css('transform','translateX(' + setPosition(6) + 'px)' )
     }
   },
   progressGauge: function() {
@@ -68,34 +51,29 @@ var loading = {
   },
   scalingFigures: function() {
     $.wait(2000)
-      .then(function(ms){
-        $('.js-scaleItem, .js-loading').addClass('add-loaded');
-        console.log(ms + 'ミリ秒経過');
-        return $.wait(1200);
-      })
-      .done(function(ms){
-        console.log(ms + 'ミリ秒経過');
-        $('.js-charaList').addClass('add-onScreen');
-      })
-    // setTimeout(function(){
-    //   $('.js-scaleItem, .js-loading').addClass('add-loaded').delay(1200).queue(function() {
-    //     $('.js-charaList').addClass('add-onScreen').dequeue();
-    //   });
-    // },2000);
+    .then(function(ms){
+      $('.js-scaleItem, .js-loading').addClass('add-loaded');
+      return $.wait(1200);
+    })
+    .done(function(ms){
+      $('.js-charaList').addClass('add-onScreen');
+    })
   },
   run: function() {
     this.progressGauge(),
-    this.moveInit(), //KVのスタートポジションをセット
-    this.scalingFigures(),
+    this.moveInit(),
+    this.scalingFigures(), // 3200ms + 800ms (amimation)
     $('html,body').animate({ scrollTop: 0 }, '1')//リロード時画面トップへ移動
   }
 };
 
-// loading.run();
-
 
 //KVキャラ入れ替え
 var loop = {
+  termPosition: {
+    start: setPosition(2),
+    end: setPosition(6)
+  },
   toggle: function() {
     $('.js-charaList').toggleClass('add-closed');
   },
@@ -103,7 +81,33 @@ var loop = {
     var characters = $.makeArray($('.js-charaList').children());
     var firstChara = characters.shift();
     $('.js-charaList').append(firstChara);
+  },
+  execute: function() {
+    var xAxis = this.termPosition.start;
+    var endPoint = this.termPosition.end;
+    var resetPoint = this.termPosition.start;
+    setInterval(function(){
+      $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
+      if(xAxis < endPoint) {
+        xAxis = resetPoint;
+      }
+    }, 30)
   }
+}
+
+loading.run()
+$.wait(4000).then(function(){
+  loop.execute();
+})
+
+
+//中央に設置したキャラまでの距離を算出する関数
+function setPosition(itemNum) {
+  var $itemList = $('.js-charaList');
+  var itemWidth = $itemList.children().width();
+  var sideMargin = ($(window).width() - itemWidth) / 2;
+  var position = -(itemWidth * itemNum) + sideMargin;
+  return position;
 }
 
 //menu開閉関数
