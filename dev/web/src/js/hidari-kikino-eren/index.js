@@ -74,6 +74,12 @@ var loop = {
     start: setPosition(2),
     end: setPosition(6)
   },
+  steps: {
+    step1: setPosition(2),
+    step2: setPosition(2) + (setPosition(5) - setPosition(2)) / 3,
+    step3: setPosition(2) + ((setPosition(5) - setPosition(2)) / 3) * 2,
+    step4: setPosition(5)
+  },
   toggle: function() {
     $('.js-charaList').toggleClass('add-closed');
   },
@@ -99,6 +105,10 @@ loading.run()
 $.wait(4000).then(function(){
   loop.execute();
 })
+
+console.log(loop.steps.step1,loop.steps.step2,loop.steps.step3,loop.steps.step4);
+
+
 
 
 //中央に設置したキャラまでの距離を算出する関数
