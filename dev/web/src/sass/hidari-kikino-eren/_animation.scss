@@ -60,7 +60,7 @@
     }
   }
   
-  .add-step1 .lp-character {
+  .add-step1.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: .1s;
@@ -111,7 +111,7 @@
   }
 
 
-  .add-step2 .lp-character {
+  .add-step2.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: 0s;
@@ -162,7 +162,7 @@
   }
 
 
-  .add-step3 .lp-character {
+  .add-step3.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: .3s;
@@ -213,7 +213,7 @@
   }
 
 
-  .add-step4 .lp-character {
+  .add-step4.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: .2s;

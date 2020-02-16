@@ -16,7 +16,7 @@ $.wait = function(ms) {
 var loading = {
   moveInit: function() {
     if($(window).width() < 800) {
-      $('.js-charaList').css('transform','translateX(' + setPosition(6) + 'px)' )
+      $('.js-charaList').css('transform','translateX(' + setPosition(2) + 'px)' )
     }
   },
   progressGauge: function() {
@@ -80,22 +80,60 @@ var loop = {
     step3: setPosition(2) + ((setPosition(5) - setPosition(2)) / 3) * 2,
     step4: setPosition(5)
   },
-  toggle: function() {
-    $('.js-charaList').toggleClass('add-closed');
-  },
-  changeOrder: function() {
-    var characters = $.makeArray($('.js-charaList').children());
-    var firstChara = characters.shift();
-    $('.js-charaList').append(firstChara);
-  },
   execute: function() {
     var xAxis = this.termPosition.start;
     var endPoint = this.termPosition.end;
     var resetPoint = this.termPosition.start;
+    var loopSteps = this.steps;
+    var toggle = function() {
+      $('.js-charaList').toggleClass('add-closed');
+    }
+    var changeOrder = function() {
+      var characters = $.makeArray($('.js-charaList').children());
+      var firstChara = characters.shift();
+      $('.js-charaList').append(firstChara);
+    }
     setInterval(function(){
       $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
+      var translateX = $('.js-charaList')[0].style.transform.replace(/[^-^0-9^\.]/g,"");
       if(xAxis < endPoint) {
         xAxis = resetPoint;
+      }
+      if(translateX > loopSteps.step2) {
+        if($('.js-charaList').hasClass('add-step1')) {
+          return false;
+        } else {
+          $('.js-charaList').removeClass('add-step4').addClass('add-step1');
+          toggle();
+          $.wait(800).done(function(){changeOrder();toggle();});
+        }
+      }
+      if(loopSteps.step2 > translateX && translateX > loopSteps.step3) {
+        if($('.js-charaList').hasClass('add-step2')) {
+          return false;
+        } else {
+          $('.js-charaList').removeClass('add-step1').addClass('add-step2');
+          toggle();
+          $.wait(800).done(function(){changeOrder();toggle();});
+        }
+      }
+      if(loopSteps.step3 > translateX && translateX > loopSteps.step4) {
+        if($('.js-charaList').hasClass('add-step3')) {
+          return false;
+        } else {
+          $('.js-charaList').removeClass('add-step2').addClass('add-step3');
+          toggle();
+          $.wait(800).done(function(){changeOrder();toggle();});
+        }
+      }
+      if(loopSteps.step4 > translateX) {
+        if($('.js-charaList').hasClass('add-step4')) {
+          return false;
+        } else {
+          $('.js-charaList').removeClass('add-step3').addClass('add-step4');
+          toggle();
+          $.wait(800).done(function(){changeOrder();toggle();});
+        }
       }
     }, 30)
   }
@@ -107,6 +145,11 @@ $.wait(4000).then(function(){
 })
 
 console.log(loop.steps.step1,loop.steps.step2,loop.steps.step3,loop.steps.step4);
+// var str = 'transformX(-1330px)';
+// var str3 = str.replace(/[^-^0-9^\.]/g,"");
+// parseFloat(str3);
+// console.log(str3);
+
 
 
 

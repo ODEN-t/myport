@@ -1714,130 +1714,130 @@ input, select {
   -webkit-transform: scaleY(1) !important;
   transform: scaleY(1) !important; }
 
-.hidarikikinoEren .add-step1 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(3):after {
+.hidarikikinoEren .add-step1.lp-kv_characters:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:nth-child(3):after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
 
-.hidarikikinoEren .add-step1 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(7):after {
+.hidarikikinoEren .add-step1.lp-kv_characters:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:nth-child(7):after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
 
-.hidarikikinoEren .add-step1 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(4):after {
+.hidarikikinoEren .add-step1.lp-kv_characters:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:nth-child(4):after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step1 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(8):after {
+.hidarikikinoEren .add-step1.lp-kv_characters:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:nth-child(8):after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step1 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:first-child:after {
+.hidarikikinoEren .add-step1.lp-kv_characters:first-child .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:first-child:after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step1 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(5):after {
+.hidarikikinoEren .add-step1.lp-kv_characters:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:nth-child(5):after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step1 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(2):after {
+.hidarikikinoEren .add-step1.lp-kv_characters:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:nth-child(2):after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step1 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step1 .lp-character:nth-child(6):after {
+.hidarikikinoEren .add-step1.lp-kv_characters:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step1.lp-kv_characters:nth-child(6):after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step2 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(3):after {
+.hidarikikinoEren .add-step2.lp-kv_characters:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:nth-child(3):after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step2 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(7):after {
+.hidarikikinoEren .add-step2.lp-kv_characters:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:nth-child(7):after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step2 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(4):after {
+.hidarikikinoEren .add-step2.lp-kv_characters:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:nth-child(4):after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
 
-.hidarikikinoEren .add-step2 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(8):after {
+.hidarikikinoEren .add-step2.lp-kv_characters:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:nth-child(8):after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
 
-.hidarikikinoEren .add-step2 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:first-child:after {
+.hidarikikinoEren .add-step2.lp-kv_characters:first-child .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:first-child:after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step2 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(5):after {
+.hidarikikinoEren .add-step2.lp-kv_characters:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:nth-child(5):after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step2 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(2):after {
+.hidarikikinoEren .add-step2.lp-kv_characters:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:nth-child(2):after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step2 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step2 .lp-character:nth-child(6):after {
+.hidarikikinoEren .add-step2.lp-kv_characters:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step2.lp-kv_characters:nth-child(6):after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step3 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(3):after {
+.hidarikikinoEren .add-step3.lp-kv_characters:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:nth-child(3):after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step3 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(7):after {
+.hidarikikinoEren .add-step3.lp-kv_characters:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:nth-child(7):after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step3 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(4):after {
+.hidarikikinoEren .add-step3.lp-kv_characters:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:nth-child(4):after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step3 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(8):after {
+.hidarikikinoEren .add-step3.lp-kv_characters:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:nth-child(8):after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step3 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:first-child:after {
+.hidarikikinoEren .add-step3.lp-kv_characters:first-child .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:first-child:after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
 
-.hidarikikinoEren .add-step3 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(5):after {
+.hidarikikinoEren .add-step3.lp-kv_characters:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:nth-child(5):after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
 
-.hidarikikinoEren .add-step3 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(2):after {
+.hidarikikinoEren .add-step3.lp-kv_characters:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:nth-child(2):after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step3 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step3 .lp-character:nth-child(6):after {
+.hidarikikinoEren .add-step3.lp-kv_characters:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step3.lp-kv_characters:nth-child(6):after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step4 .lp-character:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(3):after {
+.hidarikikinoEren .add-step4.lp-kv_characters:nth-child(3) .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:nth-child(3):after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step4 .lp-character:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(7):after {
+.hidarikikinoEren .add-step4.lp-kv_characters:nth-child(7) .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:nth-child(7):after {
   -webkit-transition-delay: .2s;
   transition-delay: .2s; }
 
-.hidarikikinoEren .add-step4 .lp-character:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(4):after {
+.hidarikikinoEren .add-step4.lp-kv_characters:nth-child(4) .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:nth-child(4):after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step4 .lp-character:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(8):after {
+.hidarikikinoEren .add-step4.lp-kv_characters:nth-child(8) .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:nth-child(8):after {
   -webkit-transition-delay: .3s;
   transition-delay: .3s; }
 
-.hidarikikinoEren .add-step4 .lp-character:first-child .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:first-child:after {
+.hidarikikinoEren .add-step4.lp-kv_characters:first-child .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:first-child:after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step4 .lp-character:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(5):after {
+.hidarikikinoEren .add-step4.lp-kv_characters:nth-child(5) .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:nth-child(5):after {
   -webkit-transition-delay: 0s;
   transition-delay: 0s; }
 
-.hidarikikinoEren .add-step4 .lp-character:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(2):after {
+.hidarikikinoEren .add-step4.lp-kv_characters:nth-child(2) .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:nth-child(2):after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
 
-.hidarikikinoEren .add-step4 .lp-character:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step4 .lp-character:nth-child(6):after {
+.hidarikikinoEren .add-step4.lp-kv_characters:nth-child(6) .lp-character_inner, .hidarikikinoEren .add-step4.lp-kv_characters:nth-child(6):after {
   -webkit-transition-delay: .1s;
   transition-delay: .1s; }
