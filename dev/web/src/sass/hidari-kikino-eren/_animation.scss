@@ -48,6 +48,30 @@
     z-index: 9;
   }
 
+  .is-onScreenItem {
+    .add-onScreen.add-closed {
+      .lp-character.mod-item1 >.lp-character_inner {
+        transform: translateY(-20%);
+      }
+      .lp-character.mod-item3 >.lp-character_inner {
+        transform: translateY(-20%);
+      }
+    }
+  }
+
+  .is-onScreenItem {
+    .add-onScreen.add-closed {
+      .lp-character.mod-item2 >.lp-character_inner {
+        transform: translateY(20%);
+      }
+      .lp-character.mod-item4 >.lp-character_inner {
+        transform: translateY(20%);
+      }
+    }
+  }
+
+
+
   .lp-kv_characters.add-onScreen {
     .lp-character_inner:after {
       transform: scaleY(0);

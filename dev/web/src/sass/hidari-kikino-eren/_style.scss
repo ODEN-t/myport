@@ -423,6 +423,7 @@
       position: relative;
       height: 100%;
       width: 67.86667vw;
+      overflow: hidden;
       &_inner {
         position: absolute;
         left: 0;
@@ -433,6 +434,8 @@
         background-repeat: no-repeat;
         background-position: 50%;
         transition: transform .8s cubic-bezier(.19,1,.22,1);
+        transform: translateZ(0);
+        backface-visibility: hidden;
       }
       &_inner:after {
         content: "";
@@ -448,7 +451,7 @@
     }
 
     .mod-item1 {
-      
+      background-color: #0e6cb2;
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img1.jpg');
       }
@@ -458,7 +461,7 @@
       }
     }
     .mod-item2 {
-      
+      background-color: #fe3c00;
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img2.jpg');
       }
@@ -468,7 +471,7 @@
       }
     }
     .mod-item3 {
-      
+      background-color: #deff00;
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img3.jpg');
       }
@@ -478,7 +481,7 @@
       }
     }
     .mod-item4 {
-      
+      background-color: #02d0d0;
       .lp-character_inner {
         background-image: url('../../../data/hidari-kikino-eren/images/kv_img4.jpg');
       }
