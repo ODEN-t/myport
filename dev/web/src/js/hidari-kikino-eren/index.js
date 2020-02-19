@@ -14,12 +14,12 @@ $.wait = function(ms) {
 
 
 var loading = {
-  moveInit: function() {
+  moveInit() {
     if($(window).width() < 800) {
       $('.js-charaList').css('transform','translateX(' + setPosition(2) + 'px)' )
     }
   },
-  progressGauge: function() {
+  progressGauge() {
     var $images = $('img');
     var originImageSrc = [];
     var numberOfImages = $('img').length;
@@ -49,7 +49,7 @@ var loading = {
       $images[i].src = originImageSrc[i];
     }
   },
-  scalingFigures: function() {
+  scalingFigures() {
     $.wait(2000)
     .then(function(ms){
       $('.js-scaleItem, .js-loading').addClass('add-loaded');
@@ -59,7 +59,7 @@ var loading = {
       $('.js-charaList').addClass('add-onScreen');
     })
   },
-  run: function() {
+  run() {
     this.progressGauge(),
     this.moveInit(),
     this.scalingFigures(), // 3200ms + 800ms (amimation)
@@ -80,7 +80,7 @@ var loop = {
     step3: setPosition(2) + ((setPosition(5) - setPosition(2)) / 3) * 2,
     step4: setPosition(5)
   },
-  execute: function() {
+  execute() {
     var xAxis = this.termPosition.start;
     var endPoint = this.termPosition.end;
     var resetPoint = this.termPosition.start;
