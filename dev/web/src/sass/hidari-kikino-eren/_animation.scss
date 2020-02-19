@@ -48,39 +48,48 @@
     z-index: 9;
   }
 
-  .is-onScreenItem {
-    .add-onScreen.add-closed {
-      .lp-character.mod-item1 >.lp-character_inner {
-        transform: translateY(-20%);
-      }
-      .lp-character.mod-item3 >.lp-character_inner {
-        transform: translateY(-20%);
-      }
-    }
-  }
-
-  .is-onScreenItem {
-    .add-onScreen.add-closed {
-      .lp-character.mod-item2 >.lp-character_inner {
-        transform: translateY(20%);
-      }
-      .lp-character.mod-item4 >.lp-character_inner {
-        transform: translateY(20%);
-      }
-    }
-  }
-
-
-
-  .lp-kv_characters.add-onScreen {
+  .lp-kv.is-onScreenItem.is-onScreen {
     .lp-character_inner:after {
       transform: scaleY(0);
     }
+    .lp-kv_title.mod-title1 {
+      transform: scaleY(1);
+      &:after {
+        transform: scaleY(0);
+      }
+    }
+    .lp-kv_title.mod-title2 {
+      transform: scaleX(1);
+      &:after {
+        transform: scaleX(0);
+      }
+    }
   }
 
-  .lp-kv_characters.add-closed {
+  .lp-kv.is-onScreenItem.is-onScreen.is-closed {
+    .lp-character.mod-item1 >.lp-character_inner {
+      transform: translateY(-20%);
+    }
+    .lp-character.mod-item3 >.lp-character_inner {
+      transform: translateY(-20%);
+    }
+    .lp-character.mod-item2 >.lp-character_inner {
+      transform: translateY(20%);
+    }
+    .lp-character.mod-item4 >.lp-character_inner {
+      transform: translateY(20%);
+    }
     .lp-character_inner:after {
-      transform: scaleY(1) !important; //add-onScreenを上書き
+      transform: scaleY(1) !important; //is-onScreenを上書き
+    }
+  }
+
+  .lp-summery_heading.is-onScreen {
+    .lp-summery_title {
+      transform: scaleY(0);
+    }
+    .lp-summery_descLine {
+      transform: scaleX(1);
     }
   }
   

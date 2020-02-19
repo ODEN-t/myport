@@ -1,5 +1,18 @@
 .hidarikikinoEren{
   position: relative;
+  @mixin textFadeIN($scale: scaleX(1)) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    transform: $scale;
+    transform-origin: right bottom;
+    transition: transform .6s cubic-bezier(.19,1,.22,1) .2s;
+    background-color: #000;
+  }
+
 
 /* ------------------
 		lp-loading 
@@ -531,8 +544,31 @@
     }
 
     .mod-title1 {
-      padding-bottom: 0; 
+      position: relative;
+      padding-bottom: 0;
+      transform-origin: top left;
+      transition: transform .6s cubic-bezier(.19,1,.22,1);
+      transform: scaleY(0);
+      transition-delay: .4s;
+      transition-duration: .2s;
+      &:after {
+        @include textFadeIN(scaleY(1));
+        transition-delay: .8s;
+      }
     }
+
+    .mod-title2 {
+      position: relative;
+      transform-origin: top left;
+      transition: transform .6s cubic-bezier(.19,1,.22,1);
+      transform: scaleX(0);
+      transition-delay: .6s;
+      &:after {
+        @include textFadeIN();
+        transition-delay: 1s;
+      }
+    }
+
     .mod-title1 img {
       width: 5.73333vw;
       @include mediaQuery {
@@ -541,16 +577,10 @@
     }
     .mod-title2 img {
       height: 5.6vw;
+      width: auto;
       @include mediaQuery {
         height: 2.91667vw;
-        width: auto;
       }
-    }
-  }
-
-  .lp-kv.add-fold {
-    .lp-kv_characters > li > div:after {
-      transform: scaleY(1);
     }
   }
 
@@ -610,40 +640,45 @@
       @include mediaQuery(mediumDesktop) {
         left: 25.94595px;
       }
+    }
 
-      > h2 {
-        position: absolute;
-        top: -3.33333vw;
-        left: 4vw;
-        width: 9.73333vw;
-        background-color: #000;
-        padding: 3.2vw 2.66667vw;
-        z-index: 2;
+    &_title {
+      position: absolute;
+      top: -3.33333vw;
+      left: 4vw;
+      width: 9.73333vw;
+      background-color: #000;
+      padding: 3.2vw 2.66667vw;
+      z-index: 2;
+      @include mediaQuery {
+        padding: 1.25vw 1.04167vw;
+        top: -1.38889vw;
+        left: 1.38889vw;
+        width: 3.92361vw;
+      }
+      @include mediaQuery(mediumDesktop) {
+        padding: 1.94595vw 1.62162vw;
+        top: -2.16216vw;
+        left: 2.16216vw;
+        width: 6.10811vw;
+        display: flex;
+        justify-content: center;
+      }
+
+      img {
+        display: block;
+        width: 3.86667vw;
         @include mediaQuery {
-          padding: 1.25vw 1.04167vw;
-          top: -1.38889vw;
-          left: 1.38889vw;
-          width: 3.92361vw;
+          width: 1.49306vw;
         }
         @include mediaQuery(mediumDesktop) {
-          padding: 1.94595vw 1.62162vw;
-          top: -2.16216vw;
-          left: 2.16216vw;
-          width: 6.10811vw;
-          display: flex;
-          justify-content: center;
+          width: 2.32432vw;
         }
+      }
 
-        img {
-          display: block;
-          width: 3.86667vw;
-          @include mediaQuery {
-            width: 1.49306vw;
-          }
-          @include mediaQuery(mediumDesktop) {
-            width: 2.32432vw;
-          }
-        }
+      &:after {
+        position: relative;
+        @include textFadeIN(scaleY(1));
       }
     }
 
@@ -676,13 +711,7 @@
       }
 
       &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #deff00;
-        // width: 100%;
-        // height: 100%;
+        @include textFadeIN();
       }
     }
 

@@ -56,13 +56,13 @@ var loading = {
       return $.wait(1200);
     })
     .done(function(ms){
-      $('.js-charaList').addClass('add-onScreen');
+      $('.js-kv, .lp-summery_heading').addClass('is-onScreen');
     })
   },
   run() {
     this.progressGauge(),
     this.moveInit(),
-    this.scalingFigures(), // 3200ms + 800ms (amimation)
+    this.scalingFigures(), // 3200ms + 800ms(amimation) + 1000ms(textFadeIN) 
     $('html,body').animate({ scrollTop: 0 }, '1')//リロード時画面トップへ移動
   }
 };
@@ -86,7 +86,7 @@ var loop = {
     var resetPoint = this.termPosition.start;
     var loopSteps = this.steps;
     var toggle = function() {
-      $('.js-charaList').toggleClass('add-closed');
+      $('.js-kv').toggleClass('is-closed');
     }
     var changeOrder = function() {
       var characters = $.makeArray($('.js-charaList').children());
@@ -94,7 +94,7 @@ var loop = {
       $('.js-charaList').append(firstChara);
     }
     setInterval(function(){
-      $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.2) + 'px)');
+      $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.5) + 'px)');
       var translateX = $('.js-charaList')[0].style.transform.replace(/[^-^0-9^\.]/g,"");
       if(xAxis < endPoint) {
         xAxis = resetPoint;
@@ -140,7 +140,7 @@ var loop = {
 }
 
 loading.run()
-$.wait(4000).then(function(){
+$.wait(5000).then(function(){
   loop.execute();
 })
 
