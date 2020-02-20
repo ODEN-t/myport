@@ -1,6 +1,6 @@
 .hidarikikinoEren{
 
-  .lp-loading.add-loaded {
+  .lp-loading.is-loaded {
     opacity: 0;
     visibility: hidden;
     transition-delay: 1s;
@@ -15,17 +15,17 @@
   }
 
   .lp-loadingInner {
-    &_item.add-loaded:before {
+    &_item.is-loaded:before {
       transform: scaleY(1) !important;
     }
   }
 
-  .lp-header.add-hide {
+  .lp-header.is-hide {
     transform: translateY(-100%);
     opacity: 0;
   }
 
-  .lp-menuBtn.add-open {
+  .lp-menuBtn.is-open {
     background-color: #e50013;
     .lp-menuBtn_open span {
       transform: scaleX(0);
@@ -41,7 +41,7 @@
     }
   }
 
-  .lp-menu.add-open {
+  .lp-menu.is-open {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
@@ -67,16 +67,10 @@
   }
 
   .lp-kv.is-onScreenItem.is-onScreen.is-closed {
-    .lp-character.mod-item1 >.lp-character_inner {
+    .lp-character.mod-item1 >.lp-character_inner, .lp-character.mod-item3 >.lp-character_inner {
       transform: translateY(-20%);
     }
-    .lp-character.mod-item3 >.lp-character_inner {
-      transform: translateY(-20%);
-    }
-    .lp-character.mod-item2 >.lp-character_inner {
-      transform: translateY(20%);
-    }
-    .lp-character.mod-item4 >.lp-character_inner {
+    .lp-character.mod-item2 >.lp-character_inner, .lp-character.mod-item4 >.lp-character_inner {
       transform: translateY(20%);
     }
     .lp-character_inner:after {
@@ -86,14 +80,29 @@
 
   .lp-summery_heading.is-onScreen {
     .lp-summery_title {
-      transform: scaleY(0);
+      transform: scaleY(1);
+      &:after {
+        transform: scaleY(0);
+      }
     }
     .lp-summery_descLine {
+      transform: scaleX(0.9);
+      &:after {
+        transform: scaleX(0);
+      }
+    }
+  }
+
+  .lp-result_inner.is-onScreen {
+    .lp-resultTitle_inner, .lp-resultDesc_line, .lp-resultDate_label, .lp-resultDate_day {
       transform: scaleX(1);
+      &:after {
+        transform: scaleX(0);
+      }
     }
   }
   
-  .add-step1.lp-kv_characters {
+  .is-step1.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: .1s;
@@ -144,7 +153,7 @@
   }
 
 
-  .add-step2.lp-kv_characters {
+  .is-step2.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: 0s;
@@ -195,7 +204,7 @@
   }
 
 
-  .add-step3.lp-kv_characters {
+  .is-step3.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: .3s;
@@ -246,7 +255,7 @@
   }
 
 
-  .add-step4.lp-kv_characters {
+  .is-step4.lp-kv_characters {
     &:nth-child(3) {
       .lp-character_inner, &:after {
         transition-delay: .2s;

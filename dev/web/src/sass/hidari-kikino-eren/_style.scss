@@ -1,1338 +1,1426 @@
 .hidarikikinoEren{
-  position: relative;
-  @mixin textFadeIN($scale: scaleX(1)) {
-    position: absolute;
-    left: 0;
-    top: 0;
-    content: "";
-    width: 100%;
-    height: 100%;
-    transform: $scale;
-    transform-origin: right bottom;
-    transition: transform .6s cubic-bezier(.19,1,.22,1) .2s;
-    background-color: #000;
-  }
+	position: relative;
+	@mixin textFadeIN($scale: scaleX(1), $transform-origin: right bottom) {
+		position: absolute;
+		left: 0;
+		top: 0;
+		content: "";
+		width: 100%;
+		height: 100%;
+		transform: $scale;
+		transform-origin: $transform-origin;
+		transition: transform .6s cubic-bezier(.19,1,.22,1) .2s;
+		background-color: #000;
+	}
 
 
 /* ------------------
 		lp-loading 
 --------------------- */
-  .lp-loading {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #e50013;
-    z-index: 1000;
-    transition: visibility .2s linear,
-                opacity .2s linear;
+	.lp-loading {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: #e50013;
+		z-index: 1000;
+		transition: visibility .2s linear,
+								opacity .2s linear;
 
-    &_wrap {
-      position: absolute;
-      top: 26.93333vw;
-      left: 50%;
-      transform: translate(-50%);
-      width: 203.6vw;
-      height: 112.26667vw;
-      @include mediaQuery {
-        top: 9.13194vw;
-        width: 98.33333vw;
-        height: 40.69444vw;
-      }
-    }
+		&_wrap {
+			position: absolute;
+			top: 26.93333vw;
+			left: 50%;
+			transform: translate(-50%);
+			width: 203.6vw;
+			height: 112.26667vw;
+			@include mediaQuery {
+				top: 9.13194vw;
+				width: 98.33333vw;
+				height: 40.69444vw;
+			}
+		}
 
-    &_text {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      margin: 0 auto;
-      background: url('../../../data/hidari-kikino-eren/images/loading_txt.png') 50% no-repeat;
-      background-size: contain;
-      transform: translateY(150%);
-      width: 28.53333vw;
-      height: 2.66667vw;
-      transition: opacity .2s linear;
-      @include mediaQuery {
-        transform: translateY(400%);
-        width: 7.43056vw;
-        height: .69444vw;
-      }
-    }
-  }
+		&_text {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 50%;
+			margin: 0 auto;
+			background: url('../../../data/hidari-kikino-eren/images/loading_txt.png') 50% no-repeat;
+			background-size: contain;
+			transform: translateY(150%);
+			width: 28.53333vw;
+			height: 2.66667vw;
+			transition: opacity .2s linear;
+			@include mediaQuery {
+				transform: translateY(400%);
+				width: 7.43056vw;
+				height: .69444vw;
+			}
+		}
+	}
 
-  .lp-loadingInner {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    transition: transform .8s cubic-bezier(.19,1,.22,1);
+	.lp-loadingInner {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		transition: transform .8s cubic-bezier(.19,1,.22,1);
 
-    &_item {
-      display: block;
-      width: 203.6vw;
-      height: 100%;
-      transition: transform .4s cubic-bezier(.19,1,.22,1);
-      &:before {
-        transition: transform .8s cubic-bezier(.19,1,.22,1) .4s;
-      }
-    }
+		&_item {
+			display: block;
+			width: 203.6vw;
+			height: 100%;
+			transition: transform .4s cubic-bezier(.19,1,.22,1);
+			&:before {
+				transition: transform .8s cubic-bezier(.19,1,.22,1) .4s;
+			}
+		}
 
-    .mod-item1 {
-      order: 2;
-      transform: scaleX(0);
-      &:before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: #0e6cb2;
-        transition-delay: 0s;
-        transform: scaleY(.006);
-      }
-    }
-    .mod-item2 {
-      order: 3;
-      &:before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: #fe3c00;
-        transition-delay: .2s;
-        transform: scaleY(0);
-      }
-    }
-    .mod-item3 {
-      display: none;
-    }
-    .mod-item4 {
-      order: 1;
-      &:before  {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: #02d0d0;
-        transition-delay: .2s;
-        transform: scaleY(0);
-      }
-    }
-  }
+		.mod-item1 {
+			order: 2;
+			transform: scaleX(0);
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: #0e6cb2;
+				transition-delay: 0s;
+				transform: scaleY(.006);
+			}
+		}
+		.mod-item2 {
+			order: 3;
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: #fe3c00;
+				transition-delay: .2s;
+				transform: scaleY(0);
+			}
+		}
+		.mod-item3 {
+			display: none;
+		}
+		.mod-item4 {
+			order: 1;
+			&:before  {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: #02d0d0;
+				transition-delay: .2s;
+				transform: scaleY(0);
+			}
+		}
+	}
 
 /* ------------------
 		lp-header 
 --------------------- */
-  .lp-header {
-    width: 100%;
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 5;
-    cursor: pointer;
-    overflow: hidden;
-    height: 12vw;
-    transition: visibility .4s cubic-bezier(.19,1,.22,1),
-                opacity .4s cubic-bezier(.19,1,.22,1),
-                transform .4s cubic-bezier(.19,1,.22,1);
-    @include mediaQuery {
-      height: 4.0625vw;
-    }
-  }
-  
-  .lp-headerTicker {
-    background-image: url('../../../data/hidari-kikino-eren/images/header_ticker.png');
-    background-repeat: repeat-x;
-    background-size: 49.64103vw 12vw;
-    width: 100%;
-    height: 100%;
-    animation: headerMovingS 6s linear infinite;
-    @include mediaQuery {
-      background-size: 16.80556vw 4.0625vw;
-      animation: headerMovingL 6s linear infinite;
-    }
-    @keyframes headerMovingS {
-      0% {
-        background-position: 0 0;
-      }
+	.lp-header {
+		width: 100%;
+		background-color: #fff;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		cursor: pointer;
+		overflow: hidden;
+		height: 12vw;
+		transition: visibility .4s cubic-bezier(.19,1,.22,1),
+								opacity .4s cubic-bezier(.19,1,.22,1),
+								transform .4s cubic-bezier(.19,1,.22,1);
+		@include mediaQuery {
+			height: 4.0625vw;
+		}
+	}
+	
+	.lp-headerTicker {
+		background-image: url('../../../data/hidari-kikino-eren/images/header_ticker.png');
+		background-repeat: repeat-x;
+		background-size: 49.64103vw 12vw;
+		width: 100%;
+		height: 100%;
+		animation: headerMovingS 6s linear infinite;
+		@include mediaQuery {
+			background-size: 16.80556vw 4.0625vw;
+			animation: headerMovingL 6s linear infinite;
+		}
+		@keyframes headerMovingS {
+			0% {
+				background-position: 0 0;
+			}
 
-      100% {
-        background-position: 49.64103vw 0;
-      }
-    }
-    @keyframes headerMovingL {
-      0% {
-        background-position: 0 0;
-      }
+			100% {
+				background-position: 49.64103vw 0;
+			}
+		}
+		@keyframes headerMovingL {
+			0% {
+				background-position: 0 0;
+			}
 
-      100% {
-        background-position: 16.80556vw 0;
-      }
-    }
-    @keyframes headerMovingLL {
-      0% {
-        background-position: 0 0;
-      }
+			100% {
+				background-position: 16.80556vw 0;
+			}
+		}
+		@keyframes headerMovingLL {
+			0% {
+				background-position: 0 0;
+			}
 
-      100% {
-        background-position: 268.88889px 0;
-      }
-    }
-    
+			100% {
+				background-position: 268.88889px 0;
+			}
+		}
+		
 
-  }
+	}
 
 /* ------------------
 		lp-menuBtn
 --------------------- */
-  .lp-menuBtn {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 14vw;
-    height: 14vw;
-    background-color: #000;
-    transition: background-color .2s cubic-bezier(.19,1,.22,1);
-    z-index: 10;
+	.lp-menuBtn {
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: 14vw;
+		height: 14vw;
+		background-color: #000;
+		transition: background-color .2s cubic-bezier(.19,1,.22,1);
+		z-index: 10;
 
-    &_open {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 5.6vw;
-      height: 4.26667vw;
+		&_open {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 5.6vw;
+			height: 4.26667vw;
 
-      > span {
-        position: absolute;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        width: 100%;
-        height: .533vw;
-        transition: transform .4s cubic-bezier(.19,1,.22,1) .2s;
-      }
-      > span:nth-child(1) {
-        transform-origin: left center;
-        top: 0;
-      }
-      > span:nth-child(2) {
-        transform-origin: center center;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-      }
-      > span:nth-child(3) {
-        transform-origin: right center;
-        bottom: 0;
-      }
-    }
+			> span {
+				position: absolute;
+				left: 0;
+				right: 0;
+				background-color: #fff;
+				width: 100%;
+				height: .533vw;
+				transition: transform .4s cubic-bezier(.19,1,.22,1) .2s;
+			}
+			> span:nth-child(1) {
+				transform-origin: left center;
+				top: 0;
+			}
+			> span:nth-child(2) {
+				transform-origin: center center;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			> span:nth-child(3) {
+				transform-origin: right center;
+				bottom: 0;
+			}
+		}
 
-    &_close {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      transform: rotate(45deg);
-      width: 5.33333vw;
-      height: 5.33333vw;
-      &:before, &:after {
-        content: '';
-        transform-origin: top left;
-        background-color: #fff;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        transition: transform .4s cubic-bezier(.19,1,.22,1);
-      }
-      &:before {
-        width: .5333vw;
-        height: 100%;
-        transform: scaleY(0);
-      }
-      &:after {
-        height: .5333vw;
-        width: 100%;
-        transform: scaleX(0);
-      }
-    }
-  }
+		&_close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			transform: rotate(45deg);
+			width: 5.33333vw;
+			height: 5.33333vw;
+			&:before, &:after {
+				content: '';
+				transform-origin: top left;
+				background-color: #fff;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				transition: transform .4s cubic-bezier(.19,1,.22,1);
+			}
+			&:before {
+				width: .5333vw;
+				height: 100%;
+				transform: scaleY(0);
+			}
+			&:after {
+				height: .5333vw;
+				width: 100%;
+				transform: scaleX(0);
+			}
+		}
+	}
 
 /* ------------------
 		lp-menu
 --------------------- */
-  .lp-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 82.4vw;
-    background-color: #000;
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
-    transition: transform .4s cubic-bezier(.19,1,.22,1),
-                opacity .4s cubic-bezier(.19,1,.22,1),
-                visibility .4s cubic-bezier(.19,1,.22,1),
-                z-index .4s cubic-bezier(.19,1,.22,1);
-    @include mediaQuery(mobile) {
-      transform: translateX(100%);
-    }
-    @include mediaQuery {
-      height: 4.0625vw;
-      width: auto;
-      opacity: 1;
-      visibility: visible;
-      overflow: visible;
-      z-index: 5;
-    }           
+	.lp-menu {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 82.4vw;
+		background-color: #000;
+		opacity: 0;
+		visibility: hidden;
+		z-index: -1;
+		transition: transform .4s cubic-bezier(.19,1,.22,1),
+								opacity .4s cubic-bezier(.19,1,.22,1),
+								visibility .4s cubic-bezier(.19,1,.22,1),
+								z-index .4s cubic-bezier(.19,1,.22,1);
+		@include mediaQuery(mobile) {
+			transform: translateX(100%);
+		}
+		@include mediaQuery {
+			height: 4.0625vw;
+			width: auto;
+			opacity: 1;
+			visibility: visible;
+			overflow: visible;
+			z-index: 5;
+		}           
 
-    &_wrap {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      min-height: 146.26667vw;
-      padding: 18vw 4vw 4vw;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      @include mediaQuery {
-        position: relative;
-        width: auto;
-        min-height: 0;
-        padding: 0;
-      }
-    }
+		&_wrap {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			min-height: 146.26667vw;
+			padding: 18vw 4vw 4vw;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			@include mediaQuery {
+				position: relative;
+				width: auto;
+				min-height: 0;
+				padding: 0;
+			}
+		}
 
-    &_nav {
-      position: relative;
-      width: 100%;
-      @include mediaQuery {
-        width: 4.75694vw;
-        background-color: #000;
-        padding: .41667vw;
-        position: absolute;
-        top: 5.41667vw;
-        right: 1.66667vw;
-      }
-      @include mediaQuery(mediumDesktop) {
-        width: 6.48649vw;
-      }
+		&_nav {
+			position: relative;
+			width: 100%;
+			@include mediaQuery {
+				width: 4.75694vw;
+				background-color: #000;
+				padding: .41667vw;
+				position: absolute;
+				top: 5.41667vw;
+				right: 1.66667vw;
+			}
+			@include mediaQuery(mediumDesktop) {
+				width: 6.48649vw;
+			}
 
-      > ul {
-        width: 100%;
-        > .buttonSquare {
-          border-top-width: 0;
-        }
-        > .buttonSquare:first-child {
-          border-width: .26667vw;
-          @include mediaQuery {
-            border-width: .06944vw;
-          }
-        }
-      }
-    }
+			> ul {
+				width: 100%;
+				> .buttonSquare {
+					border-top-width: 0;
+				}
+				> .buttonSquare:first-child {
+					border-width: .26667vw;
+					@include mediaQuery {
+						border-width: .06944vw;
+					}
+				}
+			}
+		}
 
-    &_sns {
-      position: relative;
-      width: 100%;
-      height: 14.66667vw;
-      @include mediaQuery(mobile) {
-        margin-top: 4vw;
-      }
-      @include mediaQuery {
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        width: auto;
-      }
-      
-      > ul {
-        display: flex;
-        height: 100%;
-        @include mediaQuery {
-          position: absolute;
-          right: 0;
-          top: 0;
-          background-color: #000;
-          width: 10.41667vw;
-          height: 100%;
-          padding-left: .41667vw;
-          padding-right: .41667vw;
-          align-items: center;
-        }
-        > .buttonSquare.mod-sns {
-          width: 33%;
-          border-right-width: 0;
-          @include mediaQuery {
-            width: 3.19444vw;
-            height: 3.19444vw;
-          }
-        }
-        > .buttonSquare.mod-sns:last-child {
-          border-width: .26667vw;
-          @include mediaQuery {
-            border-width: .06944vw;
-          }
-        }
-      }
-    }
-  }
+		&_sns {
+			position: relative;
+			width: 100%;
+			height: 14.66667vw;
+			@include mediaQuery(mobile) {
+				margin-top: 4vw;
+			}
+			@include mediaQuery {
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: 100%;
+				width: auto;
+			}
+			
+			> ul {
+				display: flex;
+				height: 100%;
+				@include mediaQuery {
+					position: absolute;
+					right: 0;
+					top: 0;
+					background-color: #000;
+					width: 10.41667vw;
+					height: 100%;
+					padding-left: .41667vw;
+					padding-right: .41667vw;
+					align-items: center;
+				}
+				> .buttonSquare.mod-sns {
+					width: 33%;
+					border-right-width: 0;
+					@include mediaQuery {
+						width: 3.19444vw;
+						height: 3.19444vw;
+					}
+				}
+				> .buttonSquare.mod-sns:last-child {
+					border-width: .26667vw;
+					@include mediaQuery {
+						border-width: .06944vw;
+					}
+				}
+			}
+		}
+	}
 
 /* ------------------
 		lp-main
 --------------------- */
-  main {
-    position: relative;
-    width: 100%;
-    padding-top: 12vw;
-    @include mediaQuery {
-      padding-top: 4.0625vw;
-    }
-  }
+	main {
+		position: relative;
+		width: 100%;
+		padding-top: 12vw;
+		@include mediaQuery {
+			padding-top: 4.0625vw;
+		}
+	}
 
 /* ------------------
 		lp-kv
 --------------------- */
-  .lp-kv { //動きを見てプロパティ追加
-    position: relative;
-    width: 100%;
-    max-width: 1600px;
-    padding-top: 14.933vw;
-    overflow: hidden;
-    @include mediaQuery {
-      height: 49.30556vw;
-      padding-top: 5.06944vw;
-    }
+	.lp-kv { //動きを見てプロパティ追加
+		position: relative;
+		width: 100%;
+		max-width: 1600px;
+		padding-top: 14.933vw;
+		overflow: hidden;
+		@include mediaQuery {
+			height: 49.30556vw;
+			padding-top: 5.06944vw;
+		}
 
-    &_characters {
-      position: relative;
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-      width: 542.93333vw;
-      height: 112.26667vw;
-      margin: auto;
-      backface-visibility: hidden;
-      @include mediaQuery {
-        width: 98.33333vw;
-        height: 40.69444vw;
-      }
-    }
+		&_characters {
+			position: relative;
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+			align-items: flex-start;
+			width: 542.93333vw;
+			height: 112.26667vw;
+			margin: auto;
+			backface-visibility: hidden;
+			@include mediaQuery {
+				width: 98.33333vw;
+				height: 40.69444vw;
+			}
+		}
 
-    .lp-character {
-      position: relative;
-      height: 100%;
-      width: 67.86667vw;
-      overflow: hidden;
-      &_inner {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        transition: transform .8s cubic-bezier(.19,1,.22,1);
-        transform: translateZ(0);
-        backface-visibility: hidden;
-      }
-      &_inner:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        transform: scaleY(1);
-        transition: transform .8s cubic-bezier(.19,1,.22,1),
-                    background-color .8s cubic-bezier(.19,1,.22,1);
-      }
-    }
+		.lp-character {
+			position: relative;
+			height: 100%;
+			width: 67.86667vw;
+			overflow: hidden;
+			&_inner {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50%;
+				transition: transform .8s cubic-bezier(.19,1,.22,1);
+				transform: translateZ(0);
+				backface-visibility: hidden;
+			}
+			&_inner:after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				transform: scaleY(1);
+				transition: transform .8s cubic-bezier(.19,1,.22,1),
+										background-color .8s cubic-bezier(.19,1,.22,1);
+			}
+		}
 
-    .mod-item1 {
-      background-color: #0e6cb2;
-      .lp-character_inner {
-        background-image: url('../../../data/hidari-kikino-eren/images/kv_img1.jpg');
-      }
-      .lp-character_inner:after {
-        background-color: #0e6cb2;
-        transform-origin: bottom center;
-      }
-    }
-    .mod-item2 {
-      background-color: #fe3c00;
-      .lp-character_inner {
-        background-image: url('../../../data/hidari-kikino-eren/images/kv_img2.jpg');
-      }
-      .lp-character_inner:after {
-        background-color: #fe3c00;
-        transform-origin: top center;
-      }
-    }
-    .mod-item3 {
-      background-color: #deff00;
-      .lp-character_inner {
-        background-image: url('../../../data/hidari-kikino-eren/images/kv_img3.jpg');
-      }
-      .lp-character_inner:after {
-        background-color: #deff00;
-        transform-origin: bottom center;
-      }
-    }
-    .mod-item4 {
-      background-color: #02d0d0;
-      .lp-character_inner {
-        background-image: url('../../../data/hidari-kikino-eren/images/kv_img4.jpg');
-      }
-      .lp-character_inner:after {
-        background-color: #02d0d0;
-        transform-origin: top center;
-      }
-    }
+		.mod-item1 {
+			background-color: #0e6cb2;
+			.lp-character_inner {
+				background-image: url('../../../data/hidari-kikino-eren/images/kv_img1.jpg');
+			}
+			.lp-character_inner:after {
+				background-color: #0e6cb2;
+				transform-origin: bottom center;
+			}
+		}
+		.mod-item2 {
+			background-color: #fe3c00;
+			.lp-character_inner {
+				background-image: url('../../../data/hidari-kikino-eren/images/kv_img2.jpg');
+			}
+			.lp-character_inner:after {
+				background-color: #fe3c00;
+				transform-origin: top center;
+			}
+		}
+		.mod-item3 {
+			background-color: #deff00;
+			.lp-character_inner {
+				background-image: url('../../../data/hidari-kikino-eren/images/kv_img3.jpg');
+			}
+			.lp-character_inner:after {
+				background-color: #deff00;
+				transform-origin: bottom center;
+			}
+		}
+		.mod-item4 {
+			background-color: #02d0d0;
+			.lp-character_inner {
+				background-image: url('../../../data/hidari-kikino-eren/images/kv_img4.jpg');
+			}
+			.lp-character_inner:after {
+				background-color: #02d0d0;
+				transform-origin: top center;
+			}
+		}
 
-    > h1 {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      @include mediaQuery {
-        left: 4.51389vw;
-      }
-    }
+		> h1 {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			transform: translateZ(0);
+			@include mediaQuery {
+				left: 4.51389vw;
+			}
+		}
 
-    &_title {
-      background-color: #000;
-      font-size: 6.933vw;
-      padding: .6em;
-      display: flex;
-      align-items: center;
-      @include mediaQuery {
-        font-size: 3.125vw;
-      }
-    }
+		&_title {
+			background-color: #000;
+			font-size: 6.933vw;
+			padding: .6em;
+			display: flex;
+			align-items: center;
+			backface-visibility: hidden;
+			@include mediaQuery {
+				font-size: 3.125vw;
+			}
+		}
 
-    &_name {
-      position: absolute;
-      width: 70vw;
-      height: 15.333vw;
-      top: 2.6667vw;
-      left: 2.6667vw;
-      @include mediaQuery {
-        width: 22.74306vw;
-        height: 5.20833vw;
-        top: auto;
-        bottom: 0;
-        left: auto;
-        right: 4.51389vw;
-      }
-    }
+		&_name {
+			position: absolute;
+			width: 70vw;
+			height: 15.333vw;
+			top: 2.6667vw;
+			left: 2.6667vw;
+			@include mediaQuery {
+				width: 22.74306vw;
+				height: 5.20833vw;
+				top: auto;
+				bottom: 0;
+				left: auto;
+				right: 4.51389vw;
+			}
+		}
 
-    .mod-title1 {
-      position: relative;
-      padding-bottom: 0;
-      transform-origin: top left;
-      transition: transform .6s cubic-bezier(.19,1,.22,1);
-      transform: scaleY(0);
-      transition-delay: .4s;
-      transition-duration: .2s;
-      &:after {
-        @include textFadeIN(scaleY(1));
-        transition-delay: .8s;
-      }
-    }
+		.mod-title1 {
+			position: relative;
+			padding-bottom: 0;
+			transform-origin: top left;
+			transition: transform .6s cubic-bezier(.19,1,.22,1);
+			transform: scaleY(0);
+			transition-delay: .4s;
+			transition-duration: .2s;
+			&:after {
+				@include textFadeIN(scaleY(1));
+				transition-delay: .8s;
+			}
+		}
 
-    .mod-title2 {
-      position: relative;
-      transform-origin: top left;
-      transition: transform .6s cubic-bezier(.19,1,.22,1);
-      transform: scaleX(0);
-      transition-delay: .6s;
-      &:after {
-        @include textFadeIN();
-        transition-delay: 1s;
-      }
-    }
+		.mod-title2 {
+			position: relative;
+			transform-origin: top left;
+			transition: transform .6s cubic-bezier(.19,1,.22,1);
+			transform: scaleX(0);
+			transition-delay: .6s;
+			&:after {
+				@include textFadeIN();
+				transition-delay: 1s;
+			}
+		}
 
-    .mod-title1 img {
-      width: 5.73333vw;
-      @include mediaQuery {
-        width: 2.53472vw;
-      }
-    }
-    .mod-title2 img {
-      height: 5.6vw;
-      width: auto;
-      @include mediaQuery {
-        height: 2.91667vw;
-      }
-    }
-  }
+		.mod-title1 img {
+			width: 5.73333vw;
+			@include mediaQuery {
+				width: 2.53472vw;
+			}
+		}
+		.mod-title2 img {
+			height: 5.6vw;
+			width: auto;
+			@include mediaQuery {
+				height: 2.91667vw;
+			}
+		}
+	}
 
 /* ------------------
 		lp-summery
 --------------------- */
-  .lp-summery {
-    position: relative;
-    width: 100%;
-    max-width: 1600px;
-    margin: 14.6667vw auto auto;
-    @include mediaQuery {
-      display: flex;
-      margin-top: 5.55556vw;
-      padding-top: 2.08333vw;
-      padding-left: 7.01389vw;
-      padding-right: 4.51389vw;
-    }
-    @include mediaQuery(mediumDesktop) {
-      display: block;
-    }
+	.lp-summery {
+		position: relative;
+		width: 100%;
+		max-width: 1600px;
+		margin: 14.6667vw auto auto;
+		@include mediaQuery {
+			display: flex;
+			margin-top: 5.55556vw;
+			padding-top: 2.08333vw;
+			padding-left: 7.01389vw;
+			padding-right: 4.51389vw;
+		}
+		@include mediaQuery(mediumDesktop) {
+			display: block;
+		}
 
-    &_heading {
-      position: relative;
-      background-color: #deff00;
-      background-image: url('../../../data/hidari-kikino-eren/images/summary_heading_bg.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 100vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      overflow: hidden;
-      @include mediaQuery {
-        width: 50%;
-        height: 28.19444vw;
-        overflow: visible;
-      }
-      @include mediaQuery(mediumDesktop) {
-        width: 100%;
-        height: 451.17117px;
-        background-image: url('../../../data/hidari-kikino-eren/images/summary_header_bg_l.jpg');
-        background-position: 50% 50%;
+		&_heading {
+			position: relative;
+			background-color: #deff00;
+			background-image: url('../../../data/hidari-kikino-eren/images/summary_heading_bg.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 100vw;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			overflow: hidden;
+			@include mediaQuery {
+				width: 50%;
+				height: 28.19444vw;
+				overflow: visible;
+			}
+			@include mediaQuery(mediumDesktop) {
+				width: 100%;
+				height: 451.17117px;
+				background-image: url('../../../data/hidari-kikino-eren/images/summary_header_bg_l.jpg');
+				background-position: 50% 50%;
 
-      }
-    }
+			}
+		}
 
-    &_headingInner {
-      position: relative;
-      z-index: 1;
-      left: 4vw;
-      @include mediaQuery {
-        left: -2.43056vw;
-      }
-      @include mediaQuery(mediumDesktop) {
-        left: 25.94595px;
-      }
-    }
+		&_headingInner {
+			position: relative;
+			z-index: 1;
+			left: 4vw;
+			@include mediaQuery {
+				left: -2.43056vw;
+			}
+			@include mediaQuery(mediumDesktop) {
+				left: 25.94595px;
+			}
+		}
 
-    &_title {
-      position: absolute;
-      top: -3.33333vw;
-      left: 4vw;
-      width: 9.73333vw;
-      background-color: #000;
-      padding: 3.2vw 2.66667vw;
-      z-index: 2;
-      @include mediaQuery {
-        padding: 1.25vw 1.04167vw;
-        top: -1.38889vw;
-        left: 1.38889vw;
-        width: 3.92361vw;
-      }
-      @include mediaQuery(mediumDesktop) {
-        padding: 1.94595vw 1.62162vw;
-        top: -2.16216vw;
-        left: 2.16216vw;
-        width: 6.10811vw;
-        display: flex;
-        justify-content: center;
-      }
+		&_title {
+			position: absolute;
+			top: -3.33333vw;
+			left: 4vw;
+			width: 9.73333vw;
+			background-color: #000;
+			padding: 3.2vw 2.66667vw;
+			z-index: 2;
+			transition: transform .6s cubic-bezier(.19,1,.22,1);
+			transform-origin: top left;
+			transform: scaleY(0);
+			backface-visibility: hidden;
+			@include mediaQuery {
+				padding: 1.25vw 1.04167vw;
+				top: -1.38889vw;
+				left: 1.38889vw;
+				width: 3.92361vw;
+			}
+			@include mediaQuery(mediumDesktop) {
+				padding: 1.94595vw 1.62162vw;
+				top: -2.16216vw;
+				left: 2.16216vw;
+				width: 6.10811vw;
+				display: flex;
+				justify-content: center;
+			}
+			&:after {
+				position: relative;
+				@include textFadeIN(scaleY(1));
+				transition: transform .6s cubic-bezier(.19,1,.22,1) .2s;
+				transform-origin: right bottom;
+			}
 
-      img {
-        display: block;
-        width: 3.86667vw;
-        @include mediaQuery {
-          width: 1.49306vw;
-        }
-        @include mediaQuery(mediumDesktop) {
-          width: 2.32432vw;
-        }
-      }
+			img {
+				display: block;
+				width: 3.86667vw;
+				@include mediaQuery {
+					width: 1.49306vw;
+				}
+				@include mediaQuery(mediumDesktop) {
+					width: 2.32432vw;
+				}
+			}
+		}
 
-      &:after {
-        position: relative;
-        @include textFadeIN(scaleY(1));
-      }
-    }
+		&_headingDesc {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			transform: translateZ(0);
+		}
 
-    &_headingDesc {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
+		&_descLine {
+			position: relative;
+			display: inline-block;
+			font-size: 2.93333vw;
+			font-weight: bold;
+			line-height: 1.8;
+			letter-spacing: .06em;
+			white-space: nowrap;
+			margin-top: -.04em;
+			padding: .4em .4em .4em 7.6em;
+			background-color: #deff00;
+			transform-origin: top left;
+			transition: transform .6s cubic-bezier(.19,1,.22,1);
+			transform: scaleX(0);
+			backface-visibility: hidden;
+			@include mediaQuery {
+				padding-left: 8em;
+				font-size: .90278vw;
+			}
+			@include mediaQuery(mediumDesktop) {
+				font-size: 1.40541vw;
+			}
+			&:after {
+				@include textFadeIN();
+				background-color: #deff00;
+			}
+		}
+		$type: 1;
+		$delay: 0.3;
+		$delayAfter: 0.5;
+		@while $type <= 10 {
+			.lp-summery_descLine:nth-of-type(#{$type}) {
+				transition-delay: #{$delay}s;
+				&:after {
+					transition-delay: #{$delayAfter}s;
+				}
+			}
+			$type: $type + 1;
+			$delay: $delay + 0.1;
+			$delayAfter: $delayAfter + 0.1;
+		}
 
-    &_descLine {
-      position: relative;
-      display: inline-block;
-      font-size: 2.93333vw;
-      font-weight: bold;
-      line-height: 1.8;
-      letter-spacing: .06em;
-      white-space: nowrap;
-      margin-top: -.04em;
-      padding: .4em .4em .4em 7.6em;
-      background-color: #deff00;
-      transform-origin: top left;
-      transform: scaleX(.9);
-      @include mediaQuery {
-        padding-left: 8em;
-        font-size: .90278vw;
-      }
-      @include mediaQuery(mediumDesktop) {
-        font-size: 1.40541vw;
-      }
+		&_relationship {
+			position: relative;
+			width: 100%;
+			@include mediaQuery {
+				width: 50%;
+				top: 2.70833vw;
+			}
+			@include mediaQuery(mediumDesktop) {
+				width: 100%;
+			}
+			
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				padding-top: 100%;
+				@include mediaQuery {
+					padding-top: 63.57928%;
+				}
+			}
 
-      &:after {
-        @include textFadeIN();
-      }
-    }
-
-    &_relationship {
-      position: relative;
-      width: 100%;
-      @include mediaQuery {
-        width: 50%;
-        top: 2.70833vw;
-      }
-      @include mediaQuery(mediumDesktop) {
-        width: 100%;
-      }
-      
-      &:before {
-        content: "";
-        display: block;
-        width: 100%;
-        padding-top: 100%;
-        @include mediaQuery {
-          padding-top: 63.57928%;
-        }
-      }
-
-      figure {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
+			figure {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
 
 /* ------------------
 		lp-story
 --------------------- */
-  .lp-story {
-    position: relative;
-    width: 100%;
-    margin-top: 13.33333vw;
-    padding-top: 5.33333vw;
-    @include mediaQuery {
-      margin-top: 9.375vw;
-      padding-top: 2.08333vw;
-    }
+	.lp-story {
+		position: relative;
+		width: 100%;
+		margin-top: 13.33333vw;
+		padding-top: 5.33333vw;
+		@include mediaQuery {
+			margin-top: 9.375vw;
+			padding-top: 2.08333vw;
+		}
 
-    &_inner {
-      background-image: url('../../../data/hidari-kikino-eren/images/story_pattern.jpg');
-      background-repeat: repeat;
-      background-position: 50%;
-      background-size: 360px 365px;
-      @include mediaQuery {
-        background-size: 720px 730px;
-      }
-    }
+		&_inner {
+			background-image: url('../../../data/hidari-kikino-eren/images/story_pattern.jpg');
+			background-repeat: repeat;
+			background-position: 50%;
+			background-size: 360px 365px;
+			@include mediaQuery {
+				background-size: 720px 730px;
+			}
+		}
 
-    &_tabs {
-      position: relative;
-      height: 19.45946vw;
-      @include mediaQuery {
-        height: 6.66667vw;
-      }
+		&_tabs {
+			position: relative;
+			height: 19.45946vw;
+			@include mediaQuery {
+				height: 6.66667vw;
+			}
 
-      &:before, &:after {
-        content: "";
-        height: 100%;
-        position: absolute;
-        background-color: #e50013;
-        border-color: #deff00;
-        border-width: .8vw;
-        border-bottom-style: solid;
-        box-sizing: inherit;
-        @include mediaQuery {
-          border-width: .20833vw;
-        }
-      }
-      &:before {
-        left: 0;
-      }
-      &:after {
-        right: 0;
-      }
-    }
+			&:before, &:after {
+				content: "";
+				height: 100%;
+				position: absolute;
+				background-color: #e50013;
+				border-color: #deff00;
+				border-width: .8vw;
+				border-bottom-style: solid;
+				box-sizing: inherit;
+				@include mediaQuery {
+					border-width: .20833vw;
+				}
+			}
+			&:before {
+				left: 0;
+			}
+			&:after {
+				right: 0;
+			}
+		}
 
-    &_tabs.mod-bottomTab {
-      &:before, &:after {
-        border-bottom: none;
-        border-top-style: solid;
-      }
+		&_tabs.mod-bottomTab {
+			&:before, &:after {
+				border-bottom: none;
+				border-top-style: solid;
+			}
 
-      > button {
-        border-top: none;
-        border-bottom-style: solid;
-      }
+			> button {
+				border-top: none;
+				border-bottom-style: solid;
+			}
 
-      > button:after {
-        top: 0;
-        bottom: auto;
-      }
+			> button:after {
+				top: 0;
+				bottom: auto;
+			}
 
-      .tab_inner {
-        border-style: none solid solid;
-      }
-    }
+			.tab_inner {
+				border-style: none solid solid;
+			}
+		}
 
-    &_tab {
-      position: absolute;
-      top: 0;
-      display: block;
-      width: 45.33333vw;
-      height: 100%;
-      background-color: #000;
-      padding: 1.2vw 1.2vw 0;
-      z-index: 2;
-      @include mediaQuery {
-        width: 44.44444vw;
-        padding: .41667vw .41667vw 0;
-        cursor: pointer;
-      }
-      &:hover {
-        @include mediaQuery(smallDesktop){
-          .tab_inner > span {
-            color: #e50013;
-          }
-        }
-      }
-      &:nth-child(1) {
-        left: 4vw;
-        @include mediaQuery { //tab切り替えのstyle
-          left: auto;
-          right: calc(50% + 1.04167vw);
-        }
-      }
-      &:nth-child(2) {
-        right: 4vw;
-        @include mediaQuery { //tab切り替えのstyle
-          right: auto;
-          left: calc(50% + 1.04167vw);
-        }
-      }
-      &:after {
-        content: "";
-        width: 100%;
-        position: absolute;
-        left: 0;
-        height: .8vw;
-        background-color: #deff00;
-        bottom: 0;
-        @include mediaQuery {
-          height: .20833vw;
-        }
-      }
-    }
-    &_tab.add-active {
-      background-color: transparent;
-      border-left-style: solid;
-      border-right-style: solid;
-      border-top-style: solid;
-      border-width: .8vw;
-      border-color: #deff00;
-      padding: 0;
-      pointer-events: none;
-      @include mediaQuery {
-        border-width: .20833vw;
-        cursor: default;
-      }
-      
-      &:after {
-        opacity: 0;
-      }
+		&_tab {
+			position: absolute;
+			top: 0;
+			display: block;
+			width: 45.33333vw;
+			height: 100%;
+			background-color: #000;
+			padding: 1.2vw 1.2vw 0;
+			z-index: 2;
+			@include mediaQuery {
+				width: 44.44444vw;
+				padding: .41667vw .41667vw 0;
+				cursor: pointer;
+			}
+			&:hover {
+				@include mediaQuery(smallDesktop){
+					.tab_inner > span {
+						color: #e50013;
+					}
+				}
+			}
+			&:nth-child(1) {
+				left: 4vw;
+				@include mediaQuery { //tab切り替えのstyle
+					left: auto;
+					right: calc(50% + 1.04167vw);
+				}
+			}
+			&:nth-child(2) {
+				right: 4vw;
+				@include mediaQuery { //tab切り替えのstyle
+					right: auto;
+					left: calc(50% + 1.04167vw);
+				}
+			}
+			&:after {
+				content: "";
+				width: 100%;
+				position: absolute;
+				left: 0;
+				height: .8vw;
+				background-color: #deff00;
+				bottom: 0;
+				@include mediaQuery {
+					height: .20833vw;
+				}
+			}
+		}
+		&_tab.is-active {
+			background-color: transparent;
+			border-left-style: solid;
+			border-right-style: solid;
+			border-top-style: solid;
+			border-width: .8vw;
+			border-color: #deff00;
+			padding: 0;
+			pointer-events: none;
+			@include mediaQuery {
+				border-width: .20833vw;
+				cursor: default;
+			}
+			
+			&:after {
+				opacity: 0;
+			}
 
-      .tab_inner {
-        border-color: transparent;
-        @include mediaQuery {
-          border-width: .06944vw;
-        }
-      }
+			.tab_inner {
+				border-color: transparent;
+				@include mediaQuery {
+					border-width: .06944vw;
+				}
+			}
 
-      .tab_inner span {
-        color: #deff00;
-      }
-    }
+			.tab_inner span {
+				color: #deff00;
+			}
+		}
 
-    &_tab.mod-bottomTab.add-active {
-      border-top: none;
-      border-bottom-style: solid;
+		&_tab.mod-bottomTab.is-active {
+			border-top: none;
+			border-bottom-style: solid;
 
-      .tab_inner {
-        border-style: none solid solid;
-      }
-    }
+			.tab_inner {
+				border-style: none solid solid;
+			}
+		}
 
-    &_label {
-      color: #fff;
-      font-size: 4.26667vw;
-      font-weight: 500;
-      letter-spacing: .14em;
-      white-space: nowrap;
-      @include mediaQuery {
-        font-size: 1.80556vw;
-      }
+		&_label {
+			color: #fff;
+			font-size: 4.26667vw;
+			font-weight: 500;
+			letter-spacing: .14em;
+			white-space: nowrap;
+			@include mediaQuery {
+				font-size: 1.80556vw;
+			}
 
-      > span {
-        font-size: 58%;
-        line-height: 1.4;
-        letter-spacing: .14em;
-        margin-top: .8em;
-      }
-    }
+			> span {
+				font-size: 58%;
+				line-height: 1.4;
+				letter-spacing: .14em;
+				margin-top: .8em;
+			}
+		}
 
-    &_wrap {
-      position: relative;
-    }
+		&_wrap {
+			position: relative;
+		}
 
-    &_pages {
-      margin: auto;
-      padding: 9.33333vw 4vw;
-      opacity: 0;
-      display: none;
-      &:after {
-        display: block;
-        font-size: 3.46667vw;
-        color: #fff;
-        text-align: center;
-        font-weight: 500;
-        transform: scale(.85);
-        letter-spacing: .14em;
-        line-height: 1.3;
-        margin-top: -.3em;
-        white-space: pre;
-      }
+		&_pages {
+			margin: auto;
+			padding: 9.33333vw 4vw;
+			opacity: 0;
+			display: none;
+			&:after {
+				display: block;
+				font-size: 3.46667vw;
+				color: #fff;
+				text-align: center;
+				font-weight: 500;
+				transform: scale(.85);
+				letter-spacing: .14em;
+				line-height: 1.3;
+				margin-top: -.3em;
+				white-space: pre;
+			}
 
-      li {
-        max-width: 640px;
-        position: relative;
-        margin: 0 auto 5.06667vw;
-      }
+			li {
+				max-width: 640px;
+				position: relative;
+				margin: 0 auto 5.06667vw;
+			}
 
-      li:before {
-        display: block;
-        content: "";
-        width: 100%;
-        padding-top: 141.40625%;
-        background-color: #fff;
-      }
+			li:before {
+				display: block;
+				content: "";
+				width: 100%;
+				padding-top: 141.40625%;
+				background-color: #fff;
+			}
 
-      img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-    }
+			img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+		}
 
-    &_pages.mod-prologue:after {
-      content: '※本作品は、2019年10月19日（土）に\A cakesにて掲載されたものになります。';
-      @include mediaQuery {
-        content: '※本作品は、2019年10月19日（土）にcakesにて掲載されたものになります。';
-        font-size: 1.62162vw;
-      }
-    }
+		&_pages.mod-prologue:after {
+			content: '※本作品は、2019年10月19日（土）に\A cakesにて掲載されたものになります。';
+			@include mediaQuery {
+				content: '※本作品は、2019年10月19日（土）にcakesにて掲載されたものになります。';
+				font-size: 1.62162vw;
+			}
+		}
 
-    &_pages.mod-main:after {
-      content: '※本作品は、2019年10月20日(日）に朝日新聞 全国朝刊にて掲載されたものになります。';
-      @include mediaQuery {
-        font-size: 1.62162vw;
-      }
-    }
+		&_pages.mod-main:after {
+			content: '※本作品は、2019年10月20日(日）に朝日新聞 全国朝刊にて掲載されたものになります。';
+			@include mediaQuery {
+				font-size: 1.62162vw;
+			}
+		}
 
-    &_pages.add-active {
-      display: block;
-      animation-name: show;
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
-      @keyframes show {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    }
-  }
-  .lp-story.add-prologue { //tab切り替えのstyle
-    .lp-story_tabs:before {
-      width: 4.26667vw;
-      @include mediaQuery {
-        width: auto;
-        right: calc(50% + 45.48611vw);
-        left: 0;
-      }
-    }
-    .lp-story_tabs:after { //tab切り替えのstyle
-      width: 50.66667vw;
-      @include mediaQuery {
-        width: auto;
-        left: calc(50% + -1.04167vw);
-        right: 0;
-      }
-    }
-  }
+		&_pages.is-active {
+			display: block;
+			animation-name: show;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+			@keyframes show {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.lp-story.is-prologue { //tab切り替えのstyle
+		.lp-story_tabs:before {
+			width: 4.26667vw;
+			@include mediaQuery {
+				width: auto;
+				right: calc(50% + 45.48611vw);
+				left: 0;
+			}
+		}
+		.lp-story_tabs:after { //tab切り替えのstyle
+			width: 50.66667vw;
+			@include mediaQuery {
+				width: auto;
+				left: calc(50% + -1.04167vw);
+				right: 0;
+			}
+		}
+	}
 
-  .lp-story.add-main { //tab切り替えのstyle
-    .lp-story_tabs:before {
-      width: 50.66667vw;
-      @include mediaQuery {
-        width: auto;
-        right: calc(50% + -1.04167vw);
-        left: 0;
-      }
-    }
-    .lp-story_tabs:after { //tab切り替えのstyle
-      width: 4vw;
-      @include mediaQuery {
-        width: auto;
-        left: calc(50% + 45.48611vw);
-        right: 0;
-      }
-    } 
-  }
+	.lp-story.is-main { //tab切り替えのstyle
+		.lp-story_tabs:before {
+			width: 50.66667vw;
+			@include mediaQuery {
+				width: auto;
+				right: calc(50% + -1.04167vw);
+				left: 0;
+			}
+		}
+		.lp-story_tabs:after { //tab切り替えのstyle
+			width: 4vw;
+			@include mediaQuery {
+				width: auto;
+				left: calc(50% + 45.48611vw);
+				right: 0;
+			}
+		} 
+	}
 
 /* ------------------
 		lp-result
 --------------------- */
-  .lp-result {
-    position: relative;
-    width: 100%;
-    max-width: 1455.55556px;
-    margin: 18.66667vw auto auto;
-    @include mediaQuery {
-      width: auto;
-      margin-left: 4.51389vw;
-      margin-right: 4.51389vw;
-      margin-top: 8.33333vw;
-    }
+	.lp-result {
+		position: relative;
+		width: 100%;
+		max-width: 1455.55556px;
+		margin: 18.66667vw auto auto;
+		@include mediaQuery {
+			width: auto;
+			margin-left: 4.51389vw;
+			margin-right: 4.51389vw;
+			margin-top: 8.33333vw;
+		}
 
-    &_bgWrap {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+		&_bgWrap {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
 
-    .bgItem {
-      position: relative;
-      width: 100%;
-      height: 50%;
+		.bgItem {
+			position: relative;
+			width: 100%;
+			height: 50%;
 
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-repeat: repeat-x;
-        background-size: 327.45725vw 57.86667vw;
-        @include mediaQuery {
-          background-size: 133.61111vw 23.61111vw;
-        }
-        @include mediaQuery(wideDesktop) {
-          background-size: 2137.77778px 377.77778px
-        }
-      }
-    }
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-repeat: repeat-x;
+				background-size: 327.45725vw 57.86667vw;
+				@include mediaQuery {
+					background-size: 133.61111vw 23.61111vw;
+				}
+				@include mediaQuery(wideDesktop) {
+					background-size: 2137.77778px 377.77778px
+				}
+			}
+		}
 
-    @keyframes moveBgRight {
-      0% {
-        background-position: 0;
-      }
-      100% {
-        background-position: 327.45725vw;
-      }
-    }
+		@keyframes moveBgRight {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: 327.45725vw;
+			}
+		}
 
-    @keyframes moveBgRightL {
-      0% {
-        background-position: 0;
-      }
-      100% {
-        background-position: 133.61111vw
-      }
-    }
+		@keyframes moveBgRightL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: 133.61111vw
+			}
+		}
 
-    @keyframes moveBgRightLL {
-      0% {
-        background-position: 0;
-      }
-      100% {
-        background-position: 2137.77778px;
-      }
-    }
+		@keyframes moveBgRightLL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: 2137.77778px;
+			}
+		}
 
-    @keyframes moveBgLeft {
-      0% {
-        background-position: 0;
-      }
-      100% {
-        background-position: -327.45725vw;
-      }
-    }
+		@keyframes moveBgLeft {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: -327.45725vw;
+			}
+		}
 
-    @keyframes moveBgLeftL {
-      0% {
-        background-position: 0;
-      }
-      100% {
-        background-position: -133.61111vw;
-      }
-    }
+		@keyframes moveBgLeftL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: -133.61111vw;
+			}
+		}
 
-    @keyframes moveBgLeftLL {
-      0% {
-        background-position: 0;
-      }
-      100% {
-        background-position: -2137.77778px;
-      }
-    }
+		@keyframes moveBgLeftLL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: -2137.77778px;
+			}
+		}
 
-    .mod-top {
-      background-color: #0e6cb2;
-      &:before {
-        background-image: url('../../../data/hidari-kikino-eren/images/result_bg1.jpg');
-        animation: moveBgRight 30s linear infinite;
-        @include mediaQuery {
-          animation: moveBgRightL 30s linear infinite;
-        }
-        @include mediaQuery(wideDesktop) {
-          animation: moveBgRightLL 30s linear infinite;
-        }
-      }
-    }
+		.mod-top {
+			background-color: #0e6cb2;
+			&:before {
+				background-image: url('../../../data/hidari-kikino-eren/images/result_bg1.jpg');
+				animation: moveBgRight 30s linear infinite;
+				@include mediaQuery {
+					animation: moveBgRightL 30s linear infinite;
+				}
+				@include mediaQuery(wideDesktop) {
+					animation: moveBgRightLL 30s linear infinite;
+				}
+			}
+		}
 
-    .mod-bottom {
-      background-color: #deff00;
-      &:before {
-        background-image: url('../../../data/hidari-kikino-eren/images/result_bg2.jpg');
-        animation: moveBgLeft 30s linear infinite;
-        @include mediaQuery {
-          animation: moveBgLeftL 30s linear infinite;
-        }
-        @include mediaQuery(wideDesktop) {
-          animation: moveBgLeftLL 30s linear infinite;
-        }
-      }
-    }
+		.mod-bottom {
+			background-color: #deff00;
+			&:before {
+				background-image: url('../../../data/hidari-kikino-eren/images/result_bg2.jpg');
+				animation: moveBgLeft 30s linear infinite;
+				@include mediaQuery {
+					animation: moveBgLeftL 30s linear infinite;
+				}
+				@include mediaQuery(wideDesktop) {
+					animation: moveBgLeftLL 30s linear infinite;
+				}
+			}
+		}
 
-    &_inner {
-      position: relative;
-      z-index: 3;
-      padding: 18.26667vw 4vw 25.33333vw;
-      @include mediaQuery {
-        padding: 9.96528vw 13.47222vw 10.17361vw;
-      }
-    }
+		&_inner {
+			position: relative;
+			z-index: 3;
+			padding: 18.26667vw 4vw 25.33333vw;
+			@include mediaQuery {
+				padding: 9.96528vw 13.47222vw 10.17361vw;
+			}
+		}
 
-    .lp-resultTitle {
-      display: flex;
-      z-index: 2;
-      margin-bottom: 4vw;
-      @include mediaQuery(mobile) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-      }
-      @include mediaQuery {
-        margin-bottom: 1.66667vw;
-      }
+		.lp-resultTitle {
+			display: flex;
+			z-index: 2;
+			margin-bottom: 4vw;
+			transform: translateZ(0);
+			@include mediaQuery(mobile) {
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+			}
+			@include mediaQuery {
+				margin-bottom: 1.66667vw;
+			}
 
-      &_inner {
-        height: 13.6vw;
-        margin-top: -.1em;
-        @include mediaQuery {
-          height: 5.45139vw;
-        }
-      }
-      &_inner img {
-        display: block;
-        height: 100%;
-        width: auto;
-      }
-      &_inner:after {
-        background-color:#e50013;
-      }
-    }
+			&_inner {
+				height: 13.6vw;
+				margin-top: -.1em;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transform-origin: top left;
+				transform: scaleX(0);
+				backface-visibility: hidden;
+				@include mediaQuery {
+					height: 5.45139vw;
+				}
+				&:after {
+					transition: transform .6s cubic-bezier(.19,1,.22,1);
+					transform-origin: right bottom;
+					transform: scaleX(1);
+				}
+				&:nth-of-type(1) {
+					transition-delay: .1s;
+					&:after {
+						transition-delay: .3s;
+					}
+				}
+				&:nth-of-type(2) {
+					transition-delay: .2s;
+					&:after {
+						transition-delay: .4s;
+					}
+				}
+			}
+			&_inner img {
+				display: block;
+				height: 100%;
+				width: auto;
+			}
+			&_inner:after {
+				background-color:#e50013;
+			}
+		}
 
-    .lp-resultDesc {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      margin-bottom: 9vw;
-      z-index: 2;
-      @include mediaQuery {
-        margin-bottom: 20.48611vw;
-      }
+		.lp-resultDesc {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			margin-bottom: 9vw;
+			z-index: 2;
+			@include mediaQuery {
+				margin-bottom: 20.48611vw;
+			}
 
-      &_line {
-        position: relative;
-        color: #fff;
-        background-color:#e50013;
-        font-size: 3.06667vw;
-        font-weight: bold;
-        font-feature-settings: "palt";
-        line-height: 1.8;
-        letter-spacing: .06em;
-        padding: .4em;
-        margin-top: -.04em;
-        transform: scaleX(0.9);
-        transform-origin: center left;
-        @include mediaQuery {
-          font-size: 1.86458vw;
-          line-height: 1.3;
-          padding: .1em .2em;
-          white-space: nowrap;
-        }
-      }
+			&_line {
+				position: relative;
+				color: #fff;
+				background-color:#e50013;
+				font-size: 3.06667vw;
+				font-weight: bold;
+				font-feature-settings: "palt";
+				line-height: 1.8;
+				letter-spacing: .06em;
+				padding: .4em;
+				margin-top: -.04em;
+				transform: scaleX(0);
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				backface-visibility: hidden;
+				@include mediaQuery {
+					font-size: 1.86458vw;
+					line-height: 1.3;
+					padding: .1em .2em;
+					white-space: nowrap;
+				}
+			}
 
-      &_line:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #e50013;
-        z-index: -1;
-        transform-origin: right bottom;
-      }
-    }
+			&_line:after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #e50013;
+				z-index: -1;
+				transform: scaleX(1);
+				transform-origin: right bottom;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+			}
+		}
 
-    .lp-resultLogo {
-      position: absolute;
-      width: 21.73333vw;
-      height: 24.66667vw;
-      top: 58vw;
-      right: 6.53333vw;
-      z-index: 4;
-      @include mediaQuery {
-        width: 14.58333vw;
-        height: 16.5625vw;
-        top: 26.66667vw;
-        right: 13.78472vw;
-      }
-    }
+		$type: 1;
+		$delay: 0.7;
+		$delayAfter: 0.9;
+		@while $type <= 5 {
+			.lp-resultDesc_line:nth-of-type(#{$type}) {
+				transition-delay: #{$delay}s;
+				&:after {
+					transition-delay: #{$delayAfter}s;
+				}
+			}
+			$type: $type + 1;
+			$delay: $delay + 0.1;
+			$delayAfter: $delayAfter + 0.1;
+		}
 
-    .lp-resultImg1, .lp-resultImg2 {
-      position: absolute;
-    }
+		.lp-resultLogo {
+			position: absolute;
+			width: 21.73333vw;
+			height: 24.66667vw;
+			top: 58vw;
+			right: 6.53333vw;
+			z-index: 4;
+			@include mediaQuery {
+				width: 14.58333vw;
+				height: 16.5625vw;
+				top: 26.66667vw;
+				right: 13.78472vw;
+			}
+		}
 
-    .lp-resultImg1 {
-      width: 40.4vw;
-      height: 27.86667vw;
-      bottom: 34.66667vw;
-      right: 7.46667vw;
-      transform: rotate(-3.5deg);
-      @include mediaQuery {
-        width: 22.04861vw;
-        height: 15.03472vw;
-        top: 27.77778vw;
-        left: 16.04167vw;
-        bottom: auto;
-        right: auto;
-      }
-    }
+		.lp-resultImg1, .lp-resultImg2 {
+			position: absolute;
+		}
 
-    .lp-resultImg2 {
-      width: 42vw;
-      height: 29.6vw;
-      bottom: 6.93333vw;
-      right: 5.73333vw;
-      @include mediaQuery {
-        width: 28.47222vw;
-        height: 20.3125vw;
-        top: 28.19444vw;
-        left: 37.98611vw;
-        bottom: auto;
-        right: auto;
-        transform: rotate(3deg);
-      }
-    }
+		.lp-resultImg1 {
+			width: 40.4vw;
+			height: 27.86667vw;
+			bottom: 34.66667vw;
+			right: 7.46667vw;
+			transform: rotate(-3.5deg);
+			@include mediaQuery {
+				width: 22.04861vw;
+				height: 15.03472vw;
+				top: 27.77778vw;
+				left: 16.04167vw;
+				bottom: auto;
+				right: auto;
+			}
+		}
 
-    .lp-resultDate {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      z-index: 2;
-      &_label {
-        background-color: #e50013;
-        position: relative;
-        height: 8.4vw;
-        z-index: inherit;
-        @include mediaQuery {
-          height: 5.10417vw;
-        }
-      }
+		.lp-resultImg2 {
+			width: 42vw;
+			height: 29.6vw;
+			bottom: 6.93333vw;
+			right: 5.73333vw;
+			@include mediaQuery {
+				width: 28.47222vw;
+				height: 20.3125vw;
+				top: 28.19444vw;
+				left: 37.98611vw;
+				bottom: auto;
+				right: auto;
+				transform: rotate(3deg);
+			}
+		}
 
-      &_day {
-        height: 13.6vw;
-        margin-top: -.1em;
-        z-index: inherit;
-        @include mediaQuery {
-          height: 9.58333vw
-        }
-      }
+		.lp-resultDate {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			z-index: 2;
+			transform: translateZ(0);
+			&_label {
+				background-color: #e50013;
+				position: relative;
+				height: 8.4vw;
+				z-index: inherit;
+				transform: scaleX(0);
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transition-delay: 1.7s;
+				backface-visibility: hidden;
+				@include mediaQuery {
+					height: 5.10417vw;
+				}
+				&:after {
+					transform: scaleX(1);
+					transform-origin: right bottom;
+					transition: transform .6s cubic-bezier(.19,1,.22,1);
+					transition-delay: 1.9s;
+				}
+			}
 
-      &_label img, &_day img {
-        display: block;
-        height: 100%;
-        width: auto;
-      }
-    }
-  }
+			&_day {
+				height: 13.6vw;
+				margin-top: -.1em;
+				z-index: inherit;
+				transform: scaleX(0);
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transition-delay: 1.8s;
+				backface-visibility: hidden;
+				@include mediaQuery {
+					height: 9.58333vw;
+				}
+				&:after {
+					transform: scaleX(1);
+					transform-origin: right bottom;
+					transition: transform .6s cubic-bezier(.19,1,.22,1);
+					transition-delay: 2s;
+				}
+			}
+
+			&_label img, &_day img {
+				display: block;
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
 }

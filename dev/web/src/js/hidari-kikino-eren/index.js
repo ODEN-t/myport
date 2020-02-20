@@ -3,6 +3,7 @@ $('.js-menuBtn').on('click', menuOpen);
 $('.js-tab').on('click',tabChange);
 $('.js-tab').on('click',smoothScroll);
 $(window).on('scroll', sticky);
+$(window).on('scroll', resultTextFadeIN);
 
 $.wait = function(ms) {
   var d = new $.Deferred;
@@ -52,7 +53,7 @@ var loading = {
   scalingFigures() {
     $.wait(2000)
     .then(function(ms){
-      $('.js-scaleItem, .js-loading').addClass('add-loaded');
+      $('.js-scaleItem, .js-loading').addClass('is-loaded');
       return $.wait(1200);
     })
     .done(function(ms){
@@ -100,37 +101,37 @@ var loop = {
         xAxis = resetPoint;
       }
       if(translateX > loopSteps.step2) {
-        if($('.js-charaList').hasClass('add-step1')) {
+        if($('.js-charaList').hasClass('is-step1')) {
           return false;
         } else {
-          $('.js-charaList').removeClass('add-step4').addClass('add-step1');
+          $('.js-charaList').removeClass('is-step4').addClass('is-step1');
           toggle();
           $.wait(800).done(function(){changeOrder();toggle();});
         }
       }
       if(loopSteps.step2 > translateX && translateX > loopSteps.step3) {
-        if($('.js-charaList').hasClass('add-step2')) {
+        if($('.js-charaList').hasClass('is-step2')) {
           return false;
         } else {
-          $('.js-charaList').removeClass('add-step1').addClass('add-step2');
+          $('.js-charaList').removeClass('is-step1').addClass('is-step2');
           toggle();
           $.wait(800).done(function(){changeOrder();toggle();});
         }
       }
       if(loopSteps.step3 > translateX && translateX > loopSteps.step4) {
-        if($('.js-charaList').hasClass('add-step3')) {
+        if($('.js-charaList').hasClass('is-step3')) {
           return false;
         } else {
-          $('.js-charaList').removeClass('add-step2').addClass('add-step3');
+          $('.js-charaList').removeClass('is-step2').addClass('is-step3');
           toggle();
           $.wait(800).done(function(){changeOrder();toggle();});
         }
       }
       if(loopSteps.step4 > translateX) {
-        if($('.js-charaList').hasClass('add-step4')) {
+        if($('.js-charaList').hasClass('is-step4')) {
           return false;
         } else {
-          $('.js-charaList').removeClass('add-step3').addClass('add-step4');
+          $('.js-charaList').removeClass('is-step3').addClass('is-step4');
           toggle();
           $.wait(800).done(function(){changeOrder();toggle();});
         }
@@ -144,7 +145,7 @@ $.wait(5000).then(function(){
   loop.execute();
 })
 
-console.log(loop.steps.step1,loop.steps.step2,loop.steps.step3,loop.steps.step4);
+
 // var str = 'transformX(-1330px)';
 // var str3 = str.replace(/[^-^0-9^\.]/g,"");
 // parseFloat(str3);
@@ -165,21 +166,21 @@ function setPosition(itemNum) {
 
 //menu開閉関数
 function menuOpen() {
-  $(this).toggleClass('add-open');
-  $('.js-menu').toggleClass('add-open');
+  $(this).toggleClass('is-open');
+  $('.js-menu').toggleClass('is-open');
 }
 
 //タブ切り替え関数
 function tabChange() {
   var index = $('.js-tab').index(this);
-  var switchFlag = !($('.js-pages').eq(index).hasClass('add-active'));
+  var switchFlag = !($('.js-pages').eq(index).hasClass('is-active'));
   if(switchFlag) {
-    $('.js-pages').toggleClass('add-active');
-    $('.js-tab').toggleClass('add-active');
+    $('.js-pages').toggleClass('is-active');
+    $('.js-tab').toggleClass('is-active');
   }
-  $('.lp-story').hasClass('add-prologue')
-  ?$('.lp-story').removeClass('add-prologue').addClass('add-main')
-  : $('.lp-story').removeClass('add-main').addClass('add-prologue');
+  $('.lp-story').hasClass('is-prologue')
+  ?$('.lp-story').removeClass('is-prologue').addClass('is-main')
+  : $('.lp-story').removeClass('is-main').addClass('is-prologue');
 }
 
 //スムーススクロール関数
@@ -192,8 +193,26 @@ function smoothScroll() {
 //sticky表示・非表示
 function sticky() {
   if($(this).scrollTop() > 1327) {
-    $('.js-header').addClass('add-hide');
+    $('.js-header').addClass('is-hide');
   } else {
-    $('.js-header').removeClass('add-hide');
+    $('.js-header').removeClass('is-hide');
   }
 }
+
+//テキストフェードイン
+function resultTextFadeIN() {
+	var targetArea = 18.26667 * $(window).width() / 100 + 51; // padding + elementHeight
+	var targetOffsetTop = $('.js-result').offset().top - $(window).height() + targetArea;
+	if($(window).scrollTop() >=  targetOffsetTop) {
+		$('.js-result').addClass('is-onScreen');
+	}
+}
+
+// $(window).on('scroll', function(){
+//   console.log($(this).scrollTop());
+// })
+
+// $(window).on('load', function(){ 
+//   var targetArea = 18.26667 * $(window).width() / 100 + 51; // padding + elementHeight
+//   console.log($('.js-result').offset().top - $(window).height() + targetArea);
+// })
