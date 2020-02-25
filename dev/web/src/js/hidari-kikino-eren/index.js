@@ -1,10 +1,3 @@
-// menu開閉,タブ切り替え,タブクリック時のスクロール
-$('.js-menuBtn').on('click', menuOpen);
-$('.js-tab').on('click',tabChange);
-$('.js-tab').on('click',smoothScroll);
-$(window).on('scroll', sticky);
-$(window).on('scroll', resultTextFadeIN);
-
 $.wait = function(ms) {
   var d = new $.Deferred;
   setTimeout(function(){
@@ -12,7 +5,6 @@ $.wait = function(ms) {
   }, ms);
   return d.promise();
 };
-
 
 var loading = {
   moveInit() {
@@ -57,19 +49,17 @@ var loading = {
       return $.wait(1200);
     })
     .done(function(ms){
-      $('.js-kv, .lp-summery_heading').addClass('is-onScreen');
+      $('.js-kv').addClass('is-onScreen');
     })
   },
   run() {
     this.progressGauge(),
     this.moveInit(),
-    this.scalingFigures(), // 3200ms + 800ms(amimation) + 1000ms(textFadeIN) 
-    $('html,body').animate({ scrollTop: 0 }, '1')//リロード時画面トップへ移動
+    this.scalingFigures() // 3200ms + 800ms(amimation) + 1000ms(textFadeIN) 
   }
 };
 
-
-//KVキャラ入れ替え
+//KVループ・キャラ入れ替え
 var loop = {
   termPosition: {
     start: setPosition(2),
@@ -140,21 +130,6 @@ var loop = {
   }
 }
 
-loading.run()
-$.wait(5000).then(function(){
-  loop.execute();
-})
-
-
-// var str = 'transformX(-1330px)';
-// var str3 = str.replace(/[^-^0-9^\.]/g,"");
-// parseFloat(str3);
-// console.log(str3);
-
-
-
-
-
 //中央に設置したキャラまでの距離を算出する関数
 function setPosition(itemNum) {
   var $itemList = $('.js-charaList');
@@ -200,19 +175,32 @@ function sticky() {
 }
 
 //テキストフェードイン
-function resultTextFadeIN() {
-	var targetArea = 18.26667 * $(window).width() / 100 + 51; // padding + elementHeight
-	var targetOffsetTop = $('.js-result').offset().top - $(window).height() + targetArea;
-	if($(window).scrollTop() >=  targetOffsetTop) {
-		$('.js-result').addClass('is-onScreen');
-	}
-}
+$(window).on('scroll', function(e){
+  var targetOffset = [];
+  var targets = $('.js-fadeIn');
+  $('.js-fadeIn').each(function() {
+    targetOffset.push($(this).offset().top);
+  })
+  
+  for(var i = 0; i < targets.length; i++) {
+    if($(window).scrollTop() > targetOffset[i] - $(window).height() + 200) {
+      $(targets[i]).addClass('is-onScreen');
+    }
+    if($(targets[targets.length-1]).hasClass('is-onScreen')) { 
+      $(this).off(e); //全てaddClassを終えたらfunction解除
+    }
+  }
+});
 
-// $(window).on('scroll', function(){
-//   console.log($(this).scrollTop());
-// })
 
-// $(window).on('load', function(){ 
-//   var targetArea = 18.26667 * $(window).width() / 100 + 51; // padding + elementHeight
-//   console.log($('.js-result').offset().top - $(window).height() + targetArea);
-// })
+// menu開閉,タブ切り替え,タブクリック時のスクロール
+$('.js-menuBtn').on('click', menuOpen);
+$('.js-tab').on('click',tabChange);
+$('.js-tab').on('click',smoothScroll);
+// $('html,body').animate({ scrollTop: 0 }, '0');//リロード時画面トップへ移動
+$(window).on('scroll', sticky);
+
+loading.run();
+$.wait(5000).then(function(){
+  loop.execute();
+})
