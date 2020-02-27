@@ -50,6 +50,7 @@ var loading = {
     })
     .done(function(ms){
       $('.js-kv').addClass('is-onScreen');
+      textFadeIn();
     })
   },
   run() {
@@ -175,22 +176,29 @@ function sticky() {
 }
 
 //テキストフェードイン
-$(window).on('scroll', function(e){
-  var targetOffset = [];
-  var targets = $('.js-fadeIn');
-  $('.js-fadeIn').each(function() {
-    targetOffset.push($(this).offset().top);
-  })
-  
-  for(var i = 0; i < targets.length; i++) {
-    if($(window).scrollTop() > targetOffset[i] - $(window).height() + 200) {
-      $(targets[i]).addClass('is-onScreen');
-    }
-    if($(targets[targets.length-1]).hasClass('is-onScreen')) { 
-      $(this).off(e); //全てaddClassを終えたらfunction解除
-    }
+function textFadeIn() {
+  var targets = document.querySelectorAll('.js-fadeIn'); 
+  var observer;
+  var options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2
+  };
+
+  function addWhenIntersect(entries) {
+    entries.forEach(function(entry) {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('is-onScreen');
+        observer.unobserve(entry.target); //add後、監視停止
+      }
+    })
   }
-});
+
+  observer = new IntersectionObserver(addWhenIntersect, options);
+  targets.forEach(function(target){
+    observer.observe(target);
+  })
+}
 
 
 // menu開閉,タブ切り替え,タブクリック時のスクロール
@@ -202,5 +210,11 @@ $(window).on('scroll', sticky);
 
 loading.run();
 $.wait(5000).then(function(){
-  loop.execute();
+  textFadeIn();
+  if(window.matchMedia('screen and (max-width: 799px)').matches) {
+    loop.execute();
+  } else {
+    console.log(9);
+    
+  }
 })

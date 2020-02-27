@@ -1217,6 +1217,8 @@ input, select {
         transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
         background-color: #000;
         background-color: #deff00; }
+    .hidarikikinoEren .lp-summery_descLine.mod-aiueo　 {
+      display: none !important; }
     .hidarikikinoEren .lp-summery .lp-summery_descLine:nth-of-type(1) {
       -webkit-transition-delay: 0.3s;
       transition-delay: 0.3s; }

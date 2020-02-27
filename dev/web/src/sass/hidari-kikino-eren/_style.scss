@@ -724,6 +724,11 @@
 				background-color: #deff00;
 			}
 		}
+
+		&_descLine.mod-aiueo　{
+			display: none !important;
+		}
+
 		$type: 1;
 		$delay: 0.3;
 		$delayAfter: 0.5;
