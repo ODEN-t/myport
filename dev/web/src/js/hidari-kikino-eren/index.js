@@ -205,7 +205,7 @@ function textFadeIn() {
 $('.js-menuBtn').on('click', menuOpen);
 $('.js-tab').on('click',tabChange);
 $('.js-tab').on('click',smoothScroll);
-// $('html,body').animate({ scrollTop: 0 }, '0');//リロード時画面トップへ移動
+$('html,body').animate({ scrollTop: 0 }, '0');//リロード時画面トップへ移動
 $(window).on('scroll', sticky);
 
 loading.run();

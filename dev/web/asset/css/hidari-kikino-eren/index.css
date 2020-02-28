@@ -1217,8 +1217,6 @@ input, select {
         transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
         background-color: #000;
         background-color: #deff00; }
-    .hidarikikinoEren .lp-summery_descLine.mod-aiueo　 {
-      display: none !important; }
     .hidarikikinoEren .lp-summery .lp-summery_descLine:nth-of-type(1) {
       -webkit-transition-delay: 0.3s;
       transition-delay: 0.3s; }
@@ -1279,6 +1277,12 @@ input, select {
       .hidarikikinoEren .lp-summery .lp-summery_descLine:nth-of-type(10):after {
         -webkit-transition-delay: 1.4s;
         transition-delay: 1.4s; }
+    .hidarikikinoEren .lp-summery .lp-summery_descLine:last-of-type {
+      -webkit-transition-delay: 1.1s;
+      transition-delay: 1.1s; }
+      .hidarikikinoEren .lp-summery .lp-summery_descLine:last-of-type:after {
+        -webkit-transition-delay: 1.3s;
+        transition-delay: 1.3s; }
     .hidarikikinoEren .lp-summery_relationship {
       position: relative;
       width: 100%; }
@@ -1740,6 +1744,28 @@ input, select {
           .hidarikikinoEren .lp-result .lp-resultTitle_inner:nth-of-type(2):after {
             -webkit-transition-delay: .4s;
             transition-delay: .4s; }
+        .hidarikikinoEren .lp-result .lp-resultTitle_inner:last-of-type {
+          -webkit-transition-delay: 0.1s !important;
+          transition-delay: 0.1s !important; }
+          .hidarikikinoEren .lp-result .lp-resultTitle_inner:last-of-type:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+            -webkit-transform-origin: right bottom;
+            transform-origin: right bottom;
+            -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+            transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+            background-color: #000;
+            background-color: #e50013;
+            -webkit-transition-delay: 0.3s !important;
+            transition-delay: 0.3s !important; }
       .hidarikikinoEren .lp-result .lp-resultTitle_inner img {
         display: block;
         height: 100%;
@@ -1795,22 +1821,22 @@ input, select {
             padding: .1em .2em;
             white-space: nowrap; } }
       .hidarikikinoEren .lp-result .lp-resultDesc_line:after {
-        content: "";
         position: absolute;
         left: 0;
         top: 0;
+        content: "";
         width: 100%;
         height: 100%;
-        background-color: #e50013;
-        z-index: -1;
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
         -webkit-transform-origin: right bottom;
         transform-origin: right bottom;
-        -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+        -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+        transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+        background-color: #000;
+        background-color: #e50013; }
     .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(1) {
       -webkit-transition-delay: 0.7s;
       transition-delay: 0.7s; }
@@ -1841,6 +1867,24 @@ input, select {
       .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(5):after {
         -webkit-transition-delay: 1.3s;
         transition-delay: 1.3s; }
+    .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(6) {
+      -webkit-transition-delay: 0.5s;
+      transition-delay: 0.5s; }
+      .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(6):after {
+        -webkit-transition-delay: 0.7s;
+        transition-delay: 0.7s; }
+    .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(7) {
+      -webkit-transition-delay: 0.6s;
+      transition-delay: 0.6s; }
+      .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(7):after {
+        -webkit-transition-delay: 0.8s;
+        transition-delay: 0.8s; }
+    .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(8) {
+      -webkit-transition-delay: 0.7s;
+      transition-delay: 0.7s; }
+      .hidarikikinoEren .lp-result .lp-resultDesc_line:nth-of-type(8):after {
+        -webkit-transition-delay: 0.9s;
+        transition-delay: 0.9s; }
     .hidarikikinoEren .lp-result .lp-resultLogo {
       position: absolute;
       width: 21.73333vw;
@@ -1922,18 +1966,32 @@ input, select {
         backface-visibility: hidden; }
         @media screen and (min-width: 800px) {
           .hidarikikinoEren .lp-result .lp-resultDate_label {
-            height: 5.10417vw; } }
+            height: 5.10417vw;
+            -webkit-transition-delay: 1.3s;
+            transition-delay: 1.3s; } }
         .hidarikikinoEren .lp-result .lp-resultDate_label:after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          content: "";
+          width: 100%;
+          height: 100%;
           -webkit-transform: scaleX(1);
           transform: scaleX(1);
           -webkit-transform-origin: right bottom;
           transform-origin: right bottom;
-          -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+          -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          background-color: #000;
           -webkit-transition-delay: 1.9s;
-          transition-delay: 1.9s; }
+          transition-delay: 1.9s;
+          background-color: #e50013; }
+          @media screen and (min-width: 800px) {
+            .hidarikikinoEren .lp-result .lp-resultDate_label:after {
+              -webkit-transition-delay: 1.5s;
+              transition-delay: 1.5s; } }
       .hidarikikinoEren .lp-result .lp-resultDate_day {
         height: 13.6vw;
         margin-top: -.1em;
@@ -1952,18 +2010,32 @@ input, select {
         backface-visibility: hidden; }
         @media screen and (min-width: 800px) {
           .hidarikikinoEren .lp-result .lp-resultDate_day {
-            height: 9.58333vw; } }
+            height: 9.58333vw;
+            -webkit-transition-delay: 1.4s;
+            transition-delay: 1.4s; } }
         .hidarikikinoEren .lp-result .lp-resultDate_day:after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          content: "";
+          width: 100%;
+          height: 100%;
           -webkit-transform: scaleX(1);
           transform: scaleX(1);
           -webkit-transform-origin: right bottom;
           transform-origin: right bottom;
-          -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-          -webkit-transition-delay: 2s;
-          transition-delay: 2s; }
+          -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+          background-color: #000;
+          -webkit-transition-delay: 1.9s;
+          transition-delay: 1.9s;
+          background-color: #e50013; }
+          @media screen and (min-width: 800px) {
+            .hidarikikinoEren .lp-result .lp-resultDate_day:after {
+              -webkit-transition-delay: 1.6s;
+              transition-delay: 1.6s; } }
       .hidarikikinoEren .lp-result .lp-resultDate_label img, .hidarikikinoEren .lp-result .lp-resultDate_day img {
         display: block;
         height: 100%;
@@ -2058,10 +2130,17 @@ input, select {
     -webkit-transform: scaleX(0);
     transform: scaleX(0); }
 
-.hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultTitle_inner, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDesc_line, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_label, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_day {
+.hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultTitle_inner, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_label, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_day {
   -webkit-transform: scaleX(1);
   transform: scaleX(1); }
-  .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultTitle_inner:after, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDesc_line:after, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_label:after, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_day:after {
+  .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultTitle_inner:after, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_label:after, .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDate_day:after {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0); }
+
+.hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDesc_line {
+  -webkit-transform: scaleX(0.9);
+  transform: scaleX(0.9); }
+  .hidarikikinoEren .lp-result_inner.is-onScreen .lp-resultDesc_line:after {
     -webkit-transform: scaleX(0);
     transform: scaleX(0); }
 

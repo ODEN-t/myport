@@ -94,8 +94,14 @@
   }
 
   .lp-result_inner.is-onScreen {
-    .lp-resultTitle_inner, .lp-resultDesc_line, .lp-resultDate_label, .lp-resultDate_day {
+    .lp-resultTitle_inner, .lp-resultDate_label, .lp-resultDate_day {
       transform: scaleX(1);
+      &:after {
+        transform: scaleX(0);
+      }
+    }
+    .lp-resultDesc_line {
+      transform: scaleX(.9);
       &:after {
         transform: scaleX(0);
       }
