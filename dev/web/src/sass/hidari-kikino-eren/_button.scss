@@ -271,6 +271,9 @@
         }
       }
     }
+    @include mediaQuery(wideDesktop) {
+      border-width: 1.11111px;
+    }
 
     
 
@@ -307,6 +310,11 @@
         left: .69444vw;
         width: 1.38889vw;
         height: .79861vw;
+      }
+      @include mediaQuery(wideDesktop) {
+        left: 11.11111px;
+        width: 22.22222px;
+        height: 12.77778px;
       }
     }
   }

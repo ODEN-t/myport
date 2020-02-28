@@ -40,6 +40,11 @@
 				width: 98.33333vw;
 				height: 40.69444vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				top: 146.11111px;
+				width: 1573.33333px;
+				height: 651.11111px;
+			}
 		}
 
 		&_text {
@@ -58,6 +63,10 @@
 				transform: translateY(400%);
 				width: 7.43056vw;
 				height: .69444vw;
+			}
+			@include mediaQuery(wideDesktop) {
+				width: 118.88889px;
+				height: 11.11111px;
 			}
 		}
 	}
@@ -94,6 +103,9 @@
 				transition-delay: 0s;
 				transform: scaleY(.006);
 			}
+			@include mediaQuery {
+				order: 1;
+			}
 		}
 		.mod-item2 {
 			order: 3;
@@ -106,9 +118,36 @@
 				transition-delay: .2s;
 				transform: scaleY(0);
 			}
+			@include mediaQuery {
+				order: 2;
+				transform: scaleX(0);
+				&:before {
+					transform: scaleY(.005);
+					transition-delay: .1s;
+				}
+			}
 		}
 		.mod-item3 {
-			display: none;
+			@include mediaQuery(mobile) {
+				display: none;
+			}
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: #deff00;
+				transition-delay: .2s;
+				transform: scaleY(0);
+			}
+			@include mediaQuery {
+				order: 3;
+				transform: scaleX(0);
+				&:before {
+					transform: scaleY(.005);
+					transition-delay: .2s;
+				}
+			}
 		}
 		.mod-item4 {
 			order: 1;
@@ -120,6 +159,14 @@
 				background-color: #02d0d0;
 				transition-delay: .2s;
 				transform: scaleY(0);
+			}
+			@include mediaQuery {
+				order: 4;
+				transform: scaleX(0);
+				&:before {
+					transform: scaleY(.005);
+					transition-delay: .3s;
+				}
 			}
 		}
 	}
@@ -143,6 +190,9 @@
 		@include mediaQuery {
 			height: 4.0625vw;
 		}
+		@include mediaQuery(wideDesktop) {
+			height: 65px;
+		}
 	}
 	
 	.lp-headerTicker {
@@ -155,6 +205,11 @@
 		@include mediaQuery {
 			background-size: 16.80556vw 4.0625vw;
 			animation: headerMovingL 6s linear infinite;
+		}
+
+		@include mediaQuery(wideDesktop) {
+			background-size: 268.88889px 65px;
+			animation: headerMovingLL 6s linear infinite;
 		}
 		@keyframes headerMovingS {
 			0% {
@@ -400,6 +455,9 @@
 		@include mediaQuery {
 			padding-top: 4.0625vw;
 		}
+		@include mediaQuery(wideDesktop) {
+			padding-top: 65px;
+		}
 	}
 
 /* ------------------
@@ -411,9 +469,16 @@
 		max-width: 1600px;
 		padding-top: 14.933vw;
 		overflow: hidden;
+		margin: auto;
+		backface-visibility: hidden;
+		transform: translateZ(0);
 		@include mediaQuery {
 			height: 49.30556vw;
 			padding-top: 5.06944vw;
+		}
+		@include mediaQuery(wideDesktop) {
+			height: 788.88889px;
+			padding-top: 81.11111px;
 		}
 
 		&_characters {
@@ -426,9 +491,14 @@
 			height: 112.26667vw;
 			margin: auto;
 			backface-visibility: hidden;
+			transform: translateZ(0);
 			@include mediaQuery {
 				width: 98.33333vw;
 				height: 40.69444vw;
+			}
+			@include mediaQuery(wideDesktop) {
+				width: 1573.33333px;
+				height: 651.11111px;
 			}
 		}
 
@@ -437,6 +507,9 @@
 			height: 100%;
 			width: 67.86667vw;
 			overflow: hidden;
+			@include mediaQuery {
+				width: 25%;
+			}
 			&_inner {
 				position: absolute;
 				left: 0;
@@ -515,6 +588,9 @@
 			@include mediaQuery {
 				left: 4.51389vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				left: 72.22222px;
+			}
 		}
 
 		&_title {
@@ -526,6 +602,9 @@
 			backface-visibility: hidden;
 			@include mediaQuery {
 				font-size: 3.125vw;
+			}
+			@include mediaQuery(wideDesktop) {
+				font-size: 50px;
 			}
 		}
 
@@ -542,6 +621,11 @@
 				bottom: 0;
 				left: auto;
 				right: 4.51389vw;
+			}
+			@include mediaQuery(wideDesktop) {
+				width: 363.88889px;
+				height: 83.33333px;
+				right: 72.22222px;
 			}
 		}
 
@@ -576,12 +660,18 @@
 			@include mediaQuery {
 				width: 2.53472vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				width: 40.55556px;
+			}
 		}
 		.mod-title2 img {
 			height: 5.6vw;
 			width: auto;
 			@include mediaQuery {
 				height: 2.91667vw;
+			}
+			@include mediaQuery(wideDesktop) {
+				height: 46.66667px;
 			}
 		}
 	}
@@ -603,6 +693,12 @@
 		}
 		@include mediaQuery(mediumDesktop) {
 			display: block;
+		}
+		@include mediaQuery(wideDesktop) {
+			margin-top: 88.88889px;
+			padding-top: 33.33333px;
+			padding-left: 112.22222px;
+			padding-right: 72.22222px;
 		}
 
 		&_heading {
@@ -628,7 +724,9 @@
 				height: 451.17117px;
 				background-image: url('../../../data/hidari-kikino-eren/images/summary_header_bg_l.jpg');
 				background-position: 50% 50%;
-
+			}
+			@include mediaQuery(wideDesktop) {
+				height: 451.11111px;
 			}
 		}
 
@@ -641,6 +739,9 @@
 			}
 			@include mediaQuery(mediumDesktop) {
 				left: 25.94595px;
+			}
+			@include mediaQuery(wideDesktop) {
+				left: -38.88889px;
 			}
 		}
 
@@ -669,6 +770,12 @@
 				width: 6.10811vw;
 				display: flex;
 				justify-content: center;
+			}
+			@include mediaQuery(wideDesktop) {
+				padding: 20px 16.66667px;
+				top: -22.22222px;
+				left: 22.22222px;
+				width: 62.77778px;
 			}
 			&:after {
 				position: relative;
@@ -719,6 +826,9 @@
 			@include mediaQuery(mediumDesktop) {
 				font-size: 1.40541vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				font-size: 14.44444px;
+			}
 			&:after {
 				@include textFadeIN();
 				background-color: #deff00;
@@ -757,6 +867,9 @@
 			@include mediaQuery(mediumDesktop) {
 				width: 100%;
 			}
+			@include mediaQuery(wideDesktop) {
+				top: 43.33333px;
+			}
 			
 			&:before {
 				content: "";
@@ -791,6 +904,11 @@
 			margin-top: 9.375vw;
 			padding-top: 2.08333vw;
 		}
+		@include mediaQuery(wideDesktop) {
+			font-size: 34.44444px;
+			margin-top: 150px;
+			padding-top: 33.33333px;
+		}
 
 		&_inner {
 			background-image: url('../../../data/hidari-kikino-eren/images/story_pattern.jpg');
@@ -808,6 +926,9 @@
 			@include mediaQuery {
 				height: 6.66667vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				height: 106.66667px;
+			}
 
 			&:before, &:after {
 				content: "";
@@ -820,6 +941,9 @@
 				box-sizing: inherit;
 				@include mediaQuery {
 					border-width: .20833vw;
+				}
+				@include mediaQuery(wideDesktop) {
+					border-width: 3.33333px;
 				}
 			}
 			&:before {
@@ -865,6 +989,10 @@
 				padding: .41667vw .41667vw 0;
 				cursor: pointer;
 			}
+			@include mediaQuery(wideDesktop) {
+				width: 711.11111px;
+				padding: 6.66667px 6.66667px 0;
+			}
 			&:hover {
 				@include mediaQuery(smallDesktop){
 					.tab_inner > span {
@@ -878,12 +1006,18 @@
 					left: auto;
 					right: calc(50% + 1.04167vw);
 				}
+				@include mediaQuery(wideDesktop) {
+					right: calc(50% + 16.66667px);
+				}
 			}
 			&:nth-child(2) {
 				right: 4vw;
 				@include mediaQuery { //tab切り替えのstyle
 					right: auto;
 					left: calc(50% + 1.04167vw);
+				}
+				@include mediaQuery(wideDesktop) {
+					left: calc(50% + 16.66667px);
 				}
 			}
 			&:after {
@@ -896,6 +1030,9 @@
 				bottom: 0;
 				@include mediaQuery {
 					height: .20833vw;
+				}
+				@include mediaQuery(wideDesktop) {
+					height: 3.33333px;
 				}
 			}
 		}
@@ -912,6 +1049,9 @@
 				border-width: .20833vw;
 				cursor: default;
 			}
+			@include mediaQuery(wideDesktop) {
+				border-width: 3.33333px;
+			}
 			
 			&:after {
 				opacity: 0;
@@ -921,6 +1061,9 @@
 				border-color: transparent;
 				@include mediaQuery {
 					border-width: .06944vw;
+				}
+				@include mediaQuery(wideDesktop) {
+					border-width: 1.11111px;
 				}
 			}
 
@@ -946,6 +1089,9 @@
 			white-space: nowrap;
 			@include mediaQuery {
 				font-size: 1.80556vw;
+			}
+			@include mediaQuery(wideDesktop) {
+				font-size: 28.88889px;
 			}
 
 			> span {
@@ -1040,6 +1186,9 @@
 				right: calc(50% + 45.48611vw);
 				left: 0;
 			}
+			@include mediaQuery(wideDesktop) {
+				right: calc(50% + 727.77778px);
+			}
 		}
 		.lp-story_tabs:after { //tab切り替えのstyle
 			width: 50.66667vw;
@@ -1047,6 +1196,9 @@
 				width: auto;
 				left: calc(50% + -1.04167vw);
 				right: 0;
+			}
+			@include mediaQuery(wideDesktop) {
+				left: calc(50% + -16.66667px);
 			}
 		}
 	}
@@ -1059,6 +1211,9 @@
 				right: calc(50% + -1.04167vw);
 				left: 0;
 			}
+			@include mediaQuery(wideDesktop) {
+				right: calc(50% + -16.66667px);
+			}
 		}
 		.lp-story_tabs:after { //tab切り替えのstyle
 			width: 4vw;
@@ -1066,6 +1221,9 @@
 				width: auto;
 				left: calc(50% + 45.48611vw);
 				right: 0;
+			}
+			@include mediaQuery(wideDesktop) {
+				left: calc(50% + 727.77778px);
 			}
 		} 
 	}

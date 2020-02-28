@@ -1,3 +1,7 @@
+window.addEventListener('beforeunload', function() {
+  window.scrollTo(0, 0);
+}); 
+
 $.wait = function(ms) {
   var d = new $.Deferred;
   setTimeout(function(){
@@ -5,6 +9,7 @@ $.wait = function(ms) {
   }, ms);
   return d.promise();
 };
+
 
 var loading = {
   moveInit() {
@@ -17,12 +22,12 @@ var loading = {
     var originImageSrc = [];
     var numberOfImages = $('img').length;
     var divideScale = 1 / numberOfImages;
-    var $guage = $('.js-progressGauge');
+    var $guage = $('.js-scaleItem');
     var scaleX = 0;
     var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
     var toCenter =  center - $('.js-loadingWrap').offset().top;
     
-    // opening ゲージをセンターへ移動
+      
     $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
     
     //全imgのsrcを空にしてoriginImageSrcに退避
@@ -34,7 +39,9 @@ var loading = {
     //imgをロードする毎にscaleXの数値を加算
     $images.on('load', function(){
       scaleX += divideScale;
-      $guage.css('transform','scaleX(' + scaleX + ')');
+      $guage.each(function(){
+        $(this).css('transform','scaleX(' + scaleX + ')');
+      })
     })
   
     //全imgのsrcを代入
@@ -205,7 +212,7 @@ function textFadeIn() {
 $('.js-menuBtn').on('click', menuOpen);
 $('.js-tab').on('click',tabChange);
 $('.js-tab').on('click',smoothScroll);
-$('html,body').animate({ scrollTop: 0 }, '0');//リロード時画面トップへ移動
+// $('html,body').animate({ scrollTop: 0 }, '0');//リロード時画面トップへ移動
 $(window).on('scroll', sticky);
 
 loading.run();
@@ -213,8 +220,7 @@ $.wait(5000).then(function(){
   textFadeIn();
   if(window.matchMedia('screen and (max-width: 799px)').matches) {
     loop.execute();
-  } else {
-    console.log(9);
-    
   }
 })
+
+
