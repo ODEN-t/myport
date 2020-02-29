@@ -120,6 +120,9 @@ input, select {
   @media screen and (min-width: 800px) and (max-width: 1100px) {
     .buttonSquare {
       height: 12.10811vw; } }
+  @media screen and (min-width: 1600px) {
+    .buttonSquare {
+      border-width: 1.11111px; } }
   .buttonSquare:before, .buttonSquare:after {
     position: absolute;
     content: '';
@@ -202,6 +205,9 @@ input, select {
       @media screen and (min-width: 800px) and (max-width: 1100px) {
         .buttonSquare_inner > span {
           font-size: 1.40541vw; } }
+      @media screen and (min-width: 1600px) {
+        .buttonSquare_inner > span {
+          font-size: 14.44444px; } }
     .buttonSquare_inner > svg {
       position: absolute;
       top: 0;
@@ -256,6 +262,10 @@ input, select {
         display: block;
         width: 1.45833vw;
         height: 1.45833vw; } }
+    @media screen and (min-width: 1600px) {
+      .buttonSquare.mod-sns svg {
+        width: 23.33333px;
+        height: 23.33333px; } }
   .buttonSquare.mod-sns .buttonSquare_inner:hover > svg {
     fill: #e50013; }
   @media screen and (min-width: 800px) {
@@ -792,6 +802,9 @@ input, select {
         visibility: visible;
         overflow: visible;
         z-index: 5; } }
+    @media screen and (min-width: 1600px) {
+      .hidarikikinoEren .lp-menu {
+        height: 65px; } }
     .hidarikikinoEren .lp-menu_wrap {
       position: absolute;
       width: 100%;
@@ -828,6 +841,12 @@ input, select {
       @media screen and (min-width: 800px) and (max-width: 1100px) {
         .hidarikikinoEren .lp-menu_nav {
           width: 6.48649vw; } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-menu_nav {
+          width: 76.11111px;
+          padding: 6.66667px;
+          top: 86.66667px;
+          right: 26.66667px; } }
       .hidarikikinoEren .lp-menu_nav > ul {
         width: 100%; }
         .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare {
@@ -869,6 +888,11 @@ input, select {
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center; } }
+        @media screen and (min-width: 1600px) {
+          .hidarikikinoEren .lp-menu_sns > ul {
+            width: 166.66667px;
+            padding-left: 6.66667px;
+            padding-right: 6.66667px; } }
         .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns {
           width: 33%;
           border-right-width: 0; }
@@ -876,6 +900,10 @@ input, select {
             .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns {
               width: 3.19444vw;
               height: 3.19444vw; } }
+          @media screen and (min-width: 1600px) {
+            .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns {
+              width: 51.11111px;
+              height: 51.11111px; } }
         .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns:last-child {
           border-width: .26667vw; }
           @media screen and (min-width: 800px) {
@@ -1446,6 +1474,16 @@ input, select {
         left: 0;
         width: 100%;
         height: 100%; }
+      .hidarikikinoEren .lp-summery_relationship .buttonSquare {
+        width: 6.10811vw;
+        height: 6.10811vw;
+        bottom: .64865vw;
+        right: .64865vw;
+        position: absolute; }
+        .hidarikikinoEren .lp-summery_relationship .buttonSquare img {
+          display: block;
+          width: 2.64865vw;
+          height: 2.75676vw; }
   .hidarikikinoEren .lp-story {
     position: relative;
     width: 100%;
@@ -1729,6 +1767,11 @@ input, select {
         margin-left: 4.51389vw;
         margin-right: 4.51389vw;
         margin-top: 8.33333vw; } }
+    @media screen and (min-width: 1600px) {
+      .hidarikikinoEren .lp-result {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 133.33333px; } }
     .hidarikikinoEren .lp-result_bgWrap {
       position: absolute;
       left: 0;
@@ -1868,6 +1911,9 @@ input, select {
       @media screen and (min-width: 800px) {
         .hidarikikinoEren .lp-result_inner {
           padding: 9.96528vw 13.47222vw 10.17361vw; } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-result_inner {
+          padding: 159.44444px 215.55556px 162.77778px; } }
     .hidarikikinoEren .lp-result .lp-resultTitle {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1891,6 +1937,9 @@ input, select {
       @media screen and (min-width: 800px) {
         .hidarikikinoEren .lp-result .lp-resultTitle {
           margin-bottom: 1.66667vw; } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-result .lp-resultTitle {
+          margin-bottom: 26.66667px; } }
       .hidarikikinoEren .lp-result .lp-resultTitle_inner {
         height: 13.6vw;
         margin-top: -.1em;
@@ -1907,6 +1956,9 @@ input, select {
         @media screen and (min-width: 800px) {
           .hidarikikinoEren .lp-result .lp-resultTitle_inner {
             height: 5.45139vw; } }
+        @media screen and (min-width: 1600px) {
+          .hidarikikinoEren .lp-result .lp-resultTitle_inner {
+            height: 87.22222px; } }
         .hidarikikinoEren .lp-result .lp-resultTitle_inner:after {
           -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
           transition: -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
@@ -1976,6 +2028,9 @@ input, select {
       @media screen and (min-width: 800px) {
         .hidarikikinoEren .lp-result .lp-resultDesc {
           margin-bottom: 20.48611vw; } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-result .lp-resultDesc {
+          margin-bottom: 327.77778px; } }
       .hidarikikinoEren .lp-result .lp-resultDesc_line {
         position: relative;
         color: #fff;
@@ -2004,6 +2059,9 @@ input, select {
             line-height: 1.3;
             padding: .1em .2em;
             white-space: nowrap; } }
+        @media screen and (min-width: 1600px) {
+          .hidarikikinoEren .lp-result .lp-resultDesc_line {
+            font-size: 29.83333px; } }
       .hidarikikinoEren .lp-result .lp-resultDesc_line:after {
         position: absolute;
         left: 0;
@@ -2082,6 +2140,12 @@ input, select {
           height: 16.5625vw;
           top: 26.66667vw;
           right: 13.78472vw; } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-result .lp-resultLogo {
+          width: 233.33333px;
+          height: 265px;
+          top: 426.66667px;
+          right: 220.55556px; } }
     .hidarikikinoEren .lp-result .lp-resultImg1, .hidarikikinoEren .lp-result .lp-resultImg2 {
       position: absolute; }
     .hidarikikinoEren .lp-result .lp-resultImg1 {
@@ -2099,6 +2163,12 @@ input, select {
           left: 16.04167vw;
           bottom: auto;
           right: auto; } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-result .lp-resultImg1 {
+          width: 352.77778px;
+          height: 240.55556px;
+          top: 444.44444px;
+          left: 256.66667px; } }
     .hidarikikinoEren .lp-result .lp-resultImg2 {
       width: 42vw;
       height: 29.6vw;
@@ -2114,6 +2184,12 @@ input, select {
           right: auto;
           -webkit-transform: rotate(3deg);
           transform: rotate(3deg); } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-result .lp-resultImg2 {
+          width: 455.55556px;
+          height: 325px;
+          top: 451.11111px;
+          left: 607.77778px; } }
     .hidarikikinoEren .lp-result .lp-resultDate {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -2153,6 +2229,9 @@ input, select {
             height: 5.10417vw;
             -webkit-transition-delay: 1.3s;
             transition-delay: 1.3s; } }
+        @media screen and (min-width: 1600px) {
+          .hidarikikinoEren .lp-result .lp-resultDate_label {
+            height: 81.66667px; } }
         .hidarikikinoEren .lp-result .lp-resultDate_label:after {
           position: absolute;
           left: 0;
@@ -2197,6 +2276,9 @@ input, select {
             height: 9.58333vw;
             -webkit-transition-delay: 1.4s;
             transition-delay: 1.4s; } }
+        @media screen and (min-width: 1600px) {
+          .hidarikikinoEren .lp-result .lp-resultDate_day {
+            height: 153.33333px; } }
         .hidarikikinoEren .lp-result .lp-resultDate_day:after {
           position: absolute;
           left: 0;
@@ -2224,6 +2306,84 @@ input, select {
         display: block;
         height: 100%;
         width: auto; }
+
+.lp-modal {
+  position: fixed;
+  width: 100%;
+  z-index: 51;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  margin: auto; }
+  .lp-modal .buttonSquare {
+    position: fixed;
+    width: 6.73611vw;
+    height: 6.73611vw;
+    z-index: 50;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    border: none; }
+  .lp-modal .lp-modalContents {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    background-color: #fff; }
+    .lp-modal .lp-modalContents:after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      border: .10417vw solid #fff; }
+    .lp-modal .lp-modalContents_title {
+      position: absolute;
+      top: -1.25vw;
+      left: 1.38889vw;
+      padding: 1.25vw 1.04167vw;
+      overflow: hidden;
+      background-color: #deff00;
+      color: #000; }
+    .lp-modal .lp-modalContents_titleInner {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
+      .lp-modal .lp-modalContents_titleInner img {
+        width: 1.77083vw; }
+    .lp-modal .lp-modalContents .lp-modalContentsInner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff; }
+      .lp-modal .lp-modalContents .lp-modalContentsInner img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: block; }
+
+.lp-modalBg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  background-color: #e50013;
+  opacity: 1;
+  z-index: 50;
+  -webkit-transition: visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
+  transition: visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1) 0.4s; }
 
 .hidarikikinoEren .lp-loading.is-loaded {
   opacity: 0;

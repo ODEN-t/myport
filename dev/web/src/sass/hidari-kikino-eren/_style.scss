@@ -350,8 +350,10 @@
 			visibility: visible;
 			overflow: visible;
 			z-index: 5;
-		}           
-
+		}
+		@include mediaQuery(wideDesktop) {
+			height: 65px;
+		}
 		&_wrap {
 			position: absolute;
 			width: 100%;
@@ -382,6 +384,12 @@
 			}
 			@include mediaQuery(mediumDesktop) {
 				width: 6.48649vw;
+			}
+			@include mediaQuery(wideDesktop) {
+				width: 76.11111px;
+				padding: 6.66667px;
+				top: 86.66667px;
+				right: 26.66667px;
 			}
 
 			> ul {
@@ -427,12 +435,21 @@
 					padding-right: .41667vw;
 					align-items: center;
 				}
+				@include mediaQuery(wideDesktop) {
+					width: 166.66667px;
+					padding-left: 6.66667px;
+					padding-right: 6.66667px;
+				}
 				> .buttonSquare.mod-sns {
 					width: 33%;
 					border-right-width: 0;
 					@include mediaQuery {
 						width: 3.19444vw;
 						height: 3.19444vw;
+					}
+					@include mediaQuery(wideDesktop) {
+						width: 51.11111px;
+						height: 51.11111px;
 					}
 				}
 				> .buttonSquare.mod-sns:last-child {
@@ -888,6 +905,20 @@
 				width: 100%;
 				height: 100%;
 			}
+
+			.buttonSquare {
+				width: 6.10811vw;
+				height: 6.10811vw;
+				bottom: .64865vw;
+				right: .64865vw;
+				position: absolute;
+
+				img {
+					display: block;
+					width: 2.64865vw;
+					height: 2.75676vw;
+				}
+			}
 		}
 	}
 
@@ -1242,6 +1273,11 @@
 			margin-right: 4.51389vw;
 			margin-top: 8.33333vw;
 		}
+		@include mediaQuery(wideDesktop) {
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 133.33333px;
+		}
 
 		&_bgWrap {
 			position: absolute;
@@ -1365,6 +1401,9 @@
 			@include mediaQuery {
 				padding: 9.96528vw 13.47222vw 10.17361vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				padding: 159.44444px 215.55556px 162.77778px;
+			}
 		}
 
 		.lp-resultTitle {
@@ -1380,6 +1419,9 @@
 			@include mediaQuery {
 				margin-bottom: 1.66667vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				margin-bottom: 26.66667px;
+			}
 
 			&_inner {
 				height: 13.6vw;
@@ -1390,6 +1432,9 @@
 				backface-visibility: hidden;
 				@include mediaQuery {
 					height: 5.45139vw;
+				}
+				@include mediaQuery(wideDesktop) {
+					height: 87.22222px;
 				}
 				&:after {
 					transition: transform .6s cubic-bezier(.19,1,.22,1);
@@ -1438,6 +1483,9 @@
 			@include mediaQuery {
 				margin-bottom: 20.48611vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				margin-bottom: 327.77778px;
+			}
 
 			&_line {
 				position: relative;
@@ -1459,6 +1507,9 @@
 					line-height: 1.3;
 					padding: .1em .2em;
 					white-space: nowrap;
+				}
+				@include mediaQuery(wideDesktop) {
+					font-size: 29.83333px;
 				}
 			}
 
@@ -1511,6 +1562,12 @@
 				top: 26.66667vw;
 				right: 13.78472vw;
 			}
+			@include mediaQuery(wideDesktop) {
+				width: 233.33333px;
+				height: 265px;
+				top: 426.66667px;
+				right: 220.55556px;
+			}
 		}
 
 		.lp-resultImg1, .lp-resultImg2 {
@@ -1531,6 +1588,12 @@
 				bottom: auto;
 				right: auto;
 			}
+			@include mediaQuery(wideDesktop) {
+				width: 352.77778px;
+				height: 240.55556px;
+				top: 444.44444px;
+				left: 256.66667px;
+			}
 		}
 
 		.lp-resultImg2 {
@@ -1546,6 +1609,12 @@
 				bottom: auto;
 				right: auto;
 				transform: rotate(3deg);
+			}
+			@include mediaQuery(wideDesktop) {
+				width: 455.55556px;
+				height: 325px;
+				top: 451.11111px;
+				left: 607.77778px;
 			}
 		}
 
@@ -1570,6 +1639,9 @@
 					height: 5.10417vw;
 					transition-delay: 1.3s;
 				}
+				@include mediaQuery(wideDesktop) {
+					height: 81.66667px;
+				}
 				&:after {
 					@include textFadeIN;
 					transition-delay: 1.9s;
@@ -1593,6 +1665,9 @@
 					height: 9.58333vw;
 					transition-delay: 1.4s;
 				}
+				@include mediaQuery(wideDesktop) {
+					height: 153.33333px;
+				}
 				&:after {
 					@include textFadeIN;
 					transition-delay: 1.9s;
@@ -1610,4 +1685,97 @@
 			}
 		}
 	}
+}
+
+.lp-modal {
+	position: fixed;
+	width: 100%;
+	z-index: 51;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	margin: auto;
+
+	.buttonSquare {
+		position: fixed;
+    width: 6.73611vw;
+    height: 6.73611vw;
+    z-index: 50;
+		cursor: pointer;
+		right: 0;
+    top: 0;
+    border: none;
+	}
+
+	.lp-modalContents {
+		position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+		background-color: #fff;
+		&:after {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+			border: .10417vw solid #fff;
+		}
+		
+		&_title {
+			position: absolute;
+			top: -1.25vw;
+			left: 1.38889vw;
+			padding: 1.25vw 1.04167vw;
+			overflow: hidden;
+			background-color: #deff00;
+			color: #000;
+		}
+
+		&_titleInner {
+			transform: translateZ(0);
+			backface-visibility: hidden;
+
+			img {
+				width: 1.77083vw;
+			}
+		}
+
+		.lp-modalContentsInner {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+
+			img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+		}
+	}
+}
+.lp-modalBg {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: multiply;
+	background-color: #e50013;
+	opacity: 1;
+	z-index: 50;
+	transition: visibility .4s cubic-bezier(.19,1,.22,1),
+							opacity .4s cubic-bezier(.19,1,.22,1),
+							z-index 0s cubic-bezier(.19,1,.22,1) .4s;
 }

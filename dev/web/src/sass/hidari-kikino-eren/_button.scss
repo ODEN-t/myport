@@ -16,6 +16,9 @@
   @include mediaQuery(mediumDesktop) {
     height: 12.10811vw;
   }
+  @include mediaQuery(wideDesktop) {
+    border-width: 1.11111px;
+  }
 
   &:before, &:after {
     position: absolute;
@@ -85,6 +88,9 @@
       }
       @include mediaQuery(mediumDesktop) {
         font-size: 1.40541vw;
+      }
+      @include mediaQuery(wideDesktop) {
+        font-size: 14.44444px;
       }
     }
 
@@ -162,6 +168,10 @@
       display: block;
       width: 1.45833vw;
       height: 1.45833vw;
+    }
+    @include mediaQuery(wideDesktop) {
+      width: 23.33333px;
+      height: 23.33333px;
     }
   }
 
