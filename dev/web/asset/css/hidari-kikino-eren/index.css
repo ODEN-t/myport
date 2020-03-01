@@ -120,9 +120,6 @@ input, select {
   @media screen and (min-width: 800px) and (max-width: 1100px) {
     .buttonSquare {
       height: 12.10811vw; } }
-  @media screen and (min-width: 1600px) {
-    .buttonSquare {
-      border-width: 1.11111px; } }
   .buttonSquare:before, .buttonSquare:after {
     position: absolute;
     content: '';
@@ -205,9 +202,6 @@ input, select {
       @media screen and (min-width: 800px) and (max-width: 1100px) {
         .buttonSquare_inner > span {
           font-size: 1.40541vw; } }
-      @media screen and (min-width: 1600px) {
-        .buttonSquare_inner > span {
-          font-size: 14.44444px; } }
     .buttonSquare_inner > svg {
       position: absolute;
       top: 0;
@@ -262,10 +256,6 @@ input, select {
         display: block;
         width: 1.45833vw;
         height: 1.45833vw; } }
-    @media screen and (min-width: 1600px) {
-      .buttonSquare.mod-sns svg {
-        width: 23.33333px;
-        height: 23.33333px; } }
   .buttonSquare.mod-sns .buttonSquare_inner:hover > svg {
     fill: #e50013; }
   @media screen and (min-width: 800px) {
@@ -371,9 +361,6 @@ input, select {
         .tab_inner:hover:before, .tab_inner:hover:after {
           -webkit-transform: scaleX(1);
           transform: scaleX(1); } }
-    @media screen and (min-width: 1600px) {
-      .tab_inner {
-        border-width: 1.11111px; } }
     .tab_inner > span {
       color: #fff;
       -webkit-transform: scaleX(0.85);
@@ -409,11 +396,157 @@ input, select {
           left: .69444vw;
           width: 1.38889vw;
           height: .79861vw; } }
-      @media screen and (min-width: 1600px) {
-        .tab_inner > svg {
-          left: 11.11111px;
-          width: 22.22222px;
-          height: 12.77778px; } }
+
+/************************************************/
+.btn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: solid .26667vw #fff;
+  border-width: .26667vw;
+  background-color: #000;
+  overflow: hidden;
+  cursor: pointer; }
+  @media screen and (min-width: 800px) {
+    .btn {
+      border: solid .06944vw #fff;
+      border-width: .06944vw; } }
+  .btn:before, .btn:after {
+    position: absolute;
+    content: '';
+    display: block;
+    background-color: #02d0d0;
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 0; }
+  .btn_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 2; }
+  .btn:hover .btn_label {
+    color: #e50013;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s; }
+  .btn:hover .btn_icon {
+    fill: #e50013;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s; }
+  .btn span {
+    position: relative;
+    color: #fff;
+    font-size: 5.06667vw;
+    letter-spacing: .16em;
+    text-indent: .16em;
+    -webkit-transition: color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transform: scaleX(0.85);
+    transform: scaleX(0.85);
+    z-index: 2; }
+    @media screen and (min-width: 800px) {
+      .btn span {
+        font-size: .90278vw; } }
+    @media screen and (min-width: 800px) and (max-width: 1100px) {
+      .btn span {
+        font-size: 1.40541vw; } }
+  .btn svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 6.93333vw;
+    height: 6.93333vw;
+    fill: #fff;
+    margin: auto;
+    z-index: 2; }
+    @media screen and (min-width: 800px) {
+      .btn svg {
+        display: block;
+        width: 1.45833vw;
+        height: 1.45833vw; } }
+
+@media screen and (min-width: 800px) {
+  .btn.mod-vText .btn_inner > span {
+    -webkit-writing-mode: vertical-rl !important;
+    -ms-writing-mode: tb-rl !important;
+    writing-mode: vertical-rl !important;
+    text-align: center !important;
+    letter-spacing: .2em !important;
+    text-indent: .2em !important; } }
+
+.btn.mod-leftNext_inner > svg {
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: 3.2vw;
+  width: 5.33333vw;
+  height: 3.06667vw;
+  fill: #e50013;
+  margin: auto;
+  display: block;
+  z-index: 2; }
+  @media screen and (min-width: 800px) {
+    .btn.mod-leftNext_inner > svg {
+      display: none; } }
+
+.btn.mod-animeH:before, .btn.mod-animeH:after {
+  width: 101%;
+  height: 51%;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0); }
+
+.btn.mod-animeH:before {
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left; }
+
+.btn.mod-animeH:after {
+  top: auto;
+  bottom: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right; }
+
+.btn.mod-animeH:hover:before, .btn.mod-animeH:hover:after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1); }
+
+.btn.mod-animeV:before, .btn.mod-animeV:after {
+  width: 51%;
+  height: 102%;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top center;
+  transform-origin: top center;
+  top: 0;
+  left: 0; }
+
+.btn.mod-animeV:after {
+  -webkit-transform-origin: bottom center;
+  transform-origin: bottom center;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto; }
+
+.btn.mod-animeV:hover:before, .btn.mod-animeV:hover:after {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1); }
 
 .hidarikikinoEren {
   position: relative;
@@ -829,7 +962,8 @@ input, select {
           padding: 0; } }
     .hidarikikinoEren .lp-menu_nav {
       position: relative;
-      width: 100%; }
+      width: 100%;
+      z-index: 1; }
       @media screen and (min-width: 800px) {
         .hidarikikinoEren .lp-menu_nav {
           width: 4.75694vw;
@@ -849,17 +983,43 @@ input, select {
           right: 26.66667px; } }
       .hidarikikinoEren .lp-menu_nav > ul {
         width: 100%; }
-        .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare {
+        .hidarikikinoEren .lp-menu_nav > ul > .btn {
+          height: 26.4vw;
           border-top-width: 0; }
-        .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare:first-child {
+          @media screen and (min-width: 800px) {
+            .hidarikikinoEren .lp-menu_nav > ul > .btn {
+              height: 12.10811vw; } }
+          .hidarikikinoEren .lp-menu_nav > ul > .btn svg {
+            width: 5.33333vw;
+            height: 3.06667vw;
+            left: 3.2vw;
+            right: auto;
+            fill: #e50013; }
+            @media screen and (min-width: 800px) {
+              .hidarikikinoEren .lp-menu_nav > ul > .btn svg {
+                display: none; } }
+        .hidarikikinoEren .lp-menu_nav > ul > .btn:first-child {
           border-width: .26667vw; }
           @media screen and (min-width: 800px) {
-            .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare:first-child {
+            .hidarikikinoEren .lp-menu_nav > ul > .btn:first-child {
               border-width: .06944vw; } }
+      .hidarikikinoEren .lp-menu_nav .mod-vote {
+        background-color: #02d0d0; }
+        .hidarikikinoEren .lp-menu_nav .mod-vote span {
+          color: #e50013; }
+        .hidarikikinoEren .lp-menu_nav .mod-vote:before, .hidarikikinoEren .lp-menu_nav .mod-vote:after {
+          background-color: #e50013; }
+        .hidarikikinoEren .lp-menu_nav .mod-vote:hover .btn_label {
+          color: #02d0d0; }
+        .hidarikikinoEren .lp-menu_nav .mod-vote:hover .btn_icon {
+          fill: #02d0d0; }
     .hidarikikinoEren .lp-menu_sns {
       position: relative;
       width: 100%;
-      height: 14.66667vw; }
+      height: 14.66667vw;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
       @media screen and (max-width: 799px) {
         .hidarikikinoEren .lp-menu_sns {
           margin-top: 4vw; } }
@@ -868,47 +1028,35 @@ input, select {
           position: absolute;
           right: 0;
           top: 0;
+          background-color: #000;
+          width: 10.41667vw;
           height: 100%;
-          width: auto; } }
-      .hidarikikinoEren .lp-menu_sns > ul {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        height: 100%; }
+          padding-left: .41667vw;
+          padding-right: .41667vw;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center; } }
+      @media screen and (min-width: 1600px) {
+        .hidarikikinoEren .lp-menu_sns {
+          width: 166.66667px;
+          padding-left: 6.66667px;
+          padding-right: 6.66667px; } }
+      .hidarikikinoEren .lp-menu_sns > .btn {
+        width: 33%;
+        border-right-width: 0; }
         @media screen and (min-width: 800px) {
-          .hidarikikinoEren .lp-menu_sns > ul {
-            position: absolute;
-            right: 0;
-            top: 0;
-            background-color: #000;
-            width: 10.41667vw;
-            height: 100%;
-            padding-left: .41667vw;
-            padding-right: .41667vw;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center; } }
+          .hidarikikinoEren .lp-menu_sns > .btn {
+            width: 3.19444vw;
+            height: 3.19444vw; } }
         @media screen and (min-width: 1600px) {
-          .hidarikikinoEren .lp-menu_sns > ul {
-            width: 166.66667px;
-            padding-left: 6.66667px;
-            padding-right: 6.66667px; } }
-        .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns {
-          width: 33%;
-          border-right-width: 0; }
-          @media screen and (min-width: 800px) {
-            .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns {
-              width: 3.19444vw;
-              height: 3.19444vw; } }
-          @media screen and (min-width: 1600px) {
-            .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns {
-              width: 51.11111px;
-              height: 51.11111px; } }
-        .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns:last-child {
-          border-width: .26667vw; }
-          @media screen and (min-width: 800px) {
-            .hidarikikinoEren .lp-menu_sns > ul > .buttonSquare.mod-sns:last-child {
-              border-width: .06944vw; } }
+          .hidarikikinoEren .lp-menu_sns > .btn {
+            width: 51.11111px;
+            height: 51.11111px; } }
+      .hidarikikinoEren .lp-menu_sns > .btn:last-child {
+        border-width: .26667vw; }
+        @media screen and (min-width: 800px) {
+          .hidarikikinoEren .lp-menu_sns > .btn:last-child {
+            border-width: .06944vw; } }
   .hidarikikinoEren main {
     position: relative;
     width: 100%;
@@ -1447,40 +1595,40 @@ input, select {
       .hidarikikinoEren .lp-summery .lp-summery_descLine:last-of-type:after {
         -webkit-transition-delay: 1.3s;
         transition-delay: 1.3s; }
-    .hidarikikinoEren .lp-summery_relationship {
+    .hidarikikinoEren .lp-summery_relation {
       position: relative;
       width: 100%; }
       @media screen and (min-width: 800px) {
-        .hidarikikinoEren .lp-summery_relationship {
+        .hidarikikinoEren .lp-summery_relation {
           width: 50%;
           top: 2.70833vw; } }
       @media screen and (min-width: 800px) and (max-width: 1100px) {
-        .hidarikikinoEren .lp-summery_relationship {
+        .hidarikikinoEren .lp-summery_relation {
           width: 100%; } }
       @media screen and (min-width: 1600px) {
-        .hidarikikinoEren .lp-summery_relationship {
+        .hidarikikinoEren .lp-summery_relation {
           top: 43.33333px; } }
-      .hidarikikinoEren .lp-summery_relationship:before {
+      .hidarikikinoEren .lp-summery_relation:before {
         content: "";
         display: block;
         width: 100%;
         padding-top: 100%; }
         @media screen and (min-width: 800px) {
-          .hidarikikinoEren .lp-summery_relationship:before {
+          .hidarikikinoEren .lp-summery_relation:before {
             padding-top: 63.57928%; } }
-      .hidarikikinoEren .lp-summery_relationship figure {
+      .hidarikikinoEren .lp-summery_relation figure {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%; }
-      .hidarikikinoEren .lp-summery_relationship .buttonSquare {
+      .hidarikikinoEren .lp-summery_relation .buttonSquare {
         width: 6.10811vw;
         height: 6.10811vw;
         bottom: .64865vw;
         right: .64865vw;
         position: absolute; }
-        .hidarikikinoEren .lp-summery_relationship .buttonSquare img {
+        .hidarikikinoEren .lp-summery_relation .buttonSquare img {
           display: block;
           width: 2.64865vw;
           height: 2.75676vw; }
@@ -2315,7 +2463,8 @@ input, select {
   bottom: 0;
   top: 0;
   right: 0;
-  margin: auto; }
+  margin: auto;
+  display: none; }
   .lp-modal .buttonSquare {
     position: fixed;
     width: 6.73611vw;
@@ -2324,7 +2473,8 @@ input, select {
     cursor: pointer;
     right: 0;
     top: 0;
-    border: none; }
+    border: none;
+    background-color: #deff00 !important; }
   .lp-modal .lp-modalContents {
     position: absolute;
     top: 0;
@@ -2333,7 +2483,9 @@ input, select {
     right: 0;
     margin: auto;
     z-index: 1;
-    background-color: #fff; }
+    background-color: #fff;
+    width: 761px;
+    height: 454px; }
     .lp-modal .lp-modalContents:after {
       position: absolute;
       left: 0;
@@ -2349,7 +2501,8 @@ input, select {
       padding: 1.25vw 1.04167vw;
       overflow: hidden;
       background-color: #deff00;
-      color: #000; }
+      color: #000;
+      z-index: 5; }
     .lp-modal .lp-modalContents_titleInner {
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
@@ -2371,19 +2524,6 @@ input, select {
         width: 100%;
         height: 100%;
         display: block; }
-
-.lp-modalBg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: multiply;
-  background-color: #e50013;
-  opacity: 1;
-  z-index: 50;
-  -webkit-transition: visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
-  transition: visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1) 0.4s; }
 
 .hidarikikinoEren .lp-loading.is-loaded {
   opacity: 0;

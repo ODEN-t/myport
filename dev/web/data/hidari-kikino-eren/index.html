@@ -70,65 +70,37 @@
 			<div class="lp-menu_wrap">
 				<nav class="lp-menu_nav">
 					<ul>
-						<li class="buttonSquare">
-							<a class="buttonSquare_inner" href="">
-								<span>トップ</span>
-								<svg>
-									<use xlink:href="#arrow">
-								</svg>
+						<li class="btn mod-animeV mod-vText js-menuNav">
+							<a class="btn_inner" href="">
+								<span class="btn_label">トップ</span>
+								<svg><use xlink:href="#arrow"></svg>
 							</a>
 						</li>
-						<li class="buttonSquare">
-							<a class="buttonSquare_inner" href="">
-								<span>あらすじ</span>
-								<svg>
-									<use xlink:href="#arrow">
-								</svg>
+						<li class="btn mod-animeV mod-vText js-menuNav">
+							<a class="btn_inner" href="">
+								<span class="btn_label">あらすじ</span>
+								<svg><use xlink:href="#arrow"></svg>
 							</a>
 						</li>
-						<li class="buttonSquare">
-							<a class="buttonSquare_inner" href="">
-								<span>ストーリー</span>
-								<svg>
-									<use xlink:href="#arrow">
-								</svg>
+						<li class="btn mod-animeV mod-vText js-menuNav">
+							<a class="btn_inner" href="">
+								<span class="btn_label">ストーリー</span>
+								<svg><use xlink:href="#arrow"></svg>
 							</a>
 						</li>
-						<li class="buttonSquare mod-vote">
-							<a class="buttonSquare_inner" href="">
-								<span>投票結果</span>
-								<svg>
-									<use xlink:href="#arrow">
-								</svg>
+						<li class="btn mod-animeV mod-vote mod-vText js-menuNav">
+							<a class="btn_inner" href="">
+								<span class="btn_label">投票結果</span>
+								<svg class="btn_icon"><use xlink:href="#arrow"></svg>
 							</a>
 						</li>
 					</ul>
 				</nav>
-				<nav class="lp-menu_sns">
-					<ul>
-						<li class="buttonSquare mod-sns">
-							<a class="buttonSquare_inner" href="">
-								<svg>
-									<use xlink:href="#iconTwitter">
-								</svg>
-							</a>
-						</li>
-						<li class="buttonSquare mod-sns">
-							<a class="buttonSquare_inner" href="">
-								<svg>
-									<use xlink:href="#iconFacebook">
-								</svg>
-							</a>
-						</li>
-						<li class="buttonSquare mod-sns">
-							<a class="buttonSquare_inner" href="">
-								<svg>
-									<use xlink:href="#iconLine">
-								</svg>
-							</a>
-						</li>
-					</ul>
-				</nav>
+				<div class="lp-menu_sns">
+					<button class="btn mod-animeH"><svg class="btn_icon"><use xlink:href="#iconTwitter"></svg></button>
+					<button class="btn mod-animeH"><svg class="btn_icon"><use xlink:href="#iconFacebook"></svg></button>
+					<button class="btn mod-animeH"><svg class="btn_icon"><use xlink:href="#iconLine"></svg></button>
+				</div>
 			</div>
 		</div>
 		<main>
@@ -187,12 +159,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="lp-summery_relationship">
-					<a href="">
+				<div class="btn mod-animeH">
+					<div class="btn_inner"><span>kkk</span></div>
+				</div>
+				<div class="lp-summery_relation js-relation">
+					<div>
 						<figure>
 							<picture>
-								<source srcset="/data/hidari-kikino-eren/images/summary_relationship_l.jpg" media="(min-width: 800px)">
-								<img src="/data/hidari-kikino-eren/images/summary_relationship.jpg" alt="">
+								<source srcset="/data/hidari-kikino-eren/images/summary_relation_l.jpg" media="(min-width: 800px)">
+								<img src="/data/hidari-kikino-eren/images/summary_relation.jpg" alt="">
 							</picture>
 						</figure>
 						<div class="buttonSquare">
@@ -200,7 +175,7 @@
 								<img src="/data/hidari-kikino-eren/images/summary_icon_zoom.png" alt="">
 							</div>
 						</div>
-					</a>
+					</div>
 				</div>
 			</section>
 
@@ -328,7 +303,7 @@
 			<li><img src="/data/hidari-kikino-eren/images/test/06.png" alt=""></li>
 		</ul> -->
 	</div>
-	<div class="lp-modal">
+	<div class="lp-modal js-modal" id="modal">
 		<button class="buttonSquare">
 			<span class="buttonSquare_inner"></span>
 		</button>

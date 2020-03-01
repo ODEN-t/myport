@@ -374,6 +374,7 @@
 		&_nav {
 			position: relative;
 			width: 100%;
+			z-index: 1;
 			@include mediaQuery {
 				width: 4.75694vw;
 				background-color: #000;
@@ -394,13 +395,45 @@
 
 			> ul {
 				width: 100%;
-				> .buttonSquare {
+				> .btn {
+					height: 26.4vw;
 					border-top-width: 0;
+					@include mediaQuery {
+						height: 12.10811vw;
+					}
+					svg {
+						width: 5.33333vw;
+						height: 3.06667vw;
+						left: 3.2vw;
+						right: auto;
+						fill: #e50013;
+						@include mediaQuery {
+							display: none;
+						}
+					}
 				}
-				> .buttonSquare:first-child {
+				> .btn:first-child {
 					border-width: .26667vw;
 					@include mediaQuery {
 						border-width: .06944vw;
+					}
+				}
+			}
+
+			.mod-vote {
+				background-color: #02d0d0;
+				span {
+					color: #e50013;
+				}
+				&:before, &:after {
+					background-color: #e50013;
+				}
+				&:hover {
+					.btn_label {
+						color: #02d0d0;
+					}
+					.btn_icon {
+						fill:  #02d0d0;
 					}
 				}
 			}
@@ -410,6 +443,7 @@
 			position: relative;
 			width: 100%;
 			height: 14.66667vw;
+			display: flex;
 			@include mediaQuery(mobile) {
 				margin-top: 4vw;
 			}
@@ -417,46 +451,34 @@
 				position: absolute;
 				right: 0;
 				top: 0;
+				background-color: #000;
+				width: 10.41667vw;
 				height: 100%;
-				width: auto;
+				padding-left: .41667vw;
+				padding-right: .41667vw;
+				align-items: center;
 			}
-			
-			> ul {
-				display: flex;
-				height: 100%;
+			@include mediaQuery(wideDesktop) {
+				width: 166.66667px;
+				padding-left: 6.66667px;
+				padding-right: 6.66667px;
+				}
+			> .btn {
+				width: 33%;
+				border-right-width: 0;
 				@include mediaQuery {
-					position: absolute;
-					right: 0;
-					top: 0;
-					background-color: #000;
-					width: 10.41667vw;
-					height: 100%;
-					padding-left: .41667vw;
-					padding-right: .41667vw;
-					align-items: center;
+					width: 3.19444vw;
+					height: 3.19444vw;
 				}
 				@include mediaQuery(wideDesktop) {
-					width: 166.66667px;
-					padding-left: 6.66667px;
-					padding-right: 6.66667px;
+					width: 51.11111px;
+					height: 51.11111px;
 				}
-				> .buttonSquare.mod-sns {
-					width: 33%;
-					border-right-width: 0;
-					@include mediaQuery {
-						width: 3.19444vw;
-						height: 3.19444vw;
-					}
-					@include mediaQuery(wideDesktop) {
-						width: 51.11111px;
-						height: 51.11111px;
-					}
-				}
-				> .buttonSquare.mod-sns:last-child {
-					border-width: .26667vw;
-					@include mediaQuery {
-						border-width: .06944vw;
-					}
+			}
+			> .btn:last-child {
+				border-width: .26667vw;
+				@include mediaQuery {
+					border-width: .06944vw;
 				}
 			}
 		}
@@ -874,7 +896,7 @@
 			}
 		}
 
-		&_relationship {
+		&_relation {
 			position: relative;
 			width: 100%;
 			@include mediaQuery {
@@ -1696,6 +1718,7 @@
 	top: 0;
 	right: 0;
 	margin: auto;
+	display: none;
 
 	.buttonSquare {
 		position: fixed;
@@ -1705,7 +1728,8 @@
 		cursor: pointer;
 		right: 0;
     top: 0;
-    border: none;
+		border: none;
+		background-color: #deff00!important;
 	}
 
 	.lp-modalContents {
@@ -1717,6 +1741,8 @@
     margin: auto;
     z-index: 1;
 		background-color: #fff;
+		width: 761px;
+    height: 454px;
 		&:after {
 			position: absolute;
 			left: 0;
@@ -1735,6 +1761,7 @@
 			overflow: hidden;
 			background-color: #deff00;
 			color: #000;
+			z-index: 5;
 		}
 
 		&_titleInner {
@@ -1765,17 +1792,17 @@
 		}
 	}
 }
-.lp-modalBg {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	mix-blend-mode: multiply;
-	background-color: #e50013;
-	opacity: 1;
-	z-index: 50;
-	transition: visibility .4s cubic-bezier(.19,1,.22,1),
-							opacity .4s cubic-bezier(.19,1,.22,1),
-							z-index 0s cubic-bezier(.19,1,.22,1) .4s;
-}
+// .lp-modalBg {
+// 	position: fixed;
+// 	left: 0;
+// 	top: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	mix-blend-mode: multiply;
+// 	background-color: #e50013;
+// 	opacity: 0;
+// 	z-index: 50;
+// 	transition: visibility .4s cubic-bezier(.19,1,.22,1),
+// 							opacity .4s cubic-bezier(.19,1,.22,1),
+// 							z-index 0s cubic-bezier(.19,1,.22,1) .4s;
+// }

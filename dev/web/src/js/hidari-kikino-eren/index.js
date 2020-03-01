@@ -223,4 +223,27 @@ $.wait(5000).then(function(){
   }
 })
 
+$('.js-relation').on('click', function(e) {
+  $('.js-modal').css('display', 'block');
+})
+
+$(window).on('click', function(e){
+  if(e.target === modal) {
+    $('.js-modal').css('display', 'none');
+  }
+})
+
+var mediaQuery = matchMedia('(min-width: 800px)');
+function switchNavAnime(mediaQuery) {
+  $('.js-menuNav').removeClass('mod-animeV').removeClass('mod-animeH');
+  if(mediaQuery.matches) {
+    $('.js-menuNav').addClass('mod-animeV');
+  } else {
+    $('.js-menuNav').addClass('mod-animeH');
+  }
+}
+mediaQuery.addListener(switchNavAnime);
+switchNavAnime(mediaQuery);
+
+
 
