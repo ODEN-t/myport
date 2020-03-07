@@ -401,6 +401,9 @@
 					@include mediaQuery {
 						height: 12.10811vw;
 					}
+					@include mediaQuery(wideDesktop) {
+						height: 124.44444px;
+					}
 					.buttonSquare_leftArrow {
 						@include mediaQuery {
 							display: none;
@@ -838,6 +841,9 @@
 				}
 				@include mediaQuery(mediumDesktop) {
 					width: 2.32432vw;
+				}
+				@include mediaQuery(wideDesktop) {
+					width: 23.88889px;;
 				}
 			}
 		}

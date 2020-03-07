@@ -99,19 +99,6 @@ hr {
 input, select {
   vertical-align: middle; }
 
-/*
-以下のDOM構造で使用
-
-<div class="buttonSquare">
-  <a class="buttonSquare_inner" href="">
-    <span>トップ</span>
-    <svg>
-      <use xlink:href="#arrow">
-    </svg>
-  </a>
-</div>
-
-*/
 .tab {
   position: absolute;
   display: block;
@@ -263,12 +250,16 @@ input, select {
     @media screen and (min-width: 800px) and (max-width: 1100px) {
       .buttonSquare_label {
         font-size: 1.40541vw; } }
+    @media screen and (min-width: 1600px) {
+      .buttonSquare_label {
+        font-size: 14.44444px; } }
   .buttonSquare_squareIcon {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    display: block;
     width: 6.93333vw;
     height: 6.93333vw;
     fill: #fff;
@@ -276,9 +267,12 @@ input, select {
     z-index: 2; }
     @media screen and (min-width: 800px) {
       .buttonSquare_squareIcon {
-        display: block;
         width: 1.45833vw;
         height: 1.45833vw; } }
+    @media screen and (min-width: 1600px) {
+      .buttonSquare_squareIcon {
+        width: 23.33333px;
+        height: 23.33333px; } }
   .buttonSquare_leftArrow {
     position: absolute;
     top: 0;
@@ -794,6 +788,9 @@ input, select {
           @media screen and (min-width: 800px) {
             .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare {
               height: 12.10811vw; } }
+          @media screen and (min-width: 1600px) {
+            .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare {
+              height: 124.44444px; } }
           @media screen and (min-width: 800px) {
             .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare .buttonSquare_leftArrow {
               display: none; } }
@@ -1288,6 +1285,9 @@ input, select {
         @media screen and (min-width: 800px) and (max-width: 1100px) {
           .hidarikikinoEren .lp-summery_title img {
             width: 2.32432vw; } }
+        @media screen and (min-width: 1600px) {
+          .hidarikikinoEren .lp-summery_title img {
+            width: 23.88889px; } }
     .hidarikikinoEren .lp-summery_headingDesc {
       display: -webkit-box;
       display: -ms-flexbox;
