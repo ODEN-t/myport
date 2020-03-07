@@ -1,214 +1,8 @@
-.buttonSquare {
-  position: relative;
-  border: solid .26667vw #fff;
-  background-color: #000;
-  width: 100%;
-  height: 26.4vw;
-  transition: background-color .4s cubic-bezier(.19,1,.22,1);
-  transform: translateZ(0); //ちらつき防止
-  backface-visibility: hidden; //ちらつき防止
-  overflow: hidden;
-  @include mediaQuery {
-    border: solid .06944vw #fff;
-    border-width: .06944vw;
-    height: 7.77778vw;
-  }
-  @include mediaQuery(mediumDesktop) {
-    height: 12.10811vw;
-  }
-
-  &:before, &:after {
-    position: absolute;
-    content: '';
-    display: block;
-    width: 101%;
-    height: 51%;
-    background-color: #02d0d0;
-    transition: transform .4s cubic-bezier(.19,1,.22,1);
-    transform: scaleX(0);
-    backface-visibility: hidden;
-    z-index: 0;
-    @include mediaQuery {
-      width: 51%;
-      height: 102%;
-      transform: scaleY(0);
-    }
-  }
-  &:before {
-    top: 0;
-    left: 0;
-    transform-origin: center left;
-    @include mediaQuery {
-      transform-origin: bottom center;
-    }
-  }
-  &:after {
-    top: auto;
-    bottom: 0;
-    transform-origin: center right;
-    @include mediaQuery {
-      right: 0;
-      left: auto; 
-      transform-origin: top center;
-    }
-  }
-  &:hover {
-    &:before, &:after {
-      transform: scaleX(1);
-    }
-  }
-
-  &_inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-
-    > span {
-      position: relative;
-      color: #fff;
-      font-size: 5.06667vw;
-      letter-spacing: .16em;
-      text-indent: .16em;
-      transition: color .4s cubic-bezier(.19,1,.22,1);
-      transform: scaleX(.85);
-      z-index: 2;
-      @include mediaQuery {
-        font-size: .90278vw;
-        writing-mode: vertical-rl;
-        text-align: center;
-        letter-spacing: .2em;
-        text-indent: .2em;
-      }
-      @include mediaQuery(mediumDesktop) {
-        font-size: 1.40541vw;
-      }
-    }
-
-    > svg {
-      position: absolute;
-      top: 0;
-      right: auto;
-      bottom: 0;
-      left: 3.2vw;
-      width: 5.33333vw;
-      height: 3.06667vw;
-      fill: #e50013;
-      margin: auto;
-      display: block;
-      z-index: 2;
-      @include mediaQuery {
-        display: none;
-      }
-
-      &:hover {
-        fill: #e50013;
-        transition-duration: .1s;
-      }
-    }
-  }
-
-  &_inner:hover {
-    > span {
-      color: #e50013;
-      transition-duration: .1s;
-    }
-  }
-
-  @include mediaQuery { //desktopのみホバーイベント
-    &:hover {
-      &:before, &:after {
-        transform: scaleY(1);
-      }
-    }
-  }
-}
-
-// button 「投票結果」
-.buttonSquare.mod-vote {
-  background-color: #02d0d0;
-  span {
-    color: #e50013;
-  }
-  &:before, &:after {
-    background-color: #e50013;
-  }
-  .buttonSquare_inner:hover {
-    > span {
-      color: #02d0d0;
-    }
-    > svg {
-      fill:  #02d0d0;
-    }
-  }
-}
-
-// button SNS
-.buttonSquare.mod-sns {
-  height: 100%;
-
-  svg {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 6.93333vw;
-    height: 6.93333vw;
-    fill: #fff;
-    @include mediaQuery {
-      display: block;
-      width: 1.45833vw;
-      height: 1.45833vw;
-    }
-  }
-
-  .buttonSquare_inner:hover {
-    > svg {
-      fill:  #e50013;
-    }
-  }
-
-  @include mediaQuery {
-    &:before, &:after {
-      position: absolute;
-      content: '';
-      display: block;
-      width: 101%;
-      height: 51%;
-      background-color: #02d0d0;
-      transition: transform .4s cubic-bezier(.19,1,.22,1);
-      transform: scaleX(0);
-      backface-visibility: hidden;
-      z-index: 0;
-    }
-    &:before {
-      top: 0;
-      left: 0;
-      transform-origin: center left;
-    }
-    &:after {
-      top: auto;
-      bottom: 0;
-      transform-origin: center right;
-    }
-    &:hover {
-      &:before, &:after {
-        transform: scaleX(1);
-      }
-    }
-  }
-
-
-}
-
 /*
 以下のDOM構造で使用
 
-<div class="btn">
-  <a class="btn_inner" href="">
+<div class="buttonSquare">
+  <a class="buttonSquare_inner" href="">
     <span>トップ</span>
     <svg>
       <use xlink:href="#arrow">
@@ -312,14 +106,7 @@
   }
 }
 
-
-
-
-
-
-/************************************************/
-
-.btn {
+.buttonSquare { //buttonSquare と buttonSquare_innerをセットで使用
   position: relative;
   width: 100%;
   height: 100%;
@@ -353,18 +140,7 @@
     z-index: 2;
   }
 
-  &:hover {
-    .btn_label {
-      color: #e50013;
-      transition-duration: .1s;
-    }
-    .btn_icon {
-      fill: #e50013;
-      transition-duration: .1s;
-    }
-  }
-
-  span {  //文字
+  &_label {  //テキストに付与するクラス
     position: relative;
     color: #fff;
     font-size: 5.06667vw;
@@ -381,13 +157,13 @@
     }
   }
 
-  svg { //アイコン
+  &_squareIcon { //svgアイコンに付与するクラス
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    width: 6.93333vw;
+    width: 6.93333vw; //正方形
     height: 6.93333vw;
     fill: #fff;
     margin: auto;
@@ -398,48 +174,46 @@
       height: 1.45833vw;
     }
   }
-}
 
-.btn.mod-vText {
-  .btn_inner {
-    > span {
-      @include mediaQuery {
-        writing-mode: vertical-rl !important;
-        text-align: center !important;
-        letter-spacing: .2em !important;
-        text-indent: .2em !important;
-      }
-    }
+  &_leftArrow { //svg leftArrowに付与するクラス
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: 3.2vw;
+    width: 5.33333vw;
+    height: 3.06667vw;
+    fill: #e50013;
+    margin: auto;
+    display: block;
+    z-index: 2;
   }
-}
+  
 
-.btn.mod-leftNext {
-  &_inner {
-    > svg {
-      position: absolute;
-      top: 0;
-      right: auto;
-      bottom: 0;
-      left: 3.2vw;
-      width: 5.33333vw;
-      height: 3.06667vw;
+  &:hover {
+    .buttonSquare_label {
+      color: #e50013;
+      transition-duration: .1s;
+    }
+    .buttonSquare_squareIcon {
       fill: #e50013;
-      margin: auto;
-      display: block;
-      z-index: 2;
-      @include mediaQuery {
-        display: none;
-      }
-
-      // &:hover {
-      //   fill: #e50013;
-      //   transition-duration: .1s;
-      // }
+      transition-duration: .1s;
     }
   }
 }
 
-.btn.mod-animeH {
+.buttonSquare.mod-vText { // テキストを縦にする
+  .buttonSquare_label {
+    @include mediaQuery {
+      writing-mode: vertical-rl !important;
+      text-align: center !important;
+      letter-spacing: .2em !important;
+      text-indent: .2em !important;
+    }
+  }
+}
+
+.buttonSquare.mod-animeH {
   &:before, &:after {
     width: 101%;
     height: 51%;
@@ -462,7 +236,7 @@
   }  
 }
 
-.btn.mod-animeV {
+.buttonSquare.mod-animeV {
   &:before, &:after {
     width: 51%;
     height: 102%;

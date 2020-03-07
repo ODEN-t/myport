@@ -1,5 +1,6 @@
 .hidarikikinoEren{
 
+  // opening NowLoading画面 共通
   .lp-loading.is-loaded {
     opacity: 0;
     visibility: hidden;
@@ -15,17 +16,20 @@
     }
   }
 
+  // progreess-guage 縦に展開 共通
   .lp-loadingInner {
     &_item.is-loaded:before {
       transform: scaleY(1) !important;
     }
   }
 
+  // header sticky 共通
   .lp-header.is-hide {
     transform: translateY(-100%);
     opacity: 0;
   }
 
+  // menuボタン mobile用
   .lp-menuBtn.is-open {
     background-color: #e50013;
     .lp-menuBtn_open span {
@@ -42,6 +46,7 @@
     }
   }
 
+  // menuOpen mobile用
   .lp-menu.is-open {
     transform: translateX(0);
     opacity: 1;
@@ -49,9 +54,13 @@
     z-index: 9;
   }
 
+  // loading後 KVキャラonScreen & h1テキストフェードイン 共通
   .lp-kv.is-onScreenItem.is-onScreen {
-    .lp-character_inner:after {
-      transform: scaleY(0);
+    .lp-character_inner {
+      transform: translateY(0);
+      &:after {
+        transform: scaleY(0);
+      }
     }
     .lp-kv_title.mod-title1 {
       transform: scaleY(1);
@@ -67,6 +76,7 @@
     }
   }
 
+  // loop中 KVキャラonScreen & closeを繰り返し mobile用
   .lp-kv.is-onScreenItem.is-onScreen.is-closed {
     .lp-character.mod-item1 >.lp-character_inner, .lp-character.mod-item3 >.lp-character_inner {
       transform: translateY(-20%);
@@ -79,6 +89,7 @@
     }
   }
 
+  // lp-summury あらすじ部 フェードイン 共通
   .lp-summery_heading.is-onScreen {
     .lp-summery_title {
       transform: scaleY(1);
@@ -94,6 +105,7 @@
     }
   }
 
+  // lp-result 朝日新聞掲載〜部 フェードイン 共通
   .lp-result_inner.is-onScreen {
     .lp-resultTitle_inner, .lp-resultDate_label, .lp-resultDate_day {
       transform: scaleX(1);
@@ -109,52 +121,55 @@
     }
   }
   
+  // loop中処理 mobile用
   .is-step1.lp-kv_characters {
-    &:nth-child(3) {
-      .lp-character_inner, &:after {
-        transition-delay: .1s;
+    @include mediaQuery(mobile) {
+      &:nth-child(3) {
+        .lp-character_inner, &:after {
+          transition-delay: .1s;
+        }
       }
-    }
+    
+      &:nth-child(7) {
+        .lp-character_inner, &:after {
+          transition-delay: .1s;
+        }
+      }
+    
+      &:nth-child(4) {
+        .lp-character_inner, &:after {
+          transition-delay: .2s;
+        }
+      }
+    
+      &:nth-child(8) {
+        .lp-character_inner, &:after {
+          transition-delay: .2s;
+        }
+      }
+    
+      &:first-child {
+        .lp-character_inner, &:after {
+          transition-delay: .3s;
+        }
+      }
+    
+      &:nth-child(5) {
+        .lp-character_inner, &:after {
+          transition-delay: .3s;
+        }
+      }
+    
+      &:nth-child(2) {
+        .lp-character_inner, &:after {
+          transition-delay: 0s;
+        }
+      }
   
-    &:nth-child(7) {
-      .lp-character_inner, &:after {
-        transition-delay: .1s;
-      }
-    }
-  
-    &:nth-child(4) {
-      .lp-character_inner, &:after {
-        transition-delay: .2s;
-      }
-    }
-  
-    &:nth-child(8) {
-      .lp-character_inner, &:after {
-        transition-delay: .2s;
-      }
-    }
-  
-    &:first-child {
-      .lp-character_inner, &:after {
-        transition-delay: .3s;
-      }
-    }
-  
-    &:nth-child(5) {
-      .lp-character_inner, &:after {
-        transition-delay: .3s;
-      }
-    }
-  
-    &:nth-child(2) {
-      .lp-character_inner, &:after {
-        transition-delay: 0s;
-      }
-    }
-
-    &:nth-child(6) {
-      .lp-character_inner, &:after {
-        transition-delay: 0s;
+      &:nth-child(6) {
+        .lp-character_inner, &:after {
+          transition-delay: 0s;
+        }
       }
     }
   }

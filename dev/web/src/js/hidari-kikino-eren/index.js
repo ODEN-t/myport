@@ -27,7 +27,6 @@ var loading = {
     var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
     var toCenter =  center - $('.js-loadingWrap').offset().top;
     
-      
     $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
     
     //全imgのsrcを空にしてoriginImageSrcに退避

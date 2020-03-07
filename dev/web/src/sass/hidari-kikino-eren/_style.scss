@@ -395,24 +395,19 @@
 
 			> ul {
 				width: 100%;
-				> .btn {
+				> .buttonSquare {
 					height: 26.4vw;
 					border-top-width: 0;
 					@include mediaQuery {
 						height: 12.10811vw;
 					}
-					svg {
-						width: 5.33333vw;
-						height: 3.06667vw;
-						left: 3.2vw;
-						right: auto;
-						fill: #e50013;
+					.buttonSquare_leftArrow {
 						@include mediaQuery {
 							display: none;
 						}
 					}
 				}
-				> .btn:first-child {
+				> .buttonSquare:first-child {
 					border-width: .26667vw;
 					@include mediaQuery {
 						border-width: .06944vw;
@@ -429,10 +424,10 @@
 					background-color: #e50013;
 				}
 				&:hover {
-					.btn_label {
+					.buttonSquare_label {
 						color: #02d0d0;
 					}
-					.btn_icon {
+					.buttonSquare_icon {
 						fill:  #02d0d0;
 					}
 				}
@@ -463,7 +458,7 @@
 				padding-left: 6.66667px;
 				padding-right: 6.66667px;
 				}
-			> .btn {
+			> .buttonSquare {
 				width: 33%;
 				border-right-width: 0;
 				@include mediaQuery {
@@ -475,7 +470,7 @@
 					height: 51.11111px;
 				}
 			}
-			> .btn:last-child {
+			> .buttonSquare:last-child {
 				border-width: .26667vw;
 				@include mediaQuery {
 					border-width: .06944vw;
@@ -579,40 +574,52 @@
 			background-color: #0e6cb2;
 			.lp-character_inner {
 				background-image: url('../../../data/hidari-kikino-eren/images/kv_img1.jpg');
+				transform: translateY(-20%);
+				transition-delay: 0s!important;
 			}
 			.lp-character_inner:after {
 				background-color: #0e6cb2;
 				transform-origin: bottom center;
+				transition-delay: 0s!important;
 			}
 		}
 		.mod-item2 {
 			background-color: #fe3c00;
 			.lp-character_inner {
 				background-image: url('../../../data/hidari-kikino-eren/images/kv_img2.jpg');
+				transform: translateY(20%);
+				transition-delay: 0.1s!important;
 			}
 			.lp-character_inner:after {
 				background-color: #fe3c00;
 				transform-origin: top center;
+				transition-delay: 0.1s!important;
 			}
 		}
 		.mod-item3 {
 			background-color: #deff00;
 			.lp-character_inner {
 				background-image: url('../../../data/hidari-kikino-eren/images/kv_img3.jpg');
+				transform: translateY(-20%);
+				transition-delay: 0.2s!important;
 			}
 			.lp-character_inner:after {
 				background-color: #deff00;
 				transform-origin: bottom center;
+				transition-delay: 0.2s!important;
 			}
 		}
 		.mod-item4 {
 			background-color: #02d0d0;
 			.lp-character_inner {
 				background-image: url('../../../data/hidari-kikino-eren/images/kv_img4.jpg');
+				transform: translateY(20%);
+				transition-delay: 0.3s!important;
 			}
 			.lp-character_inner:after {
 				background-color: #02d0d0;
 				transform-origin: top center;
+				transition-delay: 0.3s!important;
 			}
 		}
 
