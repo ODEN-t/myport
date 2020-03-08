@@ -1698,9 +1698,10 @@ input, select {
           content: '※本作品は、2019年10月19日（土）にcakesにて掲載されたものになります。';
           font-size: 1.62162vw; } }
     .hidarikikinoEren .lp-story_pages.mod-main:after {
-      content: '※本作品は、2019年10月20日(日）に朝日新聞 全国朝刊にて掲載されたものになります。'; }
+      content: '※本作品は、2019年10月20日(日）に\A 朝日新聞 全国朝刊にて掲載されたものになります。'; }
       @media screen and (min-width: 800px) {
         .hidarikikinoEren .lp-story_pages.mod-main:after {
+          content: '※本作品は、2019年10月20日(日）に朝日新聞 全国朝刊にて掲載されたものになります。';
           font-size: 1.62162vw; } }
     .hidarikikinoEren .lp-story_pages.is-active {
       display: block;

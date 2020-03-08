@@ -10,61 +10,6 @@ $.wait = function(ms) {
   return d.promise();
 };
 
-var loading = {
-  moveInit() {
-    if($(window).width() < 800) {
-      $('.js-charaList').css('transform','translateX(' + setPosition(2) + 'px)' )
-    }
-  },
-  progressGauge() {
-    var $images = $('img');
-    var originImageSrc = [];
-    var numberOfImages = $('img').length;
-    var divideScale = 1 / numberOfImages;
-    var $guage = $('.js-scaleItem');
-    var scaleX = 0;
-    var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
-    var toCenter =  center - $('.js-loadingWrap').offset().top;
-    
-    $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
-    
-    //全imgのsrcを空にしてoriginImageSrcに退避
-    for(var i = 0; i < numberOfImages; i++) {
-      originImageSrc.push($images[i].src);
-      $images[i].src = '';
-    }
-  
-    //imgをロードする毎にscaleXの数値を加算
-    $images.on('load', function(){
-      scaleX += divideScale;
-      $guage.each(function(){
-        $(this).css('transform','scaleX(' + scaleX + ')');
-      })
-    })
-  
-    //全imgのsrcを代入
-    for(var i = 0; i < numberOfImages; i++) {
-      $images[i].src = originImageSrc[i];
-    }
-  },
-  scalingFigures() {
-    $.wait(2000)
-    .then(function(ms){
-      $('.js-scaleItem, .js-loading').addClass('is-loaded');
-      return $.wait(1200);
-    })
-    .done(function(ms){
-      $('.js-kv').addClass('is-onScreen');
-      textFadeIn();
-    })
-  },
-  run() {
-    this.progressGauge(),
-    this.moveInit(),
-    this.scalingFigures() // 3200ms + 800ms(amimation) + 1000ms(textFadeIN) 
-  }
-};
-
 //KVループ・キャラ入れ替え
 var loop = {
   termPosition: {
@@ -135,6 +80,69 @@ var loop = {
     }, 30)
   }
 }
+
+// ロード & ループスタート
+var animationSequence = {
+  setInitPosition() {
+    if($(window).width() < 800) {
+      $('.js-charaList').css('transform','translateX(' + setPosition(2) + 'px)' )
+    }
+  },
+  loading() {
+    var $images = $('img');
+    var originImageSrc = [];
+    var numberOfImages = $('img').length;
+    var divideScale = 1 / numberOfImages;
+    var $guage = $('.js-scaleItem');
+    var scaleX = 0;
+    var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
+    var toCenter =  center - $('.js-loadingWrap').offset().top;
+    
+    $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
+    
+    //全imgのsrcを空にしてoriginImageSrcに退避
+    for(var i = 0; i < numberOfImages; i++) {
+      originImageSrc.push($images[i].src);
+      $images[i].src = '';
+    }
+  
+    //imgをロードする毎にscaleXの数値を加算
+    $images.on('load', function(){
+      scaleX += divideScale;
+      $guage.each(function(){
+        $(this).css('transform','scaleX(' + scaleX + ')');
+      })
+
+      if(scaleX > 1) {
+        $.wait(1000)
+        .then(function(){
+          $('.js-scaleItem, .js-loading').addClass('is-loaded');
+          console.log('load');
+          return $.wait(1200);
+        })
+        .then(function(ms){
+          $('.js-kv').addClass('is-onScreen');
+          textFadeIn();
+          return $.wait(2000);
+        })
+        .done(function(ms){
+          if(!(mediaQuery.matches)) loop.execute();
+        })
+      }
+    })
+
+    //全imgのsrcを代入
+    for(var i = 0; i < numberOfImages; i++) {
+      $images[i].src = originImageSrc[i];
+    }
+  },
+  startLoop() {
+    this.setInitPosition();
+    this.loading();
+  }
+};
+
+
 
 //中央に設置したキャラまでの距離を算出する関数
 function setPosition(itemNum) {
@@ -263,11 +271,8 @@ $('.js-menuBtn').on('click', menuOpen);
 $('.js-tab').on('click',tabChange);
 $('.js-tab').on('click',smoothScroll);
 $(window).on('scroll', sticky);
-loading.run();
-$.wait(5000).then(function(){
-  textFadeIn();
-  if(!(mediaQuery.matches)) loop.execute();
-})
+
+animationSequence.startLoop();
 
 mediaQuery.addListener(modalControl);
 modalControl(mediaQuery);
