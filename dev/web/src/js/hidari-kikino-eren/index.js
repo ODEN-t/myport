@@ -1,6 +1,6 @@
-window.addEventListener('beforeunload', function() {
-  window.scrollTo(0, 0);
-}); 
+/** 
+* 関数定義
+*/
 
 $.wait = function(ms) {
   var d = new $.Deferred;
@@ -9,7 +9,6 @@ $.wait = function(ms) {
   }, ms);
   return d.promise();
 };
-
 
 var loading = {
   moveInit() {
@@ -206,43 +205,71 @@ function textFadeIn() {
   })
 }
 
+// モーダル開閉,スクロール禁止・解除
+var modalAction = {
+  lock(e) {
+    e.preventDefault();
+  },
+  scrollOff() {
+    document.addEventListener('mousewheel', this.lock, { passive: false });
+    document.addEventListener('touchmove', this.lock, { passive: false });
+  },
+  scrollOn() {
+    document.removeEventListener('mousewheel', this.lock, { passive: false });
+    document.removeEventListener('touchmove',this.lock, { passive: false });
+  },
+  open() {
+    $('.js-modal, .js-modalBg').addClass('is-opened');
+    this.scrollOff();
+  },
+  close(e) {
+    var target = e.target.getAttribute('data-modal');
+    if(target === 'modalClose') {
+      $('.js-modal, .js-modalBg').removeClass('is-opened');
+      this.scrollOn();
+    } 
+  }
+}
 
+// min-width:800px → モーダルあり else → モーダルなし
+function modalControl(mediaQuery) {
+  if(mediaQuery.matches) {
+    $('.js-relation').on('click', function() {modalAction.open();})
+    $(window).on('click', function(e) {modalAction.close(e);})
+  } else {
+    $('.js-modal, .js-modalBg').removeClass('is-opened');
+    $('.js-relation').off('click');
+    $(window).off('click');
+    modalAction.scrollOn();
+  }
+}
+
+// min-width:800px → menu縦アニメーション else → menu横アニメーション
+function btnAnimeContorl(mediaQuery) {
+  $('.js-menuNav').removeClass('mod-animeV').removeClass('mod-animeH');
+  mediaQuery.matches ? $('.js-menuNav').addClass('mod-animeV') : $('.js-menuNav').addClass('mod-animeH');
+}
+
+
+/** 
+* イベント登録・関数実行
+*/
+var mediaQuery = matchMedia('(min-width: 800px)');
+window.addEventListener('beforeunload', function() {
+  window.scrollTo(0, 0);
+}); 
 // menu開閉,タブ切り替え,タブクリック時のスクロール
 $('.js-menuBtn').on('click', menuOpen);
 $('.js-tab').on('click',tabChange);
 $('.js-tab').on('click',smoothScroll);
-// $('html,body').animate({ scrollTop: 0 }, '0');//リロード時画面トップへ移動
 $(window).on('scroll', sticky);
-
 loading.run();
 $.wait(5000).then(function(){
   textFadeIn();
-  if(window.matchMedia('screen and (max-width: 799px)').matches) {
-    loop.execute();
-  }
+  if(!(mediaQuery.matches)) loop.execute();
 })
 
-$('.js-relation').on('click', function(e) {
-  $('.js-modal').css('display', 'block');
-})
-
-$(window).on('click', function(e){
-  if(e.target === modal) {
-    $('.js-modal').css('display', 'none');
-  }
-})
-
-var mediaQuery = matchMedia('(min-width: 800px)');
-function switchNavAnime(mediaQuery) {
-  $('.js-menuNav').removeClass('mod-animeV').removeClass('mod-animeH');
-  if(mediaQuery.matches) {
-    $('.js-menuNav').addClass('mod-animeV');
-  } else {
-    $('.js-menuNav').addClass('mod-animeH');
-  }
-}
-mediaQuery.addListener(switchNavAnime);
-switchNavAnime(mediaQuery);
-
-
-
+mediaQuery.addListener(modalControl);
+modalControl(mediaQuery);
+mediaQuery.addListener(btnAnimeContorl);
+btnAnimeContorl(mediaQuery);

@@ -160,19 +160,19 @@
 					</div>
 				</div>
 				<div class="lp-summery_relation js-relation">
-					<div>
+					<a class="lp-summery_relationInner">
 						<figure>
 							<picture>
 								<source srcset="/data/hidari-kikino-eren/images/summary_relation_l.jpg" media="(min-width: 800px)">
 								<img src="/data/hidari-kikino-eren/images/summary_relation.jpg" alt="">
 							</picture>
 						</figure>
-						<div class="buttonSquare">
+						<div class="buttonSquare mod-animeH">
 							<div class="buttonSquare_inner">
 								<img src="/data/hidari-kikino-eren/images/summary_icon_zoom.png" alt="">
 							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 			</section>
 
@@ -300,9 +300,9 @@
 			<li><img src="/data/hidari-kikino-eren/images/test/06.png" alt=""></li>
 		</ul> -->
 	</div>
-	<div class="lp-modal js-modal" id="modal">
-		<button class="buttonSquare">
-			<span class="buttonSquare_inner"></span>
+	<div class="lp-modal js-modal" data-modal="modalClose">
+		<button class="buttonSquare mod-animeH">
+			<span class="modalCloseIcon js-modalCloseIcon" data-modal="modalClose"></span>
 		</button>
 		<div class="lp-modalContents">
 			<p class="lp-modalContents_title">
@@ -313,7 +313,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="lp-modalBg"></div>
+	<div class="lp-modalBg js-modalBg"></div>
 	<script type="text/javascript" src="../../lib/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../../src/js/hidari-kikino-eren/index.js"></script>
 </body>

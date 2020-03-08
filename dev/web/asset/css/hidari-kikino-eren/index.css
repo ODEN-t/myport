@@ -783,9 +783,12 @@ input, select {
       .hidarikikinoEren .lp-menu_nav > ul {
         width: 100%; }
         .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare {
-          height: 26.4vw;
+          height: 7.77778vw;
           border-top-width: 0; }
-          @media screen and (min-width: 800px) {
+          @media screen and (max-width: 799px) {
+            .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare {
+              height: 26.4vw; } }
+          @media screen and (min-width: 800px) and (max-width: 1100px) {
             .hidarikikinoEren .lp-menu_nav > ul > .buttonSquare {
               height: 12.10811vw; } }
           @media screen and (min-width: 1600px) {
@@ -1427,10 +1430,14 @@ input, select {
           top: 2.70833vw; } }
       @media screen and (min-width: 800px) and (max-width: 1100px) {
         .hidarikikinoEren .lp-summery_relation {
-          width: 100%; } }
+          width: 100%;
+          top: 0; } }
       @media screen and (min-width: 1600px) {
         .hidarikikinoEren .lp-summery_relation {
           top: 43.33333px; } }
+      .hidarikikinoEren .lp-summery_relation:hover .buttonSquare.mod-animeH:before, .hidarikikinoEren .lp-summery_relation:hover .buttonSquare.mod-animeH:after {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1); }
       .hidarikikinoEren .lp-summery_relation:before {
         content: "";
         display: block;
@@ -1446,15 +1453,43 @@ input, select {
         width: 100%;
         height: 100%; }
       .hidarikikinoEren .lp-summery_relation .buttonSquare {
-        width: 6.10811vw;
-        height: 6.10811vw;
-        bottom: .64865vw;
-        right: .64865vw;
-        position: absolute; }
+        display: block;
+        position: absolute;
+        right: .41667vw;
+        bottom: .41667vw;
+        width: 3.92361vw;
+        height: 3.92361vw; }
+        @media screen and (max-width: 799px) {
+          .hidarikikinoEren .lp-summery_relation .buttonSquare {
+            display: none; } }
+        @media screen and (min-width: 800px) and (max-width: 1100px) {
+          .hidarikikinoEren .lp-summery_relation .buttonSquare {
+            width: 6.10811vw;
+            height: 6.10811vw; } }
+        @media screen and (min-width: 1600px) {
+          .hidarikikinoEren .lp-summery_relation .buttonSquare {
+            right: 6.66667px;
+            bottom: 6.66667px;
+            width: 62.77778px;
+            height: 62.77778px; } }
         .hidarikikinoEren .lp-summery_relation .buttonSquare img {
-          display: block;
-          width: 2.64865vw;
-          height: 2.75676vw; }
+          width: 1.70139vw;
+          height: 1.77083vw; }
+          @media screen and (max-width: 799px) {
+            .hidarikikinoEren .lp-summery_relation .buttonSquare img {
+              display: none; } }
+          @media screen and (min-width: 800px) and (max-width: 1100px) {
+            .hidarikikinoEren .lp-summery_relation .buttonSquare img {
+              display: block;
+              width: 2.64865vw;
+              height: 2.75676vw; } }
+          @media screen and (min-width: 1600px) {
+            .hidarikikinoEren .lp-summery_relation .buttonSquare img {
+              width: 27.22222px;
+              height: 28.33333px; } }
+    @media screen and (min-width: 800px) {
+      .hidarikikinoEren .lp-summery_relationInner {
+        cursor: pointer; } }
   .hidarikikinoEren .lp-story {
     position: relative;
     width: 100%;
@@ -2281,13 +2316,13 @@ input, select {
 .lp-modal {
   position: fixed;
   width: 100%;
-  z-index: 51;
+  opacity: 0;
+  z-index: -1;
   left: 0;
   bottom: 0;
   top: 0;
   right: 0;
-  margin: auto;
-  display: none; }
+  margin: auto; }
   .lp-modal .buttonSquare {
     position: fixed;
     width: 6.73611vw;
@@ -2298,6 +2333,38 @@ input, select {
     top: 0;
     border: none;
     background-color: #deff00 !important; }
+    @media screen and (min-width: 1600px) {
+      .lp-modal .buttonSquare {
+        width: 107.77778px;
+        height: 107.77778px; } }
+    .lp-modal .buttonSquare:hover .modalCloseIcon:before, .lp-modal .buttonSquare:hover .modalCloseIcon:after {
+      background-color: #e50013; }
+    .lp-modal .buttonSquare .modalCloseIcon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4; }
+      .lp-modal .buttonSquare .modalCloseIcon:before, .lp-modal .buttonSquare .modalCloseIcon:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: "";
+        width: 5.12821%;
+        height: 35.89744%;
+        min-height: 1px;
+        background-color: #000;
+        -webkit-transition: background-color 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: background-color 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+      .lp-modal .buttonSquare .modalCloseIcon:before {
+        -webkit-transform: translate(-50%, -50%) skewX(30deg);
+        transform: translate(-50%, -50%) skewX(30deg); }
+      .lp-modal .buttonSquare .modalCloseIcon:after {
+        -webkit-transform: translate(-50%, -50%) skewX(-30deg);
+        transform: translate(-50%, -50%) skewX(-30deg); }
   .lp-modal .lp-modalContents {
     position: absolute;
     top: 0;
@@ -2308,7 +2375,26 @@ input, select {
     z-index: 1;
     background-color: #fff;
     width: 761px;
-    height: 454px; }
+    height: 454px;
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+    transform: translateY(5%);
+    -webkit-transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+    @media screen and (min-width: 800px) {
+      .lp-modal .lp-modalContents {
+        width: 761px;
+        height: 454px; } }
+    @media screen and (min-width: 1100px) {
+      .lp-modal .lp-modalContents {
+        width: 1026px;
+        height: 611px; } }
+    @media screen and (min-width: 1600px) {
+      .lp-modal .lp-modalContents {
+        width: 1200px;
+        height: 715px; } }
     .lp-modal .lp-modalContents:after {
       position: absolute;
       left: 0;
@@ -2326,6 +2412,11 @@ input, select {
       background-color: #deff00;
       color: #000;
       z-index: 5; }
+      @media screen and (min-width: 1600px) {
+        .lp-modal .lp-modalContents_title {
+          padding: 20px 16.66667px;
+          top: -20px;
+          left: 22.22222px; } }
     .lp-modal .lp-modalContents_titleInner {
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
@@ -2333,6 +2424,9 @@ input, select {
       backface-visibility: hidden; }
       .lp-modal .lp-modalContents_titleInner img {
         width: 1.77083vw; }
+        @media screen and (min-width: 1600px) {
+          .lp-modal .lp-modalContents_titleInner img {
+            width: 28.33333px; } }
     .lp-modal .lp-modalContents .lp-modalContentsInner {
       position: absolute;
       left: 0;
@@ -2347,6 +2441,32 @@ input, select {
         width: 100%;
         height: 100%;
         display: block; }
+
+.lp-modalBg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  background-color: #e50013;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1), z-index 0s cubic-bezier(0.19, 1, 0.22, 1); }
+
+.lp-modal.is-opened {
+  opacity: 1;
+  z-index: 51; }
+  .lp-modal.is-opened .lp-modalContents {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+
+.lp-modalBg.is-opened {
+  visibility: visible;
+  opacity: 1;
+  z-index: 50; }
 
 .hidarikikinoEren .lp-loading.is-loaded {
   opacity: 0;
