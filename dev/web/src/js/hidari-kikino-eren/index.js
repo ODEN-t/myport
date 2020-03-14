@@ -99,7 +99,7 @@ var animationSequence = {
     var toCenter =  center - $('.js-loadingWrap').offset().top;
     
     $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
-    
+
     //全imgのsrcを空にしてoriginImageSrcに退避
     for(var i = 0; i < numberOfImages; i++) {
       originImageSrc.push($images[i].src);
@@ -107,17 +107,16 @@ var animationSequence = {
     }
   
     //imgをロードする毎にscaleXの数値を加算
-    $images.on('load', function(){
+    $images.one('load', function(){
       scaleX += divideScale;
       $guage.each(function(){
         $(this).css('transform','scaleX(' + scaleX + ')');
       })
 
-      if(scaleX > 1) {
+      if(scaleX >= 1) {
         $.wait(1000)
         .then(function(){
           $('.js-scaleItem, .js-loading').addClass('is-loaded');
-          console.log('load');
           return $.wait(1200);
         })
         .then(function(ms){
