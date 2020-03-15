@@ -10,17 +10,17 @@
 	<meta name="keywords" content="朝日新聞,朝日デジタル,朝日,新聞広告の日,新聞の日,エレン,左ききのエレン,かっぴー,GO,三浦,JINS,バイオレットプラス,ジンズ,バイオレットライト,目黒広告社,結果発表,結果">
 	<meta property="og:title" content="朝日新聞社×左ききのエレンプロジェクト｜公式">
 	<meta property="og:type" content="website">
-	<!-- <meta property="og:url" content="http://qpj01.sakura.ne.jp/kawaguchi/kadel/"> -->
-	<meta property="og:image" content="./images/ogp-min.jpg"> <!--サーバーup時変更 -->
+	<meta property="og:image" content="http://localhost:3000/data/hidari-kikino-eren/images/ogp-min.jpg"> <!--サーバーup時変更 -->
 	<meta property="og:site_name" content="朝日新聞デジタル">
 	<meta property="og:description" content="新聞広告の日 朝日新聞社×左ききのエレン Powerd by JINS」の公式サイト。リツイート投票により、実際に朝日新聞に掲載される広告が決定しました。なお、cakes・朝日新聞で実際に掲載された漫画も掲載しています。#新聞広告の日 #左ききのエレン">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@asahi">
 	<meta name="twitter:title" content="朝日新聞社×左ききのエレンプロジェクト｜公式">
 	<meta name="twitter:description" content="「新聞広告の日 朝日新聞社×左ききのエレン Powerd by JINS」の公式サイト。リツイート投票により、実際に朝日新聞に掲載される広告が決定しました。なお、cakes・朝日新聞で実際に掲載された漫画も掲載しています。#新聞広告の日 #左ききのエレン">
-	<meta name="twitter:image" content="./images/ogp-min.jpg">
-	<meta name = "msapplication-TileImage" content = "./images/logo_icon.png">  <!-- windowsピン止めイメージ -->
+	<meta name="twitter:image" content="http://localhost:3000/data/hidari-kikino-eren/images/ogp-min.jpg">
+	<meta name = "msapplication-TileImage" content = "http://localhost:3000/data/hidari-kikino-eren//images/logo_icon.png">  <!-- windowsピン止めイメージ -->
 	<meta name="msapplication-TileColor" content="#B90000"> <!-- windowsピン止め背景色 -->
+	<link rel="icon" href="/data/hidari-kikino-eren/images/favicon.ico"> <!-- favicon -->
 	<link rel="stylesheet" href="/../../asset/css/hidari-kikino-eren/index.css"> 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.1/dist/css/yakuhanjp.min.css">
 </head>
@@ -42,33 +42,32 @@
 				</symbol>
 			</defs>
 		</svg>
-		<div class="lp-loading js-loading" id="scroll-to-div-id-anchor">
-			<div class="lp-loading_wrap js-loadingWrap">
-				<div class="lp-loadingInner">
-					<div class="lp-loadingInner_item mod-item1 js-scaleItem"></div>
-					<div class="lp-loadingInner_item mod-item2 js-scaleItem"></div>
-					<div class="lp-loadingInner_item mod-item3 js-scaleItem"></div>
-					<div class="lp-loadingInner_item mod-item4 js-scaleItem"></div>
+		<div class="p-loading js-loading" id="scroll-to-div-id-anchor">
+			<div class="p-loading_wrap js-loadingWrap">
+				<div class="p-loadingInner">
+					<div class="p-loadingInner_item mod-item1 js-scaleItem"></div>
+					<div class="p-loadingInner_item mod-item2 js-scaleItem"></div>
+					<div class="p-loadingInner_item mod-item3 js-scaleItem"></div>
+					<div class="p-loadingInner_item mod-item4 js-scaleItem"></div>
 				</div>
 			</div>
-			<p class="lp-loading_text"></p>
+			<p class="p-loading_text"></p>
 		</div>
-		<header class="lp-header js-header">
-			<div class="lp-headerTicker">
-			</div>
+		<header class="p-header js-header">
+			<div class="p-headerTicker"></div>
 		</header>
-		<button class="lp-menuBtn js-menuBtn mod-displayNone_smallDesktop">
-			<div class="lp-menuBtn_open">
+		<button class="p-menuBtn js-menuBtn mod-displayNone_smallDesktop">
+			<div class="p-menuBtn_open">
 				<span></span>
 				<span></span>
 				<span></span>
 			</div>
-			<div class="lp-menuBtn_close js-btn">
+			<div class="p-menuBtn_close js-btn">
 			</div>
 		</button>
-		<div class="lp-menu js-menu">
-			<div class="lp-menu_wrap">
-				<nav class="lp-menu_nav">
+		<div class="p-menu js-menu">
+			<div class="p-menu_wrap">
+				<nav class="p-menu_nav">
 					<ul>
 						<li class="buttonSquare mod-animeV mod-vText js-menuNav">
 							<a class="buttonSquare_inner" href="">
@@ -96,7 +95,7 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="lp-menu_sns">
+				<div class="p-menu_sns">
 					<button class="buttonSquare mod-animeH"><svg class="buttonSquare_squareIcon"><use xlink:href="#iconTwitter"></svg></button>
 					<button class="buttonSquare mod-animeH"><svg class="buttonSquare_squareIcon"><use xlink:href="#iconFacebook"></svg></button>
 					<button class="buttonSquare mod-animeH"><svg class="buttonSquare_squareIcon"><use xlink:href="#iconLine"></svg></button>
@@ -104,63 +103,62 @@
 			</div>
 		</div>
 		<main>
-			<section class="lp-kv js-kv js-fadeIn is-onScreenItem">
-				<ul class="lp-kv_characters js-charaList is-step1">
-					<li class="lp-character mod-item3 mod-displayNone_smallDesktop">
-						<div class="lp-character_inner"></div>
+			<section class="p-kv js-kv js-fadeIn is-onScreenItem">
+				<ul class="p-kv_characters js-charaList is-step1">
+					<li class="p-character mod-item3 mod-displayNone_smallDesktop">
+						<div class="p-character_inner"></div>
 					</li>
-					<li class="lp-character mod-item4 mod-displayNone_smallDesktop">
-						<div class="lp-character_inner"></div>
+					<li class="p-character mod-item4 mod-displayNone_smallDesktop">
+						<div class="p-character_inner"></div>
 					</li>
-					<li class="lp-character mod-item1">
-						<div class="lp-character_inner"></div>
+					<li class="p-character mod-item1">
+						<div class="p-character_inner"></div>
 					</li>
-					<li class="lp-character mod-item2">
-						<div class="lp-character_inner"></div>
+					<li class="p-character mod-item2">
+						<div class="p-character_inner"></div>
 					</li>
-					<li class="lp-character mod-item3">
-						<div class="lp-character_inner"></div>
+					<li class="p-character mod-item3">
+						<div class="p-character_inner"></div>
 					</li>
-					<li class="lp-character mod-item4">
-						<div class="lp-character_inner"></div>
+					<li class="p-character mod-item4">
+						<div class="p-character_inner"></div>
 					</li>
-					<li class="lp-character mod-item1 mod-displayNone_smallDesktop">
-						<div class="lp-character_inner"></div>
+					<li class="p-character mod-item1 mod-displayNone_smallDesktop">
+						<div class="p-character_inner"></div>
 					</li>
-					<li class="lp-character mod-item2 mod-displayNone_smallDesktop">
-						<div class="lp-character_inner"></div>
+					<li class="p-character mod-item2 mod-displayNone_smallDesktop">
+						<div class="p-character_inner"></div>
 					</li>
 				</ul>
 				<h1>
-					<span class="lp-kv_title mod-title1"><img src="/data/hidari-kikino-eren/images/kv_title1.png" loading="eager" alt=""></span>
-					<span class="lp-kv_title mod-title2"><img src="/data/hidari-kikino-eren/images/kv_title2.png" loading="eager" alt=""></span>
+					<span class="p-kv_title mod-title1"><img src="/data/hidari-kikino-eren/images/kv_title1.png" loading="eager" alt="新聞広告の日"></span>
+					<span class="p-kv_title mod-title2"><img src="/data/hidari-kikino-eren/images/kv_title2.png" loading="eager" alt="THE NEWS FOR THE TEAM"></span>
 				</h1>
-				<div class="lp-kv_name">
+				<div class="p-kv_name">
 					<img src="/data/hidari-kikino-eren/images/kv_names.png" loading="eager" alt="朝日新聞社 ✕ 左利きのエレン Powered by JINS">
 				</div>
 			</section>
-
-			<section class="lp-summery">
-				<div class="lp-summery_heading js-fadeIn">
-					<div class="lp-summery_headingInner">
-						<h2 class="lp-summery_title"><img src="/data/hidari-kikino-eren/images/summary_title.png" loading="eager" alt=""></h2>
-						<div class="lp-summery_headingDesc">
-							<p class="lp-summery_descLine">目黒広告社の朝倉CDのもとに、</p>
-							<p class="lp-summery_descLine">日本を代表するアイウエアカンパニーJINSから、</p>
-							<p class="lp-summery_descLine">新聞広告をテーマにした競合プレゼンのオファーが。</p>
-							<p class="lp-summery_descLine">しかし、ライバルは、ニュースになる広告を仕掛け続ける</p>
-							<p class="lp-summery_descLine">The Breakthrough Company GO</p>
-							<p class="lp-summery_descLine">代表の三浦は相手にもならないとうそぶく、、、</p>
-							<p class="lp-summery_descLine">商品であるバイオレットプラスは画期的ゆえに</p>
-							<p class="lp-summery_descLine">広告では表現できないことも多い。</p>
-							<p class="lp-summery_descLine mod-displayNone_smallDesktop">混迷を極める状況のなか、</p>
-							<p class="lp-summery_descLine mod-displayNone_smallDesktop">二つのチームが出した企画とはー。</p>
-							<p class="lp-summery_descLine mod-displayNone_mobile">混迷を極める状況のなか、二つのチームが出した企画とはー。</p>
+			<section class="p-summery">
+				<div class="p-summery_heading js-fadeIn">
+					<div class="p-summery_headingInner">
+						<h2 class="p-summery_title"><img src="/data/hidari-kikino-eren/images/summary_title.png" loading="eager" alt="あらすじ"></h2>
+						<div class="p-summery_headingDesc">
+							<p class="p-summery_descLine">目黒広告社の朝倉CDのもとに、</p>
+							<p class="p-summery_descLine">日本を代表するアイウエアカンパニーJINSから、</p>
+							<p class="p-summery_descLine">新聞広告をテーマにした競合プレゼンのオファーが。</p>
+							<p class="p-summery_descLine">しかし、ライバルは、ニュースになる広告を仕掛け続ける</p>
+							<p class="p-summery_descLine">The Breakthrough Company GO</p>
+							<p class="p-summery_descLine">代表の三浦は相手にもならないとうそぶく、、、</p>
+							<p class="p-summery_descLine">商品であるバイオレットプラスは画期的ゆえに</p>
+							<p class="p-summery_descLine">広告では表現できないことも多い。</p>
+							<p class="p-summery_descLine mod-displayNone_smallDesktop">混迷を極める状況のなか、</p>
+							<p class="p-summery_descLine mod-displayNone_smallDesktop">二つのチームが出した企画とはー。</p>
+							<p class="p-summery_descLine mod-displayNone_mobile">混迷を極める状況のなか、二つのチームが出した企画とはー。</p>
 						</div>
 					</div>
 				</div>
-				<div class="lp-summery_relation js-relation">
-					<a class="lp-summery_relationInner">
+				<div class="p-summery_relation js-relation">
+					<a class="p-summery_relationInner">
 						<figure>
 							<picture>
 								<source srcset="/data/hidari-kikino-eren/images/summary_relation_l.jpg" media="(min-width: 800px)">
@@ -169,157 +167,154 @@
 						</figure>
 						<div class="buttonSquare mod-animeH">
 							<div class="buttonSquare_inner">
-								<img src="/data/hidari-kikino-eren/images/summary_icon_zoom.png" loading="eager" alt="">
+								<img src="/data/hidari-kikino-eren/images/summary_icon_zoom.png" loading="eager" alt="人物相関図">
 							</div>
 						</div>
 					</a>
 				</div>
 			</section>
-
-			<section class="lp-story is-prologue">
-				<div class="lp-story_inner">
-					<div class="lp-story_tabs">
-						<button class="lp-story_tab tab js-tab is-active">
+			<section class="p-story is-prologue">
+				<div class="p-story_inner">
+					<div class="p-story_tabs">
+						<button class="p-story_tab tab js-tab is-active">
 							<div class="tab_inner">
 								<svg>
 									<use xlink:href="#arrow">
 								</svg>
-								<span class="lp-story_label brn_inner">プロローグ<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
+								<span class="p-story_label brn_inner">プロローグ<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
 							</div>
 						</button>
-						<button class="lp-story_tab tab js-tab">
+						<button class="p-story_tab tab js-tab">
 							<div class="tab_inner">
 								<svg>
 									<use xlink:href="#arrow">
 								</svg>
-								<span class="lp-story_label">本編<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
+								<span class="p-story_label">本編<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
 							</div>
 						</button>
 					</div>
-					<div class="lp-story_wrap"> 
-						<ol class="lp-story_pages mod-prologue js-pages is-active">
-							<li><img src="/data/hidari-kikino-eren/images/prologue/01.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/02.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/03.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/04.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/05.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/06.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/07.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/08.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/09.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/10.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/11.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/12.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/13.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/14.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/15.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/16.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/17.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/18.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/19.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/20.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/21.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/22.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/prologue/23.png" loading="eager" alt=""></li>
+					<div class="p-story_wrap"> 
+						<ol class="p-story_pages mod-prologue js-pages is-active">
+							<li><img src="/data/hidari-kikino-eren/images/prologue/01.png" loading="eager" alt="プロローグ ページ 01"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/02.png" loading="eager" alt="プロローグ ページ 02"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/03.png" loading="eager" alt="プロローグ ページ 03"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/04.png" loading="eager" alt="プロローグ ページ 04"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/05.png" loading="eager" alt="プロローグ ページ 05"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/06.png" loading="eager" alt="プロローグ ページ 06"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/07.png" loading="eager" alt="プロローグ ページ 07"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/08.png" loading="eager" alt="プロローグ ページ 08"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/09.png" loading="eager" alt="プロローグ ページ 09"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/10.png" loading="eager" alt="プロローグ ページ 10"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/11.png" loading="eager" alt="プロローグ ページ 11"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/12.png" loading="eager" alt="プロローグ ページ 12"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/13.png" loading="eager" alt="プロローグ ページ 13"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/14.png" loading="eager" alt="プロローグ ページ 14"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/15.png" loading="eager" alt="プロローグ ページ 15"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/16.png" loading="eager" alt="プロローグ ページ 16"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/17.png" loading="eager" alt="プロローグ ページ 17"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/18.png" loading="eager" alt="プロローグ ページ 18"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/19.png" loading="eager" alt="プロローグ ページ 19"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/20.png" loading="eager" alt="プロローグ ページ 20"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/21.png" loading="eager" alt="プロローグ ページ 21"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/22.png" loading="eager" alt="プロローグ ページ 22"></li>
+							<li><img src="/data/hidari-kikino-eren/images/prologue/23.png" loading="eager" alt="プロローグ ページ 23"></li>
 						</ol>
-						<ol class="lp-story_pages mod-main js-pages">
-							<li><img src="/data/hidari-kikino-eren/images/main/01.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/02.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/03.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/04.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/05.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/06.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/07.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/08.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/09.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/10.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/11.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/12.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/13.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/14.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/15.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/16.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/17.png" loading="eager" alt=""></li>
-							<li><img src="/data/hidari-kikino-eren/images/main/18.png" loading="eager" alt=""></li>
+						<ol class="p-story_pages mod-main js-pages">
+							<li><img src="/data/hidari-kikino-eren/images/main/01.png" loading="eager" alt="本編 ページ 01"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/02.png" loading="eager" alt="本編 ページ 02"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/03.png" loading="eager" alt="本編 ページ 03"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/04.png" loading="eager" alt="本編 ページ 04"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/05.png" loading="eager" alt="本編 ページ 05"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/06.png" loading="eager" alt="本編 ページ 06"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/07.png" loading="eager" alt="本編 ページ 07"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/08.png" loading="eager" alt="本編 ページ 08"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/09.png" loading="eager" alt="本編 ページ 09"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/10.png" loading="eager" alt="本編 ページ 10"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/11.png" loading="eager" alt="本編 ページ 11"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/12.png" loading="eager" alt="本編 ページ 12"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/13.png" loading="eager" alt="本編 ページ 13"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/14.png" loading="eager" alt="本編 ページ 14"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/15.png" loading="eager" alt="本編 ページ 15"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/16.png" loading="eager" alt="本編 ページ 16"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/17.png" loading="eager" alt="本編 ページ 17"></li>
+							<li><img src="/data/hidari-kikino-eren/images/main/18.png" loading="eager" alt="本編 ページ 18"></li>
 						</ol>
 					</div>
-					<div class="lp-story_tabs mod-bottomTab">
-						<button class="lp-story_tab js-tab is-active">
+					<div class="p-story_tabs mod-bottomTab">
+						<button class="p-story_tab js-tab is-active">
 							<div class="tab_inner">
 								<svg>
 									<use xlink:href="#arrow">
 								</svg>
-								<span class="lp-story_label brn_inner">プロローグ<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
+								<span class="p-story_label brn_inner">プロローグ<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
 							</div>
 						</button>
-						<button class="lp-story_tab js-tab">
+						<button class="p-story_tab js-tab">
 							<div class="tab_inner">
 								<svg>
 									<use xlink:href="#arrow">
 								</svg>
-								<span class="lp-story_label">本編<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
+								<span class="p-story_label">本編<br><span>「新聞広告の日<br class="mod-displayNone_smallDesktop">THE NEWS FOR NEW TEAM」</span></span>
 							</div>
 						</button>
 					</div>
 				</div>
 			</section>
-
-			<section class="lp-result">
-				<div class="lp-result_bgWrap">
+			<section class="p-result">
+				<div class="p-result_bgWrap">
 					<div class="bgItem mod-top"></div>
 					<div class="bgItem mod-bottom"></div>
 				</div>
-				<div class="lp-result_inner js-fadeIn">
-					<h2 class="lp-resultTitle">
-						<span class="lp-resultTitle_inner mod-displayNone_smallDesktop"><img src="/data/hidari-kikino-eren/images/result_title1.png" loading="eager" alt=""></span>
-						<span class="lp-resultTitle_inner mod-displayNone_smallDesktop"><img src="/data/hidari-kikino-eren/images/result_title2.png" loading="eager" alt=""></span>
-						<span class="lp-resultTitle_inner mod-displayNone_mobile"><img src="/data/hidari-kikino-eren/images/result_title_l.png" loading="eager" alt=""></span>
+				<div class="p-result_inner js-fadeIn">
+					<h2 class="p-resultTitle">
+						<span class="p-resultTitle_inner mod-displayNone_smallDesktop"><img src="/data/hidari-kikino-eren/images/result_title1.png" loading="eager" alt="朝日新聞掲載・"></span>
+						<span class="p-resultTitle_inner mod-displayNone_smallDesktop"><img src="/data/hidari-kikino-eren/images/result_title2.png" loading="eager" alt="JINS広告が決定！"></span>
+						<span class="p-resultTitle_inner mod-displayNone_mobile"><img src="/data/hidari-kikino-eren/images/result_title_l.png" loading="eager" alt="朝日新聞掲載・JINS広告が決定！"></span>
 					</h2>
-					<div class="lp-resultDesc">
-						<p class="lp-resultDesc_line mod-displayNone_smallDesktop">10/20〜10/28の投票期間で</p>
-						<p class="lp-resultDesc_line mod-displayNone_smallDesktop">およそ2342人の参加ありがとうございました!</p>
-						<p class="lp-resultDesc_line mod-displayNone_smallDesktop">みなさんの投票の結果、採用されたのは</p>
-						<p class="lp-resultDesc_line mod-displayNone_smallDesktop">「目黒広告社」の広告でした!</p>
-						<p class="lp-resultDesc_line mod-displayNone_smallDesktop">実際の掲載を楽しみにしていてください。</p>
-						<p class="lp-resultDesc_line mod-displayNone_mobile">10/20〜10/28の投票期間でおよそ2342人の参加ありがとうございました!</p>
-						<p class="lp-resultDesc_line mod-displayNone_mobile">みなさんの投票の結果、採用されたのは「目黒広告社」の広告でした!</p>
-						<p class="lp-resultDesc_line mod-displayNone_mobile">実際の掲載を楽しみにしていてください。</p>
+					<div class="p-resultDesc">
+						<p class="p-resultDesc_line mod-displayNone_smallDesktop">10/20〜10/28の投票期間で</p>
+						<p class="p-resultDesc_line mod-displayNone_smallDesktop">およそ2342人の参加ありがとうございました!</p>
+						<p class="p-resultDesc_line mod-displayNone_smallDesktop">みなさんの投票の結果、採用されたのは</p>
+						<p class="p-resultDesc_line mod-displayNone_smallDesktop">「目黒広告社」の広告でした!</p>
+						<p class="p-resultDesc_line mod-displayNone_smallDesktop">実際の掲載を楽しみにしていてください。</p>
+						<p class="p-resultDesc_line mod-displayNone_mobile">10/20〜10/28の投票期間でおよそ2342人の参加ありがとうございました!</p>
+						<p class="p-resultDesc_line mod-displayNone_mobile">みなさんの投票の結果、採用されたのは「目黒広告社」の広告でした!</p>
+						<p class="p-resultDesc_line mod-displayNone_mobile">実際の掲載を楽しみにしていてください。</p>
 					</div>
-					<div class="lp-resultLogo"><img src="/data/hidari-kikino-eren/images/result_logo_meguro.png" loading="eager" alt=""></div>
-					<div class="lp-resultImg1"><img src="/data/hidari-kikino-eren/images/result_img1.png" loading="eager" alt=""></div>
-					<div class="lp-resultImg2"><img src="/data/hidari-kikino-eren/images/result_img2.png" loading="eager" alt=""></div>
-					<div class="lp-resultDate">
-						<p class="lp-resultDate_label">
+					<div class="p-resultLogo"><img src="/data/hidari-kikino-eren/images/result_logo_meguro.png" loading="eager" alt="目黒広告社"></div>
+					<div class="p-resultImg1"><img src="/data/hidari-kikino-eren/images/result_img1.png" loading="eager" alt=""></div>
+					<div class="p-resultImg2"><img src="/data/hidari-kikino-eren/images/result_img2.png" loading="eager" alt=""></div>
+					<div class="p-resultDate">
+						<p class="p-resultDate_label">
 							<picture>
 								<source srcset="/data/hidari-kikino-eren/images/result_info_label_l.png" media="(min-width: 800px)">
-								<img src="/data/hidari-kikino-eren/images/result_info_label.png" loading="eager" alt=""></p>
+								<img src="/data/hidari-kikino-eren/images/result_info_label.png" loading="eager" alt="広告掲載日"></p>
 							</picture>
-						<p class="lp-resultDate_day">
+						<p class="p-resultDate_day">
 							<picture>
 								<source srcset="/data/hidari-kikino-eren/images/result_date_l.png" media="(min-width: 800px)">
-								<img src="/data/hidari-kikino-eren/images/result_date.png" loading="eager" alt="">
+								<img src="/data/hidari-kikino-eren/images/result_date.png" loading="eager" alt="2019 11/21">
 							</picture>
 						</p>
 					</div>
 				</div>
 			</section>
-
 		</main>
 	</div>
-	<div class="lp-modal js-modal" data-modal="modalClose">
+	<div class="p-modal js-modal" data-modal="modalClose">
 		<button class="buttonSquare mod-animeH">
 			<span class="modalCloseIcon js-modalCloseIcon" data-modal="modalClose"></span>
 		</button>
-		<div class="lp-modalContents">
-			<p class="lp-modalContents_title">
-				<span class="lp-modalContents_titleInner"><img src="/data/hidari-kikino-eren/images/modal_title.png" loading="eager" alt=""></span>
+		<div class="p-modalContents">
+			<p class="p-modalContents_title">
+				<span class="p-modalContents_titleInner"><img src="/data/hidari-kikino-eren/images/modal_title.png" loading="eager" alt="登場人物"></span>
 			</p>
-			<div class="lp-modalContentsInner">
+			<div class="p-modalContentsInner">
 				<img src="/data/hidari-kikino-eren/images/summary_chart_zoom.jpg" loading="eager" alt="">
 			</div>
 		</div>
 	</div>
-	<div class="lp-modalBg js-modalBg"></div>
+	<div class="p-modalBg js-modalBg"></div>
 	<script type="text/javascript" src="../../lib/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../../src/js/hidari-kikino-eren/index.js"></script>
 </body>

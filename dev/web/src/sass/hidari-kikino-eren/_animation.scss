@@ -1,53 +1,53 @@
 .hidarikikinoEren{
 
   // opening NowLoading画面 共通
-  .lp-loading.is-loaded {
+  .p-loading.is-loaded {
     opacity: 0;
     visibility: hidden;
     transition-delay: 1s;
 
-    .lp-loading_wrap {
+    .p-loading_wrap {
       transform: translate(-50%, 0) !important;
       transition: transform .8s cubic-bezier(.19,1,.22,1);
     }
 
-    .lp-loading_text {
+    .p-loading_text {
       opacity: 0;
     }
   }
 
   // progreess-guage 縦に展開 共通
-  .lp-loadingInner {
+  .p-loadingInner {
     &_item.is-loaded:before {
       transform: scaleY(1) !important;
     }
   }
 
   // header sticky 共通
-  .lp-header.is-hide {
+  .p-header.is-hide {
     transform: translateY(-100%);
     opacity: 0;
   }
 
   // menuボタン mobile用
-  .lp-menuBtn.is-open {
+  .p-menuBtn.is-open {
     background-color: #e50013;
-    .lp-menuBtn_open span {
+    .p-menuBtn_open span {
       transform: scaleX(0);
       transition-delay: 0s;
     }
-    .lp-menuBtn_close:before {
+    .p-menuBtn_close:before {
       transform: scaleY(1);
       transition-delay: .2s;
     }
-    .lp-menuBtn_close:after {
+    .p-menuBtn_close:after {
       transform: scaleX(1);
       transition-delay: .4s;
     }
   }
 
   // menuOpen mobile用
-  .lp-menu.is-open {
+  .p-menu.is-open {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
@@ -55,20 +55,20 @@
   }
 
   // loading後 KVキャラonScreen & h1テキストフェードイン 共通
-  .lp-kv.is-onScreenItem.is-onScreen {
-    .lp-character_inner {
+  .p-kv.is-onScreenItem.is-onScreen {
+    .p-character_inner {
       transform: translateY(0);
       &:after {
         transform: scaleY(0);
       }
     }
-    .lp-kv_title.mod-title1 {
+    .p-kv_title.mod-title1 {
       transform: scaleY(1);
       &:after {
         transform: scaleY(0);
       }
     }
-    .lp-kv_title.mod-title2 {
+    .p-kv_title.mod-title2 {
       transform: scaleX(1);
       &:after {
         transform: scaleX(0);
@@ -77,27 +77,27 @@
   }
 
   // loop中 KVキャラonScreen & closeを繰り返し mobile用
-  .lp-kv.is-onScreenItem.is-onScreen.is-closed {
-    .lp-character.mod-item1 >.lp-character_inner, .lp-character.mod-item3 >.lp-character_inner {
+  .p-kv.is-onScreenItem.is-onScreen.is-closed {
+    .p-character.mod-item1 >.p-character_inner, .p-character.mod-item3 >.p-character_inner {
       transform: translateY(-20%);
     }
-    .lp-character.mod-item2 >.lp-character_inner, .lp-character.mod-item4 >.lp-character_inner {
+    .p-character.mod-item2 >.p-character_inner, .p-character.mod-item4 >.p-character_inner {
       transform: translateY(20%);
     }
-    .lp-character_inner:after {
+    .p-character_inner:after {
       transform: scaleY(1) !important; //is-onScreenを上書き
     }
   }
 
-  // lp-summury あらすじ部 フェードイン 共通
-  .lp-summery_heading.is-onScreen {
-    .lp-summery_title {
+  // p-summury あらすじ部 フェードイン 共通
+  .p-summery_heading.is-onScreen {
+    .p-summery_title {
       transform: scaleY(1);
       &:after {
         transform: scaleY(0);
       }
     }
-    .lp-summery_descLine {
+    .p-summery_descLine {
       transform: scaleX(0.9);
       &:after {
         transform: scaleX(0);
@@ -105,15 +105,15 @@
     }
   }
 
-  // lp-result 朝日新聞掲載〜部 フェードイン 共通
-  .lp-result_inner.is-onScreen {
-    .lp-resultTitle_inner, .lp-resultDate_label, .lp-resultDate_day {
+  // p-result 朝日新聞掲載〜部 フェードイン 共通
+  .p-result_inner.is-onScreen {
+    .p-resultTitle_inner, .p-resultDate_label, .p-resultDate_day {
       transform: scaleX(1);
       &:after {
         transform: scaleX(0);
       }
     }
-    .lp-resultDesc_line {
+    .p-resultDesc_line {
       transform: scaleX(.9);
       &:after {
         transform: scaleX(0);
@@ -122,52 +122,52 @@
   }
   
   // loop中処理 mobile用
-  .is-step1.lp-kv_characters {
+  .is-step1.p-kv_characters {
     @include mediaQuery(mobile) {
       &:nth-child(3) {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: .1s;
         }
       }
     
       &:nth-child(7) {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: .1s;
         }
       }
     
       &:nth-child(4) {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: .2s;
         }
       }
     
       &:nth-child(8) {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: .2s;
         }
       }
     
       &:first-child {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: .3s;
         }
       }
     
       &:nth-child(5) {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: .3s;
         }
       }
     
       &:nth-child(2) {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: 0s;
         }
       }
   
       &:nth-child(6) {
-        .lp-character_inner, &:after {
+        .p-character_inner, &:after {
           transition-delay: 0s;
         }
       }
@@ -175,153 +175,153 @@
   }
 
 
-  .is-step2.lp-kv_characters {
+  .is-step2.p-kv_characters {
     &:nth-child(3) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: 0s;
       }
     }
   
     &:nth-child(7) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: 0s;
       }
     }
   
     &:nth-child(4) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .1s;
       }
     }
   
     &:nth-child(8) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .1s;
       }
     }
   
     &:first-child {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .2s;
       }
     }
   
     &:nth-child(5) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .2s;
       }
     }
   
     &:nth-child(2) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .3s;
       }
     }
   
     &:nth-child(6) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .3s;
       }
     }
   }
 
 
-  .is-step3.lp-kv_characters {
+  .is-step3.p-kv_characters {
     &:nth-child(3) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .3s;
       }
     }
   
     &:nth-child(7) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .3s;
       }
     }
   
     &:nth-child(4) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: 0s;
       }
     }
   
     &:nth-child(8) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: 0s;
       }
     }
   
     &:first-child {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .1s;
       }
     }
   
     &:nth-child(5) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .1s;
       }
     }
   
     &:nth-child(2) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .2s;
       }
     }
   
     &:nth-child(6) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .2s;
       }
     }
   }
 
 
-  .is-step4.lp-kv_characters {
+  .is-step4.p-kv_characters {
     &:nth-child(3) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .2s;
       }
     }
   
     &:nth-child(7) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .2s;
       }
     }
   
     &:nth-child(4) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .3s;
       }
     }
   
     &:nth-child(8) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .3s;
       }
     }
   
     &:first-child {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: 0s;
       }
     }
   
     &:nth-child(5) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: 0s;
       }
     }
   
     &:nth-child(2) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .1s;
       }
     }
   
     &:nth-child(6) {
-      .lp-character_inner, &:after {
+      .p-character_inner, &:after {
         transition-delay: .1s;
       }
     }
