@@ -14,19 +14,23 @@ time, mark, audio, video {
 	padding:0;
 	border:0;
 	outline:0;
-	font-size: 62.5%;
+  font-size: 100%;
+  font: inherit;
 	vertical-align:baseline;
 	background:transparent;
   box-sizing: border-box;
 }
 
 body {
-  color: rgb(38, 38, 38);
-  font-size: 1.4rem;
-  font-weight: 300;
-	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", メイリオ, sans-serif;
-  letter-spacing: 0.1em;	
-	line-height: 1.7;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: YakuHanJP,Noto Sans JP,sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  background-color: #e50013;
+  -webkit-font-smoothing: antialiased; //フォント アンチエイリアス調整
+  text-rendering: optimizeLegibility; //レンダリング時のテキスト最適化方法
 }
 
 img {
@@ -37,13 +41,18 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
 
+button {
+  outline: none;
+  padding: 0;
+  border: none;
+}
 
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
   display:block;
 }
 
-ul {
+ul, ol {
   list-style:none;
 }
 

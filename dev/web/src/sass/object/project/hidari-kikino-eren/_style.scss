@@ -1,0 +1,2351 @@
+.hidarikikinoEren{
+	position: relative;
+
+	@mixin textFadeIN($scale: scaleX(1), $transform-origin: right bottom) {
+		position: absolute;
+		left: 0;
+		top: 0;
+		content: "";
+		width: 100%;
+		height: 100%;
+		transform: $scale;
+		transform-origin: $transform-origin;
+		transition: transform .6s cubic-bezier(.19,1,.22,1) .2s;
+		background-color: #000;
+	}
+	
+
+/* ------------------
+		p-loading 
+--------------------- */
+	.p-loading {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: #e50013;
+		z-index: 1000;
+		transition: visibility .2s linear,
+								opacity .2s linear;
+
+		&__wrap {
+			position: absolute;
+			top: 26.93333vw;
+			left: 50%;
+			transform: translate(-50%);
+			width: 203.6vw;
+			height: 112.26667vw;
+			@include mq {
+				top: 9.13194vw;
+				width: 98.33333vw;
+				height: 40.69444vw;
+			}
+			@include mq(xl-h) {
+				top: 146.11111px;
+				width: 1573.33333px;
+				height: 651.11111px;
+			}
+		}
+
+		&__text {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 50%;
+			margin: 0 auto;
+			background: url('../../../data/hidari-kikino-eren/images/loading_txt.png') 50% no-repeat;
+			background-size: contain;
+			transform: translateY(150%);
+			width: 28.53333vw;
+			height: 2.66667vw;
+			transition: opacity .2s linear;
+			@include mq {
+				transform: translateY(400%);
+				width: 7.43056vw;
+				height: .69444vw;
+			}
+			@include mq(xl-h) {
+				width: 118.88889px;
+				height: 11.11111px;
+			}
+		}
+	}
+
+	.p-loadingInner {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		transition: transform .8s cubic-bezier(.19,1,.22,1);
+
+		&__item {
+			display: block;
+			width: 203.6vw;
+			height: 100%;
+			transition: transform .4s cubic-bezier(.19,1,.22,1);
+			&:before {
+				transition: transform .8s cubic-bezier(.19,1,.22,1) .4s;
+			}
+
+			&--item1 {
+				order: 2;
+				transform: scaleX(0);
+				&:before {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: #0e6cb2;
+					transition-delay: 0s;
+					transform: scaleY(.006);
+				}
+				@include mq {
+					order: 1;
+				}
+			}
+
+			&--item2 {
+				order: 3;
+				&:before {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: #fe3c00;
+					transition-delay: .2s;
+					transform: scaleY(0);
+				}
+				@include mq {
+					order: 2;
+					transform: scaleX(0);
+					&:before {
+						transform: scaleY(.005);
+						transition-delay: .1s;
+					}
+				}
+			}
+
+			&--item3 {
+				@include mq(s-h) {
+					display: none;
+				}
+				&:before {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: #deff00;
+					transition-delay: .2s;
+					transform: scaleY(0);
+				}
+				@include mq {
+					order: 3;
+					transform: scaleX(0);
+					&:before {
+						transform: scaleY(.005);
+						transition-delay: .2s;
+					}
+				}
+			}
+
+			&--item4 {
+				order: 1;
+				&:before  {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: #02d0d0;
+					transition-delay: .2s;
+					transform: scaleY(0);
+				}
+				@include mq {
+					order: 4;
+					transform: scaleX(0);
+					&:before {
+						transform: scaleY(.005);
+						transition-delay: .3s;
+					}
+				}
+			}
+		}
+	}
+
+/* ------------------
+		p-header 
+--------------------- */
+	.p-header {
+		width: 100%;
+		background-color: #fff;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		cursor: pointer;
+		overflow: hidden;
+		height: 12vw;
+		transition: visibility .4s cubic-bezier(.19,1,.22,1),
+								opacity .4s cubic-bezier(.19,1,.22,1),
+								transform .4s cubic-bezier(.19,1,.22,1);
+		@include mq {
+			height: 4.0625vw;
+		}
+		@include mq(xl-h) {
+			height: 65px;
+		}
+	}
+	
+	.p-headerTicker {
+		background-image: url('../../../data/hidari-kikino-eren/images/header_ticker.png');
+		background-repeat: repeat-x;
+		background-size: 49.64103vw 12vw;
+		width: 100%;
+		height: 100%;
+		animation: headerMovingS 6s linear infinite;
+		@include mq {
+			background-size: 16.80556vw 4.0625vw;
+			animation: headerMovingL 6s linear infinite;
+		}
+
+		@include mq(xl-h) {
+			background-size: 268.88889px 65px;
+			animation: headerMovingLL 6s linear infinite;
+		}
+		@keyframes headerMovingS {
+			0% {
+				background-position: 0 0;
+			}
+
+			100% {
+				background-position: 49.64103vw 0;
+			}
+		}
+		@keyframes headerMovingL {
+			0% {
+				background-position: 0 0;
+			}
+
+			100% {
+				background-position: 16.80556vw 0;
+			}
+		}
+		@keyframes headerMovingLL {
+			0% {
+				background-position: 0 0;
+			}
+
+			100% {
+				background-position: 268.88889px 0;
+			}
+		}
+	}
+
+/* ------------------
+		p-menuBtn
+--------------------- */
+	.p-menuBtn {
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: 14vw;
+		height: 14vw;
+		background-color: #000;
+		transition: background-color .2s cubic-bezier(.19,1,.22,1);
+		z-index: 10;
+
+		&__open {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 5.6vw;
+			height: 4.26667vw;
+
+			> span {
+				position: absolute;
+				left: 0;
+				right: 0;
+				background-color: #fff;
+				width: 100%;
+				height: .533vw;
+				transition: transform .4s cubic-bezier(.19,1,.22,1) .2s;
+			}
+			> span:nth-child(1) {
+				transform-origin: left center;
+				top: 0;
+			}
+			> span:nth-child(2) {
+				transform-origin: center center;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			> span:nth-child(3) {
+				transform-origin: right center;
+				bottom: 0;
+			}
+		}
+
+		&__close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			transform: rotate(45deg);
+			width: 5.33333vw;
+			height: 5.33333vw;
+			&:before, &:after {
+				content: '';
+				transform-origin: top left;
+				background-color: #fff;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				transition: transform .4s cubic-bezier(.19,1,.22,1);
+			}
+			&:before {
+				width: .5333vw;
+				height: 100%;
+				transform: scaleY(0);
+			}
+			&:after {
+				height: .5333vw;
+				width: 100%;
+				transform: scaleX(0);
+			}
+		}
+	}
+
+/* ------------------
+		p-menu
+--------------------- */
+	.p-menu {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 82.4vw;
+		background-color: #000;
+		opacity: 0;
+		visibility: hidden;
+		z-index: -1;
+		transition: transform .4s cubic-bezier(.19,1,.22,1),
+								opacity .4s cubic-bezier(.19,1,.22,1),
+								visibility .4s cubic-bezier(.19,1,.22,1),
+								z-index .4s cubic-bezier(.19,1,.22,1);
+		@include mq(s-h) {
+			transform: translateX(100%);
+		}
+		@include mq {
+			height: 4.0625vw;
+			width: auto;
+			opacity: 1;
+			visibility: visible;
+			overflow: visible;
+			z-index: 5;
+		}
+		@include mq(xl-h) {
+			height: 65px;
+		}
+		&__wrap {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			min-height: 146.26667vw;
+			padding: 18vw 4vw 4vw;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			@include mq {
+				position: relative;
+				width: auto;
+				min-height: 0;
+				padding: 0;
+			}
+		}
+
+		&__nav {
+			position: relative;
+			width: 100%;
+			z-index: 1;
+			@include mq {
+				width: 4.75694vw;
+				background-color: #000;
+				padding: .41667vw;
+				position: absolute;
+				top: 5.41667vw;
+				right: 1.66667vw;
+			}
+			@include mq(l-h) {
+				width: 6.48649vw;
+			}
+			@include mq(xl-h) {
+				width: 76.11111px;
+				padding: 6.66667px;
+				top: 86.66667px;
+				right: 26.66667px;
+			}
+
+			> ul {
+				width: 100%;
+				> .p-menuNavItem {
+					height: 7.77778vw;
+					border-top-width: 0;
+					@include mq(s-h) {
+						height: 26.4vw;
+					}
+					@include mq(l-h) {
+						height: 12.10811vw;
+					}
+					@include mq(xl-h) {
+						height: 124.44444px;
+					}
+					.p-menuNavItem__leftArrow {
+						@include mq {
+							display: none;
+						}
+					}
+				}
+				> .p-menuNavItem:first-child {
+					border-width: .26667vw;
+					@include mq {
+						border-width: .06944vw;
+					}
+				}
+				> .p-menuNavItem--vote {
+					background-color: #02d0d0;
+					span {
+						color: #e50013;
+					}
+					&:before, &:after {
+						background-color: #e50013;
+					}
+					&:hover {
+						.p-menuNavItem__label {
+							color: #02d0d0;
+						}
+						.p-menuNavItem__leftArrow {
+							fill:  #02d0d0;
+						}
+					}
+				}
+			}
+		}
+
+		&__sns {
+			position: relative;
+			width: 100%;
+			height: 14.66667vw;
+			display: flex;
+			@include mq(s-h) {
+				margin-top: 4vw;
+			}
+			@include mq {
+				position: absolute;
+				right: 0;
+				top: 0;
+				background-color: #000;
+				width: 10.41667vw;
+				height: 100%;
+				padding-left: .41667vw;
+				padding-right: .41667vw;
+				align-items: center;
+			}
+			@include mq(xl-h) {
+				width: 166.66667px;
+				padding-left: 6.66667px;
+				padding-right: 6.66667px;
+			}
+			> .p-snsButton {
+				width: 33%;
+				border-right-width: 0;
+				@include mq {
+					width: 3.19444vw;
+					height: 3.19444vw;
+				}
+				@include mq(xl-h) {
+					width: 51.11111px;
+					height: 51.11111px;
+				}
+			}
+			> .p-snsButton:last-child {
+				border-width: .26667vw;
+				@include mq {
+					border-width: .06944vw;
+				}
+			}
+		}
+	}
+
+/* ------------------
+		main
+--------------------- */
+	main {
+		position: relative;
+		width: 100%;
+		padding-top: 12vw;
+		@include mq {
+			padding-top: 4.0625vw;
+		}
+		@include mq(xl-h) {
+			padding-top: 65px;
+		}
+	}
+
+/* ------------------
+		p-kv
+--------------------- */
+	.p-kv { //動きを見てプロパティ追加
+		position: relative;
+		width: 100%;
+		max-width: 1600px;
+		padding-top: 14.933vw;
+		overflow: hidden;
+		margin: auto;
+		backface-visibility: hidden;
+		transform: translateZ(0);
+		@include mq {
+			height: 49.30556vw;
+			padding-top: 5.06944vw;
+		}
+		@include mq(xl-h) {
+			height: 788.88889px;
+			padding-top: 81.11111px;
+		}
+
+		&__characters {
+			position: relative;
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+			align-items: flex-start;
+			width: 542.93333vw;
+			height: 112.26667vw;
+			margin: auto;
+			backface-visibility: hidden;
+			transform: translateZ(0);
+			@include mq {
+				width: 98.33333vw;
+				height: 40.69444vw;
+			}
+			@include mq(xl-h) {
+				width: 1573.33333px;
+				height: 651.11111px;
+			}
+		}
+
+		.p-character {
+			position: relative;
+			height: 100%;
+			width: 67.86667vw;
+			overflow: hidden;
+			@include mq {
+				width: 25%;
+			}
+			&__inner {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50%;
+				transition: transform .8s cubic-bezier(.19,1,.22,1);
+				transform: translateZ(0);
+				backface-visibility: hidden;
+			}
+			&__inner:after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				transform: scaleY(1);
+				transition: transform .8s cubic-bezier(.19,1,.22,1),
+										background-color .8s cubic-bezier(.19,1,.22,1);
+			}
+
+			&--item1 {
+				background-color: #0e6cb2;
+				.p-character__inner {
+					background-image: url('../../../data/hidari-kikino-eren/images/kv_img1.jpg');
+					transform: translateY(-20%);
+					transition-delay: 0s!important;
+				}
+				.p-character__inner:after {
+					background-color: #0e6cb2;
+					transform-origin: bottom center;
+					transition-delay: 0s!important;
+				}
+			}
+			&--item2 {
+				background-color: #fe3c00;
+				.p-character__inner {
+					background-image: url('../../../data/hidari-kikino-eren/images/kv_img2.jpg');
+					transform: translateY(20%);
+					transition-delay: 0.1s!important;
+				}
+				.p-character__inner:after {
+					background-color: #fe3c00;
+					transform-origin: top center;
+					transition-delay: 0.1s!important;
+				}
+			}
+			&--item3 {
+				background-color: #deff00;
+				.p-character__inner {
+					background-image: url('../../../data/hidari-kikino-eren/images/kv_img3.jpg');
+					transform: translateY(-20%);
+					transition-delay: 0.2s!important;
+				}
+				.p-character__inner:after {
+					background-color: #deff00;
+					transform-origin: bottom center;
+					transition-delay: 0.2s!important;
+				}
+			}
+			&--item4 {
+				background-color: #02d0d0;
+				.p-character__inner {
+					background-image: url('../../../data/hidari-kikino-eren/images/kv_img4.jpg');
+					transform: translateY(20%);
+					transition-delay: 0.3s!important;
+				}
+				.p-character__inner:after {
+					background-color: #02d0d0;
+					transform-origin: top center;
+					transition-delay: 0.3s!important;
+				}
+			}
+		}
+
+		> h1 {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			transform: translateZ(0);
+			@include mq {
+				left: 4.51389vw;
+			}
+			@include mq(xl-h) {
+				left: 72.22222px;
+			}
+		}
+
+		&__title {
+			background-color: #000;
+			font-size: 6.933vw;
+			padding: .6em;
+			display: flex;
+			align-items: center;
+			backface-visibility: hidden;
+			@include mq {
+				font-size: 3.125vw;
+			}
+			@include mq(xl-h) {
+				font-size: 50px;
+			}
+
+			&--title1 {
+				position: relative;
+				padding-bottom: 0;
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transform: scaleY(0);
+				transition-delay: .4s;
+				transition-duration: .2s;
+				&:after {
+					@include textFadeIN(scaleY(1));
+					transition-delay: .8s;
+				}
+				& > img {
+					width: 5.73333vw;
+					@include mq {
+						width: 2.53472vw;
+					}
+					@include mq(xl-h) {
+						width: 40.55556px;
+					}
+				}
+			}
+			&--title2 {
+				position: relative;
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transform: scaleX(0);
+				transition-delay: .6s;
+				&:after {
+					@include textFadeIN();
+					transition-delay: 1s;
+				}
+				& > img {
+					height: 5.6vw;
+					width: auto;
+					@include mq {
+						height: 2.91667vw;
+					}
+					@include mq(xl-h) {
+						height: 46.66667px;
+					}
+				}
+			}
+		}
+
+		&__name {
+			position: absolute;
+			width: 70vw;
+			height: 15.333vw;
+			top: 2.6667vw;
+			left: 2.6667vw;
+			@include mq {
+				width: 22.74306vw;
+				height: 5.20833vw;
+				top: auto;
+				bottom: 0;
+				left: auto;
+				right: 4.51389vw;
+			}
+			@include mq(xl-h) {
+				width: 363.88889px;
+				height: 83.33333px;
+				right: 72.22222px;
+			}
+		}
+	}
+
+/* ------------------
+		p-summery
+--------------------- */
+	.p-summery {
+		position: relative;
+		width: 100%;
+		max-width: 1600px;
+		margin: 14.6667vw auto auto;
+		@include mq {
+			display: flex;
+			margin-top: 5.55556vw;
+			padding-top: 2.08333vw;
+			padding-left: 7.01389vw;
+			padding-right: 4.51389vw;
+		}
+		@include mq(l-h) {
+			display: block;
+		}
+		@include mq(xl-h) {
+			margin-top: 88.88889px;
+			padding-top: 33.33333px;
+			padding-left: 112.22222px;
+			padding-right: 72.22222px;
+		}
+
+		&__heading {
+			position: relative;
+			background-color: #deff00;
+			background-image: url('../../../data/hidari-kikino-eren/images/summary_heading_bg.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 100vw;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			overflow: hidden;
+			@include mq {
+				width: 50%;
+				height: 28.19444vw;
+				overflow: visible;
+			}
+			@include mq(l-h) {
+				width: 100%;
+				height: 451.17117px;
+				background-image: url('../../../data/hidari-kikino-eren/images/summary_header_bg_l.jpg');
+				background-position: 50% 50%;
+			}
+			@include mq(xl-h) {
+				height: 451.11111px;
+			}
+		}
+
+		&__headingInner {
+			position: relative;
+			z-index: 1;
+			left: 4vw;
+			@include mq {
+				left: -2.43056vw;
+			}
+			@include mq(l-h) {
+				left: 25.94595px;
+			}
+			@include mq(xl-h) {
+				left: -38.88889px;
+			}
+		}
+
+		&__title {
+			position: absolute;
+			top: -3.33333vw;
+			left: 4vw;
+			width: 9.73333vw;
+			background-color: #000;
+			padding: 3.2vw 2.66667vw;
+			z-index: 2;
+			transition: transform .6s cubic-bezier(.19,1,.22,1);
+			transform-origin: top left;
+			transform: scaleY(0);
+			backface-visibility: hidden;
+			@include mq {
+				padding: 1.25vw 1.04167vw;
+				top: -1.38889vw;
+				left: 1.38889vw;
+				width: 3.92361vw;
+			}
+			@include mq(l-h) {
+				padding: 1.94595vw 1.62162vw;
+				top: -2.16216vw;
+				left: 2.16216vw;
+				width: 6.10811vw;
+				display: flex;
+				justify-content: center;
+			}
+			@include mq(xl-h) {
+				padding: 20px 16.66667px;
+				top: -22.22222px;
+				left: 22.22222px;
+				width: 62.77778px;
+			}
+			&:after {
+				position: relative;
+				@include textFadeIN(scaleY(1));
+				transition: transform .6s cubic-bezier(.19,1,.22,1) .2s;
+				transform-origin: right bottom;
+			}
+
+			img {
+				display: block;
+				width: 3.86667vw;
+				@include mq {
+					width: 1.49306vw;
+				}
+				@include mq(l-h) {
+					width: 2.32432vw;
+				}
+				@include mq(xl-h) {
+					width: 23.88889px;;
+				}
+			}
+		}
+
+		&__headingDesc {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			transform: translateZ(0);
+		}
+
+		&__descLine {
+			position: relative;
+			display: inline-block;
+			font-size: 2.93333vw;
+			font-weight: bold;
+			line-height: 1.8;
+			letter-spacing: .06em;
+			white-space: nowrap;
+			margin-top: -.04em;
+			padding: .4em .4em .4em 7.6em;
+			background-color: #deff00;
+			transform-origin: top left;
+			transition: transform .6s cubic-bezier(.19,1,.22,1);
+			transform: scaleX(0);
+			backface-visibility: hidden;
+			@include mq {
+				padding-left: 8em;
+				font-size: .90278vw;
+			}
+			@include mq(l-h) {
+				font-size: 1.40541vw;
+			}
+			@include mq(xl-h) {
+				font-size: 14.44444px;
+			}
+			&:after {
+				@include textFadeIN();
+				background-color: #deff00;
+			}
+		}
+
+		$type: 1;
+		$delay: 0.3;
+		$delayAfter: 0.5;
+		@while $type <= 10 {
+			.p-summery__descLine:nth-of-type(#{$type}) {
+				transition-delay: #{$delay}s;
+				&:after {
+					transition-delay: #{$delayAfter}s;
+				}
+			}
+			$type: $type + 1;
+			$delay: $delay + 0.1;
+			$delayAfter: $delayAfter + 0.1;
+		}
+
+		.p-summery__descLine:last-of-type {
+			transition-delay: 1.1s;
+			&:after {
+				transition-delay: 1.3s;
+			}
+		}
+
+		&__relation {
+			position: relative;
+			width: 100%;
+			@include mq {
+				width: 50%;
+				top: 2.70833vw;
+			}
+			@include mq(l-h) {
+				width: 100%;
+				top: 0;
+			}
+			@include mq(xl-h) {
+				top: 43.33333px;
+			}
+
+			&:hover {
+				.p-squareButton:before, .p-squareButton:after {
+					transform: scaleX(1);
+				}
+			}
+			
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				padding-top: 100%;
+				@include mq {
+					padding-top: 63.57928%;
+				}
+			}
+
+			figure {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			.p-squareButton {
+				display: block;
+				position: absolute;
+				right: .41667vw;
+				bottom: .41667vw;
+				width: 3.92361vw;
+				height: 3.92361vw;
+				@include mq(s-h) {
+					display: none;
+				}
+				@include mq(l-h) {
+					width: 6.10811vw;
+					height: 6.10811vw;
+				}
+				@include mq(xl-h) {
+					right: 6.66667px;
+					bottom: 6.66667px;
+					width: 62.77778px;
+					height: 62.77778px;
+				}
+				
+				img {
+					width: 1.70139vw;
+					height: 1.77083vw;
+					@include mq(s-h) {
+						display: none;
+					}
+					@include mq(l-h) {
+						display: block;
+						width: 2.64865vw;
+						height: 2.75676vw;
+					}
+					@include mq(xl-h) {
+						width: 27.22222px;
+						height: 28.33333px;
+					}
+				}
+			}
+		}
+
+		&__relationInner {
+			@include mq {
+				cursor: pointer;
+			}
+		}
+	}
+
+
+/* ------------------
+		p-story
+--------------------- */
+	.p-story {
+		position: relative;
+		width: 100%;
+		margin-top: 13.33333vw;
+		padding-top: 5.33333vw;
+		@include mq {
+			margin-top: 9.375vw;
+			padding-top: 2.08333vw;
+		}
+		@include mq(xl-h) {
+			font-size: 34.44444px;
+			margin-top: 150px;
+			padding-top: 33.33333px;
+		}
+
+		&__inner {
+			background-image: url('../../../data/hidari-kikino-eren/images/story_pattern.jpg');
+			background-repeat: repeat;
+			background-position: 50%;
+			background-size: 360px 365px;
+			@include mq {
+				background-size: 720px 730px;
+			}
+		}
+
+	/*  p-story > 	p-story__tabs
+	-------------------------------*/
+		&__tabs {
+			position: relative;
+			height: 19.45946vw;
+			@include mq {
+				height: 6.66667vw;
+			}
+			@include mq(xl-h) {
+				height: 106.66667px;
+			}
+
+			&:before, &:after {
+				content: "";
+				height: 100%;
+				position: absolute;
+				background-color: #e50013;
+				border-color: #deff00;
+				border-width: .8vw;
+				border-bottom-style: solid;
+				box-sizing: inherit;
+				@include mq {
+					border-width: .20833vw;
+				}
+				@include mq(xl-h) {
+					border-width: 3.33333px;
+				}
+			}
+			&:before {
+				left: 0;
+			}
+			&:after {
+				right: 0;
+			}
+
+			&--bottom {
+				&:before, &:after {
+					border-bottom: none;
+					border-top-style: solid;
+				}
+	
+				> button {
+					border-top: none;
+					border-bottom-style: solid;
+				}
+	
+				> button:after {
+					top: 0;
+					bottom: auto;
+				}
+	
+				.p-tab__inner {
+					border-style: none solid solid !important;
+				}
+			}
+		}
+
+	/*  p-story > p-story__tab
+	----------------------------*/
+		&__tab {
+			position: absolute;
+			top: 0;
+			display: block;
+			width: 45.33333vw;
+			height: 100%;
+			background-color: #000;
+			padding: 1.2vw 1.2vw 0;
+			z-index: 2;
+			@include mq {
+				width: 44.44444vw;
+				padding: .41667vw .41667vw 0;
+				cursor: pointer;
+			}
+			@include mq(xl-h) {
+				width: 711.11111px;
+				padding: 6.66667px 6.66667px 0;
+			}
+			&:hover {
+				@include mq {
+					.p-tab__inner > span {
+						color: #e50013;
+					}
+				}
+			}
+			&:nth-child(1) {
+				left: 4vw;
+				@include mq { //tab切り替えのstyle
+					left: auto;
+					right: calc(50% + 1.04167vw);
+				}
+				@include mq(xl-h) {
+					right: calc(50% + 16.66667px);
+				}
+			}
+			&:nth-child(2) {
+				right: 4vw;
+				@include mq { //tab切り替えのstyle
+					right: auto;
+					left: calc(50% + 1.04167vw);
+				}
+				@include mq(xl-h) {
+					left: calc(50% + 16.66667px);
+				}
+			}
+			&:after {
+				content: "";
+				width: 100%;
+				position: absolute;
+				left: 0;
+				height: .8vw;
+				background-color: #deff00;
+				bottom: 0;
+				@include mq {
+					height: .20833vw;
+				}
+				@include mq(xl-h) {
+					height: 3.33333px;
+				}
+			}
+
+			&--bottom {
+				&.is-active {
+					border-top: none !important;
+					border-bottom-style: solid;
+					.p-tab__inner {
+						border-style: none solid solid;
+					}
+				}
+			}
+		}
+
+		.p-tab__inner {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: .26667vw #fff;
+			border-style: solid solid none;
+			overflow: hidden;
+			transition: background-color .4s cubic-bezier(.19,1,.22,1),
+									border-color .4s cubic-bezier(.19,1,.22,1);
+			@include mq {
+				border-width: .06944vw;
+				&:before, &:after {
+					position: absolute;
+					content: '';
+					display: block;
+					width: 101%;
+					height: 51%;
+					background-color: #02d0d0;
+					transition: transform .4s cubic-bezier(.19,1,.22,1);
+					transform: scaleX(0);
+					backface-visibility: hidden;
+					z-index: 0;
+				}
+				&:before {
+					top: 0;
+					left: 0;
+					transform-origin: center right;
+				}
+				&:after {
+					top: auto;
+					bottom: 0;
+					transform-origin: center left;
+				}
+				&:hover {
+					&:before, &:after {
+						transform: scaleX(1);
+					}
+				}
+			}
+
+			&__label {
+				transform: scaleX(.85);
+				position: relative;
+				display: block;
+				color: #fff;
+				font-size: 4.26667vw;
+				font-weight: 500;
+				letter-spacing: .14em;
+				white-space: nowrap;
+				line-height: 1;
+				transition: color .4s cubic-bezier(.19,1,.22,1);
+				z-index: 2;
+				@include mq {
+					font-size: 1.80556vw;
+				}
+				@include mq(xl-h) {
+					font-size: 28.88889px;
+				}
+
+				> span {
+					font-size: 58%;
+					line-height: 1.4;
+					letter-spacing: .14em;
+					margin-top: .8em;
+				}
+			}
+	
+			&__arrow {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				margin-top: auto;
+				margin-bottom: auto;
+				fill: #e50013;
+				display: block;
+				transition: fill .4s cubic-bezier(.19,1,.22,1),
+										transform .4s cubic-bezier(.19,1,.22,1),
+										opacity .4s cubic-bezier(.19,1,.22,1);
+				z-index: 2;
+				left: 1.46667vw;
+				width: 3.6vw;
+				height: 2.13333vw;
+				@include mq  {
+					left: .69444vw;
+					width: 1.38889vw;
+					height: .79861vw;
+				}
+			}
+		}
+
+		&__tab.is-active {
+			background-color: transparent;
+			border-left-style: solid;
+			border-right-style: solid;
+			border-top-style: solid;
+			border-width: .8vw;
+			border-color: #deff00;
+			padding: 0;
+			pointer-events: none;
+			@include mq {
+				border-width: .20833vw;
+				cursor: default;
+			}
+			@include mq(xl-h) {
+				border-width: 3.33333px;
+			}
+			
+			&:after {
+				opacity: 0;
+			}
+
+			.p-tab__inner {
+				border-color: transparent;
+				@include mq {
+					border-width: .06944vw;
+				}
+				@include mq(xl-h) {
+					border-width: 1.11111px;
+				}
+
+				&__label {
+					color: #deff00;
+				}
+			}
+		}
+
+	/*  p-story > p-story__wrap
+	-----------------------------*/
+		&__wrap {
+			position: relative;
+		}
+
+	/*  p-story > p-story__pages
+	-----------------------------*/
+		&__pages {
+			margin: auto;
+			padding: 9.33333vw 4vw;
+			opacity: 0;
+			display: none;
+			&:after {
+				display: block;
+				font-size: 3.46667vw;
+				color: #fff;
+				text-align: center;
+				font-weight: 500;
+				transform: scale(.85);
+				letter-spacing: .14em;
+				line-height: 1.3;
+				margin-top: -.3em;
+				white-space: pre;
+			}
+
+			li {
+				max-width: 640px;
+				position: relative;
+				margin: 0 auto 5.06667vw;
+			}
+
+			li:before {
+				display: block;
+				content: "";
+				width: 100%;
+				padding-top: 141.40625%;
+				background-color: #fff;
+			}
+
+			img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+
+			&--prologue:after {
+				content: '※本作品は、2019年10月19日（土）に\A cakesにて掲載されたものになります。';
+				@include mq {
+					content: '※本作品は、2019年10月19日（土）にcakesにて掲載されたものになります。';
+					font-size: 1.62162vw;
+				}
+			}
+	
+			&--main:after {
+				content: '※本作品は、2019年10月20日(日）に\A 朝日新聞 全国朝刊にて掲載されたものになります。';
+				@include mq {
+					content: '※本作品は、2019年10月20日(日）に朝日新聞 全国朝刊にて掲載されたものになります。';
+					font-size: 1.62162vw;
+				}
+			}
+		}
+
+		.p-story__pages.is-active {
+			display: block;
+			animation-name: show;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+			@keyframes show {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.p-story.is-prologue { //tab切り替えのstyle
+		.p-story__tabs:before {
+			width: 4.26667vw;
+			@include mq {
+				width: auto;
+				right: calc(50% + 45.48611vw);
+				left: 0;
+			}
+			@include mq(xl-h) {
+				right: calc(50% + 727.77778px);
+			}
+		}
+		.p-story__tabs:after { //tab切り替えのstyle
+			width: 50.66667vw;
+			@include mq {
+				width: auto;
+				left: calc(50% + -1.04167vw);
+				right: 0;
+			}
+			@include mq(xl-h) {
+				left: calc(50% + -16.66667px);
+			}
+		}
+	}
+
+	.p-story.is-main { //tab切り替えのstyle
+		.p-story__tabs:before {
+			width: 50.66667vw;
+			@include mq {
+				width: auto;
+				right: calc(50% + -1.04167vw);
+				left: 0;
+			}
+			@include mq(xl-h) {
+				right: calc(50% + -16.66667px);
+			}
+		}
+		.p-story__tabs:after { //tab切り替えのstyle
+			width: 4vw;
+			@include mq {
+				width: auto;
+				left: calc(50% + 45.48611vw);
+				right: 0;
+			}
+			@include mq(xl-h) {
+				left: calc(50% + 727.77778px);
+			}
+		} 
+	}
+
+/* ------------------
+		p-result
+--------------------- */
+	.p-result {
+		position: relative;
+		width: 100%;
+		max-width: 1455.55556px;
+		margin: 18.66667vw auto auto;
+		@include mq {
+			width: auto;
+			margin-left: 4.51389vw;
+			margin-right: 4.51389vw;
+			margin-top: 8.33333vw;
+		}
+		@include mq(xl-h) {
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 133.33333px;
+		}
+
+		&__bgWrap {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.bgItem {
+			position: relative;
+			width: 100%;
+			height: 50%;
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-repeat: repeat-x;
+				background-size: 327.45725vw 57.86667vw;
+				@include mq {
+					background-size: 133.61111vw 23.61111vw;
+				}
+				@include mq(xl-h) {
+					background-size: 2137.77778px 377.77778px
+				}
+			}
+
+			&--top {
+				background-color: #0e6cb2;
+				&:before {
+					background-image: url('../../../data/hidari-kikino-eren/images/result_bg1.jpg');
+					animation: moveBgRight 30s linear infinite;
+					@include mq {
+						animation: moveBgRightL 30s linear infinite;
+					}
+					@include mq(xl-h) {
+						animation: moveBgRightLL 30s linear infinite;
+					}
+				}
+			}
+
+			&--bottom {
+				background-color: #deff00;
+				&:before {
+					background-image: url('../../../data/hidari-kikino-eren/images/result_bg2.jpg');
+					animation: moveBgLeft 30s linear infinite;
+					@include mq {
+						animation: moveBgLeftL 30s linear infinite;
+					}
+					@include mq(xl-h) {
+						animation: moveBgLeftLL 30s linear infinite;
+					}
+				}
+			}
+		}
+
+		@keyframes moveBgRight {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: 327.45725vw;
+			}
+		}
+
+		@keyframes moveBgRightL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: 133.61111vw
+			}
+		}
+
+		@keyframes moveBgRightLL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: 2137.77778px;
+			}
+		}
+
+		@keyframes moveBgLeft {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: -327.45725vw;
+			}
+		}
+
+		@keyframes moveBgLeftL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: -133.61111vw;
+			}
+		}
+
+		@keyframes moveBgLeftLL {
+			0% {
+				background-position: 0;
+			}
+			100% {
+				background-position: -2137.77778px;
+			}
+		}
+
+		&__inner {
+			position: relative;
+			z-index: 3;
+			padding: 18.26667vw 4vw 25.33333vw;
+			@include mq {
+				padding: 9.96528vw 13.47222vw 10.17361vw;
+			}
+			@include mq(xl-h) {
+				padding: 159.44444px 215.55556px 162.77778px;
+			}
+		}
+
+		.p-resultTitle {
+			display: flex;
+			z-index: 2;
+			margin-bottom: 4vw;
+			transform: translateZ(0);
+			@include mq(s-h) {
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+			}
+			@include mq {
+				margin-bottom: 1.66667vw;
+			}
+			@include mq(xl-h) {
+				margin-bottom: 26.66667px;
+			}
+
+			&__inner {
+				height: 13.6vw;
+				margin-top: -.1em;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transform-origin: top left;
+				transform: scaleX(0);
+				backface-visibility: hidden;
+				@include mq {
+					height: 5.45139vw;
+				}
+				@include mq(xl-h) {
+					height: 87.22222px;
+				}
+				&:after {
+					transition: transform .6s cubic-bezier(.19,1,.22,1);
+					transform-origin: right bottom;
+					transform: scaleX(1);
+				}
+				&:nth-of-type(1) {
+					transition-delay: .1s;
+					&:after {
+						transition-delay: .3s;
+					}
+				}
+				&:nth-of-type(2) {
+					transition-delay: .2s;
+					&:after {
+						transition-delay: .4s;
+					}
+				}
+				&:last-of-type {
+					transition-delay: .1s!important;
+					&:after {
+						@include textFadeIN;
+						background-color: #e50013;
+						transition-delay: .3s!important;
+					}
+				}
+			}
+			&__inner img {
+				display: block;
+				height: 100%;
+				width: auto;
+			}
+			&__inner:after {
+				background-color:#e50013;
+			}
+		}
+
+		.p-resultDesc {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			margin-bottom: 9vw;
+			z-index: 2;
+			@include mq {
+				margin-bottom: 20.48611vw;
+			}
+			@include mq(xl-h) {
+				margin-bottom: 327.77778px;
+			}
+
+			&__line {
+				position: relative;
+				color: #fff;
+				background-color:#e50013;
+				font-size: 3.06667vw;
+				font-weight: bold;
+				font-feature-settings: "palt";
+				line-height: 1.8;
+				letter-spacing: .06em;
+				padding: .4em;
+				margin-top: -.04em;
+				transform: scaleX(0);
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				backface-visibility: hidden;
+				@include mq {
+					font-size: 1.86458vw;
+					line-height: 1.3;
+					padding: .1em .2em;
+					white-space: nowrap;
+				}
+				@include mq(xl-h) {
+					font-size: 29.83333px;
+				}
+			}
+
+			&__line:after {
+				@include textFadeIN;
+				background-color: #e50013;
+			}
+		}
+
+		$type: 1;
+		$delay: 0.7;
+		$delayAfter: 0.9;
+		@while $type <= 5 {
+			.p-resultDesc__line:nth-of-type(#{$type}) {
+				transition-delay: #{$delay}s;
+				&:after {
+					transition-delay: #{$delayAfter}s;
+				}
+			}
+			$type: $type + 1;
+			$delay: $delay + 0.1;
+			$delayAfter: $delayAfter + 0.1;
+		}
+
+		$type: 6;
+		$delay: 0.5;
+		$delayAfter: 0.7;
+		@while $type <= 8 {
+			.p-resultDesc__line:nth-of-type(#{$type}) {
+				transition-delay: #{$delay}s;
+				&:after {
+					transition-delay: #{$delayAfter}s;
+				}
+			}
+			$type: $type + 1;
+			$delay: $delay + 0.1;
+			$delayAfter: $delayAfter + 0.1;
+		}
+
+		.p-resultLogo {
+			position: absolute;
+			width: 21.73333vw;
+			height: 24.66667vw;
+			top: 58vw;
+			right: 6.53333vw;
+			z-index: 4;
+			@include mq {
+				width: 14.58333vw;
+				height: 16.5625vw;
+				top: 26.66667vw;
+				right: 13.78472vw;
+			}
+			@include mq(xl-h) {
+				width: 233.33333px;
+				height: 265px;
+				top: 426.66667px;
+				right: 220.55556px;
+			}
+		}
+
+		.p-resultImg1, .p-resultImg2 {
+			position: absolute;
+		}
+
+		.p-resultImg1 {
+			width: 40.4vw;
+			height: 27.86667vw;
+			bottom: 34.66667vw;
+			right: 7.46667vw;
+			transform: rotate(-3.5deg);
+			@include mq {
+				width: 22.04861vw;
+				height: 15.03472vw;
+				top: 27.77778vw;
+				left: 16.04167vw;
+				bottom: auto;
+				right: auto;
+			}
+			@include mq(xl-h) {
+				width: 352.77778px;
+				height: 240.55556px;
+				top: 444.44444px;
+				left: 256.66667px;
+			}
+		}
+
+		.p-resultImg2 {
+			width: 42vw;
+			height: 29.6vw;
+			bottom: 6.93333vw;
+			right: 5.73333vw;
+			@include mq {
+				width: 28.47222vw;
+				height: 20.3125vw;
+				top: 28.19444vw;
+				left: 37.98611vw;
+				bottom: auto;
+				right: auto;
+				transform: rotate(3deg);
+			}
+			@include mq(xl-h) {
+				width: 455.55556px;
+				height: 325px;
+				top: 451.11111px;
+				left: 607.77778px;
+			}
+		}
+
+		.p-resultDate {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			z-index: 2;
+			transform: translateZ(0);
+			&__label {
+				background-color: #e50013;
+				position: relative;
+				height: 8.4vw;
+				z-index: inherit;
+				transform: scaleX(0);
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transition-delay: 1.7s;
+				backface-visibility: hidden;
+				@include mq {
+					height: 5.10417vw;
+					transition-delay: 1.3s;
+				}
+				@include mq(xl-h) {
+					height: 81.66667px;
+				}
+				&:after {
+					@include textFadeIN;
+					transition-delay: 1.9s;
+					background-color: #e50013;
+					@include mq {
+						transition-delay: 1.5s;
+					}
+				}
+			}
+
+			&__day {
+				height: 13.6vw;
+				margin-top: -.1em;
+				z-index: inherit;
+				transform: scaleX(0);
+				transform-origin: top left;
+				transition: transform .6s cubic-bezier(.19,1,.22,1);
+				transition-delay: 1.8s;
+				backface-visibility: hidden;
+				@include mq {
+					height: 9.58333vw;
+					transition-delay: 1.4s;
+				}
+				@include mq(xl-h) {
+					height: 153.33333px;
+				}
+				&:after {
+					@include textFadeIN;
+					transition-delay: 1.9s;
+					background-color: #e50013;
+					@include mq {
+						transition-delay: 1.6s;
+					}
+				}
+			}
+
+			&__label img, &__day img {
+				display: block;
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+/* -------------------------------
+    アニメーション関係の .is- クラス 
+---------------------------------- */ 
+// opening NowLoading画面 共通
+	.p-loading.is-loaded {
+		opacity: 0;
+		visibility: hidden;
+		transition-delay: 1s;
+
+		.p-loading__wrap {
+			transform: translate(-50%, 0) !important;
+			transition: transform .8s cubic-bezier(.19,1,.22,1);
+		}
+
+		.p-loading__text {
+			opacity: 0;
+		}
+	}
+
+	// progreess-guage 縦に展開 共通
+	.p-loadingInner {
+		&__item.is-loaded:before {
+			transform: scaleY(1) !important;
+		}
+	}
+
+	// header sticky 共通
+	.p-header.is-hide {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+
+	// menuボタン s-h用
+	.p-menuBtn.is-open {
+		background-color: #e50013;
+		.p-menuBtn__open span {
+			transform: scaleX(0);
+			transition-delay: 0s;
+		}
+		.p-menuBtn__close:before {
+			transform: scaleY(1);
+			transition-delay: .2s;
+		}
+		.p-menuBtn__close:after {
+			transform: scaleX(1);
+			transition-delay: .4s;
+		}
+	}
+
+	// menuOpen s-h用
+	.p-menu.is-open {
+		transform: translateX(0);
+		opacity: 1;
+		visibility: visible;
+		z-index: 9;
+	}
+
+	// loading後 KVキャラonScreen & h1テキストフェードイン 共通
+	.p-kv.is-onScreenItem.is-onScreen {
+		.p-character__inner {
+			transform: translateY(0);
+			&:after {
+				transform: scaleY(0);
+			}
+		}
+		.p-kv__title--title1 {
+			transform: scaleY(1);
+			&:after {
+				transform: scaleY(0);
+			}
+		}
+		.p-kv__title--title2 {
+			transform: scaleX(1);
+			&:after {
+				transform: scaleX(0);
+			}
+		}
+	}
+
+	// loop中 KVキャラonScreen & closeを繰り返し s-h用
+	.p-kv.is-onScreenItem.is-onScreen.is-closed {
+		.p-character--item1 >.p-character__inner, .p-character--item3 >.p-character__inner {
+			transform: translateY(-20%);
+		}
+		.p-character--item2 >.p-character__inner, .p-character--item4 >.p-character__inner {
+			transform: translateY(20%);
+		}
+		.p-character__inner:after {
+			transform: scaleY(1) !important; //is-onScreenを上書き
+		}
+	}
+
+	// p-summury あらすじ部 フェードイン 共通
+	.p-summery__heading.is-onScreen {
+		.p-summery__title {
+			transform: scaleY(1);
+			&:after {
+				transform: scaleY(0);
+			}
+		}
+		.p-summery__descLine {
+			transform: scaleX(0.9);
+			&:after {
+				transform: scaleX(0);
+			}
+		}
+	}
+
+	// p-result 朝日新聞掲載〜部 フェードイン 共通
+	.p-result__inner.is-onScreen {
+		.p-resultTitle__inner, .p-resultDate__label, .p-resultDate__day {
+			transform: scaleX(1);
+			&:after {
+				transform: scaleX(0);
+			}
+		}
+		.p-resultDesc__line {
+			transform: scaleX(.9);
+			&:after {
+				transform: scaleX(0);
+			}
+		}
+	}
+
+	// loop中ステップ毎の各KVのスタイル s-h用
+	.is-step1.p-kv__characters {
+		@include mq(s-h) {
+			&:nth-child(3) {
+				.p-character__inner, &:after {
+					transition-delay: .1s;
+				}
+			}
+		
+			&:nth-child(7) {
+				.p-character__inner, &:after {
+					transition-delay: .1s;
+				}
+			}
+		
+			&:nth-child(4) {
+				.p-character__inner, &:after {
+					transition-delay: .2s;
+				}
+			}
+		
+			&:nth-child(8) {
+				.p-character__inner, &:after {
+					transition-delay: .2s;
+				}
+			}
+		
+			&:first-child {
+				.p-character__inner, &:after {
+					transition-delay: .3s;
+				}
+			}
+		
+			&:nth-child(5) {
+				.p-character__inner, &:after {
+					transition-delay: .3s;
+				}
+			}
+		
+			&:nth-child(2) {
+				.p-character__inner, &:after {
+					transition-delay: 0s;
+				}
+			}
+
+			&:nth-child(6) {
+				.p-character__inner, &:after {
+					transition-delay: 0s;
+				}
+			}
+		}
+	}
+
+	.is-step2.p-kv__characters {
+		&:nth-child(3) {
+			.p-character__inner, &:after {
+				transition-delay: 0s;
+			}
+		}
+
+		&:nth-child(7) {
+			.p-character__inner, &:after {
+				transition-delay: 0s;
+			}
+		}
+
+		&:nth-child(4) {
+			.p-character__inner, &:after {
+				transition-delay: .1s;
+			}
+		}
+
+		&:nth-child(8) {
+			.p-character__inner, &:after {
+				transition-delay: .1s;
+			}
+		}
+
+		&:first-child {
+			.p-character__inner, &:after {
+				transition-delay: .2s;
+			}
+		}
+
+		&:nth-child(5) {
+			.p-character__inner, &:after {
+				transition-delay: .2s;
+			}
+		}
+
+		&:nth-child(2) {
+			.p-character__inner, &:after {
+				transition-delay: .3s;
+			}
+		}
+
+		&:nth-child(6) {
+			.p-character__inner, &:after {
+				transition-delay: .3s;
+			}
+		}
+	}
+
+
+	.is-step3.p-kv__characters {
+		&:nth-child(3) {
+			.p-character__inner, &:after {
+				transition-delay: .3s;
+			}
+		}
+
+		&:nth-child(7) {
+			.p-character__inner, &:after {
+				transition-delay: .3s;
+			}
+		}
+
+		&:nth-child(4) {
+			.p-character__inner, &:after {
+				transition-delay: 0s;
+			}
+		}
+
+		&:nth-child(8) {
+			.p-character__inner, &:after {
+				transition-delay: 0s;
+			}
+		}
+
+		&:first-child {
+			.p-character__inner, &:after {
+				transition-delay: .1s;
+			}
+		}
+
+		&:nth-child(5) {
+			.p-character__inner, &:after {
+				transition-delay: .1s;
+			}
+		}
+
+		&:nth-child(2) {
+			.p-character__inner, &:after {
+				transition-delay: .2s;
+			}
+		}
+
+		&:nth-child(6) {
+			.p-character__inner, &:after {
+				transition-delay: .2s;
+			}
+		}
+	}
+
+
+	.is-step4.p-kv__characters {
+		&:nth-child(3) {
+			.p-character__inner, &:after {
+				transition-delay: .2s;
+			}
+		}
+
+		&:nth-child(7) {
+			.p-character__inner, &:after {
+				transition-delay: .2s;
+			}
+		}
+
+		&:nth-child(4) {
+			.p-character__inner, &:after {
+				transition-delay: .3s;
+			}
+		}
+
+		&:nth-child(8) {
+			.p-character__inner, &:after {
+				transition-delay: .3s;
+			}
+		}
+
+		&:first-child {
+			.p-character__inner, &:after {
+				transition-delay: 0s;
+			}
+		}
+
+		&:nth-child(5) {
+			.p-character__inner, &:after {
+				transition-delay: 0s;
+			}
+		}
+
+		&:nth-child(2) {
+			.p-character__inner, &:after {
+				transition-delay: .1s;
+			}
+		}
+
+		&:nth-child(6) {
+			.p-character__inner, &:after {
+				transition-delay: .1s;
+			}
+		}
+	}
+}
+
+/* ------------------
+		p-modal
+--------------------- */
+.p-modal {
+	position: fixed;
+	width: 100%;
+	opacity: 0;
+	z-index: -1;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	margin: auto;
+
+	.p-squareButton {
+		position: fixed;
+    width: 6.73611vw;
+    height: 6.73611vw;
+    z-index: 50;
+		cursor: pointer;
+		right: 0;
+    top: 0;
+		border: none;
+		background-color: #deff00!important;
+		@include mq(xl-h) {
+			width: 107.77778px;
+			height: 107.77778px;
+		}
+		&:hover {
+			.p-modalCloseIcon {
+				&:before, &:after {
+					background-color: #e50013;
+				}
+			}
+		}
+
+		.p-modalCloseIcon {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 4;
+			&:before, &:after {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				content: "";
+				width: 5.12821%;
+				height: 35.89744%;
+				min-height: 1px;
+				background-color: #000;
+				transition: transform .4s cubic-bezier(.19,1,.22,1),background-color .4s cubic-bezier(.19,1,.22,1);
+			}
+			&:before {
+				transform: translate(-50%,-50%) skewX(30deg);
+			}
+			&:after {
+				transform: translate(-50%,-50%) skewX(-30deg);
+			}
+		}
+	}
+
+	.p-modalContents {
+		position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+		background-color: #fff;
+		width: 761px;
+		height: 454px;
+		opacity: 0;
+		transform: translateY(5%);
+		transition: opacity 0.4s cubic-bezier(.19,1,.22,1), 
+								transform 0.4s cubic-bezier(.19,1,.22,1),
+								z-index 0s cubic-bezier(.19,1,.22,1);
+		@include mq {
+			width: 761px;
+			height: 454px;
+		}
+		@media screen and (min-width: 1100px){
+			width: 1026px;
+			height: 611px;
+		}
+		@include mq(xl-h) {
+			width: 1200px;
+			height: 715px;
+		}
+		&:after {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+			border: .10417vw solid #fff;
+		}
+		
+		&__title {
+			position: absolute;
+			top: -1.25vw;
+			left: 1.38889vw;
+			padding: 1.25vw 1.04167vw;
+			overflow: hidden;
+			background-color: #deff00;
+			color: #000;
+			z-index: 5;
+			@include mq(xl-h) {
+				padding: 20px 16.66667px;
+				top: -20px;
+				left: 22.22222px;
+			}
+		}
+
+		&__titleInner {
+			transform: translateZ(0);
+			backface-visibility: hidden;
+
+			img {
+				width: 1.77083vw;
+				@include mq(xl-h) {
+					width: 28.33333px;
+				}
+			}
+		}
+
+		.p-modalContentsInner {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+
+			img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+		}
+	}
+}
+.p-modalBg {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: multiply;
+	background-color: #e50013;
+	opacity: 0;
+	z-index: -1;
+	transition: visibility .4s cubic-bezier(.19,1,.22,1),
+							opacity .4s cubic-bezier(.19,1,.22,1),
+							z-index 0s cubic-bezier(.19,1,.22,1);
+}
+.p-modal.is-opened {
+	opacity: 1;
+	z-index: 51;
+	.p-modalContents {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.p-modalBg.is-opened {
+	visibility: visible;
+	opacity: 1;
+	z-index: 50;
+}
