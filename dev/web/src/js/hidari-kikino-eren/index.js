@@ -259,10 +259,9 @@
 
   // min-width:800px → menu縦アニメーション else → menu横アニメーション
   function btnAnimeContorl(mediaQuery) {
-    $('.js-menuNav').removeClass('mod-animeV').removeClass('mod-animeH');
-    mediaQuery.matches ? $('.js-menuNav').addClass('mod-animeV') : $('.js-menuNav').addClass('mod-animeH');
+    $('.js-menuNav').removeClass('c-squareButton--animeV').removeClass('c-squareButton--animeH');
+    mediaQuery.matches ? $('.js-menuNav').addClass('c-squareButton--animeV') : $('.js-menuNav').addClass('c-squareButton--animeH');
   }
-
 
   /** 
   * イベント登録・関数実行

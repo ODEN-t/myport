@@ -16,7 +16,7 @@ gulp.task('css', function () {
 
 //css minify
 gulp.task('mincss', function () {
-  return gulp.src('./web/asset/css/hidari-kikino-eren/*.css') // test部分は適宜フォルダ名に変更する！
+  return gulp.src('./web/asset/css/hidari-kikino-eren/*.css') // フォルダ名部分は適宜作業フォルダ名に変更
               .pipe(cleanCSS()) // cssを圧縮
               .pipe(rename({extname:'.min.css'})) // 名前を.min.cssにする
               .pipe(gulp.dest('./web/asset/min/')) // 出力
