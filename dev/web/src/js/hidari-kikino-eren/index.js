@@ -211,6 +211,7 @@
         }
       })
     }
+    
 
     observer = new IntersectionObserver(addWhenIntersect, options);
     targets.forEach(function(target){
