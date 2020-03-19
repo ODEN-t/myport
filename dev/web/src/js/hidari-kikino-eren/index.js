@@ -21,7 +21,7 @@
   }
 
   //KVループ・キャラ入れ替え
-  var loop = {
+  const loop = {
     termPosition: {
       start: setPosition(2),
       end: setPosition(6)
@@ -33,58 +33,53 @@
       step4: setPosition(5)
     },
     execute() {
-      var xAxis = this.termPosition.start;
-      var endPoint = this.termPosition.end;
-      var resetPoint = this.termPosition.start;
-      var loopSteps = this.steps;
-      var toggle = function() {
-        $('.js-kv').toggleClass('is-closed');
+      let xAxis = this.termPosition.start;
+      const endPoint = this.termPosition.end;
+      const resetPoint = this.termPosition.start;
+      const loopSteps = this.steps;
+      const charcterList = document.querySelector('.js-charaList');
+      const toggle = () => {
+        const kv = document.querySelector('.js-kv');
+        kv.classList.toggle('is-closed');
       }
-      var changeOrder = function() {
-        var characters = $.makeArray($('.js-charaList').children());
-        var firstChara = characters.shift();
-        $('.js-charaList').append(firstChara);
+      const changeOrder = () => {
+        let firstCharcter = Array.from(charcterList.children).shift();
+        charcterList.appendChild(firstCharcter);
       }
       
-      if(!(mediaQuery.matches)) {
-        setInterval(function(){
-          $('.js-charaList').css('transform', 'translateX(' + (xAxis-=1.5) + 'px)');
-          var translateX = $('.js-charaList')[0].style.transform.replace(/[^-^0-9^\.]/g,"");
-          if(xAxis < endPoint) {
-            xAxis = resetPoint;
-          }
+      if(!mediaQuery.matches) {
+        setInterval(() => {
+          charcterList.style.transform = `translateX(${xAxis-=1.5}px)`;
+          let translateX = charcterList.style.transform.replace(/[^-^0-9^\.]/g,""); //返り値から数字のみ抽出
+          if(xAxis < endPoint) xAxis = resetPoint;
           if(translateX > loopSteps.step2) {
-            if($('.js-charaList').hasClass('is-step1')) {
-              return false;
-            } else {
-              $('.js-charaList').removeClass('is-step4').addClass('is-step1');
+            if(!charcterList.classList.contains('is-step1')) {
+              charcterList.classList.remove('is-step4');
+              charcterList.classList.add('is-step1')
               toggle();
               $.wait(800).done(function(){changeOrder();toggle();});
             }
           }
           if(loopSteps.step2 > translateX && translateX > loopSteps.step3) {
-            if($('.js-charaList').hasClass('is-step2')) {
-              return false;
-            } else {
-              $('.js-charaList').removeClass('is-step1').addClass('is-step2');
+            if(!charcterList.classList.contains('is-step2')) {
+              charcterList.classList.remove('is-step1');
+              charcterList.classList.add('is-step2');
               toggle();
               $.wait(800).done(function(){changeOrder();toggle();});
             }
           }
           if(loopSteps.step3 > translateX && translateX > loopSteps.step4) {
-            if($('.js-charaList').hasClass('is-step3')) {
-              return false;
-            } else {
-              $('.js-charaList').removeClass('is-step2').addClass('is-step3');
+            if(!charcterList.classList.contains('is-step3')) {
+              charcterList.classList.remove('is-step2');
+              charcterList.classList.add('is-step3');
               toggle();
               $.wait(800).done(function(){changeOrder();toggle();});
             }
           }
           if(loopSteps.step4 > translateX) {
-            if($('.js-charaList').hasClass('is-step4')) {
-              return false;
-            } else {
-              $('.js-charaList').removeClass('is-step3').addClass('is-step4');
+            if(!charcterList.classList.contains('is-step4')) {
+              charcterList.classList.remove('is-step3')
+              charcterList.classList.add('is-step4');
               toggle();
               $.wait(800).done(function(){changeOrder();toggle();});
             }
@@ -93,7 +88,6 @@
       }
     }
   }
-
 
   // ロード & ループスタート
   var animationSequence = {
@@ -154,19 +148,6 @@
       this.loading();
     }
   };
-
-
-
-  //中央に設置したキャラまでの距離を算出する関数
-  // function setPosition(itemNum) {
-  //   var $itemList = $('.js-charaList');
-  //   var itemWidth = $itemList.children().width();
-  //   console.log(itemWidth);
-    
-  //   var sideMargin = ($(window).width() - itemWidth) / 2;
-  //   var position = -(itemWidth * itemNum) + sideMargin;
-  //   return position;
-  // }
 
   //menu開閉関数
   function menuOpen() {
