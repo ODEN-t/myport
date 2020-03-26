@@ -114,57 +114,60 @@
   }
 
   // ロード & ループスタート → requestAnimationFrame?
-  var animationSequence = {
+  const animationSequence = {
     setInitPosition() {
-      if($(window).width() < 800) {
-        $('.js-charaList').css('transform','translateX(' + setPosition(2) + 'px)' )
-      }
+      if($(window).width() < 800) document.querySelector('.js-charaList').style.transform = `translateX(${setPosition(2)}px)`;
     },
     loading() {
-      var $images = $('img');
-      var originImageSrc = [];
-      var numberOfImages = $('img').length;
-      var divideScale = 1 / numberOfImages;
-      var $guage = $('.js-scaleItem');
-      var scaleX = 0;
-      var center = ($(window).height() - $('.js-loadingWrap').height()) / 2;
-      var toCenter =  center - $('.js-loadingWrap').offset().top;
-      
-      $('.js-loadingWrap').css('transform', 'translate(-50%,' + toCenter + 'px)');
+      const images = document.querySelectorAll('img');
+      const loadingWrap = document.querySelector('.js-loadingWrap');
+      let toCenter = ((window.innerHeight - document.querySelector('.js-loadingWrap').clientHeight) / 2) - $('.js-loadingWrap').offset().top;
+      let originImageSrc = [];
+      let scaleX = 0;
+      const guages = document.querySelectorAll('.js-scaleItem');
+      const loading = document.querySelector('.js-loading');
+      const kv = document.querySelector('.js-kv');
+
+      loadingWrap.style.transform = `translate(-50%, ${toCenter}px)`;
 
       //全imgのsrcを空にしてoriginImageSrcに退避
-      for(var i = 0; i < numberOfImages; i++) {
-        originImageSrc.push($images[i].src);
-        $images[i].src = '';
+      for(var i = 0; i < images.length; i++) {
+        originImageSrc.push(images[i].src);
+        images[i].src = '';
       }
     
       //imgをロードする毎にscaleXの数値を加算
-      $images.one('load', function(){
-        scaleX += divideScale;
-        $guage.each(function(){
-          $(this).css('transform','scaleX(' + scaleX + ')');
-        })
-
-        if(scaleX >= 1) {
-          $.wait(1000)
-          .then(function(){
-            $('.js-scaleItem, .js-loading').addClass('is-loaded');
-            return $.wait(1200);
+      images.forEach((img) => {
+        img.addEventListener('load', () => {
+          scaleX += 1 / images.length; 
+          guages.forEach((guage) => {
+            guage.style.transform = `scaleX(${scaleX})`;
           })
-          .then(function(ms){
-            $('.js-kv').addClass('is-onScreen');
-            textFadeIn();
-            return $.wait(2000);
-          })
-          .done(function(ms){
-            loop.execute(mediaQuery);
-          })
-        }
-      })
+  
+          if(scaleX >= 1) {
+            $.wait(1000)
+            .then(() => {
+              guages.forEach((guage) => {
+                guage.classList.add('is-loaded');
+              })
+              loading.classList.add('is-loaded');
+              return $.wait(1200);
+            })
+            .then(() =>{
+              kv.classList.add('is-onScreen');
+              textFadeIn();
+              return $.wait(2000);
+            })
+            .done(() =>{
+              loop.execute(mediaQuery);
+            })
+          }
+        }, {once: true});
+      }) 
 
       //全imgのsrcを代入
-      for(var i = 0; i < numberOfImages; i++) {
-        $images[i].src = originImageSrc[i];
+      for(var i = 0; i < images.length; i++) {
+        images[i].src = originImageSrc[i];
       }
     },
     startLoop() {
@@ -173,8 +176,9 @@
     }
   };
 
+
   // スティッキー と タブ切り替え
-  const stickyAndTabBehavior = () => {
+  const stickyAndTabs = () => {
     let storyOffsetTop = document.querySelector('.js-story').offsetTop;
     let headerHeight = document.querySelector('.js-header').clientHeight;
     let calcPosition = storyOffsetTop - headerHeight;
@@ -256,7 +260,6 @@
       this.modalControl(mediaQuery);
     }
   }
-  modalAction.execute();
 
   // min-width:800px → menu縦アニメーション else → menu横アニメーション
   function btnAnimeContorl(mediaQuery) {
@@ -277,7 +280,8 @@
     document.querySelector('.js-menu').classList.toggle('is-open');
   });
 
-  stickyAndTabBehavior();
+  modalAction.execute();
+  stickyAndTabs();
   animationSequence.startLoop();
   mediaQuery.addListener(btnAnimeContorl);
   btnAnimeContorl(mediaQuery);
