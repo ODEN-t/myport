@@ -1,16 +1,17 @@
-(function() {
-  var mediaQuery = window.matchMedia('(min-width: 800px)');
+/********************* / 
+      JavaScript
+**********************/
 
-  /** 
-  * 関数定義
-  */
-  $.wait = function(ms) {
-    var d = new $.Deferred;
-    setTimeout(function(){
-      d.resolve(ms); //done,thenに引数としてmsを渡す
-    }, ms);
-    return d.promise();
-  };
+(function() {
+  const mediaQuery = window.matchMedia('(min-width: 800px)');
+  
+  const wait = (ms) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, ms)
+    })
+  } 
 
   setPosition = itemNum => {
     const itemList = document.querySelector('.js-charaList');
@@ -81,7 +82,7 @@
               charcterList.classList.remove('is-step4');
               charcterList.classList.add('is-step1')
               toggle();
-              $.wait(800).done(function(){changeOrder();toggle();});
+              wait(800).finally(function(){changeOrder();toggle();});
             }
           }
           if(loopSteps.step2 > translateX && translateX > loopSteps.step3) {
@@ -89,7 +90,7 @@
               charcterList.classList.remove('is-step1');
               charcterList.classList.add('is-step2');
               toggle();
-              $.wait(800).done(function(){changeOrder();toggle();});
+              wait(800).finally(function(){changeOrder();toggle();});
             }
           }
           if(loopSteps.step3 > translateX && translateX > loopSteps.step4) {
@@ -97,7 +98,7 @@
               charcterList.classList.remove('is-step2');
               charcterList.classList.add('is-step3');
               toggle();
-              $.wait(800).done(function(){changeOrder();toggle();});
+              wait(800).finally(function(){changeOrder();toggle();});
             }
           }
           if(loopSteps.step4 > translateX) {
@@ -105,7 +106,7 @@
               charcterList.classList.remove('is-step3')
               charcterList.classList.add('is-step4');
               toggle();
-              $.wait(800).done(function(){changeOrder();toggle();});
+              wait(800).finally(function(){changeOrder();toggle();});
             }
           }
         }, 30)
@@ -113,7 +114,7 @@
     }
   }
 
-  // ロード & ループスタート → requestAnimationFrame?
+  // ロード & ループスタート
   const animationSequence = {
     setInitPosition() {
       if($(window).width() < 800) document.querySelector('.js-charaList').style.transform = `translateX(${setPosition(2)}px)`;
@@ -145,20 +146,20 @@
           })
   
           if(scaleX >= 1) {
-            $.wait(1000)
+            wait(1000)
             .then(() => {
               guages.forEach((guage) => {
                 guage.classList.add('is-loaded');
               })
               loading.classList.add('is-loaded');
-              return $.wait(1200);
+              return wait(1200);
             })
             .then(() =>{
               kv.classList.add('is-onScreen');
               textFadeIn();
-              return $.wait(2000);
+              return wait(2000);
             })
-            .done(() =>{
+            .finally(() =>{
               loop.execute(mediaQuery);
             })
           }
@@ -176,38 +177,40 @@
     }
   };
 
-
   // スティッキー と タブ切り替え
   const stickyAndTabs = () => {
-    let storyOffsetTop = document.querySelector('.js-story').offsetTop;
-    let headerHeight = document.querySelector('.js-header').clientHeight;
-    let calcPosition = storyOffsetTop - headerHeight;
     const header = document.querySelector('.js-header');
     const tabs = document.querySelectorAll('.js-tab');
     const pages = document.querySelectorAll('.js-pages');
-    const contentsWrap = document.querySelector('.p-story');
+    const contentsWrapClassList = document.querySelector('.p-story').classList;
+    let calcPosition = () => {
+      let storyOffsetTop = document.querySelector('.js-story').offsetTop;
+      let headerHeight = document.querySelector('.js-header').clientHeight;
+      return (storyOffsetTop - headerHeight) * 0.935;
+    }
 
-    tabs.forEach(function(tab, index){
-      tab.addEventListener('click', function() {
-        if(!pages[index].classList.contains('is-active')) {
-          pages.forEach(function(page) { page.classList.toggle('is-active'); })
-          tabs.forEach(function(tab) { 
-            tab.classList.toggle('is-active'); 
-            $('body, html').animate({scrollTop:calcPosition}, 400, 'swing');
-          })
+    for(let i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener('click', function(e) {
+        if(!this.classList.contains('is-active')) {
+          pages.forEach((page) => {page.classList.toggle('is-active');})
+          tabs.forEach((tab) => {tab.classList.toggle('is-active');})
+          window.scroll({
+            top: calcPosition(),
+            behavior: "smooth"
+          });
         }
-        if(contentsWrap.classList.contains('is-prologue')) {
-          contentsWrap.classList.remove('is-prologue');
-          contentsWrap.classList.add('is-main');
-        } else {
-          contentsWrap.classList.remove('is-main');
-          contentsWrap.classList.add('is-prologue');
-        }
+        contentsWrapClassList.contains('is-prologue') 
+        ? contentsWrapClassList.replace('is-prologue', 'is-main')
+        : contentsWrapClassList.replace('is-main', 'is-prologue')
       })
+    }
+
+    window.addEventListener('resize', () => {
+      calcPosition();
     })
 
     window.addEventListener('scroll', () => {
-      window.scrollY > calcPosition ? header.classList.add('is-hide') : header.classList.remove('is-hide');
+      window.scrollY > calcPosition() ? header.classList.add('is-hide') : header.classList.remove('is-hide');
     })
   }
 
@@ -262,9 +265,11 @@
   }
 
   // min-width:800px → menu縦アニメーション else → menu横アニメーション
-  function btnAnimeContorl(mediaQuery) {
-    $('.js-menuNav').removeClass('c-squareButton--animeV').removeClass('c-squareButton--animeH');
-    mediaQuery.matches ? $('.js-menuNav').addClass('c-squareButton--animeV') : $('.js-menuNav').addClass('c-squareButton--animeH');
+  const btnAnimeContorl = (mediaQuery) => {
+    const menuNavs = document.querySelectorAll('.js-menuNav');
+    mediaQuery.matches
+    ? menuNavs.forEach((menuNav) => { menuNav.classList.replace('c-squareButton--animeH', 'c-squareButton--animeV'); })
+    : menuNavs.forEach((menuNav) => { menuNav.classList.replace('c-squareButton--animeV', 'c-squareButton--animeH'); })
   }
 
   /** 
@@ -288,6 +293,9 @@
 })();
 
 
+/****************** / 
+      jQuery
+*******************/
 
 // (function($) {
 //   var mediaQuery = window.matchMedia('(min-width: 800px)');
