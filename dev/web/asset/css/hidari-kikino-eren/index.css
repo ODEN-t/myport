@@ -93,11 +93,6 @@ input, select {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-/*
-  breakpoint 5種類 (ss, s, m, l, xl) を各プロジェクト毎に割り当てる
-  接尾辞は各project名 (ex) kadel → -k
-*/
-/* hidari-kikino-eren */
 /* Component 
 -----------------------------------------------------------------*/
 /*
