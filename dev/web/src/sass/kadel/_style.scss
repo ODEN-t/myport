@@ -350,7 +350,7 @@ body {
       width: 100%;
 
       &_figure {
-        background: url(/data/kadel/images/hero_img.jpg) no-repeat center/cover;
+        background: url("../../../data/kadel/images/hero_img.jpg") no-repeat center/cover;
         transition: width 1.4s cubic-bezier(0.86, 0, 0.07,1);
         width: 100%;
       }
@@ -367,7 +367,7 @@ body {
       @include mediaQuery(mobileOnly){
         align-items: center;
         height: 100%;
-        background: url(/data/kadel/images/hero_img-sp.jpg) no-repeat center/cover;
+        background: url("../../../data/kadel/images/hero_img-sp.jpg") no-repeat center/cover;
         color: #fff;
       }
       @include mediaQuery(desktopFollow) {
@@ -1169,7 +1169,7 @@ body {
   ------------------------------ */
 
   .lp-staff {
-    background: url(/data/kadel/images/staff_img01.jpg) no-repeat left 320px top 720px;
+    background: url("../../../data/kadel/images/staff_img01.jpg") no-repeat left 320px top 720px;
     background-position: left top;
     margin: 80px auto 110px;
     padding-left: 0;
