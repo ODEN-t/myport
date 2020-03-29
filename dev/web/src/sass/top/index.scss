@@ -1,7 +1,7 @@
 // ==========================================================================
 // Foundation
 // ==========================================================================
-@import "../foundation/base/normalize";
+@import "../foundation/base/reset";
 @import "../foundation/mixin/breakpoint";
 @import "../foundation/mixin/fonts";
 
@@ -17,6 +17,7 @@
 
 /* Project
 -----------------------------------------------------------------*/
+@import "./setting";
 @import "../object/project/top/style";
 
 /* Utility
