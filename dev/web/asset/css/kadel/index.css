@@ -452,7 +452,7 @@ body {
       margin: 0 0 20px;
       width: 100%; }
       .KADeL .lp-hero_figure {
-        background: url(/data/kadel/images/hero_img.jpg) no-repeat center/cover;
+        background: url("../../../data/kadel/images/hero_img.jpg") no-repeat center/cover;
         -webkit-transition: width 1.4s cubic-bezier(0.86, 0, 0.07, 1);
         transition: width 1.4s cubic-bezier(0.86, 0, 0.07, 1);
         width: 100%; } }
@@ -478,7 +478,7 @@ body {
         -ms-flex-align: center;
         align-items: center;
         height: 100%;
-        background: url(/data/kadel/images/hero_img-sp.jpg) no-repeat center/cover;
+        background: url("../../../data/kadel/images/hero_img-sp.jpg") no-repeat center/cover;
         color: #fff; } }
     @media screen and (min-width: 769px) {
       .KADeL .lp-hero_text {
@@ -1123,7 +1123,7 @@ body {
           .KADeL .lp-awards_nav .add-current-nav-w:hover:before {
             color: #fff; }
   .KADeL .lp-staff {
-    background: url(/data/kadel/images/staff_img01.jpg) no-repeat left 320px top 720px;
+    background: url("../../../data/kadel/images/staff_img01.jpg") no-repeat left 320px top 720px;
     background-position: left top;
     margin: 80px auto 110px;
     padding-left: 0;
