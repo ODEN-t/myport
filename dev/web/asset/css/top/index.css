@@ -101,12 +101,46 @@ input, select {
 body {
   font-family: 'Lato', 'Noto Sans JP','ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;; }
 
-header > h1 {
-  color: #333333;
-  font-size: 30px; }
-  @media screen and (max-width: 599px) {
-    header > h1 {
-      font-size: 9px; } }
+.p-header {
+  height: 100vh;
+  position: relative; }
+  .p-header__wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .p-header__wrap > h1 {
+      color: #333333;
+      font-size: 60px;
+      font-style: italic; }
+      @media screen and (max-width: 599px) {
+        .p-header__wrap > h1 {
+          font-size: 9px; } }
+  .p-header__nav {
+    margin-top: 50px; }
+    .p-header__nav ul {
+      width: 50%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      margin: 0 auto; }
+      .p-header__nav ul > li {
+        font-size: 16px;
+        font-weight: 200; }
 
 /* Utility
 -----------------------------------------------------------------*/

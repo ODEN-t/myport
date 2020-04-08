@@ -2,13 +2,44 @@ body {
 	@include font_family;
 }
 
-header {
+.p-header {
+	height: 100vh;
+  position: relative;
 
-	> h1 {
-		color: #333333;
-		font-size: 30px;
-		@include mq(small) {
-			font-size: 9px;
+	&__wrap {
+		position: absolute;
+    top: 0;
+    left: 0;
+		right: 0;
+		bottom: 0;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		> h1 {
+			color: #333333;
+			font-size: 60px;
+			font-style: italic;
+			@include mq(small) {
+				font-size: 9px;
+			}
+		}
+	}
+
+	&__nav {
+		margin-top: 50px;
+
+		ul {
+			width: 50%;
+			display: flex;
+			justify-content: space-around;
+			margin: 0 auto;
+
+			> li {
+				font-size: 16px;
+				font-weight: 200;
+			}
 		}
 	}
 }

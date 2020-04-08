@@ -7,14 +7,25 @@
 	<title>My Portfolio</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="../asset/css/top/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-	<header>
-		<h1>My Portfolio</h1>
+	<header class="p-header" id="header">
+		<div class="p-header__wrap">
+			<h1>MY PORTFOLIO</h1>
+			<nav class="p-header__nav">
+				<ul>
+					<li>about</li>
+					<li>works</li>
+					<li>skills</li>
+					<li>contact</li>
+				</ul>
+			</nav>
+		</div>
 	</header>
-	<main class="top">
-		<section class="p-kv">
-			<img src="/data/images/p-kv-min.jpg" alt="">
+	<main class="top" id="main">
+		<section class="p-about">
+			<h2>About</h2>
 		</section>
 	</main>
 </body>
