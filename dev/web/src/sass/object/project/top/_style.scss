@@ -1,5 +1,6 @@
 body {
 	@include font_family;
+	color: #333333;
 }
 
 .p-header {
@@ -19,7 +20,7 @@ body {
 
 		> h1 {
 			color: #333333;
-			font-size: 60px;
+			font-size: 80px;
 			font-style: italic;
 			@include mq(small) {
 				font-size: 9px;
@@ -29,17 +30,75 @@ body {
 
 	&__nav {
 		margin-top: 50px;
+	}
 
-		ul {
-			width: 50%;
-			display: flex;
-			justify-content: space-around;
-			margin: 0 auto;
+	&__list {
+		width: 530px;
+		display: flex;
+		justify-content: space-around;
+		margin: 0 auto;
 
-			> li {
-				font-size: 16px;
-				font-weight: 200;
+		> li {
+			font-size: 16px;
+			font-weight: 200;
+		}
+	}
+
+	&__icon {
+
+		> svg {
+			display: block;
+			width: 70px;
+			height: 70px;
+		}
+
+		> span {
+			display: inline-block;
+			margin-top: 10px;
+		}
+		
+	}
+	
+}
+
+.p-topMain {
+	width: 1100px;
+	margin: 0 auto;
+
+	.p-profile {
+		padding: 50px 100px;
+
+		> h2 {
+			font-size: 40px;
+			font-weight: 200;
+		}
+
+		&__content {
+			margin-top: 45px;
+			padding-left: 10px;
+
+			> dl {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			dd, dt {
+				display: inline-block;
+			}
+
+			dt {
+				font-size: 14px;
+				line-height: 1.7;
+				width: 20%;
+			}
+
+			dd {
+				font-size: 14px;
+				line-height: 1.7;
+				width: 80%;
+				padding-bottom: 15px;
 			}
 		}
+
 	}
 }
