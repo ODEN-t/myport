@@ -61,6 +61,11 @@ $resetCSS: 1 !default;
     background:transparent;
   }
 
+  /* 独自で追加 */
+  img {
+    width: 100%;
+  }
+
   /* change colours to suit your needs */
   ins {
     background-color:#ff9;
