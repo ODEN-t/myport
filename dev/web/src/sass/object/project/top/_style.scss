@@ -2,77 +2,40 @@ body {
 	@include font_family;
 	color: #333333;
 }
-
-.p-header {
-	height: 100vh;
-  position: relative;
-
-	&__wrap {
-		position: absolute;
-    top: 0;
-    left: 0;
-		right: 0;
-		bottom: 0;
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-
-		> h1 {
-			color: #333333;
-			font-size: 80px;
-			font-style: italic;
-			@include mq(small) {
-				font-size: 9px;
-			}
-		}
-	}
-
-	&__nav {
-		margin-top: 50px;
-	}
-
-	&__list {
-		width: 530px;
-		display: flex;
-		justify-content: space-around;
-		margin: 0 auto;
-
-		> li {
-			font-size: 16px;
-			font-weight: 200;
-		}
-	}
-
-	&__icon {
-
-		> svg {
-			display: block;
-			width: 70px;
-			height: 70px;
-		}
-
-		> span {
-			display: inline-block;
-			margin-top: 10px;
-		}
-		
-	}
-	
+.p-sectionTitle {
+	font-size: 30px;
+	font-weight: 200;
+	letter-spacing: 1.4px;
 }
 
 .p-topMain {
 	width: 1100px;
 	margin: 0 auto;
-	background-color: #F0F0F0;
+	padding: 150px 0 100px;
+
+	header {
+		> h1 {
+			text-align: center;
+			font-size: 40px;
+			font-weight: 200;
+			letter-spacing: 0.2em;
+		}
+	}
+
+	.p-anchorList {
+		text-align: center;
+		margin-top: 40px;
+
+		> li {
+			display: inline-block;
+			margin: 0 1em;
+			font-size: 15px;
+		}
+	}
 
 	.p-profile {
 		padding: 50px 100px;
-
-		> h2 {
-			font-size: 40px;
-			font-weight: 200;
-		}
+		margin-top: 100px;
 
 		&__content {
 			margin-top: 45px;
@@ -106,25 +69,45 @@ body {
 	.p-works {
 		padding: 50px 100px;
 
-		> h2 {
-			font-size: 40px;
-			font-weight: 200;
-		}
-
 		&__list {
 			margin-top: 45px;
 			padding: 0 10px;
 			list-style: none;
+			display: flex;
 			
 			> li {
-				width: 70%;
+				width: calc(50% - 25px);
 				margin: 0 auto;
+				&:first-child {
+					margin-right: 50px;
+				}
 			}
 
 			> li a {
 				display: block;
 				width: 100%;
 			}
+
+			img {
+				border: 1px solid #e0e0e0;
+			}
+		}
+
+		&__text {
+			margin-top: 10px;
+			font-size: 14px;
+			line-height: 1.7;
+			font-weight: 200;
+		}
+	}
+
+	.p-skills {
+		padding: 50px 100px;
+	
+		> p {
+			margin-top: 45px;
+			font-size: 14px;
+			line-height: 1.7;
 		}
 	}
 }
