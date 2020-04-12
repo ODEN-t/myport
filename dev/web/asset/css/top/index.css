@@ -107,12 +107,18 @@ body {
   color: #333333;
   -webkit-font-smoothing: antialiased; }
 
+/* ---------------
+    header
+------------------ */
 .p-header {
   position: relative;
   padding-top: 150px; }
   @media screen and (min-width: 1024px) {
     .p-header {
       padding-top: 300px; } }
+  @media screen and (min-width: 600px) and (max-width: 1023px) {
+    .p-header {
+      padding-top: 225px; } }
   .p-header > h1 {
     text-align: center;
     font-size: 30px;
@@ -134,9 +140,12 @@ body {
     transform: rotate(-20deg);
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom; }
+    @media screen and (min-width: 600px) and (max-width: 1023px) {
+      .p-header:before {
+        height: 157.5px; } }
     @media screen and (min-width: 1024px) {
       .p-header:before {
-        height: 270px; } }
+        height: 210px; } }
   .p-header .p-anchorList {
     text-align: center;
     margin-top: 40px; }
@@ -148,15 +157,9 @@ body {
       text-decoration: none;
       color: #333333; }
 
-.p-sectionTitle {
-  font-size: 20px;
-  letter-spacing: 1.2px;
-  font-weight: 200; }
-  @media screen and (min-width: 1024px) {
-    .p-sectionTitle {
-      font-size: 30px;
-      letter-spacing: 1.4px; } }
-
+/* ---------------
+    main
+------------------ */
 .p-topMain {
   margin: 100px 0 0;
   background: #66b9bf;
@@ -164,99 +167,127 @@ body {
   @media screen and (max-width: 599px) {
     .p-topMain {
       padding: 40px 20px; } }
+  @media screen and (min-width: 600px) and (max-width: 1023px) {
+    .p-topMain {
+      margin: 150px 0 0;
+      padding: 60px 30px; } }
   @media screen and (min-width: 1024px) {
     .p-topMain {
       margin: 200px auto 100px;
-      width: 1100px; } }
-  .p-topMain .p-profile {
+      padding: 80px 40px;
+      max-width: 1100px; } }
+  .p-topMain .p-section {
     color: #fff; }
-    @media screen and (min-width: 1024px) {
-      .p-topMain .p-profile {
-        padding: 50px 100px; } }
-    .p-topMain .p-profile__content {
-      margin: 15px 0; }
+    .p-topMain .p-section > h2 {
+      font-size: 20px;
+      letter-spacing: 1.2px;
+      font-weight: 200; }
       @media screen and (min-width: 1024px) {
-        .p-topMain .p-profile__content {
-          margin: 45px 0 0;
-          padding: 0 10px; } }
-      .p-topMain .p-profile__content > dl {
-        font-size: 13px;
-        line-height: 1.7; }
-        @media screen and (min-width: 1024px) {
-          .p-topMain .p-profile__content > dl {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            font-size: 14px; } }
+        .p-topMain .p-section > h2 {
+          font-size: 30px;
+          letter-spacing: 1.4px; } }
+    .p-topMain .p-section__profileList {
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 15px; }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section__profileList {
+          margin-top: 20px; } }
       @media screen and (min-width: 1024px) {
-        .p-topMain .p-profile__content dd, .p-topMain .p-profile__content dt {
-          display: inline-block; } }
-      .p-topMain .p-profile__content dt:nth-of-type(n+2) {
-        margin-top: 15px; }
-      @media screen and (min-width: 1024px) {
-        .p-topMain .p-profile__content dt {
-          width: 20%; } }
-      @media screen and (min-width: 1024px) {
-        .p-topMain .p-profile__content dd {
-          width: 80%;
-          padding-bottom: 15px; } }
-  .p-topMain .p-works {
-    margin-top: 40px;
-    color: #fff; }
-    @media screen and (min-width: 1024px) {
-      .p-topMain .p-works {
-        padding: 50px 100px; } }
-    .p-topMain .p-works__list {
-      list-style: none;
-      margin: 15px 0; }
-      @media screen and (min-width: 1024px) {
-        .p-topMain .p-works__list {
+        .p-topMain .p-section__profileList {
+          margin-top: 30px; } }
+      @media screen and (min-width: 600px) {
+        .p-topMain .p-section__profileList {
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
-          margin: 45px 0 0;
-          padding: 0 10px; } }
-      @media screen and (max-width: 599px) {
-        .p-topMain .p-works__list > li {
-          text-align: center; } }
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          font-size: 14px; } }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section__profileList dt {
+          width: 15%; } }
       @media screen and (min-width: 1024px) {
-        .p-topMain .p-works__list > li {
-          width: calc(50% - 25px);
-          margin: 0 auto; } }
-      @media screen and (min-width: 1024px) {
-        .p-topMain .p-works__list > li:first-child {
-          margin-right: 50px; } }
+        .p-topMain .p-section__profileList dt {
+          width: 20%; } }
       @media screen and (max-width: 599px) {
-        .p-topMain .p-works__list > li:nth-child(n+2) {
+        .p-topMain .p-section__profileList dt:nth-of-type(n+2) {
+          margin-top: 15px; } }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section__profileList dd {
+          width: 85%;
+          padding-bottom: 15px; } }
+      @media screen and (min-width: 1024px) {
+        .p-topMain .p-section__profileList dd {
+          width: 80%;
+          padding-bottom: 15px; } }
+    .p-topMain .p-section:nth-of-type(n+2) {
+      margin-top: 40px; }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section:nth-of-type(n+2) {
+          margin-top: 60px; } }
+      @media screen and (min-width: 1024px) {
+        .p-topMain .p-section:nth-of-type(n+2) {
+          margin-top: 80px; } }
+    .p-topMain .p-section__worksList {
+      list-style: none;
+      margin-top: 15px; }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section__worksList {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          margin-top: 20px; } }
+      @media screen and (min-width: 1024px) {
+        .p-topMain .p-section__worksList {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
           margin-top: 30px; } }
-      .p-topMain .p-works__list > li a {
+      @media screen and (max-width: 599px) {
+        .p-topMain .p-section__worksList > li {
+          text-align: center; } }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section__worksList > li {
+          width: calc(50% - 7.5px); } }
+      @media screen and (min-width: 1024px) {
+        .p-topMain .p-section__worksList > li {
+          width: calc(50% - 20px); } }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section__worksList > li:first-child {
+          margin-right: 15px; } }
+      @media screen and (min-width: 1024px) {
+        .p-topMain .p-section__worksList > li:first-child {
+          margin-right: 40px; } }
+      @media screen and (max-width: 599px) {
+        .p-topMain .p-section__worksList > li:nth-child(n+2) {
+          margin-top: 30px; } }
+      .p-topMain .p-section__worksList > li a {
         display: block;
         width: 100%; }
-    .p-topMain .p-works__text {
+    .p-topMain .p-section__worksText {
       margin-top: 10px;
       font-size: 13px;
       line-height: 1.7;
       font-weight: 200; }
       @media screen and (min-width: 1024px) {
-        .p-topMain .p-works__text {
+        .p-topMain .p-section__worksText {
           font-size: 14px; } }
-  .p-topMain .p-skills {
-    margin-top: 40px;
-    color: #fff; }
-    @media screen and (min-width: 1024px) {
-      .p-topMain .p-skills {
-        padding: 50px 100px; } }
-    .p-topMain .p-skills > p {
-      margin: 15px 0;
+    .p-topMain .p-section__skillsText {
+      margin-top: 15px;
       font-size: 13px;
       line-height: 1.7; }
+      @media screen and (min-width: 600px) and (max-width: 1023px) {
+        .p-topMain .p-section__skillsText {
+          margin-top: 20px; } }
       @media screen and (min-width: 1024px) {
-        .p-topMain .p-skills > p {
+        .p-topMain .p-section__skillsText {
           font-size: 14px;
-          margin-top: 45px 0 0; } }
+          margin-top: 30px; } }
 
+/* ---------------
+    footer
+------------------ */
 .p-footer {
   background-color: #F7F7F7;
   height: 80px; }

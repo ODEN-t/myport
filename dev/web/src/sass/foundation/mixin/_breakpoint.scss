@@ -1,16 +1,18 @@
 $breakpoints: (
   /* Normal */
-  'small': 'screen and (max-width: 599px)',
-  'middle': 'screen and (min-width: 600px) and (max-width: 1023px)',
-  'large':'screen and (min-width: 1024px)',
+  'sm': 'screen and (max-width: 599px)',
+  'md': 'screen and (min-width: 600px) and (max-width: 1023px)',
+  'lg': 'screen and (min-width: 1024px)',
+  'gt-md': 'screen and (min-width: 600px)',
+  'lt-lg': 'screen and (max-width: 1023px)',
   /* hidari-kikino-eren */
   's-h': 'screen and (max-width: 799px)',
   'm-h': 'screen and (min-width: 800px)',
   'l-h': 'screen and (min-width: 800px) and (max-width: 1100px)',
-  'xl-h':'screen and (min-width: 1600px)'
+  'xl-h': 'screen and (min-width: 1600px)'
 );
 
-@mixin mq($breakpoint: large) {
+@mixin mq($breakpoint: lg) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }

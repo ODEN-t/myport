@@ -4,11 +4,17 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+/* ---------------
+    header
+------------------ */  
 .p-header {
 	position: relative;
 	padding-top: 150px;
 	@include mq {
 		padding-top: 300px;
+	}
+	@include mq(md) {
+		padding-top: 225px;
 	}
 	> h1 {
 		text-align: center;
@@ -31,8 +37,11 @@ body {
 		background-color: #e37222;
 		transform: rotate(-20deg);
 		transform-origin: left bottom;
+		@include mq(md) {
+			height: 157.5px;
+		}
 		@include mq {
-			height: 270px;
+			height: 210px;
 		}
 	}
 
@@ -52,68 +61,74 @@ body {
 		}
 	}
 }
-
-.p-sectionTitle {
-	font-size: 20px;
-	letter-spacing: 1.2px;
-	font-weight: 200;
-	@include mq {
-		font-size: 30px;
-		letter-spacing: 1.4px;
-	}
-}
-
+/* ---------------
+    main
+------------------ */  
 .p-topMain {
 	margin: 100px 0 0;
 	background: #66b9bf;
 	color: #fff;
-	@include mq(small) {
+	@include mq(sm) {
 		padding: 40px 20px;
+	}
+	@include mq(md) {
+		margin: 150px 0 0;
+		padding: 60px 30px;
 	}
 	@include mq {
 		margin: 200px auto 100px;
-		width: 1100px;
+		padding: 80px 40px;
+		max-width: 1100px;
 	}
 
-	.p-profile {
+	.p-section {
 		color: #fff;
-		@include mq {
-			padding: 50px 100px;
-		}
-		
-		&__content {
-			margin: 15px 0;
+
+		> h2 {
+			font-size: 20px;
+			letter-spacing: 1.2px;
+			font-weight: 200;
 			@include mq {
-				margin: 45px 0 0;
-				padding: 0 10px;
+				font-size: 30px;
+				letter-spacing: 1.4px;
 			}
+		}
 
-			> dl {
-				font-size: 13px;
-				line-height: 1.7;
-				@include mq {
-					display: flex;
-					flex-wrap: wrap;
-					font-size: 14px;
-				}
+		&__profileList {
+			font-size: 13px;
+			line-height: 1.7;
+			margin-top: 15px;
+			@include mq(md) {
+				margin-top: 20px;
 			}
-
-			dd, dt {
-				@include mq {
-					display: inline-block;
-				}
+			@include mq {
+				margin-top: 30px;
+			}
+			@include mq(gt-md) {
+				display: flex;
+				flex-wrap: wrap;
+				font-size: 14px;
 			}
 
 			dt {
-				&:nth-of-type(n+2) {
-					margin-top: 15px;
+				@include mq(md) {
+					width: 15%;
 				}
 				@include mq {
 					width: 20%;
 				}
+				@include mq(sm) {
+					&:nth-of-type(n+2) {
+						margin-top: 15px;
+					}
+				}
 			}
 
 			dd {
+				@include mq(md) {
+					width: 85%;
+					padding-bottom: 15px;
+				}
 				@include mq {
 					width: 80%;
 					padding-bottom: 15px;
@@ -121,52 +136,58 @@ body {
 			}
 		}
 
-	}
-
-	.p-works {
-		margin-top: 40px;
-		color: #fff;
-		@include mq {
-			padding: 50px 100px;
+		&:nth-of-type(n+2) {
+			margin-top: 40px;
+			@include mq(md) {
+				margin-top: 60px;
+			}
+			@include mq {
+				margin-top: 80px;
+			}
 		}
 
-		&__list {
+		&__worksList {
 			list-style: none;
-			margin: 15px 0;
-			
+			margin-top: 15px;
+			@include mq(md) {
+				display: flex;
+				margin-top: 20px;
+			}
 			@include mq {
 				display: flex;
-				margin: 45px 0 0;
-				padding: 0 10px;
+				margin-top: 30px;
 			}
-			
 			> li {
-				@include mq(small) {
+				@include mq(sm) {
 					text-align: center;
 				}
+				@include mq(md) {
+					width: calc(50% - 7.5px);
+				}
 				@include mq {
-					width: calc(50% - 25px);
-					margin: 0 auto;
+					width: calc(50% - 20px);
 				}
 				&:first-child {
+					@include mq(md) { 
+						margin-right: 15px;
+					}
 					@include mq {
-						margin-right: 50px;
+						margin-right: 40px;
 					}
 				}
 				&:nth-child(n+2) {
-					@include mq(small) {
+					@include mq(sm) {
 						margin-top: 30px;
 					}
 				}
 			}
-
 			> li a {
 				display: block;
 				width: 100%;
 			}
 		}
-
-		&__text {
+		
+		&__worksText {
 			margin-top: 10px;
 			font-size: 13px;
 			line-height: 1.7;
@@ -175,27 +196,24 @@ body {
 				font-size: 14px;
 			}
 		}
-	}
 
-	.p-skills {
-		margin-top: 40px;
-		color: #fff;
-		@include mq {
-			padding: 50px 100px;
-		}
-		
-		> p {
-			margin: 15px 0;
+		&__skillsText {
+			margin-top: 15px;
 			font-size: 13px;
 			line-height: 1.7;
+			@include mq(md) {
+				margin-top: 20px;
+			}
 			@include mq {
 				font-size: 14px;
-				margin-top: 45px 0 0;
+				margin-top: 30px;
 			}
 		}
 	}
 }
-
+/* ---------------
+    footer
+------------------ */  
 .p-footer {
 	background-color: #F7F7F7;
 	height: 80px;
