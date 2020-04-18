@@ -1,19 +1,48 @@
-/*
-  breakpoint 5種類 (ss, s, m, l, xl) を各プロジェクト毎に割り当てる
-  接尾辞は各project名 (ex) kadel → -k
-*/
-
-/* hidari-kikino-eren */
-$breakpointss: (
+$breakpoints: (
+  /* Normal */
+  'sm': 'screen and (max-width: 599px)',
+  'md': 'screen and (min-width: 600px) and (max-width: 1023px)',
+  'lg': 'screen and (min-width: 1024px)',
+  'gt-md': 'screen and (min-width: 600px)',
+  'lt-lg': 'screen and (max-width: 1023px)',
+  /* hidari-kikino-eren */
   's-h': 'screen and (max-width: 799px)',
   'm-h': 'screen and (min-width: 800px)',
   'l-h': 'screen and (min-width: 800px) and (max-width: 1100px)',
-  'xl-h':'screen and (min-width: 1600px)'
-) !default; //後から上書き可能
+  'xl-h': 'screen and (min-width: 1600px)'
+);
 
-@mixin mq($breakpoint: m-h) {
-  @media #{map-get($breakpointss, $breakpoint)} {
+@mixin mq($breakpoint: lg) {
+  @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }
 }
+
+
+// @mixin mq($breakpoint: middle, $type: $BP) {
+//   $breakpoints: null;
+//   @if $type == 1 or $type == normal {
+//     $breakpoints: (
+//       'small': 'screen and (max-width: 599px)',
+//       'middle': 'screen and (min-width: 600px) and (max-width: 1023px)',
+//       'large':'screen and (min-width: 1024px)'
+//     );
+//     @media #{map-get($breakpoints, $breakpoint)} {
+//       @content;
+//     }
+//   }
+//   @else if $type == Eren {
+//   /* hidari-kikino-eren */
+//     $breakpoints: (
+//       's-h': 'screen and (max-width: 799px)',
+//       'middle': 'screen and (min-width: 800px)',
+//       'l-h': 'screen and (min-width: 800px) and (max-width: 1100px)',
+//       'xl-h':'screen and (min-width: 1600px)'
+//     ); 
+//     @media #{map-get($breakpoints, $breakpoint)} {
+//       @content;
+//     }
+//   }
+// }
+
 

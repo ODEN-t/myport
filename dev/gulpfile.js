@@ -16,7 +16,7 @@ gulp.task('css', function () {
 
 //css minify
 gulp.task('mincss', function () {
-  return gulp.src('./web/asset/css/kadel/*.css') // フォルダ名部分は適宜作業フォルダ名に変更
+  return gulp.src('./web/asset/css/top/*.css') // フォルダ名部分は適宜作業フォルダ名に変更
               .pipe(cleanCSS()) // cssを圧縮
               .pipe(rename({extname:'.min.css'})) // 名前を.min.cssにする
               .pipe(gulp.dest('./web/asset/min/')) // 出力
@@ -38,10 +38,10 @@ gulp.task('browser-sync', function(done) {
   browserSync({
     server: {
         baseDir: "./web/",    //ルート設定
-        index  : "./data/kadel/index.html"    //インデックスファイル フォルダ・ファイル名は適宜書き換える！
+        index  : "./data/index.html"    //インデックスファイル フォルダ・ファイル名は適宜書き換える！
     }
   });
-  gulp.watch('./web/data/**/*.html',gulp.task('bs-reload')); //監視対象
+  gulp.watch('./web/data/*.html',gulp.task('bs-reload')); //監視対象
   gulp.watch('./web/src/sass/**/*.scss',gulp.task('bs-reload')); //監視対象
   gulp.watch('./web/src/js/**/*.js',gulp.task('bs-reload')); //監視対象
   done();
