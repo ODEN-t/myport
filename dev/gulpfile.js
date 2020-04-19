@@ -1,50 +1,55 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
-var cleanCSS = require('gulp-clean-css');
-var browserSync = require('browser-sync');
-
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
+const browserSync = require('browser-sync');
+const webpackStream = require("webpack-stream");
+const webpack = require("webpack");
+const webpackConfig = require("./webpack.config");
+const pageName = "hidari-kikino-eren"; // 適宜書き換える
 
 // Sassコンパイル
-gulp.task('css', function () {
-    return gulp.src('./web/src/sass/**/index.scss')// indexのみコンパイル
-            .pipe(sass()) // コンパイル実行
-            .pipe(autoprefixer({cascade: false})) // ベンダープレフィックスの付与,package.json browserslistで設定
-            .pipe(gulp.dest('./web/asset/css/')); // 出力
+gulp.task('sass', function () {
+  console.log('task: sass');
+    return gulp.src('./web/src/sass/**/index.scss')
+    .pipe(sass({outputStyle: 'compressed'})) // コンパイル実行
+    .pipe(postcss([ autoprefixer() ])) // ベンダープレフィックスの付与,package.json browserslistで設定
+    .pipe(gulp.dest('./web/public/')) // 出力 
+    .pipe(browserSync.stream()); 
 });
 
-//css minify
-gulp.task('mincss', function () {
-  return gulp.src('./web/asset/css/top/*.css') // フォルダ名部分は適宜作業フォルダ名に変更
-              .pipe(cleanCSS()) // cssを圧縮
-              .pipe(rename({extname:'.min.css'})) // 名前を.min.cssにする
-              .pipe(gulp.dest('./web/asset/min/')) // 出力
+//webpack
+gulp.task("webpack", function(){
+  console.log('task: webpack');
+  return webpackStream(webpackConfig, webpack)
+    .pipe(gulp.dest("./web/public/" + pageName + "/"));
 });
 
-//Sassコンパイルとcss minify タスク
-gulp.task('watch',function(){
-  gulp.watch('./web/src/sass/**/*.scss', gulp.series('css','mincss')); //監視対象は全てのSassファイル
-})
+//browserSync
+gulp.task('browser-sync', function() {
+  console.log('task: browser-sync');
+  browserSync.init({
+    browser: 'Google Chrome',
+    server: {
+      baseDir: "./web/",    //ルート設定
+      index  : "/data/" + pageName + "/index.html"
+    },
+    https: true
+  })
+});
 
-// browserSync リロード
-gulp.task('bs-reload', function (done) {
+gulp.task('reload', function(done){
   browserSync.reload();
   done();
 });
 
-//browserSync
-gulp.task('browser-sync', function(done) {
-  browserSync({
-    server: {
-        baseDir: "./web/",    //ルート設定
-        index  : "./data/index.html"    //インデックスファイル フォルダ・ファイル名は適宜書き換える！
-    }
-  });
-  gulp.watch('./web/data/*.html',gulp.task('bs-reload')); //監視対象
-  gulp.watch('./web/src/sass/**/*.scss',gulp.task('bs-reload')); //監視対象
-  gulp.watch('./web/src/js/**/*.js',gulp.task('bs-reload')); //監視対象
-  done();
-});
+gulp.task('watch-files', function() {
+  gulp.watch('./web/src/sass/**/*.scss', gulp.task('sass'));
+  gulp.watch('./web/src/js/**/*.js',  gulp.series('webpack', 'reload'));
+  gulp.watch('./web/data/**/*.html', gulp.task('reload'));
+  console.log('All files watching');
+})
 
-gulp.task('default', gulp.parallel('browser-sync','watch'));
+gulp.task('default', gulp.parallel('browser-sync', 'watch-files', function(){
+  console.log('build complete!');
+}))

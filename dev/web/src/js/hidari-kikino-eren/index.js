@@ -1,10 +1,8 @@
 /********************* / 
       JavaScript
 **********************/
-
 (function() {
   const mediaQuery = window.matchMedia('(min-width: 800px)');
-  
   const wait = (ms) => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -144,7 +142,6 @@
           guages.forEach((guage) => {
             guage.style.transform = `scaleX(${scaleX})`;
           })
-  
           if(scaleX >= 1) {
             wait(1000)
             .then(() => {
@@ -291,7 +288,6 @@
   mediaQuery.addListener(btnAnimeContorl);
   btnAnimeContorl(mediaQuery);
 })();
-
 
 
 /****************** / 
