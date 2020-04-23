@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const path = require('path');
 
 module.exports = {
   mode: "development",
@@ -13,7 +14,7 @@ module.exports = {
     hints: false
   },
   entry: {
-    hello : "./src/main.js"
+    main : "./src/main.js" // mainの部分がoutput時のjsファイル名となる
   },  
   output: {
     path: `${__dirname}/public`, // 絶対パスでの指定
@@ -53,7 +54,22 @@ module.exports = {
         use: [
           "style-loader",
           "css-loader",
-          "sass-loader"
+          "sass-loader",
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.resolve(__dirname, './src/styles/global.scss')
+              ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          "css-loader"
         ]
       },
       {
