@@ -6,6 +6,7 @@
 
 <script>
 import Calculator from './components/Calculator.vue';
+import 'normalize.css';
 
 export default {
   name: 'app',
@@ -13,5 +14,4 @@ export default {
     Calculator
   }
 }
-
 </script>
