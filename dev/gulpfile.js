@@ -6,7 +6,7 @@ const browserSync = require('browser-sync');
 // const webpackStream = require("webpack-stream");
 // const webpack = require("webpack");
 // const webpackConfig = require("./webpack.config");
-const pageName = "hidari-kikino-eren"; // 適宜書き換える
+const pageName = "kadel"; // 適宜書き換える
 
 // Sassコンパイル
 gulp.task('sass', function () {
