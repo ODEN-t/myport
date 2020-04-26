@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <Home />
-    <div>
-      <router-view></router-view>
-    </div>
+    <Header></Header>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/info">Info</router-link>
+    <router-view></router-view> <!-- pages以下のコンテンツ内容 -->
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Home from './pages/home.vue';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import 'normalize.css';
 
 export default {
   name: 'app',
   components: {
-    Home
+    Header,
+    Footer
   }
 }
 </script>

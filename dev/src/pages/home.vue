@@ -1,5 +1,12 @@
 <template>
-  <main class="p-home">
-    <h1>My portforio</h1>
+  <main>
+    <h3>Home</h3>
+    <router-link :to="{ name: 'info' }">リンク</router-link>
   </main>
-</template>>
+</template>
+
+<script>
+export default {
+  name: 'home'
+}
+</script>

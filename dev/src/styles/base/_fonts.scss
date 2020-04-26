@@ -4,6 +4,6 @@ $font-families: (
   'lato_noto': "'Lato', 'Noto Sans JP','ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;"
 );
 
-@mixin font_family($font_family: lato_noto) {
+@mixin font_family($font_family: normal) {
   font-family: #{map-get($font-families, $font-family)};
 };
