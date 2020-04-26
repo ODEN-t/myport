@@ -20,7 +20,7 @@
             href=""
             id="#profile"
             class="p-nav__anchor">
-            works
+            Works
           </a>
         </li>
         <li>
@@ -49,25 +49,25 @@ export default {
   .header {
     @include font_family;
     position: fixed;
+    top: 0;
     width: 100%;
     height: 80px;
-    top: 0;
     z-index: 1;
 
     .p-nav {
       display: flex;
       justify-content: space-between;
       padding: 0 50px;
-      height: 80px;
       width: 100%;
+      height: 80px;
       background-color: rgba(255, 255, 255, 0);
 
       &__title {
+        font-size: 30px;
+        color: #fff;
         display: flex;
         align-items: center;
         height: 80px;
-        font-size: 30px;
-        color: #fff;
         z-index: 1; 
       }
 

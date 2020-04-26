@@ -56,6 +56,10 @@ img {
   width: 100%;
 }
 
+.en {
+  letter-spacing: 2px;
+}
+
 /* change colours to suit your needs */
 ins {
   background-color:#ff9;
