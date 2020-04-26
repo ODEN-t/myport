@@ -1,14 +1,16 @@
+const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const path = require('path');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
   mode: "development",
-  devtool: "#eval-source-map",
+  devtool: "inline-source-map",
   devServer: {
     contentBase: "public",
-    open: true
+    open: true,
+    port: 8080
   },
   performance: {
     hints: false
@@ -99,6 +101,7 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HardSourceWebpackPlugin()
   ]
 }
