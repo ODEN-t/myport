@@ -43,6 +43,33 @@
         </div>
       </div>
     </section>
+    <section class="p-skills">
+      <div class="p-skills__wrap">
+        <h2>Skills</h2>
+        <div class="p-skills__content">
+          <dl>
+            <div class="p-skills__dataWrap" v-for="skill in dataBlock.skills" :key="skill.dt">
+              <dt class="p-skills__dataTitle p-skills__dataTitle--letterSpaceWide">{{ skill.dt }}</dt>
+              <dd class="p-skills__data" v-html="skill.dd"></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <svg display="none">
+      <defs>
+        <symbol id="icon-star-empty" viewBox="0 0 32 32">
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>
+        </symbol>
+        <symbol id="icon-star-full" viewBox="0 0 32 32">
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+        </symbol>
+        <symbol id="icon-star-half" viewBox="0 0 32 32">
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-0.029 0.015 0.029-17.837 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>
+        </symbol>
+      </defs>  
+    </svg>  
   </main>
 </template>
 
@@ -132,7 +159,33 @@ export default {
               '・CMSを利用したサイト更新、NL管理、アプリ更新'
             ]
           }
-        ]
+        ],
+        skills: [
+          {
+            dt: 'HTML',
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+          },
+          {
+            dt: 'Sass（CSS）',
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+          },
+          {
+            dt: 'PHP',
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+          },
+          {
+            dt: 'JavaScript',
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+          },
+          {
+            dt: 'Vue',
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+          },
+          {
+            dt: 'WordPress',
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+          }
+        ],
       }
     }
   }
@@ -186,7 +239,6 @@ export default {
       &__wrap {
         max-width: 1300px;
         color: #fff;
-        background-color: #e3d1c0;
         padding: 5em 2.5em;
         margin: 0 auto;
         display: flex;
@@ -261,6 +313,43 @@ export default {
           padding-left: 1em;
           text-indent: -1em;
         }
+      }
+    }
+
+    .p-skills {
+      width: 100%;
+
+      &__wrap {
+        max-width: 1300px;
+        color: #333;
+        padding: 5em 2.5em;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        > h2 {
+          width: 100%;
+          font-size: 40px;
+          letter-spacing: 2px;
+          text-align: center;
+        }
+      }
+
+      &__content {
+        width: 75%;
+        background-color: #71acad;
+        color: #fff;
+        padding: 2.5em;
+        margin: 2.5em auto 0;
+        border-radius: 3px;
+      }
+
+      &__star {
+        fill: #fff;
+        width: 30px;
+        display: inline-block;
+        height: 30px;
       }
     }
   }
