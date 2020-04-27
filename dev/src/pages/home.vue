@@ -1,32 +1,48 @@
 <template>
   <main class="home">
-    <div class="p-head">
+    <section class="p-head">
       <div class="p-head__wrap">
         <div class="p-head__background"></div>
         <h1>My Portforio</h1>
       </div>
-    </div>
-    <div class="p-main">
-      <div class="p-main__profile">
+    </section>
+    <section class="p-profile">
+      <div class="p-profile__wrap">
         <h2>Profile</h2>
-        <div class="p-main__dataBlock">
-          <dl class="p-main__dataList">
-            <div class="p-main__dataWrap" v-for="dataList in dataBlock.profile" :key="dataList.dt">
-              <dt>{{ dataList.dt }}</dt>
-              <dd>{{ dataList.dd }}</dd>
+        <div class="p-profile__dataBlock">
+          <h3>Basic</h3>
+          <dl class="p-profile__dataList">
+            <div class="p-profile__dataWrap" v-for="basic in dataBlock.basicProfile" :key="basic.dt">
+              <dt class="p-profile__dataTitle p-profile__dataTitle--letterSpaceWide">{{ basic.dt }}</dt>
+              <dd class="p-profile__data">{{ basic.dd }}</dd>
+            </div>
+          </dl>
+          <h3>Development</h3>
+          <dl class="p-profile__dataList">
+            <div class="p-profile__dataWrap" v-for="dev in dataBlock.development" :key="dev.dt">
+              <dt class="p-profile__dataTitle p-profile__dataTitle--letterSpaceWide">{{ dev.dt }}</dt>
+              <dd class="p-profile__data">{{ dev.dd }}</dd>
             </div>
           </dl>
         </div>
-        <div class="p-main__dataBlock p-main__dataBlock--right">
-          <dl class="p-main__dataList">
-            <div class="p-main__dataWrap" v-for="dataList in dataBlock.profile" :key="dataList.dt">
-              <dt>{{ dataList.dt }}</dt>
-              <dd>{{ dataList.dd }}</dd>
+        <div class="p-profile__dataBlock p-profile__dataBlock--right">
+          <h3>Career</h3>
+          <dl class="p-profile__dataList">
+            <div class="p-profile__dataWrap" v-for="career in dataBlock.carrerSummary" :key="career.dt">
+              <dt class="p-profile__dataTitle">{{ career.dt }}</dt>
+              <dd class="p-profile__data">{{ career.dd }}</dd>
+            </div>
+          </dl>
+          <h3>Details</h3>
+          <dl class="p-profile__dataList">
+            <div class="p-profile__dataWrap" v-for="details in dataBlock.carrerDetails" :key="details.dt">
+              <dt class="p-profile__dataTitle p-profile__dataTitle--workDetails">{{ details.dt }}</dt>
+              <dd class="p-profile__data p-profile__data--widthWide" v-for="worksContents in details.dd" :key="worksContents">{{ worksContents }}</dd>
             </div>
           </dl>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 </template>
 
@@ -36,24 +52,87 @@ export default {
   data: function() {
     return {
       dataBlock: {
-        profile: [
+        basicProfile: [
           { 
             dt: 'Name',
             dd: 'T.K'
           },
           { 
-            dt: 'Address',
-            dd: '東京都小平市'
+            dt: 'Sex',
+            dd: '男'
+          },
+          { 
+            dt: 'Age',
+            dd: '28（1991. 11. 30 〜）'
+          },
+          { 
+            dt: 'Education',
+            dd: '立命館大学国際関係学部国際関係学科卒業'
+          },
+          { 
+            dt: 'Certifications',
+            dd: 'DELE B1（スペイン語の資格）'
           },
           { 
             dt: 'Tel',
-            dd: '080-1480-4979'
+            dd: '080 - 1480 - 4979'
           },
           { 
             dt: 'Mail',
             dd: 'xxzera@gmail.com'
           }
         ],
+        development: [
+          {
+            dt: 'OS',
+            dd: 'Mac OS'
+          },
+          {
+            dt: 'Tools',
+            dd: 'Git、 GitHub Pages、NPM、 Webpack、 Gulp'
+          },
+          {
+            dt: 'Language',
+            dd: 'HTML / Sass、 JavaScript（jQuery）'
+          },
+          {
+            dt: 'Framework',
+            dd: 'Vue.js'
+          }
+        ],
+        carrerSummary: [
+          {
+            dt: '2016. 4 - 2018. 8',
+            dd: 'スズキ株式会社にて営業職として従事（BtoB / BtoC)'
+          },
+          {
+            dt: '2019. 2 - 2019. 4',
+            dd: '株式会社アウトソーシングデザイナーに入社し研修を受ける'
+          },
+          {
+            dt: '2019. 5 - 2020. 4',
+            dd: '大手ECサイトの保守・運用業務に携わる'
+          }
+        ],
+        carrerDetails: [
+          {
+            dt: '研修内容',
+            dd: [
+              '・PHP5におけるオブジェクト指向プログラムの基礎と応用',
+              '・JavaScriptを用いた動的なWebサイトの構築',
+              '・MySQLの基礎と応用、PHPからの実行',
+              '・illustrator、photoshopの基礎・応用'
+            ]
+          },
+          {
+            dt: '業務内容',
+            dd: [
+              '・カンプを元にLPの新規作成、更新',
+              '・サイト内コンポーネントの保守',
+              '・CMSを利用したサイト更新、NL管理、アプリ更新'
+            ]
+          }
+        ]
       }
     }
   }
@@ -61,8 +140,9 @@ export default {
 </script>
 
 <style lang="scss">
+
   .home {
-    
+
     .p-head {
       width: 100%;
       height: 640px;
@@ -99,56 +179,87 @@ export default {
       }
     }
 
-    .p-main {
+    .p-profile {
       width: 100%;
+      background-color: #e3d1c0;
 
-      &__profile {
+      &__wrap {
+        max-width: 1300px;
         color: #fff;
         background-color: #e3d1c0;
-        padding: 90px;
-        &:after {
-        display: block;
-        content: '';
-        clear: both;
-      }
+        padding: 5em 2.5em;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
         > h2 {
-          font-size: 30px;
+          width: 100%;
+          font-size: 40px;
           letter-spacing: 2px;
+          text-align: center;
         }
       }
 
       &__dataBlock {
-        width: 65%;
-        max-width: 650px;
+        width: calc(50% - 0.75em);
         background-color: #fff;
         padding: 2.5em;
-        margin-top: 20px;
-        border-radius: 10px;
+        margin-top: 2.5em;
+        border-radius: 3px;
 
-        &--right {
-          float: right;
+        > h3 {
+          color: #ff5470;
+          font-size: 22px;
+          letter-spacing: 2px;
+          line-height: 1.7;
+          font-weight: 700;
+        }
+
+        > h3:last-of-type{
+          margin-top: 1em;
         }
       }
 
       &__dataList {
         width: 100%;
         color: #333;
+        margin-top: 1em;
       }
 
       &__dataWrap {
         display: flex;
         flex-wrap: wrap;
-        font-size: 18px;
+        font-size: 15px;
         line-height: 1.7;
-        
-        > dt {
-          width: 30%;
+        &:nth-of-type(n+2) {
+          margin-top: 1em;
+        }
+      }
+
+      &__dataTitle {
+        width: 35%;
+
+        &--letterSpaceWide {
           letter-spacing: 2px;
         }
+        &--widthWide {
+          width: 100%;
+        }
+        &--workDetails {
+          font-weight: 700;
+          margin-bottom: 0.25em;
+        }
+      }
 
-        > dd {
-          width: 70%;
+      &__data {
+        width: 65%;
+
+        &--widthWide {
+          width: 100%;
+          margin-top: 0.25em;
+          padding-left: 1em;
+          text-indent: -1em;
         }
       }
     }

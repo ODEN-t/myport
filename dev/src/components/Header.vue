@@ -47,7 +47,6 @@ export default {
 
 <style lang="scss" scoped>
   .header {
-    @include font_family;
     position: fixed;
     top: 0;
     width: 100%;
