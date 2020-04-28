@@ -6,64 +6,119 @@
         <h1>My Portforio</h1>
       </div>
     </section>
-    <section class="p-profile">
-      <div class="p-profile__wrap">
+    <section class="p-contents">
+      <div class="p-contents__wrap">
         <h2>Profile</h2>
-        <div class="p-profile__dataBlock">
+        <div class="p-contents__card">
           <h3>Basic</h3>
-          <dl class="p-profile__dataList">
-            <div class="p-profile__dataWrap" v-for="basic in dataBlock.basicProfile" :key="basic.dt">
-              <dt class="p-profile__dataTitle p-profile__dataTitle--letterSpaceWide">{{ basic.dt }}</dt>
-              <dd class="p-profile__data">{{ basic.dd }}</dd>
+          <dl class="p-contents__dataList">
+            <div
+              class="p-contents__dataWrap" 
+              v-for="basic in dataBlock.basicProfile"
+              :key="basic.dt"
+            >
+              <dt class="p-contents__dataTitle p-contents__dataTitle--letterSpaceWide">{{ basic.dt }}</dt>
+              <dd class="p-contents__data">{{ basic.dd }}</dd>
             </div>
           </dl>
           <h3>Development</h3>
-          <dl class="p-profile__dataList">
-            <div class="p-profile__dataWrap" v-for="dev in dataBlock.development" :key="dev.dt">
-              <dt class="p-profile__dataTitle p-profile__dataTitle--letterSpaceWide">{{ dev.dt }}</dt>
-              <dd class="p-profile__data">{{ dev.dd }}</dd>
+          <dl class="p-contents__dataList">
+            <div 
+              class="p-contents__dataWrap"
+              v-for="dev in dataBlock.development" 
+              :key="dev.dt"
+            >
+              <dt class="p-contents__dataTitle p-contents__dataTitle--letterSpaceWide">{{ dev.dt }}</dt>
+              <dd class="p-contents__data">{{ dev.dd }}</dd>
             </div>
           </dl>
         </div>
-        <div class="p-profile__dataBlock p-profile__dataBlock--right">
+        <div class="p-contents__card">
           <h3>Career</h3>
-          <dl class="p-profile__dataList">
-            <div class="p-profile__dataWrap" v-for="career in dataBlock.carrerSummary" :key="career.dt">
-              <dt class="p-profile__dataTitle">{{ career.dt }}</dt>
-              <dd class="p-profile__data">{{ career.dd }}</dd>
+          <dl class="p-contents__dataList">
+            <div 
+              class="p-contents__dataWrap"
+              v-for="career in dataBlock.carrerSummary" 
+              :key="career.dt"
+            >
+              <dt class="p-contents__dataTitle">{{ career.dt }}</dt>
+              <dd class="p-contents__data">{{ career.dd }}</dd>
             </div>
           </dl>
           <h3>Details</h3>
-          <dl class="p-profile__dataList">
-            <div class="p-profile__dataWrap" v-for="details in dataBlock.carrerDetails" :key="details.dt">
-              <dt class="p-profile__dataTitle p-profile__dataTitle--workDetails">{{ details.dt }}</dt>
-              <dd class="p-profile__data p-profile__data--widthWide" v-for="worksContents in details.dd" :key="worksContents">{{ worksContents }}</dd>
+          <dl class="p-contents__dataList">
+            <div 
+              class="p-contents__dataWrap" 
+              v-for="details in dataBlock.carrerDetails" 
+              :key="details.dt"
+            >
+              <dt class="p-contents__dataTitle">{{ details.dt }}</dt>
+              <dd 
+                class="p-contents__data p-contents__data--widthWide"
+                v-for="worksContents in details.dd"
+                :key="worksContents"
+              >
+              {{ worksContents }}
+              </dd>
             </div>
           </dl>
         </div>
       </div>
     </section>
-    <section class="p-skills">
-      <div class="p-profile__wrap p-profile__wrap--skills">
+    <section class="p-contents p-contents--bgWhite">
+      <div class="p-contents__wrap">
         <h2>Skills</h2>
-        <div class="p-profile__dataBlock p-profile__dataBlock--skills">
+        <div class="p-contents__card p-contents__card--bgGray">
           <h3>Rate</h3>
-          <dl class="p-profile__dataList">
-            <div class="p-profile__dataWrap p-profile__dataWrap--skills" v-for="skill in dataBlock.skillRate" :key="skill.dt">
-              <dt class="p-profile__dataTitle p-profile__dataTitle--skills">{{ skill.dt }}</dt>
-              <dd class="p-profile__data p-profile__data--skills" v-html="skill.dd"></dd>
+          <dl class="p-contents__dataList">
+            <div
+              class="p-contents__dataWrap" 
+              v-for="skill in dataBlock.skillRate" 
+              :key="skill.dt"
+            >
+              <dt class="p-contents__dataTitle p-contents__dataTitle--widthHalf p-contents__dataTitle--alignCenter p-contents__dataTitle--letterSpaceWide">{{ skill.dt }}</dt>
+              <dd 
+                class="p-contents__data p-contents__data--widthHalf"
+                v-html="skill.dd">
+              </dd>
             </div>
           </dl>
         </div>
-        <div class="p-profile__dataBlock p-profile__dataBlock--skills">
+        <div class="p-contents__card p-contents__card--bgGray">
           <h3>What I can do</h3>
-          <dl class="p-profile__dataList">
-            <div class="p-profile__dataWrap p-profile__dataWrap--skills" v-for="skill in dataBlock.skillRateContents" :key="skill.dt">
-              <dt class="p-profile__dataTitle p-profile__dataTitle--skills">{{ skill.dt }}</dt>
-              <dd class="p-profile__data p-profile__data--skills" v-html="skill.dd"></dd>
+          <dl class="p-contents__dataList">
+            <div class="p-contents__dataWrap"
+              v-for="skill in dataBlock.skillRateContents" 
+              :key="skill.dt"
+            >
+              <dt class="p-contents__dataTitle p-contents__dataTitle--widthHalf p-contents__dataTitle--letterSpaceWide">{{ skill.dt }}</dt>
+              <dd 
+                class="p-contents__data p-contents__data--widthHalf" 
+                v-html="skill.dd">
+              </dd>
             </div>
           </dl>
         </div>
+      </div>
+    </section>
+    <section class="p-contents p-contents--works">
+      <div class="p-contents__wrap">
+        <h2>Works</h2>
+        <ul class="p-contents__worksList"
+          v-for="work in works"
+          :key="work.title"
+        >
+          <li>
+            <img 
+            :src="path" 
+            :alt="alt"
+            >
+            <div class="p-contents__workText">
+              <h3>{{ work.title }}</h3>
+              <p>{{ work.description }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -177,27 +232,27 @@ export default {
         skillRate: [
           {
             dt: 'HTML',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'Sass（CSS）',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'PHP',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'JavaScript',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-half"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-half"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'Vue',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-half"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-half"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'WordPress',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
           }
         ],
         skillRateContents: [
@@ -224,6 +279,13 @@ export default {
           {
             dt: 'WordPress',
             dd: 'テーマを用いたサイト構築、DB連携、サイトの更新'
+          }
+        ],
+        works: [
+          {
+            path: '',
+            alt: 'title',
+            description: ''
           }
         ]
       }
@@ -272,9 +334,13 @@ export default {
       }
     }
 
-    .p-profile {
+    .p-contents {
       width: 100%;
       background-color: #eff0f3;
+
+      &--bgWhite {
+        background-color: #fffffe;
+      }
 
       &__wrap {
         max-width: 1300px;
@@ -293,7 +359,7 @@ export default {
         }
       }
 
-      &__dataBlock {
+      &__card {
         width: calc(50% - 0.75em);
         background-color: #fffffe;
         padding: 2.5em;
@@ -312,7 +378,7 @@ export default {
           margin-top: 1em;
         }
 
-        &--skills {
+        &--bgGray {
           background-color: #eff0f3;
         }
       }
@@ -327,6 +393,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         font-size: 15px;
+        font-weight: 200;
         line-height: 1.7;
         &:nth-of-type(n+2) {
           margin-top: 1em;
@@ -335,6 +402,7 @@ export default {
 
       &__dataTitle {
         width: 35%;
+        font-weight: 700;
 
         &--letterSpaceWide {
           letter-spacing: 2px;
@@ -342,14 +410,10 @@ export default {
         &--widthWide {
           width: 100%;
         }
-        &--workDetails {
-          font-weight: 700;
-          margin-bottom: 0.25em;
-        }
-        &--skills {
+        &--widthHalf {
           width: 50%;
-          font-weight: 700;
-          letter-spacing: 2px;
+        }
+        &--alignCenter {
           display: flex;
           align-items: center;
         }
@@ -365,15 +429,10 @@ export default {
           text-indent: -1em;
         }
 
-        &--skills {
+        &--widthHalf {
           width: 50%;
         }
       }
-    }
-
-    .p-skills {
-      width: 100%;
-      background-color: #fffffe;
 
       &__star {
         display: inline-block;
