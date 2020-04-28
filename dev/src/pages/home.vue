@@ -44,13 +44,23 @@
       </div>
     </section>
     <section class="p-skills">
-      <div class="p-skills__wrap">
+      <div class="p-profile__wrap p-profile__wrap--skills">
         <h2>Skills</h2>
-        <div class="p-skills__content">
-          <dl>
-            <div class="p-skills__dataWrap" v-for="skill in dataBlock.skills" :key="skill.dt">
-              <dt class="p-skills__dataTitle p-skills__dataTitle--letterSpaceWide">{{ skill.dt }}</dt>
-              <dd class="p-skills__data" v-html="skill.dd"></dd>
+        <div class="p-profile__dataBlock p-profile__dataBlock--skills">
+          <h3>Rate</h3>
+          <dl class="p-profile__dataList">
+            <div class="p-profile__dataWrap p-profile__dataWrap--skills" v-for="skill in dataBlock.skillRate" :key="skill.dt">
+              <dt class="p-profile__dataTitle p-profile__dataTitle--skills">{{ skill.dt }}</dt>
+              <dd class="p-profile__data p-profile__data--skills" v-html="skill.dd"></dd>
+            </div>
+          </dl>
+        </div>
+        <div class="p-profile__dataBlock p-profile__dataBlock--skills">
+          <h3>What I can do</h3>
+          <dl class="p-profile__dataList">
+            <div class="p-profile__dataWrap p-profile__dataWrap--skills" v-for="skill in dataBlock.skillRateContents" :key="skill.dt">
+              <dt class="p-profile__dataTitle p-profile__dataTitle--skills">{{ skill.dt }}</dt>
+              <dd class="p-profile__data p-profile__data--skills" v-html="skill.dd"></dd>
             </div>
           </dl>
         </div>
@@ -125,6 +135,10 @@ export default {
           {
             dt: 'Framework',
             dd: 'Vue.js'
+          },
+          {
+            dt: 'Library',
+            dd: 'jQuery.js'
           }
         ],
         carrerSummary: [
@@ -138,7 +152,7 @@ export default {
           },
           {
             dt: '2019. 5 - 2020. 4',
-            dd: '大手ECサイトの保守・運用業務に携わる'
+            dd: '株式会社キューにて大手ECサイトの保守・運用業務に携わる'
           }
         ],
         carrerDetails: [
@@ -160,32 +174,58 @@ export default {
             ]
           }
         ],
-        skills: [
+        skillRate: [
           {
             dt: 'HTML',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'Sass（CSS）',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'PHP',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'JavaScript',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-half"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'Vue',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-half"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
           },
           {
             dt: 'WordPress',
-            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: '<svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-full"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-skills__star"><use xlink:href="#icon-star-empty"></svg>'
           }
         ],
+        skillRateContents: [
+          {
+            dt: 'HTML',
+            dd: '基本的マークアップ、SVGの利用'
+          },
+          {
+            dt: 'Sass（CSS）',
+            dd: 'レスポンシブ化、アニメーション、flocssを用いたCSS設計'
+          },
+          {
+            dt: 'PHP',
+            dd: '研修の基礎知識のみ、実務経験なし'
+          },
+          {
+            dt: 'JavaScript（jQuery）',
+            dd: 'DOM操作、関数化、非同期処理、jQueryプラグインの利用'
+          },
+          {
+            dt: 'Vue',
+            dd: '基礎'
+          },
+          {
+            dt: 'WordPress',
+            dd: 'テーマを用いたサイト構築、DB連携、サイトの更新'
+          }
+        ]
       }
     }
   }
@@ -213,7 +253,7 @@ export default {
         > h1 {
           font-size: 60px;
           letter-spacing: 5px;
-          color: #fff;
+          color: #eff0f3;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -234,11 +274,11 @@ export default {
 
     .p-profile {
       width: 100%;
-      background-color: #e3d1c0;
+      background-color: #eff0f3;
 
       &__wrap {
         max-width: 1300px;
-        color: #fff;
+        color: #0d0d0d;
         padding: 5em 2.5em;
         margin: 0 auto;
         display: flex;
@@ -255,13 +295,13 @@ export default {
 
       &__dataBlock {
         width: calc(50% - 0.75em);
-        background-color: #fff;
+        background-color: #fffffe;
         padding: 2.5em;
         margin-top: 2.5em;
         border-radius: 3px;
 
         > h3 {
-          color: #ff5470;
+          color: #0d0d0d;
           font-size: 22px;
           letter-spacing: 2px;
           line-height: 1.7;
@@ -271,11 +311,15 @@ export default {
         > h3:last-of-type{
           margin-top: 1em;
         }
+
+        &--skills {
+          background-color: #eff0f3;
+        }
       }
 
       &__dataList {
         width: 100%;
-        color: #333;
+        color: #2a2a2a;
         margin-top: 1em;
       }
 
@@ -302,6 +346,13 @@ export default {
           font-weight: 700;
           margin-bottom: 0.25em;
         }
+        &--skills {
+          width: 50%;
+          font-weight: 700;
+          letter-spacing: 2px;
+          display: flex;
+          align-items: center;
+        }
       }
 
       &__data {
@@ -313,43 +364,23 @@ export default {
           padding-left: 1em;
           text-indent: -1em;
         }
+
+        &--skills {
+          width: 50%;
+        }
       }
     }
 
     .p-skills {
       width: 100%;
-
-      &__wrap {
-        max-width: 1300px;
-        color: #333;
-        padding: 5em 2.5em;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        > h2 {
-          width: 100%;
-          font-size: 40px;
-          letter-spacing: 2px;
-          text-align: center;
-        }
-      }
-
-      &__content {
-        width: 75%;
-        background-color: #71acad;
-        color: #fff;
-        padding: 2.5em;
-        margin: 2.5em auto 0;
-        border-radius: 3px;
-      }
+      background-color: #fffffe;
 
       &__star {
-        fill: #fff;
-        width: 30px;
         display: inline-block;
-        height: 30px;
+        fill: #d9376e;
+        width: 28px;
+        height: 28px;
+        padding: 0.3em;
       }
     }
   }
