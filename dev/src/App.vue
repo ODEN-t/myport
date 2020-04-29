@@ -1,20 +1,29 @@
 <template>
   <div id="app">
-    <Home />
-    <div>
-      <router-view></router-view>
-    </div>
+    <Header />
+    <!-- <router-link to="/">Home</router-link> |
+    <router-link to="/info">Info</router-link> -->
+    <router-view /> <!-- pages以下のコンテンツ内容 -->
+    <Footer />
   </div>
 </template>
 
 <script>
-import Home from './pages/home.vue';
-import 'normalize.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default {
   name: 'app',
   components: {
-    Home
+    Header,
+    Footer
   }
 }
 </script>
+
+<style lang="scss">
+  @import './styles/reset.css';
+  #app {
+    @include font_family;
+  }
+</style>
