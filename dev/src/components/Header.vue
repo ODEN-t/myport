@@ -62,8 +62,9 @@ export default {
       background-color: rgba(255, 255, 255, 0);
 
       &__title {
-        font-size: 30px;
+        font-size: 23px;
         color: #fff;
+        letter-spacing: 8px;
         display: flex;
         align-items: center;
         height: 80px;
@@ -72,7 +73,6 @@ export default {
 
       &__list {
         height: 80px;
-        float: right;
         z-index: 1;
 
         > li {
@@ -85,12 +85,12 @@ export default {
       }
 
       &__anchor {
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 2px;
         height: 80px;
         display: flex;
         align-items: center;
-        color: #fff;
-        font-size: 20px;
-        letter-spacing: 2px;
       }
     }
   }

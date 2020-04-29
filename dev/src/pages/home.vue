@@ -111,7 +111,6 @@
         <h2>Works</h2>
       </div>
     </section>
-    <app-icon name="star-full" />
   </main>
 </template>
 

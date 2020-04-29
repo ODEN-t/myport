@@ -15,7 +15,7 @@ import icons from '../assets/icons.json';
 
 export default {
   name: 'AppIcon',
-  props: {
+  props: { // 呼び出し側で指定
     name: String,
     title: String,
     desc: String,
