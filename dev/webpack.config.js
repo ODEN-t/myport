@@ -10,7 +10,6 @@ module.exports = {
   devServer: {
     contentBase: "public",
     open: true,
-    host: '192.168.10.20',
     port: 8080
   },
   performance: {
