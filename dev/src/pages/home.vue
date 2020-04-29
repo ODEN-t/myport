@@ -77,9 +77,15 @@
               :key="skill.dt"
             >
               <dt class="p-contents__dataTitle p-contents__dataTitle--widthHalf p-contents__dataTitle--alignCenter p-contents__dataTitle--letterSpaceWide">{{ skill.dt }}</dt>
-              <dd 
-                class="p-contents__data p-contents__data--widthHalf"
-                v-html="skill.dd">
+              <dd class="p-contents__data p-contents__data--widthHalf p-contents__dataTitle--alignCenter">
+                <app-icon 
+                  v-bind:name="star" 
+                  v-bind:size="size"
+                  v-bind:color="color"
+                  v-bind:desc="skill.svgDescription"
+                  v-for="(star, index) in skill.dd"
+                  :key="index"
+                />
               </dd>
             </div>
           </dl>
@@ -92,9 +98,8 @@
               :key="skill.dt"
             >
               <dt class="p-contents__dataTitle p-contents__dataTitle--widthHalf p-contents__dataTitle--letterSpaceWide">{{ skill.dt }}</dt>
-              <dd 
-                class="p-contents__data p-contents__data--widthHalf" 
-                v-html="skill.dd">
+              <dd class="p-contents__data p-contents__data--widthHalf">
+                {{ skill.dd }}
               </dd>
             </div>
           </dl>
@@ -104,45 +109,25 @@
     <section class="p-contents p-contents--works">
       <div class="p-contents__wrap">
         <h2>Works</h2>
-        <ul class="p-contents__worksList"
-          v-for="work in works"
-          :key="work.title"
-        >
-          <li>
-            <img 
-            :src="path" 
-            :alt="alt"
-            >
-            <div class="p-contents__workText">
-              <h3>{{ work.title }}</h3>
-              <p>{{ work.description }}</p>
-            </div>
-          </li>
-        </ul>
       </div>
     </section>
-
-    <svg display="none">
-      <defs>
-        <symbol id="icon-star-empty" viewBox="0 0 32 32">
-          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>
-        </symbol>
-        <symbol id="icon-star-full" viewBox="0 0 32 32">
-          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
-        </symbol>
-        <symbol id="icon-star-half" viewBox="0 0 32 32">
-          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-0.029 0.015 0.029-17.837 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>
-        </symbol>
-      </defs>  
-    </svg>  
+    <app-icon name="star-full" />
   </main>
 </template>
 
 <script>
+import AppIcon from '../components/AppIcon';
+
+
 export default {
-  name: 'home',
+  name: 'Home',
+  components: { 
+    AppIcon 
+  },
   data: function() {
     return {
+      size: 'medium',
+      color: 'primary',
       dataBlock: {
         basicProfile: [
           { 
@@ -232,27 +217,69 @@ export default {
         skillRate: [
           {
             dt: 'HTML',
-            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: [
+              'star-full',
+              'star-full',
+              'star-full',
+              'star-full',
+              'star-empty'
+            ],
+            svgDescription: 'HTMLのスキル, 星の数'
           },
           {
             dt: 'Sass（CSS）',
-            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: [
+              'star-full',
+              'star-full',
+              'star-full',
+              'star-full',
+              'star-empty'
+            ],
+            svgDescription: 'Sass（CSS）のスキル, 星の数'
           },
           {
             dt: 'PHP',
-            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: [
+              'star-full',
+              'star-full',
+              'star-empty',
+              'star-empty',
+              'star-empty'
+            ],
+            svgDescription: 'PHPのスキル, 星の数'
           },
           {
             dt: 'JavaScript',
-            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-half"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: [
+              'star-full',
+              'star-full',
+              'star-full',
+              'star-half',
+              'star-empty'
+            ],
+            svgDescription: 'JavaScriptのスキル, 星の数'
           },
           {
-            dt: 'Vue',
-            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-half"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
+            dt: 'Vue.js',
+            dd: [
+              'star-full',
+              'star-full',
+              'star-half',
+              'star-empty',
+              'star-empty'
+            ],
+            svgDescription: 'Vue.jsのスキル, 星の数'
           },
           {
             dt: 'WordPress',
-            dd: '<svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-full"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg><svg class="p-contents__star"><use xlink:href="#icon-star-empty"></svg>'
+            dd: [
+              'star-full',
+              'star-full',
+              'star-empty',
+              'star-empty',
+              'star-empty'
+            ],
+            svgDescription: 'WordPressのスキル, 星の数'
           }
         ],
         skillRateContents: [
@@ -434,12 +461,8 @@ export default {
         }
       }
 
-      &__star {
-        display: inline-block;
-        fill: #d9376e;
-        width: 28px;
-        height: 28px;
-        padding: 0.3em;
+      svg[class^="svg-"] {
+        padding: 0 0.2em;
       }
     }
   }
