@@ -1,7 +1,7 @@
 <template>
   <footer class="p-footer">
     <div class="p-footer__content">
-      <p>MY PORTFOLIO</p>
+      <p>My Portforio</p>
       <small>Copyright &copy; 2020 T.K. All Rights Reserved.</small>
     </div>
   </footer>

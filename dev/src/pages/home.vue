@@ -72,7 +72,7 @@
           <h3>Rate</h3>
           <dl class="p-contents__dataList">
             <div
-              class="p-contents__dataWrap" 
+              class="p-contents__dataWrap p-contents__dataWrap--mobileFlex" 
               v-for="skill in dataBlock.skillRate" 
               :key="skill.dt"
             >
@@ -339,24 +339,36 @@ export default {
         right: 0;
 
         > h1 {
-          font-size: 60px;
+          font-size: 34px;
+          text-align: center;
           letter-spacing: 5px;
           color: #eff0f3;
           position: absolute;
           top: 50%;
-          left: 50%;
-          transform: translate(-50%);
+          right: 0;
+          left: 0;
+          transform: translateY(-50%);
+          @include mq(md) {
+            font-size: 50px;
+          }
+          @include mq {
+            font-size: 60px;
+          }
         }
       }
 
       &__background  {
-        background-image: url('/images/oceanside-villall-min.jpg');
+        background-image: url('/images/mobile/oceanside-villall-min.jpg');
         background-repeat: no-repeat;
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position: 50% 80%;
+        background-position: 30%;
         filter: brightness(0.7);
+        @include mq(gt-md) {
+          background-image: url('/images/oceanside-villall-min.jpg');
+          background-position: 50% 80%;
+        }
       }
     }
 
@@ -369,39 +381,55 @@ export default {
       }
 
       &__wrap {
-        max-width: 1300px;
         color: #0d0d0d;
-        padding: 5em 2.5em;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        padding: 3em 1.5em;
+        @include mq {
+          max-width: 1300px;
+          padding: 5em 2.5em;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
 
         > h2 {
           width: 100%;
-          font-size: 40px;
+          font-size: 24px;
           letter-spacing: 2px;
           text-align: center;
+          @include mq(gt-md) {
+            font-size: 40px;
+          }
         }
       }
 
       &__card {
-        width: calc(50% - 0.75em);
         background-color: #fffffe;
-        padding: 2.5em;
-        margin-top: 2.5em;
+        padding: 1.5em;
+        margin-top: 1.5em;
         border-radius: 3px;
+        @include mq {
+          width: calc(50% - 0.75em);
+          padding: 2.5em;
+          margin-top: 2.5em;
+        }
 
         > h3 {
           color: #0d0d0d;
-          font-size: 22px;
+          font-size: 20px;
           letter-spacing: 2px;
           line-height: 1.7;
           font-weight: 700;
+          @include mq(gt-md) {
+            font-size: 22px;
+          }
         }
 
-        > h3:last-of-type{
-          margin-top: 1em;
+        > h3:nth-of-type(n+2){
+          margin-top: 1.5em;
+          @include mq(gt-md) {
+            margin-top: 1em;
+          }
         }
 
         &--bgGray {
@@ -412,23 +440,41 @@ export default {
       &__dataList {
         width: 100%;
         color: #2a2a2a;
-        margin-top: 1em;
-      }
-
-      &__dataWrap {
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 15px;
-        font-weight: 200;
-        line-height: 1.7;
-        &:nth-of-type(n+2) {
+        margin-top: 0.5em;
+        @include mq(gt-md) {
           margin-top: 1em;
         }
       }
 
+      &__dataWrap {
+        font-size: 13px;
+        font-weight: 200;
+        line-height: 1.7;        
+        &:nth-of-type(n+2) {
+          margin-top: 1.2em;
+          @include mq(gt-md) {
+            margin-top: 1em;
+          }
+        }
+        @include mq(gt-md) {
+          font-size: 15px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        &--mobileFlex {
+          @include mq(sm) {
+            display: flex;
+            flex-wrap: wrap;
+          }
+        }
+      }
+
       &__dataTitle {
-        width: 35%;
         font-weight: 700;
+        @include mq(gt-md) {
+          width: 35%;
+        }
 
         &--letterSpaceWide {
           letter-spacing: 2px;
@@ -446,7 +492,9 @@ export default {
       }
 
       &__data {
-        width: 65%;
+        @include mq(gt-md) {
+          width: 65%;
+        }
 
         &--widthWide {
           width: 100%;
@@ -456,7 +504,9 @@ export default {
         }
 
         &--widthHalf {
-          width: 50%;
+          @include mq(gt-md) {
+            width: 50%;
+          }
         }
       }
 

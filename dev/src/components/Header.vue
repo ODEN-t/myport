@@ -50,47 +50,71 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 80px;
+    height: 60px;
     z-index: 1;
+    @include mq(gt-md) {
+      height: 80px;
+    }
 
     .p-nav {
       display: flex;
       justify-content: space-between;
-      padding: 0 50px;
       width: 100%;
-      height: 80px;
-      background-color: rgba(255, 255, 255, 0);
+      height: 60px;
+      padding: 0 20px;
+      @include mq(md) {
+        height: 80px;
+        padding: 0 25px;
+      }
+      @include mq {
+        height: 80px;
+        padding: 0 50px;
+      }
 
       &__title {
-        font-size: 23px;
+        font-size: 20px;
         color: #fff;
-        letter-spacing: 8px;
+        letter-spacing: 6px;
         display: flex;
         align-items: center;
-        height: 80px;
-        z-index: 1; 
+        height: 60px;
+        @include mq(gt-md) {
+          font-size: 23px;
+          letter-spacing: 8px;
+          height: 80px;
+        }
       }
 
       &__list {
-        height: 80px;
-        z-index: 1;
+        height: 60px;
+        @include mq(gt-md) {
+          height: 80px; 
+        }
 
         > li {
           display: inline-block;
         }
 
         > li:not(:last-child) {
-          padding-right: 30px;
+          padding-right: 20px;
+          @include mq(gt-md) {
+            padding-right: 30px;
+          }
         } 
       }
 
       &__anchor {
-        font-size: 18px;
+        font-size: 14px;
         color: #fff;
-        letter-spacing: 2px;
-        height: 80px;
+        letter-spacing: 1px;
+        height: 60px;
         display: flex;
         align-items: center;
+        @include mq(gt-md) {
+          font-size: 17px;
+          letter-spacing: 2px;
+          height: 80px;
+        }
       }
     }
   }
