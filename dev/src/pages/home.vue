@@ -7,7 +7,17 @@
       </div>
     </section>
     <section class="p-contents">
-      <div class="p-contents__wrap">
+      <div 
+      class="p-contents__wrap js-test1"
+      v-observe-visibility="{
+      callback: visibilityChanged,
+      intersection: {
+        root: null,
+        rootMargin: '-300px',
+        threshold: 0
+      }}"
+      :class="{ 'is-active':isActive }"
+      >
         <h2>Profile</h2>
         <div class="p-contents__card">
           <h3>Basic</h3>
@@ -66,8 +76,11 @@
       </div>
     </section>
     <section class="p-contents p-contents--bgWhite">
-      <div class="p-contents__wrap">
-        <h2>Skills</h2>
+      <div 
+      class="p-contents__wrap js-test2"
+      :class="{ 'is-active':isActive }"
+      >
+        <h2 >Skills</h2>
         <div class="p-contents__card p-contents__card--bgGray">
           <h3>Rate</h3>
           <dl class="p-contents__dataList">
@@ -117,7 +130,6 @@
 <script>
 import AppIcon from '../components/AppIcon';
 
-
 export default {
   name: 'Home',
   components: { 
@@ -127,6 +139,8 @@ export default {
     return {
       size: 'medium',
       color: 'primary',
+      isActive: false,
+      isShow: false,
       dataBlock: {
         basicProfile: [
           { 
@@ -316,6 +330,11 @@ export default {
         ]
       }
     }
+  },
+  methods: {
+    visibilityChanged(isActive, entry) {
+      this.isActive = entry
+    },
   }
 }
 </script>
@@ -324,6 +343,15 @@ export default {
 
   .home {
 
+    .js-test1, .js-test2 {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 2s ease;
+    }
+    .is-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .p-head {
       width: 100%;
       height: 640px;
