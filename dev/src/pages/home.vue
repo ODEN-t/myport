@@ -1,6 +1,6 @@
 <template>
   <main class="home">
-    <section class="p-head">
+    <section class="p-head js-head">
       <div class="p-head__wrap">
         <div class="p-head__background"></div>
         <h1>My Portforio</h1>
@@ -8,15 +8,7 @@
     </section>
     <section class="p-contents">
       <div 
-      class="p-contents__wrap js-test1"
-      v-observe-visibility="{
-      callback: visibilityChanged,
-      intersection: {
-        root: null,
-        rootMargin: '-300px',
-        threshold: 0
-      }}"
-      :class="{ 'is-active':isActive }"
+      class="p-contents__wrap js-fadeIn"
       >
         <h2>Profile</h2>
         <div class="p-contents__card">
@@ -77,8 +69,7 @@
     </section>
     <section class="p-contents p-contents--bgWhite">
       <div 
-      class="p-contents__wrap js-test2"
-      :class="{ 'is-active':isActive }"
+      class="p-contents__wrap js-fadeIn"
       >
         <h2 >Skills</h2>
         <div class="p-contents__card p-contents__card--bgGray">
@@ -129,18 +120,24 @@
 
 <script>
 import AppIcon from '../components/AppIcon';
+import EventBus from '../lib/EventBus';
+import Header from '../components/Header';
 
 export default {
   name: 'Home',
   components: { 
-    AppIcon 
+    AppIcon,
+    Header
+  },
+  mounted: function() {
+    this.textFadein();
+    this.headerBgChange();
   },
   data: function() {
     return {
       size: 'medium',
       color: 'primary',
-      isActive: false,
-      isShow: false,
+      isScrolled: '',
       dataBlock: {
         basicProfile: [
           { 
@@ -331,10 +328,46 @@ export default {
       }
     }
   },
-  methods: {
-    visibilityChanged(isActive, entry) {
-      this.isActive = entry
+  methods:  {
+    textFadein :function() {
+      const targets = document.querySelectorAll('.js-fadeIn'); 
+      const options = {
+        root: null,
+        rootMargin: "-50% 0px",
+        threshold: 0
+      };
+
+      const whenIntersect = (entries) => {
+        entries.forEach((entry) => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('is-onScreen');
+            observer.unobserve(entry.target); //add後、監視停止
+          }
+        })
+      }
+
+      const observer = new IntersectionObserver(whenIntersect, options);
+      targets.forEach(target => observer.observe(target));
     },
+    emitToHeader(eventName, targetData, enterData) {
+      let changedData = (targetData = enterData);
+      EventBus.$emit(eventName, changedData); // EventBusを通じて兄弟コンポーネント Header.vue に変更を通知
+    },
+    headerBgChange() {
+      const target = document.querySelector('.js-head');
+      const options = {
+        root: null,
+        rootMargin: '',
+        threshold: 0
+      };
+
+      const whenIntersect = entry => entry[0].isIntersecting 
+      ? this.emitToHeader('test-event', this.isScrolled, false) 
+      : this.emitToHeader('test-event', this.isScrolled, true)
+
+      const observer = new IntersectionObserver(whenIntersect, options);
+      observer.observe(target);
+    }
   }
 }
 </script>
@@ -343,12 +376,12 @@ export default {
 
   .home {
 
-    .js-test1, .js-test2 {
+    .js-fadeIn{
       opacity: 0;
       transform: translateY(50px);
       transition: all 2s ease;
     }
-    .is-active {
+    .is-onScreen {
       opacity: 1;
       transform: translateY(0);
     }

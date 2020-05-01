@@ -1,5 +1,8 @@
 <template>
-  <header class="header">
+  <header 
+  class="header"
+  :class="{isScrolled: isScrolled}"
+  >
     <nav class="p-nav">
       <router-link 
         class="p-nav__title" 
@@ -37,9 +40,21 @@
 </template>
 
 <script>
+import EventBus from '../lib/EventBus';
+
 export default {
+  name: 'Header',
   data() {
     return {
+      isScrolled: ''
+    }
+  },
+  mounted() {
+    EventBus.$on('test-event', this.change)
+  },
+  methods: {
+    change(isScrolled) {
+      this.isScrolled = isScrolled;
     }
   }
 }
@@ -52,6 +67,7 @@ export default {
     width: 100%;
     height: 60px;
     z-index: 1;
+    transition: all 2s ease;
     @include mq(gt-md) {
       height: 80px;
     }
@@ -117,5 +133,9 @@ export default {
         }
       }
     }
+  }
+
+  .header.isScrolled{
+    background-color: rgba(13,13,13,0.8);
   }
 </style>>

@@ -9,6 +9,7 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     contentBase: "public",
+    host: '192.168.10.20',
     open: true,
     port: 8080
   },
