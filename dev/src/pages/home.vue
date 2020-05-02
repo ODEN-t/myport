@@ -362,8 +362,8 @@ export default {
       };
 
       const whenIntersect = entry => entry[0].isIntersecting 
-      ? this.emitToHeader('test-event', this.isScrolled, false) 
-      : this.emitToHeader('test-event', this.isScrolled, true)
+      ? this.emitToHeader('changeBg-event', this.isScrolled, false) 
+      : this.emitToHeader('changeBg-event', this.isScrolled, true)
 
       const observer = new IntersectionObserver(whenIntersect, options);
       observer.observe(target);
@@ -379,7 +379,7 @@ export default {
     .js-fadeIn{
       opacity: 0;
       transform: translateY(50px);
-      transition: all 2s ease;
+      transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
     }
     .is-onScreen {
       opacity: 1;

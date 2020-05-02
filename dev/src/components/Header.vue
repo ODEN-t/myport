@@ -50,7 +50,7 @@ export default {
     }
   },
   mounted() {
-    EventBus.$on('test-event', this.change)
+    EventBus.$on('changeBg-event', this.change)
   },
   methods: {
     change(isScrolled) {
@@ -65,26 +65,26 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 60px;
+    height: 50px;
     z-index: 1;
-    transition: all 2s ease;
-    @include mq(gt-md) {
-      height: 80px;
+    transition: all 1s linear;
+    @include mq {
+      height: 60px;
     }
-
+    
     .p-nav {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      height: 60px;
+      height: 50px;
       padding: 0 20px;
       @include mq(md) {
-        height: 80px;
         padding: 0 25px;
+        height: 60px;
       }
       @include mq {
-        height: 80px;
         padding: 0 50px;
+        height: 60px;
       }
 
       &__title {
@@ -93,18 +93,18 @@ export default {
         letter-spacing: 6px;
         display: flex;
         align-items: center;
-        height: 60px;
+        height: 50px;
         @include mq(gt-md) {
           font-size: 23px;
           letter-spacing: 8px;
-          height: 80px;
+          height: 60px;
         }
       }
 
       &__list {
-        height: 60px;
-        @include mq(gt-md) {
-          height: 80px; 
+        height: 50px;
+        @include mq {
+          height: 60px;
         }
 
         > li {
@@ -123,13 +123,13 @@ export default {
         font-size: 14px;
         color: #fff;
         letter-spacing: 1px;
-        height: 60px;
+        height: 50px;
         display: flex;
         align-items: center;
         @include mq(gt-md) {
           font-size: 17px;
           letter-spacing: 2px;
-          height: 80px;
+          height: 60px;
         }
       }
     }
