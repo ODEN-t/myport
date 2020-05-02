@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/info">Info</router-link> -->
+    <router-link to="/">Home</router-link> |
+    <router-link to="/info">Info</router-link>
     <router-view /> <!-- pages以下のコンテンツ内容 -->
     <Footer />
   </div>
