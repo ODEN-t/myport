@@ -8,8 +8,8 @@ module.exports = {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "public",
-    host: '192.168.10.20',
+    contentBase: "/",
+    // host: '192.168.10.20',
     open: true,
     port: 8080
   },
