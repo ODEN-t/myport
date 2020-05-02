@@ -1,4 +1,4 @@
 module.exports = {
   NODE_ENV: '"production"',
-  ROOT_BASE: '"GITHUB_PROJECT_NAME/"' // new!
+  ROOT_BASE: '"mrpoco.github.io/"' // new!
 }
