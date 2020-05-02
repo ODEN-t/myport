@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import EventBus from './lib/EventBus';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
