@@ -1,5 +1,10 @@
+// vue.config.js
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/myport/'
-    : '/'
+  configureWebpack: {
+    plugins: [
+      new MyAwesomeWebpackPlugin()
+    ]
+  },
+  publicPath: '/myport/',
+  outputDir: 'docs'
 }
