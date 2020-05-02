@@ -1,13 +1,15 @@
 <template>
   <main class="home">
-    <section class="p-head">
+    <section class="p-head js-head">
       <div class="p-head__wrap">
         <div class="p-head__background"></div>
         <h1>My Portforio</h1>
       </div>
     </section>
     <section class="p-contents">
-      <div class="p-contents__wrap">
+      <div 
+      class="p-contents__wrap js-fadeIn"
+      >
         <h2>Profile</h2>
         <div class="p-contents__card">
           <h3>Basic</h3>
@@ -66,8 +68,10 @@
       </div>
     </section>
     <section class="p-contents p-contents--bgWhite">
-      <div class="p-contents__wrap">
-        <h2>Skills</h2>
+      <div 
+      class="p-contents__wrap js-fadeIn"
+      >
+        <h2 >Skills</h2>
         <div class="p-contents__card p-contents__card--bgGray">
           <h3>Rate</h3>
           <dl class="p-contents__dataList">
@@ -116,17 +120,24 @@
 
 <script>
 import AppIcon from '../components/AppIcon';
-
+import EventBus from '../lib/EventBus';
+import Header from '../components/Header';
 
 export default {
   name: 'Home',
   components: { 
-    AppIcon 
+    AppIcon,
+    Header
+  },
+  mounted: function() {
+    this.textFadein();
+    this.headerBgChange();
   },
   data: function() {
     return {
       size: 'medium',
       color: 'primary',
+      isScrolled: '',
       dataBlock: {
         basicProfile: [
           { 
@@ -316,6 +327,47 @@ export default {
         ]
       }
     }
+  },
+  methods:  {
+    textFadein :function() {
+      const targets = document.querySelectorAll('.js-fadeIn'); 
+      const options = {
+        root: null,
+        rootMargin: "-50% 0px",
+        threshold: 0
+      };
+
+      const whenIntersect = (entries) => {
+        entries.forEach((entry) => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('is-onScreen');
+            observer.unobserve(entry.target); //add後、監視停止
+          }
+        })
+      }
+
+      const observer = new IntersectionObserver(whenIntersect, options);
+      targets.forEach(target => observer.observe(target));
+    },
+    emitToHeader(eventName, targetData, enterData) {
+      let changedData = (targetData = enterData);
+      EventBus.$emit(eventName, changedData); // EventBusを通じて兄弟コンポーネント Header.vue に変更を通知
+    },
+    headerBgChange() {
+      const target = document.querySelector('.js-head');
+      const options = {
+        root: null,
+        rootMargin: '',
+        threshold: 0
+      };
+
+      const whenIntersect = entry => entry[0].isIntersecting 
+      ? this.emitToHeader('changeBg-event', this.isScrolled, false) 
+      : this.emitToHeader('changeBg-event', this.isScrolled, true)
+
+      const observer = new IntersectionObserver(whenIntersect, options);
+      observer.observe(target);
+    }
   }
 }
 </script>
@@ -324,6 +376,15 @@ export default {
 
   .home {
 
+    .js-fadeIn{
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .is-onScreen {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .p-head {
       width: 100%;
       height: 640px;

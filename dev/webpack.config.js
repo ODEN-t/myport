@@ -9,6 +9,7 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     contentBase: "public",
+    host: '192.168.10.20',
     open: true,
     port: 8080
   },
@@ -61,9 +62,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
+          { loader: "style-loader"},
+          { loader: "css-loader" },
+          { loader: "postcss-loader"},
+          { loader: "sass-loader"},
           {
             loader: 'sass-resources-loader',
             options: {
@@ -78,17 +80,17 @@ module.exports = {
         test: /\.css$/,
         use: [
           "style-loader",
-          "css-loader"
+          "css-loader",
+          'postcss-loader'
         ]
       },
       {
         test: /\.vue$/,
         loader: "vue-loader",
         options: {
-          loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
-          }
+          loaders:{
+            'scss': ['vue-style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] // <style lang="scss">
+          } 
         }
       }
     ]
