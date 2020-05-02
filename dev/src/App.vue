@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <router-link to="/">Home</router-link> |
-    <router-link to="/info">Info</router-link>
+    <div class="test">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/info">Info</router-link>
+    </div>
     <router-view /> <!-- pages以下のコンテンツ内容 -->
     <Footer />
   </div>
@@ -25,5 +27,9 @@ export default {
   @import './styles/reset.css';
   #app {
     @include font_family;
+  }
+  .test {
+    margin-top: 200px;
+    z-index: 100;
   }
 </style>

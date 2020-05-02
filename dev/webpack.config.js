@@ -8,7 +8,7 @@ module.exports = {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "/",
+    historyApiFallback: true,
     // host: '192.168.10.20',
     open: true,
     port: 8080
