@@ -1,23 +1,36 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <Header />
+    <div class="test">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/info">Info</router-link>
+    </div>
+    <router-view />
+    <!-- pages以下のコンテンツ内容 -->
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 export default {
-  name: 'App'
-}
+  name: 'App',
+  components: {
+    Header,
+    Footer,
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
+@import './styles/reset.css';
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  @include font_family;
+}
+.test {
+  margin-top: 200px;
+  z-index: 100;
 }
 </style>
