@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <img src="./assets/logo.png" />
     <div class="test">
       <router-link to="/">Home</router-link> |
       <router-link to="/info">Info</router-link>
@@ -12,8 +13,8 @@
 </template>
 
 <script>
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'App',

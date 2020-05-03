@@ -6,7 +6,7 @@
         <h1>My Portforio</h1>
       </div>
       <img v-bind:src="myimg" alt="" width="500px" height="500px" />
-      <img src="@/assets/logo.png" alt="" />
+      <img src="require('../assets/logo.png').default" alt="" />
       <!-- <img src="~@/assets/logo.png" /> -->
     </section>
     <section class="p-contents">
@@ -139,7 +139,6 @@
 <script>
 import AppIcon from '../components/AppIcon';
 import EventBus from '../lib/EventBus';
-import Image from '@/assets/logo.png';
 
 export default {
   name: 'Home',
@@ -152,7 +151,9 @@ export default {
   },
   data: function () {
     return {
-      myimg: Image,
+      /* eslint-disable */
+      myimg: require('../assets/logo.png').default,
+      /* eslint-disable */
       size: 'medium',
       color: 'primary',
       isScrolled: '',
@@ -444,7 +445,7 @@ export default {
       background-position: 30%;
       filter: brightness(0.7);
       @include mq(gt-md) {
-        // background-image: url('/pages/oceanside-villall-min.jpg');
+        background-image: url('oceanside-villall-min.jpg');
         background-position: 50% 80%;
       }
     }

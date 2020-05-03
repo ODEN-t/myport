@@ -5,6 +5,10 @@ module.exports = {
       new MyAwesomeWebpackPlugin()
     ]
   },
-  publicPath: '/myport/',
-  outputDir: 'docs'
+  devServer:　{
+    port: 8888,
+  },
+  publicPath: './',
+  assetsDir: "",
+  outputDir: 'dist'
 }

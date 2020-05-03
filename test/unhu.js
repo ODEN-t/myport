@@ -5,6 +5,7 @@ const path = require('path');
 
 const config = {
   configureWebpack: {
+    publicPath: './',
     module: {
       rules: [
         {
@@ -31,8 +32,12 @@ const config = {
         {
           test: /\.(png|svg|jpg|gif)$/,
           use: [
-            'file-loader',
-            'url-loader'
+            {
+              loader: 'file-loader',
+              options: {
+                esModule: false 
+              }
+            }
           ]
         },
         {
