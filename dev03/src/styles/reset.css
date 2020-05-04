@@ -29,7 +29,7 @@ footer,header,hgroup,menu,nav,section {
 }
 
 nav ul {
-  list-style:none;
+  list-style:none !important;
 }
 
 blockquote, q {
@@ -54,10 +54,6 @@ a {
 /* 独自で追加 */
 img {
   width: 100%;
-}
-
-.en {
-  letter-spacing: 2px;
 }
 
 /* change colours to suit your needs */

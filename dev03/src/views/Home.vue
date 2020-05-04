@@ -446,7 +446,7 @@ export default {
     }
 
     &__background {
-      background-image: url('../assets/images/mobile/oceanside-min.jpg');
+      background-image: url('../assets/images/home/mobile/oceanside-min.jpg');
       background-repeat: no-repeat;
       width: 100%;
       height: 100%;
@@ -454,7 +454,7 @@ export default {
       background-position: 30%;
       filter: brightness(0.7);
       @include mq(gt-md) {
-        background-image: url('../assets/images/oceanside-min.jpg');
+        background-image: url('../assets/images/home/oceanside-min.jpg');
         background-position: 50% 80%;
       }
     }

@@ -6,9 +6,9 @@
       </router-link>
       <ul class="p-nav__list">
         <li>
-          <a href="" id="" class="p-nav__anchor">
-            テスト
-          </a>
+          <router-link to="kadel" id="" class="p-nav__anchor">
+            kadel
+          </router-link>
         </li>
         <li>
           <a href="" id="" class="p-nav__anchor">
@@ -47,7 +47,7 @@ export default {
   top: 0;
   width: 100%;
   height: 50px;
-  z-index: 5;
+  z-index: 9999;
   transition: all 0.2s linear;
   @include mq {
     height: 60px;
