@@ -36,14 +36,10 @@
 
     <section class="lp-hero">
       <div class="lp-hero_text js-hero_text">
-        <h2>
-          想い描いた、<br
-            class="mod-displayNone_desktop mod-displayNone_tablet"
-          />理想の住まいをかたちに
-        </h2>
-        <h3>KADeLの注文住宅</h3>
-        <a href="#smooth" class="lp-hero_text_scroll-btn"
-          >SCROLL
+        <h2>{{ text.hero.title }}</h2>
+        <h3>{{ text.hero.subTitle }}</h3>
+        <a href="#smooth" class="lp-hero_text_scroll-btn">
+          SCROLL
           <span></span>
         </a>
       </div>
@@ -52,35 +48,18 @@
 
     <section class="lp-30th">
       <div class="lp-30th_text common-fadein js-fadein">
-        <h2>
-          目に見えない光や風、熱や空気をデザインするKADeLの「環境共生住宅」
-        </h2>
-        <h3>30th anniversary</h3>
-        <p>
-          住宅が大好きで、人生をかけて<br
-            class="mod-displayNone_desktop mod-displayNone_tablet"
-          />住宅を追求していきたいそんな情熱を持った建築デザイナーがお客様の意向を丁寧に汲み取りながらプロとしての提案がしっかりできる会社を<br
-            class="mod-displayNone_desktop mod-displayNone_tablet"
-          />作りたいと考え<br
-            class="mod-displayNone_mobile"
-          />立ち上げたのがKADeLです。KADeL設立より設計の力を信じて30年、<br
-            class="mod-displayNone_desktop mod-displayNone_tablet"
-          />そして辿り着いた住まい。
-        </p>
-        <p>それが「環境共生住宅」でした。</p>
+        <h2>{{ text.thirtyth.title }}</h2>
+        <h3>{{ text.thirtyth.subTitle }}</h3>
+        <p>{{ text.thirtyth.leadText }}</p>
+        <p>{{ text.thirtyth.textAnswer }}</p>
       </div>
       <ul class="lp-30th_images" id="smooth">
-        <li class="common-fadein js-fadein">
-          <img
-            src="../assets/images/kadel/lede_img01.jpg"
-            alt="KADeL カデル 30周年 環境共生住宅 建築実例 LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅"
-          />
-        </li>
-        <li class="common-fadein-delay js-fadein">
-          <img
-            src="../assets/images/kadel/lede_img02.jpg"
-            alt="KADeL カデル 30周年 環境共生住宅 建築実例 LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府府 囲炉裏の住宅"
-          />
+        <li
+          class="common-fadein js-fadein"
+          v-for="image in images.thirtyth"
+          :key="image.src"
+        >
+          <img :src="image.src" :alt="image.alt" />
         </li>
       </ul>
     </section>
@@ -90,26 +69,22 @@
         <span>KADeL</span>
         <span>Design</span>
       </span>
-      <h2 class="common-title">想い描いた理想をかたちに</h2>
-      <p class="common-desc">
-        従来の規格型住宅では表現できないご家族のためだけに考えられた世界にたったひとつの住まいを
-      </p>
+      <h2 class="common-title">{{ text.design.title }}</h2>
+      <p class="common-desc">{{ text.design.leadText }}</p>
       <div class="common-tab mod-displayNone_mobile">
-        <h3 class="common-concept js-tab add-current-tab">理想をかたちに</h3>
-        <h3 class="common-concept js-tab">繊細な住宅設計</h3>
+        <h3 class="common-concept js-tab add-current-tab">
+          {{ text.design.tabTextA }}
+        </h3>
+        <h3 class="common-concept js-tab">{{ text.design.tabTextB }}</h3>
       </div>
 
       <div class="lp-design_content">
         <div class="lp-design_content_block add-active">
           <div class="lp-design_content_block_text">
-            <h3 class="common-concept mod-displayNone_desktop">
+            <!-- <h3 class="common-concept mod-displayNone_desktop">
               理想をかたちに
-            </h3>
-            <p class="common-detail">
-              数多くの賞を受賞する建築デザイナーがお聞かせいただいたご家族のたくさんの想いとご希望を<br
-                class="mod-displayNone_mobileOnly"
-              />自由な設計とプラスアルファなご提案で理想の住まいへとかたちにいたします。
-            </p>
+            </h3> -->
+            <p class="common-detail">{{ text.design.slideA.text1 }}</p>
           </div>
           <ul class="common-scroll-image lp-design_content_block_images">
             <li>
@@ -149,9 +124,9 @@
         </div>
         <div class="lp-design_content_block">
           <div class="lp-design_content_block_text">
-            <h3 class="common-concept  mod-displayNone_desktop">
+            <!-- <h3 class="common-concept  mod-displayNone_desktop">
               繊細な住宅設計
-            </h3>
+            </h3> -->
             <p class="common-detail">
               「暮らしやすい間取り」「快適な家事動線」綿密なヒアリングをもとに実際の暮らしをしっかりと配慮し、<br
                 class="mod-displayNone_mobileOnly"
@@ -731,24 +706,25 @@
 </template>
 
 <script>
+import text from '../assets/kadel.json';
+
 export default {
-  mounted() {
-    this.setHeight('.js-offset-pc');
-  },
   data() {
     return {
-      heightDesign: '',
-      heightPassive: '',
-      heightSupport: ''
+      text: text,
+      images: {
+        thirtyth: [
+          {
+            src: require('@/assets/images/kadel/lede_img01.jpg'),
+            alt: 'KADeL カデル 30周年 環境共生住宅'
+          },
+          {
+            src: require('@/assets/images/kadel/lede_img02.jpg'),
+            alt: 'KADeL カデル 30周年 環境共生住宅'
+          }
+        ]
+      }
     };
-  },
-  methods: {
-    setHeight(parentClass) {
-      let elemsParent = document.querySelectorAll(parentClass);
-      let elemsChildren = document.querySelectorAll(parentClass + '-child');
-      console.log(elemsParent);
-      console.log(elemsChildren);
-    }
   }
 };
 </script>
