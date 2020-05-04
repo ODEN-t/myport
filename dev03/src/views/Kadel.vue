@@ -36,8 +36,8 @@
 
     <section class="lp-hero">
       <div class="lp-hero_text js-hero_text">
-        <h2>{{ text.hero.title }}</h2>
-        <h3>{{ text.hero.subTitle }}</h3>
+        <h2>{{ kadel.hero.title }}</h2>
+        <h3>{{ kadel.hero.subTitle }}</h3>
         <a href="#smooth" class="lp-hero_text_scroll-btn">
           SCROLL
           <span></span>
@@ -48,18 +48,18 @@
 
     <section class="lp-30th">
       <div class="lp-30th_text common-fadein js-fadein">
-        <h2>{{ text.thirtyth.title }}</h2>
-        <h3>{{ text.thirtyth.subTitle }}</h3>
-        <p>{{ text.thirtyth.leadText }}</p>
-        <p>{{ text.thirtyth.textAnswer }}</p>
+        <h2>{{ kadel.thirtyth.title }}</h2>
+        <h3>{{ kadel.thirtyth.subTitle }}</h3>
+        <p>{{ kadel.thirtyth.leadText }}</p>
+        <p>{{ kadel.thirtyth.textAnswer }}</p>
       </div>
       <ul class="lp-30th_images" id="smooth">
         <li
           class="common-fadein js-fadein"
-          v-for="image in images.thirtyth"
+          v-for="image in kadel.images.thirtyth"
           :key="image.src"
         >
-          <img :src="image.src" :alt="image.alt" />
+          <img :src="require('@/' + image.src)" :alt="image.alt" />
         </li>
       </ul>
     </section>
@@ -69,13 +69,15 @@
         <span>KADeL</span>
         <span>Design</span>
       </span>
-      <h2 class="common-title">{{ text.design.title }}</h2>
-      <p class="common-desc">{{ text.design.leadText }}</p>
+      <h2 class="common-title">{{ kadel.design.title }}</h2>
+      <p class="common-desc">{{ kadel.design.leadText }}</p>
       <div class="common-tab mod-displayNone_mobile">
         <h3 class="common-concept js-tab add-current-tab">
-          {{ text.design.tabTextA }}
+          {{ kadel.design.slideBlockA.tabText }}
         </h3>
-        <h3 class="common-concept js-tab">{{ text.design.tabTextB }}</h3>
+        <h3 class="common-concept js-tab">
+          {{ kadel.design.slideBlockB.tabText }}
+        </h3>
       </div>
 
       <div class="lp-design_content">
@@ -84,40 +86,18 @@
             <!-- <h3 class="common-concept mod-displayNone_desktop">
               理想をかたちに
             </h3> -->
-            <p class="common-detail">{{ text.design.slideA.text1 }}</p>
+            <p class="common-detail">{{ kadel.design.slideBlockA.text }}</p>
           </div>
-          <ul class="common-scroll-image lp-design_content_block_images">
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/design_block01_img01-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/design_block01_img01.jpg"
-                  alt="KADeL カデル 建築実例 LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/design_block01_img02-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/design_block01_img02.jpg"
-                  alt="KADeL カデル 建築実例 WOODONE2018 空間デザイン施工例コンテスト 最優秀賞／伊東豊雄賞 受賞 環境共生住宅 大阪府 瓦の家"
-                />
-              </a>
-            </li>
-            <li class="js-offset-pc-child">
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/design_block01_img03-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/design_block01_img03.jpg"
-                  alt="KADeL カデル 建築実例 LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家"
-                />
+          <ul
+            class="common-scro
+          ll-image lp-design_content_block_images"
+          >
+            <li
+              v-for="imageSet in kadel.images.design.slideBlockA"
+              :key="imageSet.img"
+            >
+              <a :href="require('@/' + imageSet.modal)">
+                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
               </a>
             </li>
           </ul>
@@ -127,46 +107,17 @@
             <!-- <h3 class="common-concept  mod-displayNone_desktop">
               繊細な住宅設計
             </h3> -->
-            <p class="common-detail">
-              「暮らしやすい間取り」「快適な家事動線」綿密なヒアリングをもとに実際の暮らしをしっかりと配慮し、<br
-                class="mod-displayNone_mobileOnly"
-              />ご家族の笑顔であふれる快適な住まいを設計いたします。
-            </p>
+            <p class="common-detail">{{ kadel.design.slideBlockB.text }}</p>
           </div>
           <ul
             class="common-scroll-image lp-design_content_block_images js-offset-mobile-child"
           >
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/design_block02_img01-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/design_block02_img01.jpg"
-                  alt="KADeL カデル 建築実例 LIXIL MEMBERS CONTEST2016 新築部門敢闘賞受賞 奈良県 眺望の家"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/design_block02_img02-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/design_block02_img02.jpg"
-                  alt="KADeL カデル 建築実例 大阪府 中庭を囲むロの字型の家"
-                />
-              </a>
-            </li>
-            <li class="js-offset-pc-child">
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/design_block02_img03-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/design_block02_img03.jpg"
-                  alt="KADeL カデル 建築実例 大阪府 大きな土庇と縁側の家"
-                />
+            <li
+              v-for="imageSet in kadel.images.design.slideBlockB"
+              :key="imageSet.img"
+            >
+              <a :href="require('@/' + imageSet.modal)">
+                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
               </a>
             </li>
           </ul>
@@ -180,60 +131,35 @@
         <span>Support</span>
       </span>
       <h2 class="common-title">
-        プロフェッショナルによるサポート
+        {{ kadel.support.title }}
       </h2>
       <p class="common-desc">
-        各分野のプロフェッショナルがそれぞれの知識と技術を活かし、お客様の理想の生活をサポートいたします。
+        {{ kadel.design.leadText }}
       </p>
       <div class="common-tab mod-displayNone_mobile">
-        <h3 class="common-concept js-tab add-current-tab">土地探し</h3>
-        <h3 class="common-concept js-tab">インテリア</h3>
-        <h3 class="common-concept js-tab">長期保証</h3>
+        <h3 class="common-concept js-tab add-current-tab">
+          {{ kadel.support.slideBlockA.tabText }}
+        </h3>
+        <h3 class="common-concept js-tab">
+          {{ kadel.support.slideBlockB.tabText }}
+        </h3>
+        <h3 class="common-concept js-tab">
+          {{ kadel.support.slideBlockC.tabText }}
+        </h3>
       </div>
       <div class="lp-support_content">
         <div class="lp-support_content_block add-active">
           <div class="lp-support_content_block_text">
-            <h3 class="common-concept mod-displayNone_desktop">土地探し</h3>
-            <p class="common-detail">
-              KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br
-                class="mod-displayNone_mobile"
-              />「KADeL」が、それぞれの目線からお手伝いさせていただきます。関西全域にある不動産会社とのネットワークを活かし、<br
-                class="mod-displayNone_mobileOnly"
-              />お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。
-            </p>
+            <!-- <h3 class="common-concept mod-displayNone_desktop">土地探し</h3> -->
+            <p class="common-detail">{{ kadel.support.slideBlockA.text }}</p>
           </div>
           <ul class="common-scroll-image lp-support_content_block_images">
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block01_img01-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block01_img01.jpg"
-                  alt="KADeL カデル 建築実例 LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block01_img02-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block01_img02.jpg"
-                  alt="KADeL カデル 建築実例 奈良県 A型スリットからつづくコートハウス"
-                />
-              </a>
-            </li>
-            <li class="js-offset-pc-child">
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block01_img03-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block01_img03.jpg"
-                  alt="KADeL カデル 建築実例 LIXIL MEMBERS CONTEST2018 新築部門敢闘賞受賞 大阪府 集う家"
-                />
+            <li
+              v-for="imageSet in kadel.images.support.slideBlockA"
+              :key="imageSet.img"
+            >
+              <a :href="require('@/' + imageSet.modal)">
+                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
               </a>
             </li>
           </ul>
@@ -241,45 +167,18 @@
 
         <div class="lp-support_content_block">
           <div class="lp-support_content_block_text">
-            <h3 class="common-concept mod-displayNone_desktop">インテリア</h3>
+            <!-- <h3 class="common-concept mod-displayNone_desktop">インテリア</h3> -->
             <p class="common-detail">
-              KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。そのため、空間デザインの専門家による家具や照明などのコーディネートから<br
-                class="mod-displayNone_mobileOnly"
-              />選び方、配置の仕方などのアドバイスまで承っています。
+              {{ kadel.support.slideBlockB.text }}
             </p>
           </div>
           <ul class="common-scroll-image lp-support_content_block_images">
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block02_img01-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block02_img01.jpg"
-                  alt="KADeL カデル 環境共生住宅 建築実例 LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block02_img02-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block02_img02.jpg"
-                  alt="KADeL カデル 建築実例 LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家"
-                />
-              </a>
-            </li>
-            <li class="js-offset-pc-child">
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block02_img03-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block02_img03.jpg"
-                  alt="KADeL カデル 建築実例 LIXIL MEMBERS CONTEST2018 新築部門 敢闘賞受賞 大阪府 terrace"
-                />
+            <li
+              v-for="imageSet in kadel.images.support.slideBlockB"
+              :key="imageSet.img"
+            >
+              <a :href="require('@/' + imageSet.modal)">
+                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
               </a>
             </li>
           </ul>
@@ -287,45 +186,20 @@
 
         <div class="lp-support_content_block">
           <div class="lp-support_content_block_text">
-            <h3 class="common-concept mod-displayNone_desktop">長期保証</h3>
+            <!-- <h3 class="common-concept mod-displayNone_desktop">長期保証</h3> -->
             <p class="common-detail">
-              お客様に快適に生活していただくためにKADeLでは、「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、最長20年の建物保証や完成保証にも対応しています。また細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、万全のサポートシステムで末永くご家族の暮らしをケアいたします。
+              {{ kadel.support.slideBlockC.text }}
             </p>
           </div>
           <ul
             class="common-scroll-image lp-support_content_block_images js-offset-mobile-child"
           >
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block03_img01-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block03_img01.jpg"
-                  alt="KADeL カデル 建築実例 大阪府 都市に住まう大家族の家"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block03_img02-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block03_img02.jpg"
-                  alt="KADeL カデル 建築実例 大阪府 旗竿地の白い家"
-                />
-              </a>
-            </li>
-            <li class="js-offset-pc-child">
-              <a
-                class="js-modal-open"
-                href="../assets/images/kadel/popup/support_block03_img03-l.jpg"
-              >
-                <img
-                  src="../assets/images/kadel/support_block03_img03.jpg"
-                  alt="KADeL カデル 建築実例 ２１世紀の環境グランドデザインコンテスト 総合部門入選 ゴールドメンバー賞受賞 大阪府 凛椛 Organic"
-                />
+            <li
+              v-for="imageSet in kadel.images.support.slideBlockC"
+              :key="imageSet.img"
+            >
+              <a :href="require('@/' + imageSet.modal)">
+                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
               </a>
             </li>
           </ul>
@@ -706,24 +580,12 @@
 </template>
 
 <script>
-import text from '../assets/kadel.json';
+import kadelData from '../assets/kadel.json';
 
 export default {
   data() {
     return {
-      text: text,
-      images: {
-        thirtyth: [
-          {
-            src: require('@/assets/images/kadel/lede_img01.jpg'),
-            alt: 'KADeL カデル 30周年 環境共生住宅'
-          },
-          {
-            src: require('@/assets/images/kadel/lede_img02.jpg'),
-            alt: 'KADeL カデル 30周年 環境共生住宅'
-          }
-        ]
-      }
+      kadel: kadelData
     };
   }
 };

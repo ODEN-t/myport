@@ -12,10 +12,130 @@
   "design": {
     "title" : "想い描いた理想をかたちに",
     "leadText": "従来の規格型住宅では表現できないご家族のためだけに考えられた世界にたったひとつの住まいを",
-    "tabTextA": "理想をかたちに",
-    "tabTextB": "繊細な住宅設計",
-    "slideA": {
-      "text1": " 数多くの賞を受賞する建築デザイナーがお聞かせいただいたご家族のたくさんの想いとご希望を自由な設計とプラスアルファなご提案で理想の住まいへとかたちにいたします。"
+    "slideBlockA": {
+      "tabText": "理想をかたちに",
+      "text": "数多くの賞を受賞する建築デザイナーがお聞かせいただいたご家族のたくさんの想いとご希望を自由な設計とプラスアルファなご提案で理想の住まいへとかたちにいたします。"
+    },
+    "slideBlockB": {
+      "tabText": "繊細な住宅設計",
+      "text": "「暮らしやすい間取り」「快適な家事動線」綿密なヒアリングをもとに実際の暮らしをしっかりと配慮し、ご家族の笑顔であふれる快適な住まいを設計いたします。"
+    }
+  },
+  "support": {
+    "title": "プロフェッショナルによるサポート",
+    "leadText": "各分野のプロフェッショナルがそれぞれの知識と技術を活かし、お客様の理想の生活をサポートいたします。",
+    "slideBlockA": {
+      "tabText": "土地探し",
+      "text": "KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ「KADeL」が、それぞれの目線からお手伝いさせていただきます。関西全域にある不動産会社とのネットワークを活かし、お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。"
+    },
+    "slideBlockB": {
+      "tabText": "インテリア",
+      "text": " KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。そのため、空間デザインの専門家による家具や照明などのコーディネートから選び方、配置の仕方などのアドバイスまで承っています。"
+    },
+    "slideBlockC": {
+      "tabText": "長期保証",
+      "text": "お客様に快適に生活していただくためにKADeLでは、「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、最長20年の建物保証や完成保証にも対応しています。また細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、万全のサポートシステムで末永くご家族の暮らしをケアいたします。"
+    }
+  },
+  "images": {
+    "thirtyth": [
+      {
+        "src": "assets/images/kadel/lede_img01.jpg",
+        "alt": "KADeL カデル 30周年 環境共生住宅"
+      },
+      {
+        "src": "assets/images/kadel/lede_img02.jpg",
+        "alt": "KADeL カデル 30周年 環境共生住宅"
+      }
+    ],
+    "design" :{
+      "slideBlockA": [
+        {
+          "img": "assets/images/kadel/design_block01_img01.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/design_block02_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/design_block01_img02.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 瓦の家",
+          "modal": "assets/images/kadel/popup/design_block02_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/design_block01_img03.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに とおり庭の家",
+          "modal": "assets/images/kadel/popup/design_block02_img03-l.jpg"
+        }
+      ],
+      "slideBlockB": [
+        {
+          "img": "assets/images/kadel/design_block02_img01.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 眺望の家",
+          "modal": "assets/images/kadel/popup/design_block02_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/design_block02_img02.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 中庭を囲むロの字型の家",
+          "modal": "assets/images/kadel/popup/design_block02_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/design_block02_img03.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 大きな土庇と縁側の家",
+          "modal": "assets/images/kadel/popup/design_block02_img03-l.jpg"
+        }
+      ]
+    },
+    "support" :{
+      "slideBlockA": [
+        {
+          "img": "assets/images/kadel/support_block01_img01.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに とおり庭の家",
+          "modal": "assets/images/kadel/popup/support_block01_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/support_block01_img02.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに A型スリットからつづくコートハウス",
+          "modal": "assets/images/kadel/popup/support_block01_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/support_block01_img03.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 集う家",
+          "modal": "assets/images/kadel/popup/support_block01_img03-l.jpg"
+        }
+      ],
+      "slideBlockB": [
+        {
+          "img": "assets/images/kadel/support_block02_img01.jpg",
+          "alt": "KADeL カデル プロフェッショナルによるサポート 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/support_block02_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/support_block02_img02.jpg",
+          "alt": "KADeL カデル プロフェッショナルによるサポート 自然環境を取り込むフィルターの家",
+          "modal": "assets/images/kadel/popup/support_block02_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/support_block02_img03.jpg",
+          "alt": "KADeL カデル プロフェッショナルによるサポート terrace",
+          "modal": "assets/images/kadel/popup/support_block02_img03-l.jpg"
+        }
+      ],
+      "slideBlockC": [
+        {
+          "img": "assets/images/kadel/support_block03_img01.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 都市に住まう大家族の家",
+          "modal": "assets/images/kadel/popup/support_block03_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/support_block03_img02.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 旗竿地の白い家",
+          "modal": "assets/images/kadel/popup/support_block03_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/support_block03_img03.jpg",
+          "alt": "KADeL カデル 想い描いた理想をかたちに 凛椛 Organic",
+          "modal": "assets/images/kadel/popup/support_block03_img03-l.jpg"
+        }
+      ]
     }
   }
 }
