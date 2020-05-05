@@ -82,7 +82,7 @@
       <div class="lp-design_content">
         <div class="lp-design_content_block add-active">
           <div class="lp-design_content_block_text">
-            <!-- <h3 class="common-concept mod-displayNone_desktop">
+            <!-- <h3  class="common-concept mod-displayNone_desktop">
               理想をかたちに
             </h3> -->
             <p
