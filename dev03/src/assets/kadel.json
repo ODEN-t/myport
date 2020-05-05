@@ -4,38 +4,149 @@
     "subTitle": "KADeLの注文住宅"
   },
   "thirtyth": {
-    "title" : "目に見えない光や風、熱や空気をデザインするKADeLの「環境共生住宅」",
+    "title" : "目に見えない光や風、\n熱や空気をデザインする\nKADeLの「環境共生住宅」",
     "subTitle": "30th anniversary",
-    "leadText": "住宅が大好きで、人生をかけて住宅を追求していきたいそんな情熱を持った建築デザイナーがお客様の意向を丁寧に汲み取りながらプロとしての提案がしっかりできる会社を作りたいと考え立ち上げたのがKADeLです。KADeL設立より設計の力を信じて30年、そして辿り着いた住まい。",
+    "leadText": "住宅が大好きで、人生をかけて住宅を追求していきたい\nそんな情熱を持った建築デザイナーが\nお客様の意向を丁寧に汲み取りながらプロとしての提案がしっかりできる会社を作りたいと考え\n立ち上げたのがKADeLです。\nKADeL設立より設計の力を信じて30年、そして辿り着いた住まい。",
     "textAnswer": "それが「環境共生住宅」でした。"
   },
   "design": {
     "title" : "想い描いた理想をかたちに",
-    "leadText": "従来の規格型住宅では表現できないご家族のためだけに考えられた世界にたったひとつの住まいを",
+    "leadText": "従来の規格型住宅では表現できない\nご家族のためだけに考えられた世界にたったひとつの住まいを",
     "slideBlockA": {
       "tabText": "理想をかたちに",
-      "text": "数多くの賞を受賞する建築デザイナーがお聞かせいただいたご家族のたくさんの想いとご希望を自由な設計とプラスアルファなご提案で理想の住まいへとかたちにいたします。"
+      "text": "数多くの賞を受賞する建築デザイナーが\nお聞かせいただいたご家族のたくさんの想いとご希望を\n自由な設計とプラスアルファなご提案で\n理想の住まいへとかたちにいたします。"
     },
     "slideBlockB": {
       "tabText": "繊細な住宅設計",
-      "text": "「暮らしやすい間取り」「快適な家事動線」綿密なヒアリングをもとに実際の暮らしをしっかりと配慮し、ご家族の笑顔であふれる快適な住まいを設計いたします。"
+      "text": "「暮らしやすい間取り」「快適な家事動線」\n綿密なヒアリングをもとに実際の暮らしをしっかりと配慮し、\nご家族の笑顔であふれる快適な住まいを設計いたします。"
+    }
+  },
+  "passive": {
+    "title" : "環境と共に生きる",
+    "leadText": "エアコンなどの設備に頼らず、自然の力を利用した<br>木造モダン建築で快適な暮らしを",
+    "slideBlockA": {
+      "tabText": "パッシブデザイン",
+      "text": "パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、\n目に見えない光や風・熱・空気をデザインすることで快適な暮らしを実現することができます。\nパッシブデザインを取り入れることで、地球環境だけでなく、大切なご家族の健康面にも効果的です。\nまた、断熱性能が高い「環境共生住宅」では、部屋感の温度差がほとんどなく、\n冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。"
+    },
+    "slideBlockB": {
+      "tabText": "四季と共に生きる",
+      "text": "自然と共に暮らす環境共生住宅は、\n偏西風や太陽高度など、季節や時間によって変化する自然環境を利用した、\n夏涼冬暖で一年を通して快適な設計となっています。"
+    },
+    "slideBlockC": {
+      "tabText": "土地を活かす",
+      "text": "家づくりとは、敷地を丁寧に読み解くところからはじまります。\n狭小地、三角地、傾斜地など、土地の個性を活かした住まいを設計いたします。\nまた周辺環境を考慮し、堀や坪庭などを有効活用したプライバシーへの配慮、\n騒音、防犯などの対策も万全にしています。"
     }
   },
   "support": {
     "title": "プロフェッショナルによるサポート",
-    "leadText": "各分野のプロフェッショナルがそれぞれの知識と技術を活かし、お客様の理想の生活をサポートいたします。",
+    "leadText": "各分野のプロフェッショナルがそれぞれの知識と技術を活かし、\nお客様の理想の生活をサポートいたします。",
     "slideBlockA": {
       "tabText": "土地探し",
-      "text": "KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ「KADeL」が、それぞれの目線からお手伝いさせていただきます。関西全域にある不動産会社とのネットワークを活かし、お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。"
+      "text": "KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ「KADeL」が、それぞれの目線からお手伝いさせていただきます。\n関西全域にある不動産会社とのネットワークを活かし、\nお客様の想い描く理想の暮らしの実現を土地探しから実現いたします。"
     },
     "slideBlockB": {
       "tabText": "インテリア",
-      "text": " KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。そのため、空間デザインの専門家による家具や照明などのコーディネートから選び方、配置の仕方などのアドバイスまで承っています。"
+      "text": " KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。\nそのため、空間デザインの専門家による家具や照明などのコーディネートから\n選び方、配置の仕方などのアドバイスまで承っています。"
     },
     "slideBlockC": {
       "tabText": "長期保証",
-      "text": "お客様に快適に生活していただくためにKADeLでは、「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、最長20年の建物保証や完成保証にも対応しています。また細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、万全のサポートシステムで末永くご家族の暮らしをケアいたします。"
+      "text": "お客様に快適に生活していただくためにKADeLでは、\n「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、\n最長20年の建物保証や完成保証にも対応しています。\nまた細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、\n万全のサポートシステムで末永くご家族の暮らしをケアいたします。"
     }
+  },
+  "awards": {
+    "awardsList": [
+      {
+        "year": "2007",
+        "content": "第9回「あたたかな住空間デザイン」コンペティション住宅デザイン部門・新築の部 特別賞受賞"
+      },
+      {
+        "year": "2009",
+        "content": "２１世紀の環境グランドデザインコンテスト 総合部門入選ゴールドメンバー賞受賞"
+      },
+      {
+        "year": "2011",
+        "content": "住まいの環境デザイン・アワード2011 特別賞受賞"
+      },
+      {
+        "year": "2013",
+        "content": "LIXIL MEMBERS CONTEST 2013 準グランプリ受賞"
+      },
+      {
+        "year": "2015",
+        "content": "LIXIL MEMBERS CONTEST 2015 新築部門 関西地域最優秀賞受賞"
+      },
+      {
+        "year": "2015-2018",
+        "content": "LIXIL MEMBERS CONTEST 2015-2018 敢闘賞 8作品"
+      },
+      {
+        "year": "2018",
+        "content": "WOODONE 2018 空間デザイン施工例コンテスト 最優秀賞／伊東豊雄賞 受賞"
+      }
+    ],
+    "title": "AWARDS<span class='mod-small'>受賞歴</span>",
+    "contest": {
+      "slideBlockA": {
+        "title": "LIXIL MEMBERS CONTEST 2013<span>準グランプリ受賞</span>",
+        "dataTitle": [
+          "住まい","地域","敷地面積","延床面積"
+        ],
+        "dataContent": [
+          "自然環境を取り込むフィルターの家","OSAKA","約202.71㎡ (約61.31坪)","約148.88㎡（約45.03坪）"
+        ]
+      },
+      "slideBlockB": {
+        "title": " LIXIL MEMBERS CONTEST 2015<span>新築部門 関西地域最優秀賞受賞</span>",
+        "dataTitle": [
+          "住まい","地域","敷地面積","延床面積"
+        ],
+        "dataContent": [
+          "囲炉裏の住宅","OSAKA","約175.57㎡ (約53.10坪)","約125.23㎡（約37.88坪）"
+        ]
+      },
+      "slideBlockC": {
+        "title": "LIXIL MEMBERS CONTEST 2013<span>準グランプリ受賞</span>",
+        "dataTitle": [
+          "住まい","地域","敷地面積","延床面積"
+        ],
+        "dataContent": [
+          "とおり庭の家","NARA","約196.88㎡ (約59.55坪)","約119.60㎡（約36.18坪）"
+        ]
+      },
+      "slideBlockD": {
+        "title": "LIXIL MEMBERS CONTEST 2013<span>準グランプリ受賞</span>",
+        "dataTitle": [
+          "住まい","地域","敷地面積","延床面積"
+        ],
+        "dataContent": [
+          "凛椛 Classic","OSAKA","約106.17㎡ (約32.11坪)","約110.66㎡（約33.47坪）"
+        ]
+      }
+    }
+  },
+  "staff": {
+    "title": "スタッフ<span>Staff</span>",
+    "leadText": "お客さまをの家づくりをお手伝いさせていただく\nスタッフを一部ご紹介いたします。その他土地探しのプロや営業として\nサポートさせていただくスタッフ約25名が在籍しております。",
+    "staffData":[
+      {
+        "name": "黒瀬 信幸<span>副社長</span>",
+        "feature": "科学的アプローチを元に自然エネルギーを生かしたパッシブな建築計画、時代に押し流されることのない真摯な取り組みで和と洋の統合を目指しています。住まいの原型である居間が中心となる計画、連続する空間構成、緩やかな境界等、古き良き日本建築の手法を現代的解釈で提案。",
+        "figure": "assets/images/kadel/staff_icon_kurose.png",
+        "alt": "副社長 黒瀬 信幸"
+      },
+      {
+        "name": "秋山 かず子<span>本社 心斎橋 統括所長</span>",
+        "feature": "バランスのとれた計画が特徴。住宅では特に機能美と空間美を追求。自然との関わり、空間スケール、陰影、各要素を考えながら、良い答えを見つけられるまで積極的に迷うことを諦めない。",
+        "figure": "assets/images/kadel/staff_icon_akiyama.png",
+        "alt": "本社 心斎橋 統括所長 秋山 かず子"
+      },
+      {
+        "name": "西尾 真一<span>本社 所長</span>",
+        "feature": "私は、お引渡しのときの施主様の笑顔をたくさん見てきました。そこに住まうご家族がいつまでも仲良く、笑顔で、愉しく暮らし、優しい思い出が刻み込まれる、そんな住まいを設計したいと思っています。",
+        "figure": "assets/images/kadel/staff_icon_nishio.png",
+        "alt": "本社 所長 西尾 真一"
+      }
+    ]
   },
   "images": {
     "thirtyth": [
@@ -81,6 +192,63 @@
           "img": "assets/images/kadel/design_block02_img03.jpg",
           "alt": "KADeL カデル 想い描いた理想をかたちに 大きな土庇と縁側の家",
           "modal": "assets/images/kadel/popup/design_block02_img03-l.jpg"
+        }
+      ]
+    },
+    "passive" :{
+      "passiveFigure": {
+        "img": "assets/images/kadel/passive_block01_img01.png",
+        "alt": "KADeL カデル 環境共生住宅 パッシブデザイン イメージ"
+      },
+      "slideBlockA": [
+        {
+          "img": "assets/images/kadel/passive_block01_img01.jpg",
+          "alt": "KADeL 環境と共に生きる 瓦の家",
+          "modal": "assets/images/kadel/popup/passive_block01_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/passive_block01_img02.jpg",
+          "alt": "KADeL 環境と共に生きる 集う家",
+          "modal": "assets/images/kadel/popup/passive_block01_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/passive_block01_img03.jpg",
+          "alt": "KADeL 環境と共に生きる 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/passive_block01_img03-l.jpg"
+        }
+      ],
+      "slideBlockB": [
+        {
+          "img": "assets/images/kadel/passive_block02_img01.jpg",
+          "alt": "KADeL 環境と共に生きる 紀美野町の平屋",
+          "modal": "assets/images/kadel/popup/passive_block02_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/passive_block02_img02.jpg",
+          "alt": "KADeL 環境と共に生きる とおり庭の家",
+          "modal": "assets/images/kadel/popup/passive_block02_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/passive_block02_img03.jpg",
+          "alt": "KADeL 環境と共に生きる 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/passive_block02_img03-l.jpg"
+        }
+      ],
+      "slideBlockC": [
+        {
+          "img": "assets/images/kadel/passive_block03_img01.jpg",
+          "alt": "KADeL 環境と共に生きる 瓦の家",
+          "modal": "assets/images/kadel/popup/passive_block03_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/passive_block03_img02.jpg",
+          "alt": "KADeL 環境と共に生きる 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/passive_block03_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/passive_block03_img03.jpg",
+          "alt": "KADeL 環境と共に生きる 3角敷地に3角な3階建の家",
+          "modal": "assets/images/kadel/popup/passive_block03_img03-l.jpg"
         }
       ]
     },
@@ -134,6 +302,96 @@
           "img": "assets/images/kadel/support_block03_img03.jpg",
           "alt": "KADeL カデル 想い描いた理想をかたちに 凛椛 Organic",
           "modal": "assets/images/kadel/popup/support_block03_img03-l.jpg"
+        }
+      ]
+    },
+    "awards" :{
+      "slideBlockA": [
+        {
+          "img": "assets/images/kadel/awards_slide01_img01.jpg",
+          "alt": "LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家",
+          "modal": "assets/images/kadel/popup/awards_slide01_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide01_img02.jpg",
+          "alt": "LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家",
+          "modal": "assets/images/kadel/popup/awards_slide01_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide01_img03.jpg",
+          "alt": "LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家",
+          "modal": "assets/images/kadel/popup/awards_slide01_img03-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide01_img04.jpg",
+          "alt": "LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家",
+          "modal": "assets/images/kadel/popup/awards_slide01_img04-l.jpg"
+        }
+      ],
+      "slideBlockB": [
+        {
+          "img": "assets/images/kadel/awards_slide02_img01.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/awards_slide02_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide02_img02.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/awards_slide02_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide02_img03.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/awards_slide02_img03-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide02_img04.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅",
+          "modal": "assets/images/kadel/popup/awards_slide02_img04-l.jpg"
+        }
+      ],
+      "slideBlockC": [
+        {
+          "img": "assets/images/kadel/awards_slide03_img01.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家",
+          "modal": "assets/images/kadel/popup/awards_slide03_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide03_img02.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家",
+          "modal": "assets/images/kadel/popup/awards_slide03_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide03_img03.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家",
+          "modal": "assets/images/kadel/popup/awards_slide03_img03-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide03_img04.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家",
+          "modal": "assets/images/kadel/popup/awards_slide03_img04-l.jpg"
+        }
+      ],
+      "slideBlockD": [
+        {
+          "img": "assets/images/kadel/awards_slide04_img01.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic",
+          "modal": "assets/images/kadel/popup/awards_slide04_img01-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide04_img02.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic",
+          "modal": "assets/images/kadel/popup/awards_slide04_img02-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide04_img03.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic",
+          "modal": "assets/images/kadel/popup/awards_slide04_img03-l.jpg"
+        },
+        {
+          "img": "assets/images/kadel/awards_slide04_img04.jpg",
+          "alt": "KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic",
+          "modal": "assets/images/kadel/popup/awards_slide04_img04-l.jpg"
         }
       ]
     }
