@@ -36,8 +36,8 @@
 
     <section class="p-main">
       <div class="p-main__text js-hero_text">
-        <h2 v-html="handleNewLine(kadel.hero.title)"></h2>
-        <h3>{{ kadel.hero.subTitle }}</h3>
+        <h2></h2>
+        <h3></h3>
         <a href="#smooth" class="p-main__scrollBtn">
           SCROLL
           <span></span>
@@ -78,64 +78,15 @@
         v-html="handleNewLine(kadel.design.leadText)"
       ></p>
       <div class="p-mainBlock__tabWrap p-mainBlock--design__tabWrap for-lg">
-        <h3
-          class="p-mainBlock__concept js-tab add-current-tab"
-          v-html="handleNewLine(kadel.design.slideBlockA.tabText)"
-        ></h3>
-        <h3 class="p-mainBlock__concept js-tab">
-          {{ kadel.design.slideBlockB.tabText }}
-        </h3>
+        <slot v-for="(tab, index) in tabs.design" v-design>
+          <h3 class="p-mainBlock__concept" @click="tabDesign(index)" :key="tab">
+            {{ tab }}
+          </h3>
+        </slot>
       </div>
-      <div class="p-mainBlock__wrap p-mainBlock--design__wrap">
-        <div
-          class="p-mainBlock__content p-mainBlock--design__content add-active"
-        >
-          <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">
-              理想をかたちに
-            </h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.design.slideBlockA.text)"
-            ></p>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.design.slideBlockA"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="p-mainBlock__content p-mainBlock--design__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">
-              繊細な住宅設計
-            </h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.design.slideBlockB.text)"
-            ></p>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.design.slideBlockB"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <keep-alive>
+        <component v-bind:is="currentDesignTab"></component>
+      </keep-alive>
     </section>
 
     <section class="p-mainBlock p-mainBlock--passive common-fadein js-fadein">
@@ -151,92 +102,19 @@
         v-html="handleNewLine(kadel.passive.leadText)"
       ></p>
       <div class="p-mainBlock__tabWrap p-mainBlock--passive__tabWrap for-lg">
-        <h3 class="p-mainBlock__concept js-tab add-current-tab">
-          {{ kadel.passive.slideBlockA.tabText }}
-        </h3>
-        <h3 class="p-mainBlock__concept js-tab">
-          {{ kadel.passive.slideBlockB.tabText }}
-        </h3>
-        <h3 class="p-mainBlock__concept js-tab">
-          {{ kadel.passive.slideBlockC.tabText }}
-        </h3>
+        <slot v-for="(tab, index) in tabs.passive">
+          <h3
+            class="p-mainBlock__concept"
+            @click="tabPassive(index)"
+            :key="tab"
+          >
+            {{ tab }}
+          </h3>
+        </slot>
       </div>
-      <div class="p-mainBlock__wrap">
-        <div
-          class="p-mainBlock__content p-mainBlock--passive__content add-active"
-        >
-          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">パッシブデザイン</h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.passive.slideBlockA.text)"
-            ></p>
-            <figure>
-              <img
-                class="passiveImage"
-                :src="require('@/' + kadel.images.passive.passiveFigure.img)"
-                :alt="kadel.images.passive.passiveFigure.alt"
-              />
-            </figure>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.passive.slideBlockA"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-mainBlock__content p-mainBlock--passive__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">四季と共に生きる</h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.passive.slideBlockB.text)"
-            ></p>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.passive.slideBlockB"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-mainBlock__content p-mainBlock--passive__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">土地を活かす</h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.passive.slideBlockC.text)"
-            ></p>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.passive.slideBlockC"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <keep-alive>
+        <component v-bind:is="currentPassiveTab"></component>
+      </keep-alive>
     </section>
 
     <section class="p-mainBlock p-mainBlock--support common-fadein js-fadein">
@@ -511,12 +389,51 @@
 
 <script>
 import kadelData from '../assets/kadel.json';
+import kadelDesignA from '@/components/KadelDesignA';
+import kadelDesignB from '@/components/KadelDesignB';
+import kadelPassiveA from '@/components/KadelPassiveA';
+import kadelPassiveB from '@/components/KadelPassiveB';
+import kadelPassiveC from '@/components/KadelPassiveC';
 
 export default {
+  name: 'Kadel',
+  components: {
+    tabDesignA: kadelDesignA,
+    tabDesignB: kadelDesignB,
+    tabPassiveA: kadelPassiveA,
+    tabPassiveB: kadelPassiveB,
+    tabPassiveC: kadelPassiveC
+  },
   data() {
     return {
-      kadel: kadelData
+      kadel: kadelData,
+      current: {
+        design: 'designA',
+        passive: 'passiveA'
+      },
+      tabs: {
+        design: {
+          designA: '理想をかたちに',
+          designB: '繊細な住宅設計'
+        },
+        passive: {
+          passiveA: 'パッシブデザイン',
+          passiveB: '四季と共に生きる',
+          passiveC: '土地を活かす'
+        }
+      }
     };
+  },
+  computed: {
+    tabNames: function() {
+      return Object.keys(this.tabs); // tabs の key を配列で返す
+    },
+    currentDesignTab: function() {
+      return 'tab-' + this.current.design;
+    },
+    currentPassiveTab: function() {
+      return 'tab-' + this.current.passive;
+    }
   },
   methods: {
     handleNewLine: function(str) {
@@ -524,6 +441,14 @@ export default {
         .replace(/\n/g, '<br class="for-pc">')
         .replace(/\r/g, '<br class="for-sp">')
         .replace(/\f/g, '<br>');
+    },
+    tabDesign: function(tab) {
+      console.log(tab);
+      this.current.design = tab;
+    },
+    tabPassive: function(tab) {
+      console.log(tab);
+      this.current.passive = tab;
     }
   }
 };
