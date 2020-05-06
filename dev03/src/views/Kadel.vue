@@ -1,7 +1,7 @@
 <template>
   <main class="KADeL">
-    <div class="header">
-      <h1 class="header-logo js-header-logo">
+    <div class="p-head">
+      <h1 class="p-head__logo js-header-logo">
         <a href="">
           <svg
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -34,26 +34,26 @@
       </h1>
     </div>
 
-    <section class="lp-hero">
-      <div class="lp-hero_text js-hero_text">
+    <section class="p-main">
+      <div class="p-main__text js-hero_text">
         <h2 v-html="handleNewLine(kadel.hero.title)"></h2>
         <h3>{{ kadel.hero.subTitle }}</h3>
-        <a href="#smooth" class="lp-hero_text_scroll-btn">
+        <a href="#smooth" class="p-main__scrollBtn">
           SCROLL
           <span></span>
         </a>
       </div>
-      <figure class="lp-hero_figure"></figure>
+      <figure class="p-main__figure"></figure>
     </section>
 
-    <section class="lp-30th">
-      <div class="lp-30th_text common-fadein js-fadein">
+    <section class="p-30th">
+      <div class="p-30th__text common-fadein js-fadein">
         <h2 v-html="handleNewLine(kadel.thirtyth.title)"></h2>
         <h3>{{ kadel.thirtyth.subTitle }}</h3>
         <p v-html="handleNewLine(kadel.thirtyth.leadText)"></p>
         <p>{{ kadel.thirtyth.textAnswer }}</p>
       </div>
-      <ul class="lp-30th_images" id="smooth">
+      <ul class="p-30th__images" id="smooth">
         <li
           class="common-fadein js-fadein"
           v-for="image in kadel.images.thirtyth"
@@ -64,34 +64,44 @@
       </ul>
     </section>
 
-    <section class="lp-design common-fadein js-fadein js-offset-pc">
-      <span class="common-mark">
+    <section class="p-mainBlock p-mainBlock--design common-fadein">
+      <span class="p-mainBlock__mark p-mainBlock--design__mark">
         <span>KADeL</span>
         <span>Design</span>
       </span>
-      <h2 class="common-title" v-html="handleNewLine(kadel.design.title)"></h2>
-      <p class="common-desc" v-html="handleNewLine(kadel.design.leadText)"></p>
-      <div class="common-tab for-lg">
+      <h2
+        class="p-mainBlock__title p-mainBlock--design__title"
+        v-html="handleNewLine(kadel.design.title)"
+      ></h2>
+      <p
+        class="p-mainBlock__desc p-mainBlock--design__desc"
+        v-html="handleNewLine(kadel.design.leadText)"
+      ></p>
+      <div class="p-mainBlock__tabWrap p-mainBlock--design__tabWrap for-lg">
         <h3
-          class="common-concept js-tab add-current-tab"
+          class="p-mainBlock__concept js-tab add-current-tab"
           v-html="handleNewLine(kadel.design.slideBlockA.tabText)"
         ></h3>
-        <h3 class="common-concept js-tab">
+        <h3 class="p-mainBlock__concept js-tab">
           {{ kadel.design.slideBlockB.tabText }}
         </h3>
       </div>
-      <div class="lp-design_content">
-        <div class="lp-design_content_block add-active">
-          <div class="lp-design_content_block_text">
-            <h3 class="common-concept for-sp">
+      <div class="p-mainBlock__wrap p-mainBlock--design__wrap">
+        <div
+          class="p-mainBlock__content p-mainBlock--design__content add-active"
+        >
+          <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">
               理想をかたちに
             </h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.design.slideBlockA.text)"
             ></p>
           </div>
-          <ul class="common-scroll-image lp-design_content_block_images">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.design.slideBlockA"
               :key="imageSet.img"
@@ -102,18 +112,18 @@
             </li>
           </ul>
         </div>
-        <div class="lp-design_content_block">
-          <div class="lp-design_content_block_text">
-            <h3 class="common-concept for-sp">
+        <div class="p-mainBlock__content p-mainBlock--design__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">
               繊細な住宅設計
             </h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.design.slideBlockB.text)"
             ></p>
           </div>
           <ul
-            class="common-scroll-image lp-design_content_block_images js-offset-mobile-child"
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
           >
             <li
               v-for="imageSet in kadel.images.design.slideBlockB"
@@ -128,33 +138,40 @@
       </div>
     </section>
 
-    <section class="lp-passive common-fadein js-fadein">
-      <span class="common-mark">
+    <section class="p-mainBlock p-mainBlock--passive common-fadein js-fadein">
+      <span class="p-mainBlock__mark p-mainBlock--passive__mark">
         <span>KADeL</span>
-        <span class="mod-small">環境共生住宅</span>
+        <span>環境共生住宅</span>
       </span>
-      <h2 class="common-title">{{ kadel.passive.title }}</h2>
-      <p class="common-desc" v-html="handleNewLine(kadel.passive.leadText)"></p>
-      <div class="common-tab for-lg">
-        <h3 class="common-concept js-tab add-current-tab">
+      <h2 class="p-mainBlock__title p-mainBlock--passive__title">
+        {{ kadel.passive.title }}
+      </h2>
+      <p
+        class="p-mainBlock__desc p-mainBlock--passive__desc"
+        v-html="handleNewLine(kadel.passive.leadText)"
+      ></p>
+      <div class="p-mainBlock__tabWrap p-mainBlock--passive__tabWrap for-lg">
+        <h3 class="p-mainBlock__concept js-tab add-current-tab">
           {{ kadel.passive.slideBlockA.tabText }}
         </h3>
-        <h3 class="common-concept js-tab">
+        <h3 class="p-mainBlock__concept js-tab">
           {{ kadel.passive.slideBlockB.tabText }}
         </h3>
-        <h3 class="common-concept js-tab">
+        <h3 class="p-mainBlock__concept js-tab">
           {{ kadel.passive.slideBlockC.tabText }}
         </h3>
       </div>
-      <div class="lp-passive_content">
-        <div class="lp-passive_content_block add-active">
-          <div class="lp-passive_content_block_text">
-            <h3 class="common-concept for-sp">パッシブデザイン</h3>
+      <div class="p-mainBlock__wrap">
+        <div
+          class="p-mainBlock__content p-mainBlock--passive__content add-active"
+        >
+          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">パッシブデザイン</h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.passive.slideBlockA.text)"
             ></p>
-            <figure class="js-offset-pc-child">
+            <figure>
               <img
                 class="passiveImage"
                 :src="require('@/' + kadel.images.passive.passiveFigure.img)"
@@ -162,7 +179,9 @@
               />
             </figure>
           </div>
-          <ul class="common-scroll-image lp-passive_content_block_images">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.passive.slideBlockA"
               :key="imageSet.img"
@@ -174,15 +193,17 @@
           </ul>
         </div>
 
-        <div class="lp-passive_content_block">
-          <div class="lp-passive_content_block_text">
-            <h3 class="common-concept for-sp">四季と共に生きる</h3>
+        <div class="p-mainBlock__content p-mainBlock--passive__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">四季と共に生きる</h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.passive.slideBlockB.text)"
             ></p>
           </div>
-          <ul class="common-scroll-image lp-passive_content_block_images">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.passive.slideBlockB"
               :key="imageSet.img"
@@ -194,16 +215,16 @@
           </ul>
         </div>
 
-        <div class="lp-passive_content_block">
-          <div class="lp-passive_content_block_text">
-            <h3 class="common-concept for-sp">土地を活かす</h3>
+        <div class="p-mainBlock__content p-mainBlock--passive__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">土地を活かす</h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.passive.slideBlockC.text)"
             ></p>
           </div>
           <ul
-            class="common-scroll-image lp-passive_content_block_images js-offset-mobile-child"
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
           >
             <li
               v-for="imageSet in kadel.images.passive.slideBlockC"
@@ -218,34 +239,44 @@
       </div>
     </section>
 
-    <section class="lp-support common-fadein js-fadein js-offset-pc">
-      <span class="common-mark mod-supportPart_mark">
+    <section class="p-mainBlock p-mainBlock--support common-fadein js-fadein">
+      <span class="p-mainBlock__mark p-mainBlock--support__mark">
         <span>KADeL</span>
         <span>Support</span>
       </span>
-      <h2 class="common-title" v-html="handleNewLine(kadel.support.title)"></h2>
-      <p class="common-desc" v-html="handleNewLine(kadel.support.leadText)"></p>
-      <div class="common-tab for-lg">
-        <h3 class="common-concept js-tab add-current-tab">
+      <h2
+        class="p-mainBlock__title p-mainBlock--support__title"
+        v-html="handleNewLine(kadel.support.title)"
+      ></h2>
+      <p
+        class="p-mainBlock__desc p-mainBlock--support__desc"
+        v-html="handleNewLine(kadel.support.leadText)"
+      ></p>
+      <div class="p-mainBlock__tabWrap p-mainBlock--support__tabWrap for-lg">
+        <h3 class="p-mainBlock__concept js-tab add-current-tab">
           {{ kadel.support.slideBlockA.tabText }}
         </h3>
-        <h3 class="common-concept js-tab">
+        <h3 class="p-mainBlock__concept js-tab">
           {{ kadel.support.slideBlockB.tabText }}
         </h3>
-        <h3 class="common-concept js-tab">
+        <h3 class="p-mainBlock__concept js-tab">
           {{ kadel.support.slideBlockC.tabText }}
         </h3>
       </div>
-      <div class="lp-support_content">
-        <div class="lp-support_content_block add-active">
-          <div class="lp-support_content_block_text">
-            <h3 class="common-concept for-sp">土地探し</h3>
+      <div class="p-mainBlock__wrap">
+        <div
+          class="p-mainBlock__content p-mainBlock--support__content add-active"
+        >
+          <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">土地探し</h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.support.slideBlockA.text)"
             ></p>
           </div>
-          <ul class="common-scroll-image lp-support_content_block_images">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.support.slideBlockA"
               :key="imageSet.img"
@@ -257,15 +288,17 @@
           </ul>
         </div>
 
-        <div class="lp-support_content_block">
-          <div class="lp-support_content_block_text">
-            <h3 class="common-concept for-sp">インテリア</h3>
+        <div class="p-mainBlock__content p-mainBlock--support__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">インテリア</h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.support.slideBlockB.text)"
             ></p>
           </div>
-          <ul class="common-scroll-image lp-support_content_block_images">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.support.slideBlockB"
               :key="imageSet.img"
@@ -277,16 +310,16 @@
           </ul>
         </div>
 
-        <div class="lp-support_content_block">
-          <div class="lp-support_content_block_text">
-            <h3 class="common-concept for-sp">長期保証</h3>
+        <div class="p-mainBlock__content p-mainBlock--support__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">長期保証</h3>
             <p
-              class="common-detail"
+              class="p-mainBlock__detail"
               v-html="handleNewLine(kadel.support.slideBlockC.text)"
             ></p>
           </div>
           <ul
-            class="common-scroll-image lp-support_content_block_images js-offset-mobile-child"
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
           >
             <li
               v-for="imageSet in kadel.images.support.slideBlockC"
@@ -302,39 +335,46 @@
     </section>
 
     <section
-      class="lp-awards common-fadein js-changeStart js-fadein js-offset-pc"
+      class="p-mainBlock p-mainBlock--award common-fadein js-changeStart js-fadein"
     >
-      <h2 class="common-mark mod-awards-mark" v-html="kadel.awards.title"></h2>
-      <dl class="lp-awards_data-list">
+      <h2
+        class="p-mainBlock__mark p-mainBlock--award__mark"
+        v-html="kadel.awards.title"
+      ></h2>
+      <dl class="p-mainBlock__awardList">
         <slot v-for="awards in kadel.awards.awardsList">
           <dt
-            class="lp-awards_data-list_title"
+            class="p-mainBlock__awardYear"
             :key="awards.year"
             v-html="handleNewLine(awards.year)"
           ></dt>
           <dd
-            class="lp-awards_data-list_data"
+            class="p-mainBlock__awardName"
             :key="awards.content"
             v-html="handleNewLine(awards.content)"
           ></dd>
         </slot>
       </dl>
 
-      <div class="lp-awards_content">
-        <div class="lp-awards_content_block add-active">
-          <div class="lp-awards_content_block_text">
+      <div class="p-mainBlock__wrap p-mainBlock--award__wrap">
+        <div
+          class="p-mainBlock__content p-mainBlock--award__content add-active"
+        >
+          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
             <h3
-              class="js-contest-name"
+              class="js-contest-name p-mainBlock__contestName"
               v-html="handleNewLine(kadel.awards.contest.slideBlockA.title)"
             ></h3>
-            <dl class="lp-awards_content_block_text_data-list">
+            <dl class="p-mainBlock__contestList">
               <slot v-for="contest in kadel.awards.contest.slideBlockA.data">
                 <dt :key="contest.title">{{ contest.title }}</dt>
                 <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
-          <ul class="lp-awards_content_block_images common-scroll-image">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.awards.slideBlockA"
               :key="imageSet.img"
@@ -346,20 +386,22 @@
           </ul>
         </div>
 
-        <div class="lp-awards_content_block">
-          <div class="lp-awards_content_block_text">
+        <div class="p-mainBlock__content p-mainBlock--award__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
             <h3
-              class="js-contest-name"
+              class="js-contest-name p-mainBlock__contestName"
               v-html="handleNewLine(kadel.awards.contest.slideBlockB.title)"
             ></h3>
-            <dl class="lp-awards_content_block_text_data-list">
+            <dl class="p-mainBlock__contestList">
               <slot v-for="contest in kadel.awards.contest.slideBlockB.data">
                 <dt :key="contest.title">{{ contest.title }}</dt>
                 <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
-          <ul class="lp-awards_content_block_images common-scroll-image">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.awards.slideBlockB"
               :key="imageSet.img"
@@ -371,20 +413,22 @@
           </ul>
         </div>
 
-        <div class="lp-awards_content_block">
-          <div class="lp-awards_content_block_text">
+        <div class="p-mainBlock__content p-mainBlock--award__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
             <h3
-              class="js-contest-name"
+              class="js-contest-name p-mainBlock__contestName"
               v-html="handleNewLine(kadel.awards.contest.slideBlockC.title)"
             ></h3>
-            <dl class="lp-awards_content_block_text_data-list">
+            <dl class="p-mainBlock__contestList">
               <slot v-for="contest in kadel.awards.contest.slideBlockC.data">
                 <dt :key="contest.title">{{ contest.title }}</dt>
                 <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
-          <ul class="lp-awards_content_block_images common-scroll-image">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.awards.slideBlockC"
               :key="imageSet.img"
@@ -396,20 +440,22 @@
           </ul>
         </div>
 
-        <div class="lp-awards_content_block">
-          <div class="lp-awards_content_block_text">
+        <div class="p-mainBlock__content p-mainBlock--award__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
             <h3
-              class="js-contest-name"
+              class="js-contest-name p-mainBlock__contestName"
               v-html="handleNewLine(kadel.awards.contest.slideBlockD.title)"
             ></h3>
-            <dl class="lp-awards_content_block_text_data-list">
+            <dl class="p-mainBlock__contestList">
               <slot v-for="contest in kadel.awards.contest.slideBlockD.data">
                 <dt :key="contest.title">{{ contest.title }}</dt>
                 <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
-          <ul class="lp-awards_content_block_images common-scroll-image">
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+          >
             <li
               v-for="imageSet in kadel.images.awards.slideBlockD"
               :key="imageSet.img"
@@ -421,31 +467,31 @@
           </ul>
         </div>
       </div>
-      <ul class="lp-awards_nav for-lg">
-        <li class="nav-btn js-tab js-nav add-current-nav"></li>
-        <li class="nav-btn js-tab js-nav"></li>
-        <li class="nav-btn js-tab js-nav"></li>
-        <li class="nav-btn js-tab js-nav"></li>
+      <ul class="p-mainBlock__nav">
+        <li class="p-mainBlock__navBtn js-tab js-nav add-current-nav"></li>
+        <li class="p-mainBlock__navBtn js-tab js-nav"></li>
+        <li class="p-mainBlock__navBtn js-tab js-nav"></li>
+        <li class="p-mainBlock__navBtn js-tab js-nav"></li>
       </ul>
     </section>
 
-    <section class="lp-staff js-changeEnd">
+    <section class="p-staff js-changeEnd">
       <h2 v-html="kadel.staff.title"></h2>
       <p
         class="common-fadein js-fadein"
         v-html="handleNewLine(kadel.staff.leadText)"
       ></p>
-      <ul class="lp-staff_list">
+      <ul class="p-staff__list">
         <li
           class="common-fadein js-fadein"
           v-for="staff in kadel.staff.staffData"
           :key="staff.name"
         >
-          <div class="staff-main">
+          <div class="p-staff__text">
             <h3 v-html="staff.name"></h3>
             <p v-html="handleNewLine(staff.feature)"></p>
           </div>
-          <figure class="staff-picture">
+          <figure class="p-staff__figure">
             <img :src="require('@/' + staff.figure)" :alt="staff.alt" />
           </figure>
         </li>
@@ -499,28 +545,6 @@ export default {
   border: 10px solid #fff;
   position: relative;
   z-index: 1500;
-
-  // min-width: 769px
-  .for-pc {
-    display: none !important;
-    @include mq(kadel-gt-md) {
-      display: block !important;
-    }
-  }
-  // max-width: 768px
-  .for-sp {
-    display: none !important;
-    @include mq(kadel-sm) {
-      display: block !important;
-    }
-  }
-  // min-width: 1025px
-  .for-lg {
-    display: none !important;
-    @include mq(kadel-lg) {
-      display: block !important;
-    }
-  }
   @include mq(kadel-gt-md) {
     padding-top: 60px;
     border: 20px solid #fff;
@@ -536,8 +560,10 @@ export default {
     }
   }
 
-  img {
-    display: block;
+  h1,
+  h2,
+  h3 {
+    font-weight: 300;
   }
 
   ul {
@@ -548,9 +574,9 @@ export default {
     background-color: #000;
     color: #fff;
   }
-  .header {
+  .p-head {
     position: relative;
-    .header-logo {
+    &__logo {
       position: absolute;
       right: 10px;
       top: 10px;
@@ -576,137 +602,8 @@ export default {
     }
   }
 
-  .common-mark {
-    width: 120px;
-    height: 120px;
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
-    border: solid 1px #000;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    transition: border 0.85s ease-in-out;
-    @include mq(kadel-lt-lg) {
-      margin: 0 auto;
-    }
-    @include mq(kadel-lg) {
-      width: 140px;
-      height: 140px;
-    }
-
-    > span {
-      display: block;
-      width: 100%;
-      font-size: 18px;
-      font-weight: 400;
-      @include mq(kadel-lg) {
-        font-size: 20px;
-      }
-    }
-
-    &:before,
-    &:after {
-      content: '';
-      height: 20px;
-      width: 1px;
-      background-color: #262626;
-      display: block;
-    }
-
-    &:before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate3D(-50%, -50%, 0) rotate(45deg);
-    }
-
-    &:after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate3D(-50%, -50%, 0) rotate(-45deg);
-    }
-  }
-
-  .common-mark.add-border-w {
+  .p-mainBlock__mark.add-border-w {
     border: solid 1px #fff;
-  }
-
-  .common-title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.67;
-    position: relative;
-    @include mq(kadel-lt-lg) {
-      text-align: center;
-      margin-top: 40px;
-    }
-    @include mq(kadel-lg) {
-      &:after {
-        background: #262626;
-        content: '';
-        display: block;
-        height: 1px;
-        width: 200%;
-        position: absolute;
-        bottom: -8px;
-        z-index: 11;
-      }
-    }
-  }
-
-  .common-desc {
-    font-size: 18px;
-    line-height: 2;
-    @include mq(kadel-lt-lg) {
-      text-align: center;
-      letter-spacing: 1.4px;
-      margin-top: 40px;
-    }
-    @include mq(kadel-lg) {
-      position: absolute;
-      font-size: 1.4vw;
-      margin-top: 6.7%;
-    }
-  }
-
-  .common-concept {
-    display: flex;
-    @include mq(kadel-lt-lg) {
-      margin-top: 40px;
-      padding-bottom: 7px;
-      font-size: 18px;
-      border-bottom: solid 1px #d5d5d5;
-    }
-
-    @include mq(kadel-lg) {
-      font-size: 1.1vw;
-      line-height: 2;
-      cursor: pointer;
-      padding: 0 24px;
-      margin-bottom: -1px;
-      &:hover {
-        opacity: 0.7;
-      }
-    }
-  }
-
-  .common-detail {
-    font-size: 14px;
-    line-height: 2;
-    letter-spacing: 1px;
-    margin-top: 16px;
-    @include mq(kadel-lt-lg) {
-      padding-left: 0.5em;
-    }
-    @include mq(kadel-lg) {
-      font-size: 1vw;
-      margin: 0;
-    }
   }
 
   .common-fadein {
@@ -812,50 +709,10 @@ export default {
     opacity: 1;
   }
 
-  @include mq(kadel-lt-lg) {
-    .common-scroll-image {
-      display: flex;
-      margin-top: 24px;
-      overflow-x: scroll;
-      padding-bottom: 16px;
-
-      &::-webkit-scrollbar {
-        background-color: #acacac;
-        height: 2px;
-        border-radius: 10px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: #262626;
-      }
-
-      img {
-        height: 130px;
-        width: auto;
-        margin-right: 10px;
-        @include mq(kadel-md) {
-          width: 85vw;
-        }
-      }
-    }
-  }
-
-  @include mq(kadel-lg) {
-    .common-tab {
-      border-bottom: 1px solid #d5d5d5;
-      display: flex;
-      font-size: 1.1vw;
-      line-height: 2;
-      padding-right: 80px;
-      position: absolute;
-      z-index: 400;
-    }
-  }
-
   /* ---------------------------
-            lp-hero 
+            p-main
   ------------------------------ */
-  .lp-hero {
+  .p-main {
     @include mq(kadel-gt-md) {
       display: flex;
       flex-direction: row-reverse;
@@ -867,8 +724,10 @@ export default {
       ); //setPropertyHeight()で取得した変数vhを利用
       margin: 0 0 20px;
       width: 100%;
+    }
 
-      &_figure {
+    &__figure {
+      @include mq(kadel-gt-md) {
         background: url('../assets/images/kadel/hero_img.jpg') no-repeat
           center/cover;
         transition: width 1.4s cubic-bezier(0.86, 0, 0.07, 1);
@@ -876,7 +735,7 @@ export default {
       }
     }
 
-    &_text {
+    &__text {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -937,96 +796,92 @@ export default {
           transform: translateY(0);
         }
       }
+    }
 
-      &_scroll-btn {
+    &__scrollBtn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 12px;
+      font-weight: 400;
+      font-family: 'Ubuntu Condensed', sans-serif;
+      padding-bottom: 168px;
+      z-index: 900;
+      color: #fff;
+      @include mq(kadel-gt-md) {
+        color: #262626;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      > span {
         position: absolute;
         bottom: 0;
-        right: 0;
-        font-size: 12px;
-        font-weight: 400;
-        font-family: 'Ubuntu Condensed', sans-serif;
-        padding-bottom: 168px;
-        z-index: 900;
-        color: #fff;
-        @include mq(kadel-gt-md) {
-          color: #262626;
-        }
+        left: 50%;
+        content: '';
+        height: 140px;
+        width: 1px;
+        overflow: hidden;
 
-        &:hover {
-          opacity: 0.7;
-        }
-
-        > span {
-          position: absolute;
-          bottom: 0;
-          left: 50%;
+        &:after {
           content: '';
-          height: 140px;
+          display: block;
+          height: 160px;
           width: 1px;
-          overflow: hidden;
-
-          &:after {
-            content: '';
-            display: block;
-            height: 160px;
-            width: 1px;
-            position: absolute;
-            background-color: #fff;
-            -webkit-animation-duration: 2.6s;
-            animation-duration: 2.6s;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-name: scrollLine;
-            animation-name: scrollLine;
-            -webkit-animation-timing-function: cubic-bezier(
-              0.97,
-              0.02,
-              0.59,
-              0.98
-            );
-            animation-timing-function: cubic-bezier(0.97, 0.02, 0.59, 0.98);
-            @include mq(kadel-gt-md) {
-              background-color: #262626;
-            }
+          position: absolute;
+          background-color: #fff;
+          -webkit-animation-duration: 2.6s;
+          animation-duration: 2.6s;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-name: scrollLine;
+          animation-name: scrollLine;
+          -webkit-animation-timing-function: cubic-bezier(
+            0.97,
+            0.02,
+            0.59,
+            0.98
+          );
+          animation-timing-function: cubic-bezier(0.97, 0.02, 0.59, 0.98);
+          @include mq(kadel-gt-md) {
+            background-color: #262626;
           }
+        }
 
-          @keyframes scrollLine {
-            0% {
-              -webkit-transform: translateY(-100%);
-            }
-            5% {
-              -webkit-transform: translateY(-100%);
-            }
-            25% {
-              -webkit-transform: translateY(0);
-            }
-            55% {
-              -webkit-transform: translateY(1%);
-            }
-            95% {
-              -webkit-transform: translateY(100%);
-            }
-            100% {
-              -webkit-transform: translateY(100%);
-            }
+        @keyframes scrollLine {
+          0% {
+            -webkit-transform: translateY(-100%);
+          }
+          5% {
+            -webkit-transform: translateY(-100%);
+          }
+          25% {
+            -webkit-transform: translateY(0);
+          }
+          55% {
+            -webkit-transform: translateY(1%);
+          }
+          95% {
+            -webkit-transform: translateY(100%);
+          }
+          100% {
+            -webkit-transform: translateY(100%);
           }
         }
       }
     }
 
-    @include mq(kadel-gt-md) {
-      &_text.add-load {
+    &__text.add-load {
+      @include mq(kadel-gt-md) {
         opacity: 1;
         width: 17.6%;
       }
     }
   }
 
-  /* ---------------------------
-        lp-30th  START 
-  ------------------------------ */
-
-  .lp-30th {
+  .p-30th {
     margin-top: 80px;
     @include mq(kadel-gt-md) {
       margin-top: 120px;
@@ -1035,7 +890,7 @@ export default {
       flex-direction: row-reverse;
     }
 
-    &_text {
+    &__text {
       @include mq(kadel-gt-md) {
         width: 50%;
         margin-right: 3.5%;
@@ -1098,7 +953,7 @@ export default {
       }
     }
 
-    &_images {
+    &__images {
       list-style: none !important;
       display: flex;
       margin-top: 80px;
@@ -1128,295 +983,220 @@ export default {
     }
   }
 
-  /* ---------------------------
-        lp-design START
-  ------------------------------ */
-
-  .lp-design {
+  .p-mainBlock {
     margin-top: 80px;
-
     @include mq(kadel-lg) {
       position: relative;
-      height: 65.204vw;
       margin-top: 160px;
-      .common-mark {
-        margin-left: 56px;
+    }
+
+    &__mark {
+      width: 120px;
+      height: 120px;
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+      border: solid 1px #000;
+      font-family: 'Ubuntu Condensed', sans-serif;
+      transition: border 0.85s ease-in-out;
+      @include mq(kadel-lt-lg) {
+        margin: 0 auto;
       }
-      .common-title {
-        position: absolute;
-        left: 40px;
-        top: 172px;
-        &:after {
-          position: absolute;
-          bottom: -8px;
-          width: 200%;
+      @include mq(kadel-lg) {
+        width: 140px;
+        height: 140px;
+      }
+
+      > span {
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 400;
+        @include mq(kadel-lg) {
+          font-size: 20px;
         }
       }
-      .common-desc {
-        margin-left: 23.5%;
-        margin-top: 32.3%;
-      }
-      .common-tab {
-        margin-left: 23.5%;
-        margin-top: 42.9%;
+
+      &:before,
+      &:after {
+        content: '';
+        height: 20px;
+        width: 1px;
+        background-color: #262626;
+        display: block;
       }
 
-      &_content {
-        position: relative;
-        margin-left: auto;
-        margin-top: -70px;
-        width: 76.4%;
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3D(-50%, -50%, 0) rotate(45deg);
       }
 
-      &_content_block {
-        // opacity: 0;
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3D(-50%, -50%, 0) rotate(-45deg);
+      }
+    }
+
+    &__title {
+      position: relative;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.67;
+      @include mq(kadel-lt-lg) {
+        text-align: center;
+        margin-top: 40px;
+      }
+      @include mq(kadel-lg) {
+        &:after {
+          background: #262626;
+          content: '';
+          display: block;
+          height: 1px;
+          width: 200%;
+          position: absolute;
+          bottom: -8px;
+          z-index: 11;
+        }
+      }
+    }
+
+    &__concept {
+      display: flex;
+      @include mq(kadel-lt-lg) {
+        margin-top: 40px;
+        padding-bottom: 7px;
+        font-size: 18px;
+        border-bottom: solid 1px #d5d5d5;
+      }
+
+      @include mq(kadel-lg) {
+        font-size: 1.1vw;
+        line-height: 2;
+        cursor: pointer;
+        padding: 0 24px;
+        margin-bottom: -1px;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &__tabWrap {
+      @include mq(kadel-lg) {
+        border-bottom: 1px solid #d5d5d5;
+        display: flex;
+        font-size: 1.1vw;
+        line-height: 2;
+        padding-right: 80px;
+        position: absolute;
+        z-index: 400;
+      }
+    }
+
+    &__desc {
+      font-size: 18px;
+      line-height: 2;
+      @include mq(kadel-lt-lg) {
+        text-align: center;
+        letter-spacing: 1.4px;
+        margin-top: 40px;
+      }
+      @include mq(kadel-lg) {
+        position: absolute;
+        font-size: 1.4vw;
+        margin-top: 6.7%;
+      }
+    }
+
+    &__wrap {
+      position: relative;
+    }
+
+    &__content {
+      @include mq(kadel-lg) {
         position: absolute;
         width: 100%;
         height: auto;
+      }
+    }
+    &__content.is-active {
+      opacity: 1;
+      z-index: 10;
+    }
 
-        &_text {
-          position: absolute;
-          top: 86%;
+    &__textBlock {
+      @include mq(kadel-lg) {
+        overflow: hidden;
+      }
+
+      > p {
+        font-size: 14px;
+        line-height: 2;
+        letter-spacing: 1px;
+        margin-top: 16px;
+        @include mq(kadel-lt-lg) {
+          padding-left: 0.5em;
+        }
+        @include mq(kadel-lg) {
+          font-size: 1vw;
+          margin: 0;
+        }
+      }
+    }
+
+    &__imageBlock {
+      > li {
+        @include mq(kadel-lg) {
           overflow: hidden;
         }
+      }
+    }
 
-        &_images {
-          > li {
-            margin-left: auto;
-            overflow: hidden;
-            line-height: 0;
-            &:nth-child(1) {
-              width: 100%;
-              margin-bottom: 10px;
-            }
-            &:nth-child(2) {
-              width: 31.1%;
-              margin-top: 0.9%;
-            }
-            &:nth-child(3) {
-              width: 21.9%;
-              margin-right: 32.1%;
-              margin-top: 0.9%;
-            }
-          }
+    &__scrollImage {
+      @include mq(kadel-lt-lg) {
+        display: flex;
+        margin-top: 24px;
+        overflow-x: scroll;
+        padding-bottom: 16px;
+
+        &::-webkit-scrollbar {
+          background-color: #acacac;
+          height: 2px;
+          border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #262626;
+        }
+
+        img {
+          height: 130px;
+          width: auto;
+          margin-right: 10px;
         }
       }
-
-      &_content_block.add-active {
-        opacity: 1;
-        z-index: 10;
+      @include mq(kadel-md) {
+        width: 85vw;
       }
     }
-  }
 
-  /* ---------------------------
-        lp-design END
-  ------------------------------ */
-
-  /* ---------------------------
-        lp-passive START
-  ------------------------------ */
-  .lp-passive {
-    .mod-small {
-      font-size: 16px;
-    }
-
-    @include mq(kadel-lt-lg) {
-      margin-top: 80px;
-      .passiveImage {
+    .passiveImage {
+      @include mq(kadel-lt-lg) {
         width: 46%;
         margin-top: 16px;
       }
     }
 
-    @include mq(kadel-lg) {
-      height: 56.673vw;
-      position: relative;
-      margin-top: 11.7%;
-      .common-mark {
-        position: absolute;
-        left: 47.7%;
-        margin-top: 3.9%;
-      }
-      .common-title::after {
-        right: 0;
-      }
-      .common-tab {
-        margin-left: 47.7%;
-        margin-top: 32.3%;
-      }
-
-      > h2 {
-        position: absolute;
-        left: 47.7%;
-        margin-top: 17%;
-      }
-      > p {
-        position: absolute;
-        left: 47.7%;
-        margin-top: 23.5%;
-      }
-
-      &_content {
-        position: relative;
-      }
-
-      &_content_block {
-        opacity: 0;
-        position: absolute;
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row-reverse;
-
-        &_text {
-          overflow: hidden;
-          padding-left: 2.9%;
-          padding-top: 36.7%;
-          width: 55.1%;
-          > figure {
-            width: 46%;
-          }
-        }
-
-        &_images {
-          width: 44.8%;
-          > li {
-            overflow: hidden;
-            &:nth-child(1) {
-              width: 37.3%;
-              margin-bottom: 10px;
-            }
-            &:nth-child(2) {
-              width: 37.3%;
-              margin-top: 1.6%;
-            }
-            &:nth-child(3) {
-              width: 60.6%;
-              margin-left: 39%;
-              margin-top: -22.9%;
-            }
-          }
-        }
-      }
-      &_content_block.add-active {
-        opacity: 1;
-        z-index: 10;
-      }
-    }
-  }
-
-  /* ---------------------------
-        lp-passive END
-  ------------------------------ */
-
-  /* ---------------------------
-        lp-support START
-  ------------------------------ */
-
-  .lp-support {
-    margin-top: 80px;
-
-    @include mq(kadel-lg) {
-      height: 66.062vw;
-      margin-top: 11.7%;
-      position: relative;
-      .common-mark {
-        margin-left: 3.5%;
-      }
-      .common-title {
-        position: absolute;
-        margin-top: 4.7%;
-        margin-left: 1.4%;
-      }
-      .common-desc {
-        margin-top: 11.1%;
-        margin-left: 1.4%;
-      }
-      .common-tab {
-        margin-top: 20%;
-        margin-left: 1.4%;
-      }
-
-      &_content {
-        position: relative;
-      }
-
-      &_content_block {
-        // opacity: 0;
-        position: absolute;
-        height: auto;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-
-        &_text {
-          overflow: hidden;
-          margin-left: 1.4%;
-          padding-top: 25%;
-          width: 44.8%;
-        }
-
-        &_images {
-          width: 47.7%;
-          > li {
-            overflow: hidden;
-            &:nth-child(1) {
-              width: 100%;
-              margin-bottom: 10px;
-            }
-            &:nth-child(2) {
-              width: 49.2%;
-              margin-top: 1.5%;
-              margin-left: 50.7%;
-            }
-            &:nth-child(3) {
-              width: 49.2%;
-              margin-top: 1.5%;
-              margin-right: 50.7%;
-            }
-          }
-        }
-      }
-      &_content_block.add-active {
-        opacity: 1;
-        z-index: 10;
-      }
-    }
-  }
-
-  .lp-awards {
-    text-align: center;
-    margin-top: 120px;
-    @include mq(kadel-lg) {
-      margin-top: 200px;
-    }
-
-    .mod-awards-mark {
-      width: 140px;
-      height: 140px;
-      flex-direction: column;
-      font-size: 22px;
-      margin: 0 auto;
-      &:before,
-      &:after {
-        display: none;
-      }
-      @include mq(kadel-lg) {
-        width: 160px;
-        height: 160px;
-        font-size: 28px;
-      }
-    }
-
-    .mod-small {
-      font-size: 14px;
-      @include mq(kadel-lg) {
-        font-size: 16px;
-      }
-    }
-
-    &_data-list {
+    &__awardList {
       width: 90%;
       margin: 72px auto 96px;
       @include mq(kadel-lg) {
@@ -1426,100 +1206,62 @@ export default {
         overflow: hidden;
         text-align: left;
       }
+    }
 
-      &_title {
-        font-size: 18px;
-        line-height: 3.1;
-        @include mq(kadel-lg) {
-          float: left;
-          line-height: 3;
-          text-align: right;
-          width: 7em;
-        }
-      }
-
-      &_data {
-        font-size: 14px;
-        line-height: 2.28;
-        margin-bottom: 24px;
-        @include mq(kadel-lg) {
-          font-size: 18px;
-          line-height: 3;
-          margin-left: 8.5em;
-          margin-bottom: 0;
-        }
+    &__awardYear {
+      font-size: 18px;
+      line-height: 3.1;
+      @include mq(kadel-lg) {
+        float: left;
+        line-height: 3;
+        text-align: right;
+        width: 7em;
       }
     }
 
-    &_content {
+    &__awardName {
+      font-size: 14px;
+      line-height: 2.28;
+      margin-bottom: 24px;
+      @include mq(kadel-lg) {
+        font-size: 18px;
+        line-height: 3;
+        margin-left: 8.5em;
+        margin-bottom: 0;
+      }
+    }
+
+    &__contestName {
+      font-size: 18px;
+      font-family: 'Ubuntu Condensed', sans-serif;
       position: relative;
-      text-align: left;
+      margin-top: 32px;
+      margin-bottom: 1em;
       @include mq(kadel-lg) {
-        height: 45.941vw;
-      }
-    }
-
-    &_content_block {
-      // opacity: 0;
-      width: 100%;
-      height: auto;
-      @include mq(kadel-lt-lg) {
-        display: flex;
-        flex-direction: column-reverse;
-      }
-      @include mq(kadel-lg) {
-        position: absolute;
-      }
-    }
-    &_content_block:not(:first-of-type) {
-      @include mq(kadel-lt-lg) {
-        margin-top: 40px;
-      }
-    }
-    &_content_block.add-active {
-      opacity: 1;
-      z-index: 10;
-    }
-
-    &_content_block_text {
-      margin-left: 1.47%;
-      padding-left: 12px;
-      @include mq(kadel-lg) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-end;
-        position: absolute;
-        padding-top: 38.9%;
-        padding-left: 0;
-        width: 75.7%;
-        z-index: -1;
-      }
-
-      > h3 {
         font-size: 18px;
-        font-family: 'Ubuntu Condensed', sans-serif;
-        position: relative;
-        margin-top: 32px;
-        margin-bottom: 1em;
-        @include mq(kadel-lg) {
-          font-size: 18px;
-          padding-left: 80px;
-          margin: 0 0 10px 8px;
-        }
+        padding-left: 80px;
+        margin: 0 0 10px 8px;
+      }
 
-        &:before {
-          content: '';
-          display: block;
-          width: 64px;
-          height: 2px;
-          background-color: #000;
-          position: absolute;
-          top: -8px;
-          left: 0;
-          @include mq(kadel-lg) {
-            top: 50%;
-          }
+      &:before {
+        content: '';
+        display: block;
+        width: 64px;
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+        top: -8px;
+        left: 0;
+        @include mq(kadel-lg) {
+          top: 50%;
+        }
+      }
+
+      > span {
+        font-size: 14px;
+        font-weight: 600;
+        @include mq(kadel-lg) {
+          padding-left: 8px;
         }
       }
 
@@ -1528,17 +1270,9 @@ export default {
           background-color: #fff;
         }
       }
-
-      > h3 span {
-        font-size: 14px;
-        font-weight: 600;
-        @include mq(kadel-lg) {
-          padding-left: 8px;
-        }
-      }
     }
 
-    &_content_block_text_data-list {
+    &__contestList {
       @include mq(kadel-lg) {
         display: flex;
         flex-wrap: wrap;
@@ -1586,14 +1320,7 @@ export default {
         }
       }
 
-      .mod-city-name {
-        font-size: 16px;
-        font-weight: 400;
-        font-family: 'Ubuntu Condensed', sans-serif;
-        margin-top: 0.4em;
-      }
-
-      .mod-work-title {
+      > dd:first-of-type {
         font-size: 18.2px;
         font-weight: 600;
         margin-top: 0;
@@ -1601,124 +1328,394 @@ export default {
           font-size: 20px;
         }
       }
+
+      > dd:nth-of-type(2) {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Ubuntu Condensed', sans-serif;
+        margin-top: 0.4em;
+      }
     }
 
-    &_content_block_images {
-      width: 97%;
-      margin: 0 auto;
-      @include mq(kadel-lt-lg) {
-        img {
-          height: 170px;
-        }
-      }
-      @include mq(kadel-md) {
-        img {
-          width: auto;
-        }
-      }
+    &__nav {
+      display: none;
       @include mq(kadel-lg) {
-        > li {
-          line-height: 0;
-        }
-        > li:nth-child(1) {
-          float: left;
-          width: 78%;
-        }
-        > li:nth-child(2),
-        li:nth-child(3),
-        li:nth-child(4) {
-          float: right;
-          width: 20.4%;
-          margin-bottom: 1.5%;
-        }
-      }
-    }
+        font-size: 14px;
+        font-family: 'Ubuntu Condensed', sans-serif;
+        display: flex;
+        justify-content: center;
+        margin: 64px auto 0;
 
-    &_nav {
-      font-size: 14px;
-      font-family: 'Ubuntu Condensed', sans-serif;
-      display: flex;
-      justify-content: center;
-      margin: 64px auto 0;
-
-      .nav-btn {
-        position: relative;
-        width: 56px;
-        height: 4px;
-        background-color: #6c6c6c;
-        margin: 0 4px;
-        cursor: pointer;
-        transition: background-color 0.85s cubic-bezier(0.23, 1, 0.32, 1);
-        &:hover {
-          background-color: #9c9c9c;
-          &:before {
-            color: #9c9c9c;
-            opacity: 1;
-          }
-        }
-
-        &:before {
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 8px;
-          display: block;
-          font-size: 14px;
-          font-weight: 400;
-          // opacity: 0;
-        }
-
-        &:nth-of-type(1):before {
-          content: '01';
-        }
-        &:nth-of-type(2):before {
-          content: '02';
-        }
-        &:nth-of-type(3):before {
-          content: '03';
-        }
-        &:nth-of-type(4):before {
-          content: '04';
-        }
-      }
-
-      .add-current-nav {
-        background-color: #000;
-        &:before {
-          color: #000;
-          opacity: 1;
-        }
-        &:hover {
-          background: #000;
+        .add-current-nav {
+          background-color: #000;
           &:before {
             color: #000;
+            opacity: 1;
+          }
+          &:hover {
+            background: #000;
+            &:before {
+              color: #000;
+            }
+          }
+        }
+        .add-current-nav-w {
+          background-color: #fff;
+          &:before {
+            color: #fff;
+            opacity: 1;
+          }
+          &:hover {
+            background: #fff;
+            &:before {
+              color: #fff;
+            }
           }
         }
       }
-      .add-current-nav-w {
-        background-color: #fff;
+    }
+
+    &__navBtn {
+      position: relative;
+      width: 56px;
+      height: 4px;
+      background-color: #6c6c6c;
+      margin: 0 4px;
+      cursor: pointer;
+      transition: background-color 0.85s cubic-bezier(0.23, 1, 0.32, 1);
+      &:hover {
+        background-color: #9c9c9c;
         &:before {
-          color: #fff;
+          color: #9c9c9c;
           opacity: 1;
         }
-        &:hover {
-          background: #fff;
-          &:before {
-            color: #fff;
+      }
+
+      &:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 8px;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+        // opacity: 0;
+      }
+
+      &:nth-of-type(1):before {
+        content: '01';
+      }
+      &:nth-of-type(2):before {
+        content: '02';
+      }
+      &:nth-of-type(3):before {
+        content: '03';
+      }
+      &:nth-of-type(4):before {
+        content: '04';
+      }
+    }
+
+    &--design {
+      @include mq(kadel-lg) {
+        height: 65.204vw;
+        margin-top: 160px;
+
+        &__mark {
+          margin-left: 56px;
+        }
+
+        &__title {
+          position: absolute;
+          left: 40px;
+          top: 172px;
+          &:after {
+            position: absolute;
+            bottom: -8px;
+            width: 200%;
+          }
+        }
+
+        &__tabWrap {
+          margin-left: 23.5%;
+          margin-top: 42.9%;
+        }
+
+        &__desc {
+          margin-left: 23.5%;
+          margin-top: 32.3%;
+        }
+
+        &__wrap {
+          margin-left: auto;
+          margin-top: -70px;
+          width: 76.4%;
+        }
+
+        &__content {
+          opacity: 1;
+        }
+
+        &__textBlock {
+          position: absolute;
+          top: 86%;
+        }
+
+        &__imageBlock > li {
+          margin-left: auto;
+          line-height: 0;
+          &:nth-child(1) {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+          &:nth-child(2) {
+            width: 31.1%;
+            margin-top: 0.9%;
+          }
+          &:nth-child(3) {
+            width: 21.9%;
+            margin-right: 32.1%;
+            margin-top: 0.9%;
+          }
+        }
+      }
+    }
+
+    &--passive {
+      &__mark > span:last-child {
+        font-size: 16px;
+      }
+      @include mq(kadel-lg) {
+        height: 56.673vw;
+        margin-top: 11.7%;
+
+        &__mark {
+          position: absolute;
+          left: 47.7%;
+          margin-top: 3.9%;
+        }
+
+        &__title {
+          position: absolute;
+          left: 47.7%;
+          margin-top: 17%;
+          &:after {
+            right: 0;
+          }
+        }
+
+        &__tabWrap {
+          margin-left: 47.7%;
+          margin-top: 32.3%;
+        }
+
+        &__desc {
+          position: absolute;
+          left: 47.7%;
+          margin-top: 23.5%;
+        }
+
+        &__content {
+          opacity: 1;
+          display: flex;
+          flex-direction: row-reverse;
+        }
+
+        &__textBlock {
+          padding-left: 2.9%;
+          padding-top: 36.7%;
+          width: 55.1%;
+          > figure {
+            width: 46%;
+          }
+        }
+
+        &__imageBlock {
+          width: 44.8%;
+          > li {
+            overflow: hidden;
+            &:nth-child(1) {
+              width: 37.3%;
+              margin-bottom: 10px;
+            }
+            &:nth-child(2) {
+              width: 37.3%;
+              margin-top: 1.6%;
+            }
+            &:nth-child(3) {
+              width: 60.6%;
+              margin-left: 39%;
+              margin-top: -22.9%;
+            }
+          }
+        }
+      }
+    }
+
+    &--support {
+      @include mq(kadel-lg) {
+        height: 66.062vw;
+        margin-top: 11.7%;
+
+        &__mark {
+          margin-left: 3.5%;
+        }
+
+        &__title {
+          position: absolute;
+          margin-top: 4.7%;
+          margin-left: 1.4%;
+        }
+
+        &__desc {
+          margin-top: 11.1%;
+          margin-left: 1.4%;
+        }
+
+        &__tabWrap {
+          margin-top: 20%;
+          margin-left: 1.4%;
+        }
+
+        &__content {
+          opacity: 1;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        &__textBlock {
+          margin-left: 1.4%;
+          padding-top: 25%;
+          width: 44.8%;
+        }
+
+        &__imageBlock {
+          width: 47.7%;
+          > li {
+            &:nth-child(1) {
+              width: 100%;
+              margin-bottom: 10px;
+            }
+            &:nth-child(2) {
+              width: 49.2%;
+              margin-top: 1.5%;
+              margin-left: 50.7%;
+            }
+            &:nth-child(3) {
+              width: 49.2%;
+              margin-top: 1.5%;
+              margin-right: 50.7%;
+            }
+          }
+        }
+      }
+    }
+
+    &--award {
+      text-align: center;
+      margin-top: 120px;
+      @include mq(kadel-lg) {
+        margin-top: 200px;
+      }
+
+      &__mark {
+        width: 140px;
+        height: 140px;
+        flex-direction: column;
+        font-size: 22px;
+        margin: 0 auto;
+        &:before,
+        &:after {
+          display: none;
+        }
+        @include mq(kadel-lg) {
+          width: 160px;
+          height: 160px;
+          font-size: 28px;
+        }
+      }
+
+      &__mark > span {
+        font-size: 14px;
+        @include mq(kadel-lg) {
+          font-size: 16px;
+        }
+      }
+
+      &__wrap {
+        text-align: left;
+        @include mq(kadel-lg) {
+          height: 45.941vw;
+        }
+      }
+
+      &__content {
+        opacity: 1;
+        @include mq(kadel-lt-lg) {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        @include mq(kadel-lg) {
+          position: absolute;
+        }
+      }
+
+      &__content:not(:first-of-type) {
+        @include mq(kadel-lt-lg) {
+          margin-top: 40px;
+        }
+      }
+
+      &__textBlock {
+        margin-left: 1.47%;
+        padding-left: 12px;
+        @include mq(kadel-lg) {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: flex-end;
+          position: absolute;
+          padding-top: 38.9%;
+          padding-left: 0;
+          width: 75.7%;
+          z-index: -1;
+        }
+      }
+
+      &__imageBlock {
+        width: 97%;
+        margin: 0 auto;
+        @include mq(kadel-lt-lg) {
+          img {
+            height: 170px;
+          }
+        }
+        @include mq(kadel-md) {
+          img {
+            width: auto;
+          }
+        }
+        @include mq(kadel-lg) {
+          > li {
+            line-height: 0;
+          }
+          > li:nth-child(1) {
+            float: left;
+            width: 78%;
+          }
+          > li:nth-child(2),
+          li:nth-child(3),
+          li:nth-child(4) {
+            float: right;
+            width: 20.4%;
+            margin-bottom: 1.5%;
           }
         }
       }
     }
   }
-  /* ---------------------------
-        lp-awards END
-  ------------------------------ */
 
-  /* ---------------------------
-        lp-staff START
-  ------------------------------ */
-
-  .lp-staff {
+  .p-staff {
     background: url('../assets/images/kadel/staff_img01.jpg') no-repeat left
       320px top 720px;
     background-position: left top;
@@ -1767,7 +1764,7 @@ export default {
       }
     }
 
-    &_list {
+    &__list {
       margin-top: 40px;
       @include mq(kadel-gt-md) {
         margin: 0 3.8% 0 36.5%;
@@ -1783,7 +1780,7 @@ export default {
       }
     }
 
-    .staff-picture {
+    &__figure {
       width: 64px;
       margin-bottom: -46px;
       @include mq(kadel-gt-md) {
@@ -1792,7 +1789,7 @@ export default {
       }
     }
 
-    .staff-main {
+    &__text {
       @include mq(kadel-gt-md) {
         padding-left: 4.8%;
         width: 79.4%;
@@ -1823,8 +1820,24 @@ export default {
       }
     }
   }
-  /* ---------------------------
-        lp-staff END
-  ------------------------------ */
+
+  // min-width: 769px
+  .for-pc {
+    @include mq(kadel-sm) {
+      display: none !important;
+    }
+  }
+  // max-width: 768px
+  .for-sp {
+    @include mq(kadel-gt-md) {
+      display: none !important;
+    }
+  }
+  // min-width: 1025px
+  .for-lg {
+    @include mq(kadel-lt-lg) {
+      display: none !important;
+    }
+  }
 }
 </style>
