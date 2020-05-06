@@ -36,7 +36,7 @@
 
     <section class="lp-hero">
       <div class="lp-hero_text js-hero_text">
-        <h2>{{ kadel.hero.title }}</h2>
+        <h2 v-html="handleNewLine(kadel.hero.title)"></h2>
         <h3>{{ kadel.hero.subTitle }}</h3>
         <a href="#smooth" class="lp-hero_text_scroll-btn">
           SCROLL
@@ -69,12 +69,13 @@
         <span>KADeL</span>
         <span>Design</span>
       </span>
-      <h2 class="common-title">{{ kadel.design.title }}</h2>
+      <h2 class="common-title" v-html="handleNewLine(kadel.design.title)"></h2>
       <p class="common-desc" v-html="handleNewLine(kadel.design.leadText)"></p>
-      <div class="common-tab mod-displayNone_mobile">
-        <h3 class="common-concept js-tab add-current-tab">
-          {{ kadel.design.slideBlockA.tabText }}
-        </h3>
+      <div class="common-tab for-lg">
+        <h3
+          class="common-concept js-tab add-current-tab"
+          v-html="handleNewLine(kadel.design.slideBlockA.tabText)"
+        ></h3>
         <h3 class="common-concept js-tab">
           {{ kadel.design.slideBlockB.tabText }}
         </h3>
@@ -82,18 +83,15 @@
       <div class="lp-design_content">
         <div class="lp-design_content_block add-active">
           <div class="lp-design_content_block_text">
-            <!-- <h3  class="common-concept mod-displayNone_desktop">
+            <h3 class="common-concept for-sp">
               理想をかたちに
-            </h3> -->
+            </h3>
             <p
               class="common-detail"
               v-html="handleNewLine(kadel.design.slideBlockA.text)"
             ></p>
           </div>
-          <ul
-            class="common-scro
-          ll-image lp-design_content_block_images"
-          >
+          <ul class="common-scroll-image lp-design_content_block_images">
             <li
               v-for="imageSet in kadel.images.design.slideBlockA"
               :key="imageSet.img"
@@ -106,9 +104,9 @@
         </div>
         <div class="lp-design_content_block">
           <div class="lp-design_content_block_text">
-            <!-- <h3 class="common-concept  mod-displayNone_desktop">
+            <h3 class="common-concept for-sp">
               繊細な住宅設計
-            </h3> -->
+            </h3>
             <p
               class="common-detail"
               v-html="handleNewLine(kadel.design.slideBlockB.text)"
@@ -130,16 +128,14 @@
       </div>
     </section>
 
-    <section
-      class="lp-passive common-fadein js-offset-pc js-offset-mobile js-fadein"
-    >
+    <section class="lp-passive common-fadein js-fadein">
       <span class="common-mark">
         <span>KADeL</span>
         <span class="mod-small">環境共生住宅</span>
       </span>
       <h2 class="common-title">{{ kadel.passive.title }}</h2>
-      <p class="common-desc">{{ kadel.passive.text }}</p>
-      <div class="common-tab mod-displayNone_mobile">
+      <p class="common-desc" v-html="handleNewLine(kadel.passive.leadText)"></p>
+      <div class="common-tab for-lg">
         <h3 class="common-concept js-tab add-current-tab">
           {{ kadel.passive.slideBlockA.tabText }}
         </h3>
@@ -153,7 +149,7 @@
       <div class="lp-passive_content">
         <div class="lp-passive_content_block add-active">
           <div class="lp-passive_content_block_text">
-            <!-- <h3 class="common-concept mod-displayNone_desktop">パッシブデザイン</h3> -->
+            <h3 class="common-concept for-sp">パッシブデザイン</h3>
             <p
               class="common-detail"
               v-html="handleNewLine(kadel.passive.slideBlockA.text)"
@@ -161,8 +157,8 @@
             <figure class="js-offset-pc-child">
               <img
                 class="passiveImage"
-                :src="kadel.passive.img"
-                :alt="kadel.passive.alt"
+                :src="require('@/' + kadel.images.passive.passiveFigure.img)"
+                :alt="kadel.images.passive.passiveFigure.alt"
               />
             </figure>
           </div>
@@ -180,7 +176,7 @@
 
         <div class="lp-passive_content_block">
           <div class="lp-passive_content_block_text">
-            <!-- <h3 class="common-concept mod-displayNone_desktop">四季と共に生きる</h3> -->
+            <h3 class="common-concept for-sp">四季と共に生きる</h3>
             <p
               class="common-detail"
               v-html="handleNewLine(kadel.passive.slideBlockB.text)"
@@ -200,17 +196,17 @@
 
         <div class="lp-passive_content_block">
           <div class="lp-passive_content_block_text">
-            <!-- <h3 class="common-concept mod-displayNone_desktop">土地を活かす</h3> -->
+            <h3 class="common-concept for-sp">土地を活かす</h3>
             <p
               class="common-detail"
-              v-html="handleNewLine(kadel.passive.slideBlockB.text)"
+              v-html="handleNewLine(kadel.passive.slideBlockC.text)"
             ></p>
           </div>
           <ul
             class="common-scroll-image lp-passive_content_block_images js-offset-mobile-child"
           >
             <li
-              v-for="imageSet in kadel.images.passive.slideBlockB"
+              v-for="imageSet in kadel.images.passive.slideBlockC"
               :key="imageSet.img"
             >
               <a :href="require('@/' + imageSet.modal)">
@@ -227,11 +223,9 @@
         <span>KADeL</span>
         <span>Support</span>
       </span>
-      <h2 class="common-title">
-        {{ kadel.support.title }}
-      </h2>
+      <h2 class="common-title" v-html="handleNewLine(kadel.support.title)"></h2>
       <p class="common-desc" v-html="handleNewLine(kadel.support.leadText)"></p>
-      <div class="common-tab mod-displayNone_mobile">
+      <div class="common-tab for-lg">
         <h3 class="common-concept js-tab add-current-tab">
           {{ kadel.support.slideBlockA.tabText }}
         </h3>
@@ -245,7 +239,7 @@
       <div class="lp-support_content">
         <div class="lp-support_content_block add-active">
           <div class="lp-support_content_block_text">
-            <!-- <h3 class="common-concept mod-displayNone_desktop">土地探し</h3> -->
+            <h3 class="common-concept for-sp">土地探し</h3>
             <p
               class="common-detail"
               v-html="handleNewLine(kadel.support.slideBlockA.text)"
@@ -265,7 +259,7 @@
 
         <div class="lp-support_content_block">
           <div class="lp-support_content_block_text">
-            <!-- <h3 class="common-concept mod-displayNone_desktop">インテリア</h3> -->
+            <h3 class="common-concept for-sp">インテリア</h3>
             <p
               class="common-detail"
               v-html="handleNewLine(kadel.support.slideBlockB.text)"
@@ -285,7 +279,7 @@
 
         <div class="lp-support_content_block">
           <div class="lp-support_content_block_text">
-            <!-- <h3 class="common-concept mod-displayNone_desktop">長期保証</h3> -->
+            <h3 class="common-concept for-sp">長期保証</h3>
             <p
               class="common-detail"
               v-html="handleNewLine(kadel.support.slideBlockC.text)"
@@ -313,12 +307,16 @@
       <h2 class="common-mark mod-awards-mark" v-html="kadel.awards.title"></h2>
       <dl class="lp-awards_data-list">
         <slot v-for="awards in kadel.awards.awardsList">
-          <dt class="lp-awards_data-list_title" :key="awards.year">
-            {{ awards.year }}
-          </dt>
-          <dd class="lp-awards_data-list_data" :key="awards.content">
-            {{ awards.content }}
-          </dd>
+          <dt
+            class="lp-awards_data-list_title"
+            :key="awards.year"
+            v-html="handleNewLine(awards.year)"
+          ></dt>
+          <dd
+            class="lp-awards_data-list_data"
+            :key="awards.content"
+            v-html="handleNewLine(awards.content)"
+          ></dd>
         </slot>
       </dl>
 
@@ -327,12 +325,12 @@
           <div class="lp-awards_content_block_text">
             <h3
               class="js-contest-name"
-              v-html="kadel.awards.contest.slideBlockA.title"
+              v-html="handleNewLine(kadel.awards.contest.slideBlockA.title)"
             ></h3>
             <dl class="lp-awards_content_block_text_data-list">
-              <slot v-for="contest in kadel.awards.contest.slideBlockA">
-                <dt :key="contest.dataTitle">{{ contest.dataTitle }}</dt>
-                <dd :key="contest.dataContent">{{ contest.dataContent }}</dd>
+              <slot v-for="contest in kadel.awards.contest.slideBlockA.data">
+                <dt :key="contest.title">{{ contest.title }}</dt>
+                <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
@@ -352,12 +350,12 @@
           <div class="lp-awards_content_block_text">
             <h3
               class="js-contest-name"
-              v-html="kadel.awards.contest.slideBlockB.title"
+              v-html="handleNewLine(kadel.awards.contest.slideBlockB.title)"
             ></h3>
             <dl class="lp-awards_content_block_text_data-list">
-              <slot v-for="contest in kadel.awards.contest.slideBlockB">
-                <dt :key="contest.dataTitle">{{ contest.dataTitle }}</dt>
-                <dd :key="contest.dataContent">{{ contest.dataContent }}</dd>
+              <slot v-for="contest in kadel.awards.contest.slideBlockB.data">
+                <dt :key="contest.title">{{ contest.title }}</dt>
+                <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
@@ -377,12 +375,12 @@
           <div class="lp-awards_content_block_text">
             <h3
               class="js-contest-name"
-              v-html="kadel.awards.contest.slideBlockC.title"
+              v-html="handleNewLine(kadel.awards.contest.slideBlockC.title)"
             ></h3>
             <dl class="lp-awards_content_block_text_data-list">
-              <slot v-for="contest in kadel.awards.contest.slideBlockC">
-                <dt :key="contest.dataTitle">{{ contest.dataTitle }}</dt>
-                <dd :key="contest.dataContent">{{ contest.dataContent }}</dd>
+              <slot v-for="contest in kadel.awards.contest.slideBlockC.data">
+                <dt :key="contest.title">{{ contest.title }}</dt>
+                <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
@@ -402,12 +400,12 @@
           <div class="lp-awards_content_block_text">
             <h3
               class="js-contest-name"
-              v-html="kadel.awards.contest.slideBlockD.title"
+              v-html="handleNewLine(kadel.awards.contest.slideBlockD.title)"
             ></h3>
             <dl class="lp-awards_content_block_text_data-list">
-              <slot v-for="contest in kadel.awards.contest.slideBlockD">
-                <dt :key="contest.dataTitle">{{ contest.dataTitle }}</dt>
-                <dd :key="contest.dataContent">{{ contest.dataContent }}</dd>
+              <slot v-for="contest in kadel.awards.contest.slideBlockD.data">
+                <dt :key="contest.title">{{ contest.title }}</dt>
+                <dd :key="contest.content">{{ contest.content }}</dd>
               </slot>
             </dl>
           </div>
@@ -423,7 +421,7 @@
           </ul>
         </div>
       </div>
-      <ul class="lp-awards_nav mod-displayNone_mobile">
+      <ul class="lp-awards_nav for-lg">
         <li class="nav-btn js-tab js-nav add-current-nav"></li>
         <li class="nav-btn js-tab js-nav"></li>
         <li class="nav-btn js-tab js-nav"></li>
@@ -433,9 +431,10 @@
 
     <section class="lp-staff js-changeEnd">
       <h2 v-html="kadel.staff.title"></h2>
-      <p class="common-fadein js-fadein">
-        {{ kadel.staff.leadText }}
-      </p>
+      <p
+        class="common-fadein js-fadein"
+        v-html="handleNewLine(kadel.staff.leadText)"
+      ></p>
       <ul class="lp-staff_list">
         <li
           class="common-fadein js-fadein"
@@ -444,11 +443,11 @@
         >
           <div class="staff-main">
             <h3 v-html="staff.name"></h3>
-            <p>{{ staff.feature }}</p>
-            <figure class="staff-picture">
-              <img :src="require('@/' + staff.figure)" :alt="staff.alt" />
-            </figure>
+            <p v-html="handleNewLine(staff.feature)"></p>
           </div>
+          <figure class="staff-picture">
+            <img :src="require('@/' + staff.figure)" :alt="staff.alt" />
+          </figure>
         </li>
       </ul>
     </section>
@@ -475,7 +474,10 @@ export default {
   },
   methods: {
     handleNewLine: function(str) {
-      return str.replace(/\n/g, '<br/>');
+      return str
+        .replace(/\n/g, '<br class="for-pc">')
+        .replace(/\r/g, '<br class="for-sp">')
+        .replace(/\f/g, '<br>');
     }
   }
 };
@@ -483,6 +485,9 @@ export default {
 
 <style lang="scss">
 .KADeL {
+  @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Yu Gothic',
+    YuGothic, 'Hiragino Kaku Gothic ProN', メイリオ, sans-serif;
   padding-top: 50px;
   color: rgb(38, 38, 38);
   font-size: 14px;
@@ -494,6 +499,28 @@ export default {
   border: 10px solid #fff;
   position: relative;
   z-index: 1500;
+
+  // min-width: 769px
+  .for-pc {
+    display: none !important;
+    @include mq(kadel-gt-md) {
+      display: block !important;
+    }
+  }
+  // max-width: 768px
+  .for-sp {
+    display: none !important;
+    @include mq(kadel-sm) {
+      display: block !important;
+    }
+  }
+  // min-width: 1025px
+  .for-lg {
+    display: none !important;
+    @include mq(kadel-lg) {
+      display: block !important;
+    }
+  }
   @include mq(kadel-gt-md) {
     padding-top: 60px;
     border: 20px solid #fff;
@@ -507,6 +534,10 @@ export default {
       width: 100%;
       z-index: 999;
     }
+  }
+
+  img {
+    display: block;
   }
 
   ul {
@@ -1141,6 +1172,7 @@ export default {
         // opacity: 0;
         position: absolute;
         width: 100%;
+        height: auto;
 
         &_text {
           position: absolute;
@@ -1185,7 +1217,6 @@ export default {
         lp-passive START
   ------------------------------ */
   .lp-passive {
-    height: 56.673vw;
     .mod-small {
       font-size: 16px;
     }
@@ -1199,6 +1230,7 @@ export default {
     }
 
     @include mq(kadel-lg) {
+      height: 56.673vw;
       position: relative;
       margin-top: 11.7%;
       .common-mark {
@@ -1233,6 +1265,7 @@ export default {
         opacity: 0;
         position: absolute;
         width: 100%;
+        height: auto;
         display: flex;
         flex-direction: row-reverse;
 
@@ -1285,7 +1318,7 @@ export default {
     margin-top: 80px;
 
     @include mq(kadel-lg) {
-      height: 56.673vw;
+      height: 66.062vw;
       margin-top: 11.7%;
       position: relative;
       .common-mark {
@@ -1312,6 +1345,7 @@ export default {
       &_content_block {
         // opacity: 0;
         position: absolute;
+        height: auto;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -1420,16 +1454,26 @@ export default {
     &_content {
       position: relative;
       text-align: left;
-      height: 45.941vw;
+      @include mq(kadel-lg) {
+        height: 45.941vw;
+      }
     }
 
     &_content_block {
       // opacity: 0;
-      position: absolute;
       width: 100%;
+      height: auto;
       @include mq(kadel-lt-lg) {
         display: flex;
         flex-direction: column-reverse;
+      }
+      @include mq(kadel-lg) {
+        position: absolute;
+      }
+    }
+    &_content_block:not(:first-of-type) {
+      @include mq(kadel-lt-lg) {
+        margin-top: 40px;
       }
     }
     &_content_block.add-active {
@@ -1678,7 +1722,7 @@ export default {
     background: url('../assets/images/kadel/staff_img01.jpg') no-repeat left
       320px top 720px;
     background-position: left top;
-    margin: 80px auto 110px;
+    margin: 130px auto 110px;
     padding-left: 0;
     padding-top: 120px;
     @include mq(kadel-sm) {

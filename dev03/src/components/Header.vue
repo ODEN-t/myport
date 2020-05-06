@@ -50,9 +50,6 @@ export default {
   z-index: 9999;
   transition: all 0.2s linear;
   background-color: #0d0d0d;
-  @include mq {
-    height: 60px;
-  }
 
   .p-nav {
     display: flex;
@@ -62,11 +59,9 @@ export default {
     padding: 0 20px;
     @include mq(md) {
       padding: 0 25px;
-      height: 60px;
     }
     @include mq {
       padding: 0 50px;
-      height: 60px;
     }
 
     &__title {
@@ -79,15 +74,11 @@ export default {
       @include mq(gt-md) {
         font-size: 23px;
         letter-spacing: 8px;
-        height: 60px;
       }
     }
 
     &__list {
       height: 50px;
-      @include mq {
-        height: 60px;
-      }
 
       > li {
         display: inline-block;
@@ -111,7 +102,6 @@ export default {
       @include mq(gt-md) {
         font-size: 17px;
         letter-spacing: 2px;
-        height: 60px;
       }
     }
   }

@@ -98,7 +98,6 @@ export default {
 
 <style lang="scss" scoped>
 .calculator {
-  @include font_family;
   width: 300px;
   margin: 120px auto 0;
   font-size: 40px;
