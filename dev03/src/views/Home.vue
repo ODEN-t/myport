@@ -154,7 +154,7 @@ export default {
     return {
       size: 'medium',
       color: 'primary',
-      isScrolled: '',
+      isInKv: '',
       dataBlock: {
         basicProfile: [
           {
@@ -380,8 +380,8 @@ export default {
 
       const whenIntersect = entry =>
         entry[0].isIntersecting
-          ? this.emitToHeader('changeBg-event', this.isScrolled, false)
-          : this.emitToHeader('changeBg-event', this.isScrolled, true);
+          ? this.emitToHeader('changeBg-event', this.isInKv, true)
+          : this.emitToHeader('changeBg-event', this.isInKv, false);
 
       const observer = new IntersectionObserver(whenIntersect, options);
       observer.observe(target);
@@ -402,7 +402,6 @@ export default {
 
 <style lang="scss">
 .home {
-  scroll-behavior: smooth;
   .js-fadeIn {
     opacity: 0;
     transform: translateY(50px);
@@ -470,6 +469,7 @@ export default {
       color: #eff0f3;
       writing-mode: vertical-lr;
       letter-spacing: 0.2em;
+      cursor: pointer;
       &:hover {
         opacity: 0.7;
       }
