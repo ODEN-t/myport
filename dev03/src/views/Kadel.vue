@@ -36,8 +36,8 @@
 
     <section class="p-main">
       <div class="p-main__text js-hero_text">
-        <h2></h2>
-        <h3></h3>
+        <h2>想い描いた、理想の住まいをかたちに</h2>
+        <h3>KADeLの注文住宅</h3>
         <a href="#smooth" class="p-main__scrollBtn">
           SCROLL
           <span></span>
@@ -48,18 +48,27 @@
 
     <section class="p-30th">
       <div class="p-30th__text common-fadein js-fadein">
-        <h2 v-html="handleNewLine(kadel.thirtyth.title)"></h2>
-        <h3>{{ kadel.thirtyth.subTitle }}</h3>
-        <p v-html="handleNewLine(kadel.thirtyth.leadText)"></p>
-        <p>{{ kadel.thirtyth.textAnswer }}</p>
+        <h2>
+          目に見えない光や風、<br />熱や空気をデザインする<br />KADeLの「環境共生住宅」
+        </h2>
+        <h3>30th anniversary</h3>
+        <p>
+          住宅が大好きで、人生をかけて住宅を追求していきたい<br />そんな情熱を持った建築デザイナーが<br />お客様の意向を丁寧に汲み取りながら<br />プロとしての提案がしっかりできる会社を作りたいと考え<br />立ち上げたのがKADeLです。<br />KADeL設立より設計の力を信じて30年、そして辿り着いた住まい。
+        </p>
+        <p>それが「環境共生住宅」でした。</p>
       </div>
       <ul class="p-30th__images" id="smooth">
-        <li
-          class="common-fadein js-fadein"
-          v-for="image in kadel.images.thirtyth"
-          :key="image.src"
-        >
-          <img :src="require('@/' + image.src)" :alt="image.alt" />
+        <li class="common-fadein js-fadein">
+          <img
+            src="../assets/images/kadel/lede_img01.jpg"
+            alt="KADeL カデル 30周年 環境共生住宅"
+          />
+        </li>
+        <li class="common-fadein-delay js-fadein">
+          <img
+            src="../assets/images/kadel/lede_img02.jpg"
+            alt="KADeL カデル 30周年 環境共生住宅"
+          />
         </li>
       </ul>
     </section>
@@ -69,24 +78,54 @@
         <span>KADeL</span>
         <span>Design</span>
       </span>
-      <h2
-        class="p-mainBlock__title p-mainBlock--design__title"
-        v-html="handleNewLine(kadel.design.title)"
-      ></h2>
-      <p
-        class="p-mainBlock__desc p-mainBlock--design__desc"
-        v-html="handleNewLine(kadel.design.leadText)"
-      ></p>
+      <h2 class="p-mainBlock__title p-mainBlock--design__title">
+        想い描いた理想を<br />かたちに
+      </h2>
+      <p class="p-mainBlock__desc p-mainBlock--design__desc">
+        従来の規格型住宅では表現できない<br />ご家族のためだけに考えられた<br
+          class="for-sp"
+        />世界にたったひとつの住まいを
+      </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--design__tabWrap for-lg">
-        <slot v-for="(tab, index) in tabs.design" v-design>
-          <h3 class="p-mainBlock__concept" @click="tabDesign(index)" :key="tab">
+        <slot v-for="(tab, index) in textContents.designTab">
+          <h3 class="p-mainBlock__concept" :key="tab" @click="changeTab(index)">
             {{ tab }}
           </h3>
         </slot>
       </div>
-      <keep-alive>
-        <component v-bind:is="currentDesignTab"></component>
-      </keep-alive>
+      <div class="p-mainBlock__wrap p-mainBlock--design__wrap">
+        <div class="p-mainBlock__content p-mainBlock--design__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">
+              理想をかたちに
+            </h3>
+            <transition name="text">
+              <p
+                v-html="textContents.designText[currentTab.design]"
+                :key="textContents.designText[currentTab.design]"
+              ></p>
+            </transition>
+          </div>
+
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
+          >
+            <li
+              v-for="imageSet in design[currentTab.design]"
+              :key="imageSet.img"
+            >
+              <transition>
+                <a :href="require('@/' + imageSet.modal)">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                  />
+                </a>
+              </transition>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="p-mainBlock p-mainBlock--passive common-fadein js-fadein">
@@ -95,26 +134,49 @@
         <span>環境共生住宅</span>
       </span>
       <h2 class="p-mainBlock__title p-mainBlock--passive__title">
-        {{ kadel.passive.title }}
+        環境と共に生きる
       </h2>
-      <p
-        class="p-mainBlock__desc p-mainBlock--passive__desc"
-        v-html="handleNewLine(kadel.passive.leadText)"
-      ></p>
+      <p class="p-mainBlock__desc p-mainBlock--passive__desc">
+        エアコンなどの設備に頼らず、<br
+          class="for-sp"
+        />自然の力を利用した<br />木造モダン建築で快適な暮らしを
+      </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--passive__tabWrap for-lg">
-        <slot v-for="(tab, index) in tabs.passive">
-          <h3
-            class="p-mainBlock__concept"
-            @click="tabPassive(index)"
-            :key="tab"
-          >
-            {{ tab }}
-          </h3>
-        </slot>
+        <h3 class="p-mainBlock__concept">パッシブデザイン</h3>
+        <h3 class="p-mainBlock__concept">四季と共に生きる</h3>
+        <h3 class="p-mainBlock__concept">土地を活かす</h3>
       </div>
-      <keep-alive>
-        <component v-bind:is="currentPassiveTab"></component>
-      </keep-alive>
+      <div class="p-mainBlock__wrap">
+        <div class="p-mainBlock__content p-mainBlock--passive__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">
+              パッシブデザイン
+            </h3>
+            <p>
+              パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、<br />目に見えない光や風・熱・空気をデザインすることで快適な暮らしを実現することができます。<br />パッシブデザインを取り入れることで、地球環境だけでなく、大切なご家族の健康面にも効果的です。<br />また、断熱性能が高い「環境共生住宅」では、部屋感の温度差がほとんどなく、<br />冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。
+            </p>
+            <figure>
+              <img
+                class="passiveImage"
+                src="@/assets/images/kadel/passive_block01_img01.png"
+                alt="KADeL カデル 環境共生住宅 パッシブデザイン イメージ"
+              />
+            </figure>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
+          >
+            <!-- <li
+              v-for="imageSet in images.passive.slideBlockA"
+              :key="imageSet.img"
+            >
+              <a :href="require('@/' + imageSet.modal)">
+                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="p-mainBlock p-mainBlock--support common-fadein js-fadein">
@@ -122,23 +184,25 @@
         <span>KADeL</span>
         <span>Support</span>
       </span>
-      <h2
-        class="p-mainBlock__title p-mainBlock--support__title"
-        v-html="handleNewLine(kadel.support.title)"
-      ></h2>
-      <p
-        class="p-mainBlock__desc p-mainBlock--support__desc"
-        v-html="handleNewLine(kadel.support.leadText)"
-      ></p>
+      <h2 class="p-mainBlock__title p-mainBlock--support__title">
+        プロフェッショナルによる<br class="for-sp" />サポート
+      </h2>
+      <p class="p-mainBlock__desc p-mainBlock--support__desc">
+        各分野のプロフェッショナルが<br
+          class="for-sp"
+        />それぞれの知識と技術を活かし、<br />お客様の理想の生活を<br
+          class="for-sp"
+        />サポートいたします。
+      </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--support__tabWrap for-lg">
-        <h3 class="p-mainBlock__concept js-tab add-current-tab">
-          {{ kadel.support.slideBlockA.tabText }}
+        <h3 class="p-mainBlock__concept">
+          土地探し
         </h3>
-        <h3 class="p-mainBlock__concept js-tab">
-          {{ kadel.support.slideBlockB.tabText }}
+        <h3 class="p-mainBlock__concept">
+          インテリア
         </h3>
-        <h3 class="p-mainBlock__concept js-tab">
-          {{ kadel.support.slideBlockC.tabText }}
+        <h3 class="p-mainBlock__concept">
+          長期保証
         </h3>
       </div>
       <div class="p-mainBlock__wrap">
@@ -147,66 +211,21 @@
         >
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
             <h3 class="p-mainBlock__concept for-sp">土地探し</h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.support.slideBlockA.text)"
-            ></p>
+            <p>
+              KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br />「KADeL」が、それぞれの目線からお手伝いさせていただきます。<br />関西全域にある不動産会社とのネットワークを活かし、<br />お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。
+            </p>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
           >
-            <li
-              v-for="imageSet in kadel.images.support.slideBlockA"
+            <!-- <li
+              v-for="imageSet in images.support.slideBlockA"
               :key="imageSet.img"
             >
               <a :href="require('@/' + imageSet.modal)">
                 <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
               </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-mainBlock__content p-mainBlock--support__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">インテリア</h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.support.slideBlockB.text)"
-            ></p>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.support.slideBlockB"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-mainBlock__content p-mainBlock--support__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">長期保証</h3>
-            <p
-              class="p-mainBlock__detail"
-              v-html="handleNewLine(kadel.support.slideBlockC.text)"
-            ></p>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.support.slideBlockC"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -215,23 +234,48 @@
     <section
       class="p-mainBlock p-mainBlock--award common-fadein js-changeStart js-fadein"
     >
-      <h2
-        class="p-mainBlock__mark p-mainBlock--award__mark"
-        v-html="kadel.awards.title"
-      ></h2>
+      <h2 class="p-mainBlock__mark p-mainBlock--award__mark">
+        AWARDS<span class="mod-small">受賞歴</span>
+      </h2>
       <dl class="p-mainBlock__awardList">
-        <slot v-for="awards in kadel.awards.awardsList">
-          <dt
-            class="p-mainBlock__awardYear"
-            :key="awards.year"
-            v-html="handleNewLine(awards.year)"
-          ></dt>
-          <dd
-            class="p-mainBlock__awardName"
-            :key="awards.content"
-            v-html="handleNewLine(awards.content)"
-          ></dd>
-        </slot>
+        <dt class="p-mainBlock__awardYear">2007</dt>
+        <dd class="p-mainBlock__awardName">
+          第9回「あたたかな住空間デザイン」コンペティション
+          住宅デザイン部門・新築の部<br class="for-sp" />
+          特別賞受賞
+        </dd>
+        <dt class="p-mainBlock__awardYear">2009</dt>
+        <dd class="p-mainBlock__awardName">
+          ２１世紀の環境グランドデザインコンテスト<br class="for-sp" />
+          総合部門入選 ゴールドメンバー賞受賞
+        </dd>
+        <dt class="p-mainBlock__awardYear">2011</dt>
+        <dd class="p-mainBlock__awardName">
+          住まいの環境デザイン・アワード2011<br class="for-sp" />
+          特別賞受賞
+        </dd>
+        <dt class="p-mainBlock__awardYear">2013</dt>
+        <dd class="p-mainBlock__awardName">
+          LIXIL MEMBERS CONTEST 2013<br class="for-sp" />
+          準グランプリ受賞
+        </dd>
+        <dt class="p-mainBlock__awardYear">2015</dt>
+        <dd class="p-mainBlock__awardName">
+          LIXIL MEMBERS CONTEST 2015<br class="for-sp" />
+          新築部門 関西地域最優秀賞受賞
+        </dd>
+        <dt class="p-mainBlock__awardYear">2015-2018</dt>
+        <dd class="p-mainBlock__awardName">
+          LIXIL MEMBERS CONTEST 2015-2018<br class="for-sp" />
+          敢闘賞 8作品
+        </dd>
+        <dt class="p-mainBlock__awardYear">2018</dt>
+        <dd class="p-mainBlock__awardName">
+          WOODONE 2018 空間デザイン<br class="for-sp" />施工例コンテスト<br
+            class="for-sp"
+          />
+          最優秀賞／伊東豊雄賞 受賞
+        </dd>
       </dl>
 
       <div class="p-mainBlock__wrap p-mainBlock--award__wrap">
@@ -239,138 +283,90 @@
           class="p-mainBlock__content p-mainBlock--award__content add-active"
         >
           <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
-            <h3
-              class="js-contest-name p-mainBlock__contestName"
-              v-html="handleNewLine(kadel.awards.contest.slideBlockA.title)"
-            ></h3>
+            <h3 class="js-contest-name p-mainBlock__contestName">
+              LIXIL MEMBERS CONTEST 2017<br
+                class="mod-displayNone_desktop"
+              /><span>新築部門 敢闘賞</span>
+            </h3>
             <dl class="p-mainBlock__contestList">
-              <slot v-for="contest in kadel.awards.contest.slideBlockA.data">
-                <dt :key="contest.title">{{ contest.title }}</dt>
-                <dd :key="contest.content">{{ contest.content }}</dd>
-              </slot>
+              <dt>住まい</dt>
+              <dd class="mod-work-title">自然環境を取り込むフィルターの家</dd>
+              <dt>地域</dt>
+              <dd class="mod-city-name">OSAKA</dd>
+              <dt>敷地面積</dt>
+              <dd>約202.71㎡ (約61.31坪)</dd>
+              <dt>延床面積</dt>
+              <dd class="js-offset-mobile-child">約148.88㎡（約45.03坪）</dd>
             </dl>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
           >
-            <li
-              v-for="imageSet in kadel.images.awards.slideBlockA"
+            <!-- <li
+              v-for="imageSet in images.awards.slideBlockA"
               :key="imageSet.img"
             >
               <a :href="require('@/' + imageSet.modal)">
                 <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
               </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-mainBlock__content p-mainBlock--award__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
-            <h3
-              class="js-contest-name p-mainBlock__contestName"
-              v-html="handleNewLine(kadel.awards.contest.slideBlockB.title)"
-            ></h3>
-            <dl class="p-mainBlock__contestList">
-              <slot v-for="contest in kadel.awards.contest.slideBlockB.data">
-                <dt :key="contest.title">{{ contest.title }}</dt>
-                <dd :key="contest.content">{{ contest.content }}</dd>
-              </slot>
-            </dl>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.awards.slideBlockB"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-mainBlock__content p-mainBlock--award__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
-            <h3
-              class="js-contest-name p-mainBlock__contestName"
-              v-html="handleNewLine(kadel.awards.contest.slideBlockC.title)"
-            ></h3>
-            <dl class="p-mainBlock__contestList">
-              <slot v-for="contest in kadel.awards.contest.slideBlockC.data">
-                <dt :key="contest.title">{{ contest.title }}</dt>
-                <dd :key="contest.content">{{ contest.content }}</dd>
-              </slot>
-            </dl>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.awards.slideBlockC"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-mainBlock__content p-mainBlock--award__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
-            <h3
-              class="js-contest-name p-mainBlock__contestName"
-              v-html="handleNewLine(kadel.awards.contest.slideBlockD.title)"
-            ></h3>
-            <dl class="p-mainBlock__contestList">
-              <slot v-for="contest in kadel.awards.contest.slideBlockD.data">
-                <dt :key="contest.title">{{ contest.title }}</dt>
-                <dd :key="contest.content">{{ contest.content }}</dd>
-              </slot>
-            </dl>
-          </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
-          >
-            <li
-              v-for="imageSet in kadel.images.awards.slideBlockD"
-              :key="imageSet.img"
-            >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
-              </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
       <ul class="p-mainBlock__nav">
-        <li class="p-mainBlock__navBtn js-tab js-nav add-current-nav"></li>
-        <li class="p-mainBlock__navBtn js-tab js-nav"></li>
-        <li class="p-mainBlock__navBtn js-tab js-nav"></li>
-        <li class="p-mainBlock__navBtn js-tab js-nav"></li>
+        <li class="p-mainBlock__navBtn"></li>
+        <li class="p-mainBlock__navBtn"></li>
+        <li class="p-mainBlock__navBtn"></li>
+        <li class="p-mainBlock__navBtn"></li>
       </ul>
     </section>
 
     <section class="p-staff js-changeEnd">
-      <h2 v-html="kadel.staff.title"></h2>
-      <p
-        class="common-fadein js-fadein"
-        v-html="handleNewLine(kadel.staff.leadText)"
-      ></p>
+      <h2>スタッフ<span>Staff</span></h2>
+      <p class="common-fadein js-fadein">
+        お客さまをの家づくりをお手伝いさせていただく<br />スタッフを一部ご紹介いたします。<br />その他土地探しのプロや営業としてサポートさせていただく<br />スタッフ約25名が在籍しております。
+      </p>
       <ul class="p-staff__list">
-        <li
-          class="common-fadein js-fadein"
-          v-for="staff in kadel.staff.staffData"
-          :key="staff.name"
-        >
+        <li class="common-fadein js-fadein">
           <div class="p-staff__text">
-            <h3 v-html="staff.name"></h3>
-            <p v-html="handleNewLine(staff.feature)"></p>
+            <h3>黒瀬 信幸<span>副社長</span></h3>
+            <p>
+              科学的アプローチを元に自然エネルギーを生かしたパッシブな建築計画、時代に押し流されることのない真摯な取り組みで和と洋の統合を目指しています。住まいの原型である居間が中心となる計画、連続する空間構成、緩やかな境界等、古き良き日本建築の手法を現代的解釈で提案。
+            </p>
           </div>
           <figure class="p-staff__figure">
-            <img :src="require('@/' + staff.figure)" :alt="staff.alt" />
+            <img
+              src="@/assets/images/kadel/staff_icon_kurose.png"
+              alt="副社長 黒瀬 信幸"
+            />
+          </figure>
+        </li>
+        <li class="common-fadein js-fadein">
+          <div class="p-staff__text">
+            <h3>秋山 かず子<span>本社 心斎橋 統括所長</span></h3>
+            <p>
+              バランスのとれた計画が特徴。住宅では特に機能美と空間美を追求。<br />自然との関わり、空間スケール、陰影、各要素を考えながら、良い答えを見つけられるまで積極的に迷うことを諦めない。
+            </p>
+          </div>
+          <figure class="p-staff__figure">
+            <img
+              src="@/assets/images/kadel/staff_icon_akiyama.png"
+              alt="本社 心斎橋 統括所長 秋山 かず子"
+            />
+          </figure>
+        </li>
+        <li class="common-fadein js-fadein">
+          <div class="p-staff__text">
+            <h3>西尾 真一<span>本社 所長</span></h3>
+            <p>
+              私は、お引渡しのときの施主様の笑顔をたくさん見てきました。<br />そこに住まうご家族がいつまでも仲良く、笑顔で、愉しく暮らし、優しい思い出が刻み込まれる、そんな住まいを設計したいと思っています。
+            </p>
+          </div>
+          <figure class="p-staff__figure">
+            <img
+              src="@/assets/images/kadel/staff_icon_nishio.png"
+              alt="本社 所長 西尾 真一"
+            />
           </figure>
         </li>
       </ul>
@@ -388,68 +384,283 @@
 </template>
 
 <script>
-import kadelData from '../assets/kadel.json';
-import kadelDesignA from '@/components/KadelDesignA';
-import kadelDesignB from '@/components/KadelDesignB';
-import kadelPassiveA from '@/components/KadelPassiveA';
-import kadelPassiveB from '@/components/KadelPassiveB';
-import kadelPassiveC from '@/components/KadelPassiveC';
-
 export default {
   name: 'Kadel',
-  components: {
-    tabDesignA: kadelDesignA,
-    tabDesignB: kadelDesignB,
-    tabPassiveA: kadelPassiveA,
-    tabPassiveB: kadelPassiveB,
-    tabPassiveC: kadelPassiveC
+  methods: {
+    changeTab: function(index) {
+      this.currentTab.design = index;
+    }
   },
   data() {
     return {
-      kadel: kadelData,
-      current: {
-        design: 'designA',
-        passive: 'passiveA'
+      textContents: {
+        designTab: ['理想をかたちに', '繊細な住宅設計'],
+        designText: [
+          '数多くの賞を受賞する建築デザイナーが<br />お聞かせいただいたご家族のたくさんの想いとご希望を<br />自由な設計とプラスアルファなご提案で<br />理想の住まいへとかたちにいたします。',
+          '「暮らしやすい間取り」「快適な家事動線」<br>綿密なヒアリングをもとに実際の暮らしを<br class="for-sp">しっかりと配慮し、<br class="for-pc">ご家族の笑顔であふれる<br class="for-sp">快適な住まいを設計いたします。'
+        ]
       },
-      tabs: {
-        design: {
-          designA: '理想をかたちに',
-          designB: '繊細な住宅設計'
-        },
-        passive: {
-          passiveA: 'パッシブデザイン',
-          passiveB: '四季と共に生きる',
-          passiveC: '土地を活かす'
-        }
-      }
+      currentTab: {
+        design: 0
+      },
+      design: [
+        [
+          {
+            title: '理想をかたちに',
+            img: 'assets/images/kadel/design_block01_img01.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/design_block01_img01-l.jpg'
+          },
+          {
+            title: '理想をかたちに',
+            img: 'assets/images/kadel/design_block01_img02.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 瓦の家',
+            modal: 'assets/images/kadel/popup/design_block01_img02-l.jpg'
+          },
+          {
+            title: '理想をかたちに',
+            img: 'assets/images/kadel/design_block01_img03.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
+            modal: 'assets/images/kadel/popup/design_block01_img03-l.jpg'
+          }
+        ],
+        [
+          {
+            title: '繊細な住宅設計',
+            img: 'assets/images/kadel/design_block02_img01.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 眺望の家',
+            modal: 'assets/images/kadel/popup/design_block02_img01-l.jpg'
+          },
+          {
+            title: '繊細な住宅設計',
+            img: 'assets/images/kadel/design_block02_img02.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 中庭を囲むロの字型の家',
+            modal: 'assets/images/kadel/popup/design_block02_img02-l.jpg'
+          },
+          {
+            title: '繊細な住宅設計',
+            img: 'assets/images/kadel/design_block02_img03.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 大きな土庇と縁側の家',
+            modal: 'assets/images/kadel/popup/design_block02_img03-l.jpg'
+          }
+        ]
+      ]
+      // passive: {
+      //   slideBlockA: [
+      //     {
+      //       img: 'assets/images/kadel/passive_block01_img01.jpg',
+      //       alt: 'KADeL 環境と共に生きる 瓦の家',
+      //       modal: 'assets/images/kadel/popup/passive_block01_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/passive_block01_img02.jpg',
+      //       alt: 'KADeL 環境と共に生きる 集う家',
+      //       modal: 'assets/images/kadel/popup/passive_block01_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/passive_block01_img03.jpg',
+      //       alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
+      //     }
+      //   ],
+      //   slideBlockB: [
+      //     {
+      //       img: 'assets/images/kadel/passive_block02_img01.jpg',
+      //       alt: 'KADeL 環境と共に生きる 紀美野町の平屋',
+      //       modal: 'assets/images/kadel/popup/passive_block02_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/passive_block02_img02.jpg',
+      //       alt: 'KADeL 環境と共に生きる とおり庭の家',
+      //       modal: 'assets/images/kadel/popup/passive_block02_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/passive_block02_img03.jpg',
+      //       alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/passive_block02_img03-l.jpg'
+      //     }
+      //   ],
+      //   slideBlockC: [
+      //     {
+      //       img: 'assets/images/kadel/passive_block03_img01.jpg',
+      //       alt: 'KADeL 環境と共に生きる 瓦の家',
+      //       modal: 'assets/images/kadel/popup/passive_block03_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/passive_block03_img02.jpg',
+      //       alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/passive_block03_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/passive_block03_img03.jpg',
+      //       alt: 'KADeL 環境と共に生きる 3角敷地に3角な3階建の家',
+      //       modal: 'assets/images/kadel/popup/passive_block03_img03-l.jpg'
+      //     }
+      //   ]
+      // },
+      // support: {
+      //   slideBlockA: [
+      //     {
+      //       img: 'assets/images/kadel/support_block01_img01.jpg',
+      //       alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
+      //       modal: 'assets/images/kadel/popup/support_block01_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/support_block01_img02.jpg',
+      //       alt:
+      //         'KADeL カデル 想い描いた理想をかたちに A型スリットからつづくコートハウス',
+      //       modal: 'assets/images/kadel/popup/support_block01_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/support_block01_img03.jpg',
+      //       alt: 'KADeL カデル 想い描いた理想をかたちに 集う家',
+      //       modal: 'assets/images/kadel/popup/support_block01_img03-l.jpg'
+      //     }
+      //   ],
+      //   slideBlockB: [
+      //     {
+      //       img: 'assets/images/kadel/support_block02_img01.jpg',
+      //       alt: 'KADeL カデル プロフェッショナルによるサポート 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/support_block02_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/support_block02_img02.jpg',
+      //       alt:
+      //         'KADeL カデル プロフェッショナルによるサポート 自然環境を取り込むフィルターの家',
+      //       modal: 'assets/images/kadel/popup/support_block02_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/support_block02_img03.jpg',
+      //       alt: 'KADeL カデル プロフェッショナルによるサポート terrace',
+      //       modal: 'assets/images/kadel/popup/support_block02_img03-l.jpg'
+      //     }
+      //   ],
+      //   slideBlockC: [
+      //     {
+      //       img: 'assets/images/kadel/support_block03_img01.jpg',
+      //       alt:
+      //         'KADeL カデル 想い描いた理想をかたちに 都市に住まう大家族の家',
+      //       modal: 'assets/images/kadel/popup/support_block03_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/support_block03_img02.jpg',
+      //       alt: 'KADeL カデル 想い描いた理想をかたちに 旗竿地の白い家',
+      //       modal: 'assets/images/kadel/popup/support_block03_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/support_block03_img03.jpg',
+      //       alt: 'KADeL カデル 想い描いた理想をかたちに 凛椛 Organic',
+      //       modal: 'assets/images/kadel/popup/support_block03_img03-l.jpg'
+      //     }
+      //   ]
+      // },
+      // awards: {
+      //   slideBlockA: [
+      //     {
+      //       img: 'assets/images/kadel/awards_slide01_img01.jpg',
+      //       alt:
+      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+      //       modal: 'assets/images/kadel/popup/awards_slide01_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide01_img02.jpg',
+      //       alt:
+      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+      //       modal: 'assets/images/kadel/popup/awards_slide01_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide01_img03.jpg',
+      //       alt:
+      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+      //       modal: 'assets/images/kadel/popup/awards_slide01_img03-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide01_img04.jpg',
+      //       alt:
+      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+      //       modal: 'assets/images/kadel/popup/awards_slide01_img04-l.jpg'
+      //     }
+      //   ],
+      //   slideBlockB: [
+      //     {
+      //       img: 'assets/images/kadel/awards_slide02_img01.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/awards_slide02_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide02_img02.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/awards_slide02_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide02_img03.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/awards_slide02_img03-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide02_img04.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+      //       modal: 'assets/images/kadel/popup/awards_slide02_img04-l.jpg'
+      //     }
+      //   ],
+      //   slideBlockC: [
+      //     {
+      //       img: 'assets/images/kadel/awards_slide03_img01.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+      //       modal: 'assets/images/kadel/popup/awards_slide03_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide03_img02.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+      //       modal: 'assets/images/kadel/popup/awards_slide03_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide03_img03.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+      //       modal: 'assets/images/kadel/popup/awards_slide03_img03-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide03_img04.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+      //       modal: 'assets/images/kadel/popup/awards_slide03_img04-l.jpg'
+      //     }
+      //   ],
+      //   slideBlockD: [
+      //     {
+      //       img: 'assets/images/kadel/awards_slide04_img01.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+      //       modal: 'assets/images/kadel/popup/awards_slide04_img01-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide04_img02.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+      //       modal: 'assets/images/kadel/popup/awards_slide04_img02-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide04_img03.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+      //       modal: 'assets/images/kadel/popup/awards_slide04_img03-l.jpg'
+      //     },
+      //     {
+      //       img: 'assets/images/kadel/awards_slide04_img04.jpg',
+      //       alt:
+      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+      //       modal: 'assets/images/kadel/popup/awards_slide04_img04-l.jpg'
+      //     }
+      //   ]
+      // }
     };
-  },
-  computed: {
-    tabNames: function() {
-      return Object.keys(this.tabs); // tabs の key を配列で返す
-    },
-    currentDesignTab: function() {
-      return 'tab-' + this.current.design;
-    },
-    currentPassiveTab: function() {
-      return 'tab-' + this.current.passive;
-    }
-  },
-  methods: {
-    handleNewLine: function(str) {
-      return str
-        .replace(/\n/g, '<br class="for-pc">')
-        .replace(/\r/g, '<br class="for-sp">')
-        .replace(/\f/g, '<br>');
-    },
-    tabDesign: function(tab) {
-      console.log(tab);
-      this.current.design = tab;
-    },
-    tabPassive: function(tab) {
-      console.log(tab);
-      this.current.passive = tab;
-    }
   }
 };
 </script>
@@ -483,6 +694,17 @@ export default {
       width: 100%;
       z-index: 999;
     }
+  }
+
+  /* トランジション用スタイル */
+  .text-leave-active {
+    position: absolute;
+  }
+  .text-enter {
+    transform: translateX(100%);
+  }
+  .text-leave-to {
+    transform: translateX(-100%);
   }
 
   h1,
@@ -1059,11 +1281,13 @@ export default {
     }
 
     &__textBlock {
+      transition: all 0.8s ease;
       @include mq(kadel-lg) {
         overflow: hidden;
       }
 
       > p {
+        transition: all 0.8s ease;
         font-size: 14px;
         line-height: 2;
         letter-spacing: 1px;
@@ -1079,6 +1303,7 @@ export default {
     }
 
     &__imageBlock {
+      transition: all 0.8s ease;
       > li {
         @include mq(kadel-lg) {
           overflow: hidden;
