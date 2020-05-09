@@ -107,26 +107,64 @@
             <h3 class="p-mainBlock__concept for-sp">
               理想をかたちに
             </h3>
-            <transition name="text">
-              <p
-                v-html="textContents.designText[currentTab.design]"
-                :key="textContents.designText[currentTab.design]"
-              ></p>
-            </transition>
+            <p v-show="design.show[0]">
+              数多くの賞を受賞する建築デザイナーが<br />お聞かせいただいたご家族のたくさんの想いとご希望を<br
+                class="for-pc"
+              />自由な設計とプラスアルファなご提案で<br />理想の住まいへとかたちにいたします。
+            </p>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
           >
             <li
-              v-for="imageSet in design[currentTab.design]"
+              v-for="imageSet in design.slideA"
               :key="imageSet.img"
+              v-bind:class="{ 'mod-test': design.blockA }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <img
-                  :src="require('@/' + imageSet.img)"
-                  :alt="imageSet.alt"
-                  :key="imageSet.title"
-                />
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.title"
+                    v-show="design.show[0]"
+                  />
+                </transition>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-mainBlock__content p-mainBlock--design__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">
+              繊細な住宅設計
+            </h3>
+            <p v-show="design.show[1]">
+              「暮らしやすい間取り」「快適な家事動線」<br />綿密なヒアリングをもとに実際の暮らしを<br
+                class="for-sp"
+              />しっかりと配慮し、<br class="for-pc" />ご家族の笑顔であふれる<br
+                class="for-sp"
+              />快適な住まいを設計いたします。
+            </p>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
+          >
+            <li
+              v-for="imageSet in design.slideB"
+              :key="imageSet.img"
+              v-bind:class="{ 'mod-test': design.blockB }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.title"
+                    v-show="design.show[1]"
+                  />
+                </transition>
               </a>
             </li>
           </ul>
@@ -406,7 +444,14 @@ export default {
   name: 'Kadel',
   methods: {
     changeTab: function(index) {
-      this.currentTab.design = index;
+      let self = this;
+      for (let i = 0; i < this.design.show.length; i++) {
+        i == index
+          ? self.$set(self.design.show, index, true)
+          : self.$set(self.design.show, i, false);
+      }
+      this.design.blockA = !this.design.blockA;
+      this.design.blockB = !this.design.blockB;
     }
   },
   data() {
@@ -418,11 +463,11 @@ export default {
           '「暮らしやすい間取り」「快適な家事動線」<br>綿密なヒアリングをもとに実際の暮らしを<br class="for-sp">しっかりと配慮し、<br class="for-pc">ご家族の笑顔であふれる<br class="for-sp">快適な住まいを設計いたします。'
         ]
       },
-      currentTab: {
-        design: 0
-      },
-      design: [
-        [
+      design: {
+        show: [true, false],
+        blockA: true,
+        blockB: false,
+        slideA: [
           {
             title: 'a',
             img: 'assets/images/kadel/design_block01_img01.jpg',
@@ -442,7 +487,7 @@ export default {
             modal: 'assets/images/kadel/popup/design_block01_img03-l.jpg'
           }
         ],
-        [
+        slideB: [
           {
             title: 'd',
             img: 'assets/images/kadel/design_block02_img01.jpg',
@@ -462,7 +507,7 @@ export default {
             modal: 'assets/images/kadel/popup/design_block02_img03-l.jpg'
           }
         ]
-      ]
+      }
       // passive: {
       //   slideBlockA: [
       //     {
@@ -725,6 +770,76 @@ export default {
   }
   .text-leave-to {
     transform: translateX(-100%);
+  }
+
+  .image-leave-active,
+  .image-enter-active {
+    transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .image-leave {
+    transform: translateX(0);
+  }
+
+  .image-leave-active {
+    transform: translateX(-50%);
+  }
+
+  .image-leave-to {
+    transform: translateX(-100%);
+  }
+
+  .image-enter {
+    transform: scale(0.8);
+  }
+
+  .image-enter-active {
+    transform: scale(0.9);
+  }
+
+  .image-enter-to {
+    transform: scale(1);
+  }
+
+  .image-two-leave-active,
+  .image-two-enter-active {
+    transition: all 3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .image-two-leave {
+    transform: translateX(0);
+  }
+
+  .image-two-leave-active {
+    transform: translateX(-50%);
+  }
+
+  .image-two-leave-to {
+    transform: translateX(-100%);
+  }
+
+  .image-two-enter {
+    transform: scale(0.8);
+    z-index: -1;
+  }
+
+  .image-two-enter-active {
+    transform: scale(0.9);
+    z-index: -1;
+  }
+
+  .image-two-enter-to {
+    transform: scale(1);
+    z-index: -1;
+  }
+
+  .mod-test {
+    position: relative;
+    z-index: -999;
+  }
+
+  .p-mainBlock__imageBlock li {
+    overflow: hidden;
   }
 
   h1,
