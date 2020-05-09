@@ -99,8 +99,11 @@
           <h3
             class="p-mainBlock__concept"
             :key="tab"
-            @click="changeTab(index)"
-            v-bind:class="{ handlePointer: isProcess }"
+            @click="changeTab(index, design)"
+            v-bind:class="[
+              { handlePointer: isProcess },
+              index == design.currentTab ? 'is-current' : ''
+            ]"
           >
             {{ tab }}
           </h3>
@@ -134,7 +137,7 @@
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
                     :key="imageSet.title"
-                    v-show="design.show[0]"
+                    v-show="checkMq || design.show[0]"
                   />
                 </transition>
               </a>
@@ -173,7 +176,7 @@
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
                     :key="imageSet.title"
-                    v-show="design.show[1]"
+                    v-show="checkMq || design.show[1]"
                   />
                 </transition>
               </a>
@@ -454,19 +457,18 @@
 export default {
   name: 'Kadel',
   methods: {
-    changeTab: function(index) {
-      if (this.currentTab == index) return false;
-      this.isProcess = true;
+    changeTab: function(index, section) {
+      this.section = section;
+      if (this.section.currentTab == index) return false;
 
-      let self = this;
-      for (let i = 0; i < this.design.show.length; i++) {
+      this.isProcess = true;
+      const self = this;
+      for (let i = 0; i < this.section.show.length; i++) {
         i == index
-          ? self.$set(self.design.show, index, true)
-          : self.$set(self.design.show, i, false);
+          ? self.$set(self.section.show, index, true)
+          : self.$set(self.section.show, i, false);
       }
-      this.currentTab = index;
-      this.design.blockA = !this.design.blockA;
-      this.design.blockB = !this.design.blockB;
+      this.section.currentTab = index;
     },
     onResize() {
       this.windowWidth = window.innerWidth;
@@ -477,11 +479,7 @@ export default {
   },
   computed: {
     checkMq: function() {
-      if (this.windowWidth >= 1024) {
-        return 'design.show';
-      } else {
-        return false;
-      }
+      return this.windowWidth < 1025 ? true : false;
     }
   },
   mounted() {
@@ -500,7 +498,6 @@ export default {
     return {
       isProcess: false,
       pointerNone: false,
-      show: '',
       textContents: {
         designTab: ['理想をかたちに', '繊細な住宅設計'],
         designText: [
@@ -510,10 +507,9 @@ export default {
       },
       windowWidth: window.innerWidth,
       design: {
-        show: [true, false],
-        currentTab: 1,
-        blockA: true,
-        blockB: false,
+        show: [true, false], // tab, imageの初期値
+        currentTab: 0,
+        currentTabBorder: '',
         slideA: [
           {
             title: 'a',
@@ -861,6 +857,10 @@ export default {
 
   .handlePointer {
     pointer-events: none;
+  }
+
+  .is-current {
+    border-bottom: 1px solid #000;
   }
 
   .p-mainBlock__imageBlock li {
