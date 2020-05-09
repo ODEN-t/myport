@@ -96,7 +96,12 @@
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--design__tabWrap for-lg">
         <slot v-for="(tab, index) in textContents.designTab">
-          <h3 class="p-mainBlock__concept" :key="tab" @click="changeTab(index)">
+          <h3
+            class="p-mainBlock__concept"
+            :key="tab"
+            @click="changeTab(index)"
+            v-bind:class="{ handlePointer: isProcess }"
+          >
             {{ tab }}
           </h3>
         </slot>
@@ -107,11 +112,13 @@
             <h3 class="p-mainBlock__concept for-sp">
               理想をかたちに
             </h3>
-            <p v-show="design.show[0]">
-              数多くの賞を受賞する建築デザイナーが<br />お聞かせいただいたご家族のたくさんの想いとご希望を<br
-                class="for-pc"
-              />自由な設計とプラスアルファなご提案で<br />理想の住まいへとかたちにいたします。
-            </p>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="design.show[0]">
+                数多くの賞を受賞する建築デザイナーが<br />お聞かせいただいたご家族のたくさんの想いとご希望を<br
+                  class="for-pc"
+                />自由な設計とプラスアルファなご提案で<br />理想の住まいへとかたちにいたします。
+              </p>
+            </transition>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
@@ -119,7 +126,7 @@
             <li
               v-for="imageSet in design.slideA"
               :key="imageSet.img"
-              v-bind:class="{ 'mod-test': design.blockA }"
+              v-bind:class="{ handleLayer: design.show[0] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
                 <transition name="image">
@@ -140,13 +147,17 @@
             <h3 class="p-mainBlock__concept for-sp">
               繊細な住宅設計
             </h3>
-            <p v-show="design.show[1]">
-              「暮らしやすい間取り」「快適な家事動線」<br />綿密なヒアリングをもとに実際の暮らしを<br
-                class="for-sp"
-              />しっかりと配慮し、<br class="for-pc" />ご家族の笑顔であふれる<br
-                class="for-sp"
-              />快適な住まいを設計いたします。
-            </p>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="design.show[1]">
+                「暮らしやすい間取り」「快適な家事動線」<br />綿密なヒアリングをもとに実際の暮らしを<br
+                  class="for-sp"
+                />しっかりと配慮し、<br
+                  class="for-pc"
+                />ご家族の笑顔であふれる<br
+                  class="for-sp"
+                />快適な住まいを設計いたします。
+              </p>
+            </transition>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
@@ -154,7 +165,7 @@
             <li
               v-for="imageSet in design.slideB"
               :key="imageSet.img"
-              v-bind:class="{ 'mod-test': design.blockB }"
+              v-bind:class="{ handleLayer: design.show[1] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
                 <transition name="image">
@@ -444,18 +455,52 @@ export default {
   name: 'Kadel',
   methods: {
     changeTab: function(index) {
+      if (this.currentTab == index) return false;
+      this.isProcess = true;
+
       let self = this;
       for (let i = 0; i < this.design.show.length; i++) {
         i == index
           ? self.$set(self.design.show, index, true)
           : self.$set(self.design.show, i, false);
       }
+      this.currentTab = index;
       this.design.blockA = !this.design.blockA;
       this.design.blockB = !this.design.blockB;
+    },
+    onResize() {
+      this.windowWidth = window.innerWidth;
+    },
+    afterEnter() {
+      this.isProcess = false;
     }
+  },
+  computed: {
+    checkMq: function() {
+      if (this.windowWidth >= 1024) {
+        return 'design.show';
+      } else {
+        return false;
+      }
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      // vue起動時、ビュー全体がレンダリングされてから$nextTickでaddEvent mount → vue描画 → addEvent → ブラウザに表示(ここで制御がブラウザに移る)
+      window.addEventListener('resize', this.onResize);
+    });
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
+    };
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
   },
   data() {
     return {
+      isProcess: false,
+      pointerNone: false,
+      show: '',
       textContents: {
         designTab: ['理想をかたちに', '繊細な住宅設計'],
         designText: [
@@ -463,8 +508,10 @@ export default {
           '「暮らしやすい間取り」「快適な家事動線」<br>綿密なヒアリングをもとに実際の暮らしを<br class="for-sp">しっかりと配慮し、<br class="for-pc">ご家族の笑顔であふれる<br class="for-sp">快適な住まいを設計いたします。'
         ]
       },
+      windowWidth: window.innerWidth,
       design: {
         show: [true, false],
+        currentTab: 1,
         blockA: true,
         blockB: false,
         slideA: [
@@ -760,6 +807,10 @@ export default {
   }
 
   /* トランジション用スタイル */
+  .text-leave-active,
+  .text-enter-active {
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+  }
   .text-leave-active {
     position: absolute;
     opacity: 0;
@@ -774,7 +825,7 @@ export default {
 
   .image-leave-active,
   .image-enter-active {
-    transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 1s ease-in-out;
   }
 
   .image-leave {
@@ -790,56 +841,32 @@ export default {
   }
 
   .image-enter {
-    transform: scale(0.8);
+    transform: scale(1.2);
   }
 
   .image-enter-active {
-    transform: scale(0.9);
+    transform: scale(1.1);
   }
 
   .image-enter-to {
     transform: scale(1);
   }
 
-  .image-two-leave-active,
-  .image-two-enter-active {
-    transition: all 3s cubic-bezier(0.23, 1, 0.32, 1);
+  .handleLayer {
+    @include mq(kadel-lg) {
+      position: relative;
+      z-index: -1;
+    }
   }
 
-  .image-two-leave {
-    transform: translateX(0);
-  }
-
-  .image-two-leave-active {
-    transform: translateX(-50%);
-  }
-
-  .image-two-leave-to {
-    transform: translateX(-100%);
-  }
-
-  .image-two-enter {
-    transform: scale(0.8);
-    z-index: -1;
-  }
-
-  .image-two-enter-active {
-    transform: scale(0.9);
-    z-index: -1;
-  }
-
-  .image-two-enter-to {
-    transform: scale(1);
-    z-index: -1;
-  }
-
-  .mod-test {
-    position: relative;
-    z-index: -999;
+  .handlePointer {
+    pointer-events: none;
   }
 
   .p-mainBlock__imageBlock li {
-    overflow: hidden;
+    @include mq(kadel-lg) {
+      overflow: hidden;
+    }
   }
 
   h1,
@@ -1426,7 +1453,6 @@ export default {
         line-height: 2;
         letter-spacing: 1px;
         margin-top: 16px;
-        transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
         transition-delay: 1s;
         @include mq(kadel-lt-lg) {
           padding-left: 0.5em;
