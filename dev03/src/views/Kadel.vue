@@ -36,7 +36,7 @@
 
     <section class="p-main">
       <div class="p-main__text js-hero_text">
-        <h2>想い描いた、理想の住まいをかたちに</h2>
+        <h2>想い描いた、<br class="for-sp" />理想の住まいをかたちに</h2>
         <h3>KADeLの注文住宅</h3>
         <a href="#smooth" class="p-main__scrollBtn">
           SCROLL
@@ -53,7 +53,15 @@
         </h2>
         <h3>30th anniversary</h3>
         <p>
-          住宅が大好きで、人生をかけて住宅を追求していきたい<br />そんな情熱を持った建築デザイナーが<br />お客様の意向を丁寧に汲み取りながら<br />プロとしての提案がしっかりできる会社を作りたいと考え<br />立ち上げたのがKADeLです。<br />KADeL設立より設計の力を信じて30年、そして辿り着いた住まい。
+          住宅が大好きで、人生をかけて<br
+            class="for-sp"
+          />住宅を追求していきたい<br />そんな情熱を持った建築デザイナーが<br />お客様の意向を丁寧に汲み取りながら<br />プロとしての提案がしっかりできる会社を<br
+            class="for-sp"
+          />作りたいと考え<br
+            class="for-pc"
+          />立ち上げたのがKADeLです。<br />KADeL設立より設計の力を信じて30年、<br
+            class="for-sp"
+          />そして辿り着いた住まい。
         </p>
         <p>それが「環境共生住宅」でした。</p>
       </div>
@@ -106,7 +114,6 @@
               ></p>
             </transition>
           </div>
-
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
           >
@@ -114,14 +121,13 @@
               v-for="imageSet in design[currentTab.design]"
               :key="imageSet.img"
             >
-              <transition>
-                <a :href="require('@/' + imageSet.modal)">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                  />
-                </a>
-              </transition>
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.title"
+                />
+              </a>
             </li>
           </ul>
         </div>
@@ -153,7 +159,11 @@
               パッシブデザイン
             </h3>
             <p>
-              パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、<br />目に見えない光や風・熱・空気をデザインすることで快適な暮らしを実現することができます。<br />パッシブデザインを取り入れることで、地球環境だけでなく、大切なご家族の健康面にも効果的です。<br />また、断熱性能が高い「環境共生住宅」では、部屋感の温度差がほとんどなく、<br />冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。
+              パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、<br
+                class="for-pc"
+              />目に見えない光や風・熱・空気をデザインすることで快適な暮らしを実現することができます。<br />パッシブデザインを取り入れることで、地球環境だけでなく、大切なご家族の健康面にも効果的です。<br />また、断熱性能が高い「環境共生住宅」では、部屋感の温度差がほとんどなく、<br
+                class="for-pc"
+              />冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。
             </p>
             <figure>
               <img
@@ -212,7 +222,11 @@
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
             <h3 class="p-mainBlock__concept for-sp">土地探し</h3>
             <p>
-              KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br />「KADeL」が、それぞれの目線からお手伝いさせていただきます。<br />関西全域にある不動産会社とのネットワークを活かし、<br />お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。
+              KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br
+                class="for-pc"
+              />「KADeL」が、それぞれの目線からお手伝いさせていただきます。<br />関西全域にある不動産会社とのネットワークを活かし、<br
+                class="for-pc"
+              />お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。
             </p>
           </div>
           <ul
@@ -324,7 +338,11 @@
     <section class="p-staff js-changeEnd">
       <h2>スタッフ<span>Staff</span></h2>
       <p class="common-fadein js-fadein">
-        お客さまをの家づくりをお手伝いさせていただく<br />スタッフを一部ご紹介いたします。<br />その他土地探しのプロや営業としてサポートさせていただく<br />スタッフ約25名が在籍しております。
+        お客さまをの家づくりをお手伝いさせていただく<br
+          class="for-pc"
+        />スタッフを一部ご紹介いたします。<br />その他土地探しのプロや営業として<br
+          class="for-sp"
+        />サポートさせていただく<br />スタッフ約25名が在籍しております。
       </p>
       <ul class="p-staff__list">
         <li class="common-fadein js-fadein">
@@ -406,19 +424,19 @@ export default {
       design: [
         [
           {
-            title: '理想をかたちに',
+            title: 'a',
             img: 'assets/images/kadel/design_block01_img01.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/design_block01_img01-l.jpg'
           },
           {
-            title: '理想をかたちに',
+            title: 'b',
             img: 'assets/images/kadel/design_block01_img02.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 瓦の家',
             modal: 'assets/images/kadel/popup/design_block01_img02-l.jpg'
           },
           {
-            title: '理想をかたちに',
+            title: 'c',
             img: 'assets/images/kadel/design_block01_img03.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
             modal: 'assets/images/kadel/popup/design_block01_img03-l.jpg'
@@ -426,19 +444,19 @@ export default {
         ],
         [
           {
-            title: '繊細な住宅設計',
+            title: 'd',
             img: 'assets/images/kadel/design_block02_img01.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 眺望の家',
             modal: 'assets/images/kadel/popup/design_block02_img01-l.jpg'
           },
           {
-            title: '繊細な住宅設計',
+            title: 'e',
             img: 'assets/images/kadel/design_block02_img02.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 中庭を囲むロの字型の家',
             modal: 'assets/images/kadel/popup/design_block02_img02-l.jpg'
           },
           {
-            title: '繊細な住宅設計',
+            title: 'f',
             img: 'assets/images/kadel/design_block02_img03.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 大きな土庇と縁側の家',
             modal: 'assets/images/kadel/popup/design_block02_img03-l.jpg'
@@ -699,9 +717,11 @@ export default {
   /* トランジション用スタイル */
   .text-leave-active {
     position: absolute;
+    opacity: 0;
   }
   .text-enter {
     transform: translateX(100%);
+    opacity: 1;
   }
   .text-leave-to {
     transform: translateX(-100%);
@@ -1270,6 +1290,7 @@ export default {
 
     &__content {
       @include mq(kadel-lg) {
+        // overflow: hidden;
         position: absolute;
         width: 100%;
         height: auto;
@@ -1281,17 +1302,17 @@ export default {
     }
 
     &__textBlock {
-      transition: all 0.8s ease;
       @include mq(kadel-lg) {
         overflow: hidden;
       }
 
       > p {
-        transition: all 0.8s ease;
         font-size: 14px;
         line-height: 2;
         letter-spacing: 1px;
         margin-top: 16px;
+        transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+        transition-delay: 1s;
         @include mq(kadel-lt-lg) {
           padding-left: 0.5em;
         }
@@ -1303,11 +1324,9 @@ export default {
     }
 
     &__imageBlock {
-      transition: all 0.8s ease;
-      > li {
-        @include mq(kadel-lg) {
-          overflow: hidden;
-        }
+      overflow: hidden;
+      li {
+        opacity: 1;
       }
     }
 
@@ -1957,6 +1976,7 @@ export default {
       > h3 span {
         display: block;
         font-size: 12px;
+        font-weight: 300;
         @include mq(kadel-gt-md) {
           display: inline;
           padding-left: 2em;
