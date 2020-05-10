@@ -95,7 +95,7 @@
         />世界にたったひとつの住まいを
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--design__tabWrap for-lg">
-        <slot v-for="(tab, index) in textContents.designTab">
+        <slot v-for="(tab, index) in design.tabs">
           <h3
             class="p-mainBlock__concept"
             :key="tab"
@@ -127,7 +127,7 @@
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
           >
             <li
-              v-for="imageSet in design.slideA"
+              v-for="imageSet in design.slide1"
               :key="imageSet.img"
               v-bind:class="{ handleLayer: design.show[0] }"
             >
@@ -136,7 +136,7 @@
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
-                    :key="imageSet.title"
+                    :key="imageSet.id"
                     v-show="checkMq || design.show[0]"
                   />
                 </transition>
@@ -151,7 +151,7 @@
               繊細な住宅設計
             </h3>
             <transition name="text" v-on:after-enter="afterEnter">
-              <p v-show="design.show[1]">
+              <p v-show="checkMq || design.show[1]">
                 「暮らしやすい間取り」「快適な家事動線」<br />綿密なヒアリングをもとに実際の暮らしを<br
                   class="for-sp"
                 />しっかりと配慮し、<br
@@ -166,7 +166,7 @@
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--design__imageBlock"
           >
             <li
-              v-for="imageSet in design.slideB"
+              v-for="imageSet in design.slide2"
               :key="imageSet.img"
               v-bind:class="{ handleLayer: design.show[1] }"
             >
@@ -175,7 +175,7 @@
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
-                    :key="imageSet.title"
+                    :key="imageSet.id"
                     v-show="checkMq || design.show[1]"
                   />
                 </transition>
@@ -200,9 +200,19 @@
         />自然の力を利用した<br />木造モダン建築で快適な暮らしを
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--passive__tabWrap for-lg">
-        <h3 class="p-mainBlock__concept">パッシブデザイン</h3>
-        <h3 class="p-mainBlock__concept">四季と共に生きる</h3>
-        <h3 class="p-mainBlock__concept">土地を活かす</h3>
+        <slot v-for="(tab, index) in passive.tabs">
+          <h3
+            class="p-mainBlock__concept"
+            :key="tab"
+            @click="changeTab(index, passive)"
+            v-bind:class="[
+              { handlePointer: isProcess },
+              index == passive.currentTab ? 'is-current' : ''
+            ]"
+          >
+            {{ tab }}
+          </h3>
+        </slot>
       </div>
       <div class="p-mainBlock__wrap">
         <div class="p-mainBlock__content p-mainBlock--passive__content">
@@ -210,32 +220,110 @@
             <h3 class="p-mainBlock__concept for-sp">
               パッシブデザイン
             </h3>
-            <p>
-              パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、<br
-                class="for-pc"
-              />目に見えない光や風・熱・空気をデザインすることで快適な暮らしを実現することができます。<br />パッシブデザインを取り入れることで、地球環境だけでなく、大切なご家族の健康面にも効果的です。<br />また、断熱性能が高い「環境共生住宅」では、部屋感の温度差がほとんどなく、<br
-                class="for-pc"
-              />冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。
-            </p>
-            <figure>
-              <img
-                class="passiveImage"
-                src="@/assets/images/kadel/passive_block01_img01.png"
-                alt="KADeL カデル 環境共生住宅 パッシブデザイン イメージ"
-              />
-            </figure>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="checkMq || passive.show[0]">
+                パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、<br
+                  class="for-pc"
+                />目に見えない光や風・熱・空気をデザインすることで快適な暮らしを実現することができます。<br />パッシブデザインを取り入れることで、地球環境だけでなく、大切なご家族の健康面にも効果的です。<br />また、断熱性能が高い「環境共生住宅」では、部屋感の温度差がほとんどなく、<br
+                  class="for-pc"
+                />冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。
+              </p>
+            </transition>
+            <transition name="passiveImage">
+              <figure v-show="passive.currentTab == 0">
+                <img
+                  class="passiveImage"
+                  src="@/assets/images/kadel/passive_block01_img01.png"
+                  alt="KADeL カデル 環境共生住宅 パッシブデザイン イメージ"
+                />
+              </figure>
+            </transition>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
           >
-            <!-- <li
-              v-for="imageSet in images.passive.slideBlockA"
+            <li
+              v-for="imageSet in passive.slide1"
               :key="imageSet.img"
+              v-bind:class="{ handleLayer: passive.show[0] }"
             >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || passive.show[0]"
+                  />
+                </transition>
               </a>
-            </li> -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-mainBlock__content p-mainBlock--passive__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">
+              四季と共に生きる
+            </h3>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="checkMq || passive.show[1]">
+                自然と共に暮らす環境共生住宅は、<br />偏西風や太陽高度など、季節や時間によって変化する自然環境を利用した、<br />夏涼冬暖で一年を通して快適な設計となっています。
+              </p>
+            </transition>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
+          >
+            <li
+              v-for="imageSet in passive.slide2"
+              :key="imageSet.img"
+              v-bind:class="{ handleLayer: passive.show[1] }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || passive.show[1]"
+                  />
+                </transition>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-mainBlock__content p-mainBlock--passive__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">
+              土地を活かす
+            </h3>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="checkMq || passive.show[2]">
+                家づくりとは、敷地を丁寧に読み解くところからはじまります。<br />狭小地、三角地、傾斜地など、土地の個性を活かした住まいを設計いたします。<br />また周辺環境を考慮し、堀や坪庭などを有効活用したプライバシーへの配慮、<br />騒音、防犯などの対策も万全にしています。
+              </p>
+            </transition>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--passive__imageBlock"
+          >
+            <li
+              v-for="imageSet in passive.slide3"
+              :key="imageSet.img"
+              v-bind:class="{ handleLayer: passive.show[2] }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || passive.show[2]"
+                  />
+                </transition>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -257,15 +345,19 @@
         />サポートいたします。
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--support__tabWrap for-lg">
-        <h3 class="p-mainBlock__concept">
-          土地探し
-        </h3>
-        <h3 class="p-mainBlock__concept">
-          インテリア
-        </h3>
-        <h3 class="p-mainBlock__concept">
-          長期保証
-        </h3>
+        <slot v-for="(tab, index) in support.tabs">
+          <h3
+            class="p-mainBlock__concept"
+            :key="tab"
+            @click="changeTab(index, support)"
+            v-bind:class="[
+              { handlePointer: isProcess },
+              index == support.currentTab ? 'is-current' : ''
+            ]"
+          >
+            {{ tab }}
+          </h3>
+        </slot>
       </div>
       <div class="p-mainBlock__wrap">
         <div
@@ -273,25 +365,103 @@
         >
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
             <h3 class="p-mainBlock__concept for-sp">土地探し</h3>
-            <p>
-              KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br
-                class="for-pc"
-              />「KADeL」が、それぞれの目線からお手伝いさせていただきます。<br />関西全域にある不動産会社とのネットワークを活かし、<br
-                class="for-pc"
-              />お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。
-            </p>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="checkMq || support.show[0]">
+                KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br
+                  class="for-pc"
+                />「KADeL」が、それぞれの目線からお手伝いさせていただきます。<br />関西全域にある不動産会社とのネットワークを活かし、<br
+                  class="for-pc"
+                />お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。
+              </p>
+            </transition>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
           >
-            <!-- <li
-              v-for="imageSet in images.support.slideBlockA"
+            <li
+              v-for="imageSet in support.slide1"
               :key="imageSet.img"
+              v-bind:class="{ handleLayer: support.show[0] }"
             >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || support.show[0]"
+                  />
+                </transition>
               </a>
-            </li> -->
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="p-mainBlock__content p-mainBlock--support__content add-active"
+        >
+          <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">インテリア</h3>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="checkMq || support.show[1]">
+                KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。<br />そのため、空間デザインの専門家による家具や照明などのコーディネートから<br
+                  class="for-pc"
+                />選び方、配置の仕方などのアドバイスまで承っています。
+              </p>
+            </transition>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
+          >
+            <li
+              v-for="imageSet in support.slide2"
+              :key="imageSet.img"
+              v-bind:class="{ handleLayer: support.show[1] }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || support.show[1]"
+                  />
+                </transition>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="p-mainBlock__content p-mainBlock--support__content add-active"
+        >
+          <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
+            <h3 class="p-mainBlock__concept for-sp">長期保証</h3>
+            <transition name="text" v-on:after-enter="afterEnter">
+              <p v-show="checkMq || support.show[2]">
+                お客様に快適に生活していただくためにKADeLでは、<br />「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、<br />最長20年の建物保証や完成保証にも対応しています。<br />また細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、<br />万全のサポートシステムで末永くご家族の暮らしをケアいたします。
+              </p>
+            </transition>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--support__imageBlock"
+          >
+            <li
+              v-for="imageSet in support.slide3"
+              :key="imageSet.img"
+              v-bind:class="{ handleLayer: support.show[2] }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || support.show[2]"
+                  />
+                </transition>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -369,7 +539,7 @@
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
           >
             <!-- <li
-              v-for="imageSet in images.awards.slideBlockA"
+              v-for="imageSet in images.awards.slide2lockA"
               :key="imageSet.img"
             >
               <a :href="require('@/' + imageSet.modal)">
@@ -498,170 +668,186 @@ export default {
     return {
       isProcess: false,
       pointerNone: false,
-      textContents: {
-        designTab: ['理想をかたちに', '繊細な住宅設計'],
-        designText: [
-          '数多くの賞を受賞する建築デザイナーが<br />お聞かせいただいたご家族のたくさんの想いとご希望を<br />自由な設計とプラスアルファなご提案で<br />理想の住まいへとかたちにいたします。',
-          '「暮らしやすい間取り」「快適な家事動線」<br>綿密なヒアリングをもとに実際の暮らしを<br class="for-sp">しっかりと配慮し、<br class="for-pc">ご家族の笑顔であふれる<br class="for-sp">快適な住まいを設計いたします。'
-        ]
-      },
       windowWidth: window.innerWidth,
       design: {
         show: [true, false], // tab, imageの初期値
+        tabs: ['理想をかたちに', '繊細な住宅設計'],
         currentTab: 0,
-        currentTabBorder: '',
-        slideA: [
+        slide1: [
           {
-            title: 'a',
+            id: 'Design1-1',
             img: 'assets/images/kadel/design_block01_img01.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/design_block01_img01-l.jpg'
           },
           {
-            title: 'b',
+            id: 'Design1-2',
             img: 'assets/images/kadel/design_block01_img02.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 瓦の家',
             modal: 'assets/images/kadel/popup/design_block01_img02-l.jpg'
           },
           {
-            title: 'c',
+            id: 'Design1-3',
             img: 'assets/images/kadel/design_block01_img03.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
             modal: 'assets/images/kadel/popup/design_block01_img03-l.jpg'
           }
         ],
-        slideB: [
+        slide2: [
           {
-            title: 'd',
+            id: 'Design2-1',
             img: 'assets/images/kadel/design_block02_img01.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 眺望の家',
             modal: 'assets/images/kadel/popup/design_block02_img01-l.jpg'
           },
           {
-            title: 'e',
+            id: 'Design2-2',
             img: 'assets/images/kadel/design_block02_img02.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 中庭を囲むロの字型の家',
             modal: 'assets/images/kadel/popup/design_block02_img02-l.jpg'
           },
           {
-            title: 'f',
+            id: 'Design2-3',
             img: 'assets/images/kadel/design_block02_img03.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 大きな土庇と縁側の家',
             modal: 'assets/images/kadel/popup/design_block02_img03-l.jpg'
           }
         ]
+      },
+      passive: {
+        show: [true, false, false], // tab, imageの初期値
+        tabs: ['パッシブデザイン', '四季と共に生きる', '土地を活かす'],
+        currentTab: 0,
+        slide1: [
+          {
+            id: 'Passive1-1',
+            img: 'assets/images/kadel/passive_block01_img01.jpg',
+            alt: 'KADeL 環境と共に生きる 瓦の家',
+            modal: 'assets/images/kadel/popup/passive_block01_img01-l.jpg'
+          },
+          {
+            id: 'Passive1-2',
+            img: 'assets/images/kadel/passive_block01_img02.jpg',
+            alt: 'KADeL 環境と共に生きる 集う家',
+            modal: 'assets/images/kadel/popup/passive_block01_img02-l.jpg'
+          },
+          {
+            id: 'Passive1-3',
+            img: 'assets/images/kadel/passive_block01_img03.jpg',
+            alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
+          }
+        ],
+        slide2: [
+          {
+            id: 'Passive2-1',
+            img: 'assets/images/kadel/passive_block02_img01.jpg',
+            alt: 'KADeL 環境と共に生きる 紀美野町の平屋',
+            modal: 'assets/images/kadel/popup/passive_block02_img01-l.jpg'
+          },
+          {
+            id: 'Passive2-2',
+            img: 'assets/images/kadel/passive_block02_img02.jpg',
+            alt: 'KADeL 環境と共に生きる とおり庭の家',
+            modal: 'assets/images/kadel/popup/passive_block02_img02-l.jpg'
+          },
+          {
+            id: 'Passive2-3',
+            img: 'assets/images/kadel/passive_block02_img03.jpg',
+            alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/passive_block02_img03-l.jpg'
+          }
+        ],
+        slide3: [
+          {
+            id: 'Passive3-1',
+            img: 'assets/images/kadel/passive_block03_img01.jpg',
+            alt: 'KADeL 環境と共に生きる 瓦の家',
+            modal: 'assets/images/kadel/popup/passive_block03_img01-l.jpg'
+          },
+          {
+            id: 'Passive3-2',
+            img: 'assets/images/kadel/passive_block03_img02.jpg',
+            alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/passive_block03_img02-l.jpg'
+          },
+          {
+            id: 'Passive3-3',
+            img: 'assets/images/kadel/passive_block03_img03.jpg',
+            alt: 'KADeL 環境と共に生きる 3角敷地に3角な3階建の家',
+            modal: 'assets/images/kadel/popup/passive_block03_img03-l.jpg'
+          }
+        ]
+      },
+      support: {
+        show: [true, false, false], // tab, imageの初期値
+        tabs: ['土地探し', 'インテリア', '長期保証'],
+        currentTab: 0,
+        slide1: [
+          {
+            id: 'Support1-1',
+            img: 'assets/images/kadel/support_block01_img01.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
+            modal: 'assets/images/kadel/popup/support_block01_img01-l.jpg'
+          },
+          {
+            id: 'Support1-2',
+            img: 'assets/images/kadel/support_block01_img02.jpg',
+            alt:
+              'KADeL カデル 想い描いた理想をかたちに A型スリットからつづくコートハウス',
+            modal: 'assets/images/kadel/popup/support_block01_img02-l.jpg'
+          },
+          {
+            id: 'Support1-3',
+            img: 'assets/images/kadel/support_block01_img03.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 集う家',
+            modal: 'assets/images/kadel/popup/support_block01_img03-l.jpg'
+          }
+        ],
+        slide2: [
+          {
+            id: 'Support2-1',
+            img: 'assets/images/kadel/support_block02_img01.jpg',
+            alt: 'KADeL カデル プロフェッショナルによるサポート 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/support_block02_img01-l.jpg'
+          },
+          {
+            id: 'Support2-2',
+            img: 'assets/images/kadel/support_block02_img02.jpg',
+            alt:
+              'KADeL カデル プロフェッショナルによるサポート 自然環境を取り込むフィルターの家',
+            modal: 'assets/images/kadel/popup/support_block02_img02-l.jpg'
+          },
+          {
+            id: 'Support2-3',
+            img: 'assets/images/kadel/support_block02_img03.jpg',
+            alt: 'KADeL カデル プロフェッショナルによるサポート terrace',
+            modal: 'assets/images/kadel/popup/support_block02_img03-l.jpg'
+          }
+        ],
+        slide3: [
+          {
+            id: 'Support3-1',
+            img: 'assets/images/kadel/support_block03_img01.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 都市に住まう大家族の家',
+            modal: 'assets/images/kadel/popup/support_block03_img01-l.jpg'
+          },
+          {
+            id: 'Support3-2',
+            img: 'assets/images/kadel/support_block03_img02.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 旗竿地の白い家',
+            modal: 'assets/images/kadel/popup/support_block03_img02-l.jpg'
+          },
+          {
+            id: 'Support3-3',
+            img: 'assets/images/kadel/support_block03_img03.jpg',
+            alt: 'KADeL カデル 想い描いた理想をかたちに 凛椛 Organic',
+            modal: 'assets/images/kadel/popup/support_block03_img03-l.jpg'
+          }
+        ]
       }
-      // passive: {
-      //   slideBlockA: [
-      //     {
-      //       img: 'assets/images/kadel/passive_block01_img01.jpg',
-      //       alt: 'KADeL 環境と共に生きる 瓦の家',
-      //       modal: 'assets/images/kadel/popup/passive_block01_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/passive_block01_img02.jpg',
-      //       alt: 'KADeL 環境と共に生きる 集う家',
-      //       modal: 'assets/images/kadel/popup/passive_block01_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/passive_block01_img03.jpg',
-      //       alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
-      //     }
-      //   ],
-      //   slideBlockB: [
-      //     {
-      //       img: 'assets/images/kadel/passive_block02_img01.jpg',
-      //       alt: 'KADeL 環境と共に生きる 紀美野町の平屋',
-      //       modal: 'assets/images/kadel/popup/passive_block02_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/passive_block02_img02.jpg',
-      //       alt: 'KADeL 環境と共に生きる とおり庭の家',
-      //       modal: 'assets/images/kadel/popup/passive_block02_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/passive_block02_img03.jpg',
-      //       alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/passive_block02_img03-l.jpg'
-      //     }
-      //   ],
-      //   slideBlockC: [
-      //     {
-      //       img: 'assets/images/kadel/passive_block03_img01.jpg',
-      //       alt: 'KADeL 環境と共に生きる 瓦の家',
-      //       modal: 'assets/images/kadel/popup/passive_block03_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/passive_block03_img02.jpg',
-      //       alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/passive_block03_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/passive_block03_img03.jpg',
-      //       alt: 'KADeL 環境と共に生きる 3角敷地に3角な3階建の家',
-      //       modal: 'assets/images/kadel/popup/passive_block03_img03-l.jpg'
-      //     }
-      //   ]
-      // },
-      // support: {
-      //   slideBlockA: [
-      //     {
-      //       img: 'assets/images/kadel/support_block01_img01.jpg',
-      //       alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
-      //       modal: 'assets/images/kadel/popup/support_block01_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/support_block01_img02.jpg',
-      //       alt:
-      //         'KADeL カデル 想い描いた理想をかたちに A型スリットからつづくコートハウス',
-      //       modal: 'assets/images/kadel/popup/support_block01_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/support_block01_img03.jpg',
-      //       alt: 'KADeL カデル 想い描いた理想をかたちに 集う家',
-      //       modal: 'assets/images/kadel/popup/support_block01_img03-l.jpg'
-      //     }
-      //   ],
-      //   slideBlockB: [
-      //     {
-      //       img: 'assets/images/kadel/support_block02_img01.jpg',
-      //       alt: 'KADeL カデル プロフェッショナルによるサポート 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/support_block02_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/support_block02_img02.jpg',
-      //       alt:
-      //         'KADeL カデル プロフェッショナルによるサポート 自然環境を取り込むフィルターの家',
-      //       modal: 'assets/images/kadel/popup/support_block02_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/support_block02_img03.jpg',
-      //       alt: 'KADeL カデル プロフェッショナルによるサポート terrace',
-      //       modal: 'assets/images/kadel/popup/support_block02_img03-l.jpg'
-      //     }
-      //   ],
-      //   slideBlockC: [
-      //     {
-      //       img: 'assets/images/kadel/support_block03_img01.jpg',
-      //       alt:
-      //         'KADeL カデル 想い描いた理想をかたちに 都市に住まう大家族の家',
-      //       modal: 'assets/images/kadel/popup/support_block03_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/support_block03_img02.jpg',
-      //       alt: 'KADeL カデル 想い描いた理想をかたちに 旗竿地の白い家',
-      //       modal: 'assets/images/kadel/popup/support_block03_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/support_block03_img03.jpg',
-      //       alt: 'KADeL カデル 想い描いた理想をかたちに 凛椛 Organic',
-      //       modal: 'assets/images/kadel/popup/support_block03_img03-l.jpg'
-      //     }
-      //   ]
-      // },
       // awards: {
-      //   slideBlockA: [
+      //   slide2lockA: [
       //     {
       //       img: 'assets/images/kadel/awards_slide01_img01.jpg',
       //       alt:
@@ -687,7 +873,7 @@ export default {
       //       modal: 'assets/images/kadel/popup/awards_slide01_img04-l.jpg'
       //     }
       //   ],
-      //   slideBlockB: [
+      //   slide2lockB: [
       //     {
       //       img: 'assets/images/kadel/awards_slide02_img01.jpg',
       //       alt:
@@ -713,7 +899,7 @@ export default {
       //       modal: 'assets/images/kadel/popup/awards_slide02_img04-l.jpg'
       //     }
       //   ],
-      //   slideBlockC: [
+      //   slide2lockC: [
       //     {
       //       img: 'assets/images/kadel/awards_slide03_img01.jpg',
       //       alt:
@@ -739,7 +925,7 @@ export default {
       //       modal: 'assets/images/kadel/popup/awards_slide03_img04-l.jpg'
       //     }
       //   ],
-      //   slideBlockD: [
+      //   slide2lockD: [
       //     {
       //       img: 'assets/images/kadel/awards_slide04_img01.jpg',
       //       alt:
@@ -803,49 +989,47 @@ export default {
   }
 
   /* トランジション用スタイル */
-  .text-leave-active,
-  .text-enter-active {
-    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .text-leave-active {
-    position: absolute;
-    opacity: 0;
-  }
-  .text-enter {
-    transform: translateX(100%);
-    opacity: 1;
-  }
-  .text-leave-to {
-    transform: translateX(-100%);
-  }
-
-  .image-leave-active,
-  .image-enter-active {
-    transition: transform 1s ease-in-out;
+  .text {
+    &-leave-active,
+    &-enter-active {
+      transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    &-leave-active {
+      position: absolute;
+      opacity: 0;
+    }
+    &-leave-to {
+      transform: translateX(-100%);
+    }
+    &-enter {
+      transform: translateX(100%);
+      opacity: 1;
+    }
   }
 
-  .image-leave {
-    transform: translateX(0);
-  }
-
-  .image-leave-active {
-    transform: translateX(-50%);
-  }
-
-  .image-leave-to {
-    transform: translateX(-100%);
-  }
-
-  .image-enter {
-    transform: scale(1.2);
-  }
-
-  .image-enter-active {
-    transform: scale(1.1);
-  }
-
-  .image-enter-to {
-    transform: scale(1);
+  .image {
+    &-leave-active,
+    &-enter-active {
+      transition: transform 1s ease-in-out;
+    }
+    &-leave {
+      transform: translateX(0);
+    }
+    &-leave-active {
+      transform: translateX(-50%);
+    }
+    &-leave-to {
+      transform: translateX(-100%);
+    }
+    &-enter {
+      transform: scale(1.2);
+    }
+    &-enter-active {
+      transform: scale(1.1);
+    }
+    &-enter-to {
+      transform: scale(1);
+    }
   }
 
   .handleLayer {
@@ -866,6 +1050,19 @@ export default {
   .p-mainBlock__imageBlock li {
     @include mq(kadel-lg) {
       overflow: hidden;
+    }
+  }
+
+  .passiveImage {
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      transition-delay: 1.6s;
+    }
+    &-enter-to {
+      opacity: 1;
     }
   }
 
