@@ -515,45 +515,214 @@
       </dl>
 
       <div class="p-mainBlock__wrap p-mainBlock--award__wrap">
-        <div
-          class="p-mainBlock__content p-mainBlock--award__content add-active"
-        >
+        <div class="p-mainBlock__content p-mainBlock--award__content">
           <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
-            <h3 class="js-contest-name p-mainBlock__contestName">
-              LIXIL MEMBERS CONTEST 2017<br
-                class="mod-displayNone_desktop"
-              /><span>新築部門 敢闘賞</span>
-            </h3>
-            <dl class="p-mainBlock__contestList">
-              <dt>住まい</dt>
-              <dd class="mod-work-title">自然環境を取り込むフィルターの家</dd>
-              <dt>地域</dt>
-              <dd class="mod-city-name">OSAKA</dd>
-              <dt>敷地面積</dt>
-              <dd>約202.71㎡ (約61.31坪)</dd>
-              <dt>延床面積</dt>
-              <dd class="js-offset-mobile-child">約148.88㎡（約45.03坪）</dd>
-            </dl>
+            <transition name="contest-title">
+              <h3
+                class=" p-mainBlock__contestTitle"
+                v-show="checkMq || awards.show[0]"
+              >
+                LIXIL MEMBERS CONTEST 2017<br class="for-sp" /><span
+                  >新築部門 敢闘賞</span
+                >
+              </h3>
+            </transition>
+            <transition name="contest-data" v-on:after-enter="afterEnter">
+              <dl
+                class="p-mainBlock__contestList"
+                v-show="checkMq || awards.show[0]"
+              >
+                <dt>住まい</dt>
+                <dd>自然環境を取り込むフィルターの家</dd>
+                <dt>地域</dt>
+                <dd>OSAKA</dd>
+                <dt>敷地面積</dt>
+                <dd>約202.71㎡ (約61.31坪)</dd>
+                <dt>延床面積</dt>
+                <dd>約148.88㎡（約45.03坪）</dd>
+              </dl>
+            </transition>
           </div>
           <ul
             class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
           >
-            <!-- <li
-              v-for="imageSet in images.awards.slide2lockA"
+            <li
+              v-for="imageSet in awards.slide1"
               :key="imageSet.img"
+              v-bind:class="{ handleLayer: awards.show[0] }"
             >
-              <a :href="require('@/' + imageSet.modal)">
-                <img :src="require('@/' + imageSet.img)" :alt="imageSet.alt" />
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || awards.show[0]"
+                  />
+                </transition>
               </a>
-            </li> -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-mainBlock__content p-mainBlock--award__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
+            <transition name="contest-title">
+              <h3
+                class="js-contest-name p-mainBlock__contestTitle"
+                v-show="checkMq || awards.show[1]"
+              >
+                LIXIL MEMBERS CONTEST 2015<span
+                  >新築部門 関西地域最優秀賞受賞</span
+                >
+              </h3>
+            </transition>
+            <transition name="contest-data" v-on:after-enter="afterEnter">
+              <dl
+                class="p-mainBlock__contestList"
+                v-show="checkMq || awards.show[1]"
+              >
+                <dt>住まい</dt>
+                <dd>囲炉裏の住宅</dd>
+                <dt>地域</dt>
+                <dd>OSAKA</dd>
+                <dt>敷地面積</dt>
+                <dd>約175.57㎡ (約53.10坪)</dd>
+                <dt>延床面積</dt>
+                <dd>約125.23㎡（約37.88坪）</dd>
+              </dl>
+            </transition>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+          >
+            <li
+              v-for="imageSet in awards.slide2"
+              :key="imageSet.img"
+              v-bind:class="{ handleLayer: awards.show[1] }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || awards.show[1]"
+                  />
+                </transition>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-mainBlock__content p-mainBlock--award__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
+            <transition name="contest-title">
+              <h3
+                class="js-contest-name p-mainBlock__contestTitle"
+                v-show="checkMq || awards.show[2]"
+              >
+                LIXIL MEMBERS CONTEST 2013<span>準グランプリ受賞</span>
+              </h3>
+            </transition>
+            <transition name="contest-data" v-on:after-enter="afterEnter">
+              <dl
+                class="p-mainBlock__contestList"
+                v-show="checkMq || awards.show[2]"
+              >
+                <dt>住まい</dt>
+                <dd>とおり庭の家</dd>
+                <dt>地域</dt>
+                <dd>NARA</dd>
+                <dt>敷地面積</dt>
+                <dd>約196.88㎡ (約59.55坪)</dd>
+                <dt>延床面積</dt>
+                <dd>約119.60㎡（約36.18坪）</dd>
+              </dl>
+            </transition>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+          >
+            <li
+              v-for="imageSet in awards.slide3"
+              :key="imageSet.img"
+              v-bind:class="{ handleLayer: awards.show[2] }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || awards.show[2]"
+                  />
+                </transition>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-mainBlock__content p-mainBlock--award__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
+            <transition name="contest-title">
+              <h3
+                class="js-contest-name p-mainBlock__contestTitle"
+                v-show="checkMq || awards.show[3]"
+              >
+                住まいの環境デザイン・アワード2011<span>新築部門 敢闘賞</span>
+              </h3>
+            </transition>
+            <transition name="contest-data" v-on:after-enter="afterEnter">
+              <dl
+                class="p-mainBlock__contestList"
+                v-show="checkMq || awards.show[3]"
+              >
+                <dt>住まい</dt>
+                <dd>凛椛 Classic</dd>
+                <dt>地域</dt>
+                <dd>OSAKA</dd>
+                <dt>敷地面積</dt>
+                <dd>約106.17㎡ (約32.11坪)</dd>
+                <dt>延床面積</dt>
+                <dd>約110.66㎡（約33.47坪）</dd>
+              </dl>
+            </transition>
+          </div>
+          <ul
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+          >
+            <li
+              v-for="imageSet in awards.slide4"
+              :key="imageSet.img"
+              v-bind:class="{ handleLayer: awards.show[3] }"
+            >
+              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                <transition name="image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || awards.show[3]"
+                  />
+                </transition>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
+
       <ul class="p-mainBlock__nav">
-        <li class="p-mainBlock__navBtn"></li>
-        <li class="p-mainBlock__navBtn"></li>
-        <li class="p-mainBlock__navBtn"></li>
-        <li class="p-mainBlock__navBtn"></li>
+        <li
+          class="p-mainBlock__navBtn"
+          v-for="(nav, index) of 4"
+          :key="nav"
+          @click="changeTab(index, awards)"
+          v-bind:class="[
+            { handlePointer: isProcess },
+            index == awards.currentTab ? 'is-current' : ''
+          ]"
+        ></li>
       </ul>
     </section>
 
@@ -845,113 +1014,131 @@ export default {
             modal: 'assets/images/kadel/popup/support_block03_img03-l.jpg'
           }
         ]
+      },
+      awards: {
+        show: [true, false, false, false], // tab, imageの初期値
+        currentTab: 0,
+        slide1: [
+          {
+            id: 'Awards1-1',
+            img: 'assets/images/kadel/awards_slide01_img01.jpg',
+            alt:
+              'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+            modal: 'assets/images/kadel/popup/awards_slide01_img01-l.jpg'
+          },
+          {
+            id: 'Awards1-2',
+            img: 'assets/images/kadel/awards_slide01_img02.jpg',
+            alt:
+              'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+            modal: 'assets/images/kadel/popup/awards_slide01_img02-l.jpg'
+          },
+          {
+            id: 'Awards1-3',
+            img: 'assets/images/kadel/awards_slide01_img03.jpg',
+            alt:
+              'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+            modal: 'assets/images/kadel/popup/awards_slide01_img03-l.jpg'
+          },
+          {
+            id: 'Awards1-4',
+            img: 'assets/images/kadel/awards_slide01_img04.jpg',
+            alt:
+              'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
+            modal: 'assets/images/kadel/popup/awards_slide01_img04-l.jpg'
+          }
+        ],
+        slide2: [
+          {
+            id: 'Awards2-1',
+            img: 'assets/images/kadel/awards_slide02_img01.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/awards_slide02_img01-l.jpg'
+          },
+          {
+            id: 'Awards2-2',
+            img: 'assets/images/kadel/awards_slide02_img02.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/awards_slide02_img02-l.jpg'
+          },
+          {
+            id: 'Awards2-3',
+            img: 'assets/images/kadel/awards_slide02_img03.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/awards_slide02_img03-l.jpg'
+          },
+          {
+            id: 'Awards2-4',
+            img: 'assets/images/kadel/awards_slide02_img04.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
+            modal: 'assets/images/kadel/popup/awards_slide02_img04-l.jpg'
+          }
+        ],
+        slide3: [
+          {
+            id: 'Awards3-1',
+            img: 'assets/images/kadel/awards_slide03_img01.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+            modal: 'assets/images/kadel/popup/awards_slide03_img01-l.jpg'
+          },
+          {
+            id: 'Awards3-2',
+            img: 'assets/images/kadel/awards_slide03_img02.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+            modal: 'assets/images/kadel/popup/awards_slide03_img02-l.jpg'
+          },
+          {
+            id: 'Awards3-3',
+            img: 'assets/images/kadel/awards_slide03_img03.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+            modal: 'assets/images/kadel/popup/awards_slide03_img03-l.jpg'
+          },
+          {
+            id: 'Awards3-4',
+            img: 'assets/images/kadel/awards_slide03_img04.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
+            modal: 'assets/images/kadel/popup/awards_slide03_img04-l.jpg'
+          }
+        ],
+        slide4: [
+          {
+            id: 'Awards4-1',
+            img: 'assets/images/kadel/awards_slide04_img01.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+            modal: 'assets/images/kadel/popup/awards_slide04_img01-l.jpg'
+          },
+          {
+            id: 'Awards4-2',
+            img: 'assets/images/kadel/awards_slide04_img02.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+            modal: 'assets/images/kadel/popup/awards_slide04_img02-l.jpg'
+          },
+          {
+            id: 'Awards4-3',
+            img: 'assets/images/kadel/awards_slide04_img03.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+            modal: 'assets/images/kadel/popup/awards_slide04_img03-l.jpg'
+          },
+          {
+            id: 'Awards4-4',
+            img: 'assets/images/kadel/awards_slide04_img04.jpg',
+            alt:
+              'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
+            modal: 'assets/images/kadel/popup/awards_slide04_img04-l.jpg'
+          }
+        ]
       }
-      // awards: {
-      //   slide2lockA: [
-      //     {
-      //       img: 'assets/images/kadel/awards_slide01_img01.jpg',
-      //       alt:
-      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
-      //       modal: 'assets/images/kadel/popup/awards_slide01_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide01_img02.jpg',
-      //       alt:
-      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
-      //       modal: 'assets/images/kadel/popup/awards_slide01_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide01_img03.jpg',
-      //       alt:
-      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
-      //       modal: 'assets/images/kadel/popup/awards_slide01_img03-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide01_img04.jpg',
-      //       alt:
-      //         'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
-      //       modal: 'assets/images/kadel/popup/awards_slide01_img04-l.jpg'
-      //     }
-      //   ],
-      //   slide2lockB: [
-      //     {
-      //       img: 'assets/images/kadel/awards_slide02_img01.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/awards_slide02_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide02_img02.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/awards_slide02_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide02_img03.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/awards_slide02_img03-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide02_img04.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
-      //       modal: 'assets/images/kadel/popup/awards_slide02_img04-l.jpg'
-      //     }
-      //   ],
-      //   slide2lockC: [
-      //     {
-      //       img: 'assets/images/kadel/awards_slide03_img01.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
-      //       modal: 'assets/images/kadel/popup/awards_slide03_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide03_img02.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
-      //       modal: 'assets/images/kadel/popup/awards_slide03_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide03_img03.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
-      //       modal: 'assets/images/kadel/popup/awards_slide03_img03-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide03_img04.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST2013 準グランプリ受賞 奈良県 とおり庭の家',
-      //       modal: 'assets/images/kadel/popup/awards_slide03_img04-l.jpg'
-      //     }
-      //   ],
-      //   slide2lockD: [
-      //     {
-      //       img: 'assets/images/kadel/awards_slide04_img01.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
-      //       modal: 'assets/images/kadel/popup/awards_slide04_img01-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide04_img02.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
-      //       modal: 'assets/images/kadel/popup/awards_slide04_img02-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide04_img03.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
-      //       modal: 'assets/images/kadel/popup/awards_slide04_img03-l.jpg'
-      //     },
-      //     {
-      //       img: 'assets/images/kadel/awards_slide04_img04.jpg',
-      //       alt:
-      //         'KADeL カデル LIXIL MEMBERS CONTEST 2013準グランプリ受賞 大阪府 凛椛 Classic',
-      //       modal: 'assets/images/kadel/popup/awards_slide04_img04-l.jpg'
-      //     }
-      //   ]
-      // }
     };
   }
 };
@@ -1032,6 +1219,70 @@ export default {
     }
   }
 
+  .passiveImage {
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      transition-delay: 1.6s;
+    }
+    &-enter-to {
+      opacity: 1;
+    }
+  }
+
+  .contest {
+    &-title {
+      &-leave-active {
+        transition: opacity 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      &-enter-active {
+        transition: opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        transition-delay: 1s;
+      }
+      &-leave-to {
+        opacity: 0;
+      }
+      &-enter {
+        opacity: 0;
+      }
+      &-enter-active {
+        opacity: 0;
+      }
+      &-enter-to {
+        opacity: 1;
+      }
+    }
+
+    &-data {
+      &-leave-active {
+        transition: transform 0.1s cubic-bezier(0.23, 1, 0.32, 1),
+          opacity 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      &-enter-active {
+        transition: transform 1.5s cubic-bezier(0.23, 1, 0.32, 1),
+          opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        transition-delay: 1.2s;
+      }
+      &-leave {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      &-leave-to {
+        opacity: 0;
+      }
+      &-enter {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      &-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
   .handleLayer {
     @include mq(kadel-lg) {
       position: relative;
@@ -1050,19 +1301,6 @@ export default {
   .p-mainBlock__imageBlock li {
     @include mq(kadel-lg) {
       overflow: hidden;
-    }
-  }
-
-  .passiveImage {
-    &-enter {
-      opacity: 0;
-    }
-    &-enter-active {
-      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      transition-delay: 1.6s;
-    }
-    &-enter-to {
-      opacity: 1;
     }
   }
 
@@ -1738,7 +1976,7 @@ export default {
       }
     }
 
-    &__contestName {
+    &__contestTitle {
       font-size: 18px;
       font-family: 'Ubuntu Condensed', sans-serif;
       position: relative;
