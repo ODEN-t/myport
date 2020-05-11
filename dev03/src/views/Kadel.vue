@@ -1,48 +1,59 @@
 <template>
-  <main class="KADeL">
+  <main class="KADeL" v-bind:class="{ 'is-black': isInAwards }">
     <div class="p-head">
-      <h1 class="p-head__logo js-header-logo">
-        <a href="">
-          <svg
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 133.76 133.76"
-          >
-            <title>株式会社KADeL</title>
-            <rect width="133.76" height="133.76" style="fill:#221f20"></rect>
-            <polyline
-              points="41.68 56.48 44.73 56.48 36.28 65.68 44.66 75.33 41.35 75.33 34.06 66.72 34.06 75.33 31.76 75.33 31.76 56.48 34.06 56.48 34.06 65.11 41.68 56.48"
-              style="fill:#fff"
-            ></polyline>
-            <path
-              d="M58.94,71h-8.5l-1.65,4.38H46.26l7.43-18.85h2l7.42,18.85H60.59L58.94,71M54.69,59.6l-3.45,9.27h6.91Z"
-              style="fill:#fff"
-            ></path>
-            <path
-              d="M66,56.48h6a8.57,8.57,0,0,1,6.08,2.63,9.76,9.76,0,0,1,0,13.47,9,9,0,0,1-6.64,2.75H66V56.48m5.4,16.63a6.39,6.39,0,0,0,5-2.16,7.49,7.49,0,0,0,1.93-5.25,6.78,6.78,0,0,0-2-5,7.1,7.1,0,0,0-5.08-2H68.29v14.4Z"
-              style="fill:#fff"
-            ></path>
-            <path
-              d="M96.08,72.83a7.23,7.23,0,0,1-5.64,2.81,6.49,6.49,0,0,1-5.07-2.11,7.16,7.16,0,0,1,0-9.44,6.16,6.16,0,0,1,4.68-2,6,6,0,0,1,4.72,2.1,8.11,8.11,0,0,1,1.83,5.54H85.91a4.4,4.4,0,0,0,1.5,2.69,4.28,4.28,0,0,0,3,1.12,5.13,5.13,0,0,0,4-2.08l1.64,1.36M94.19,67.9a4.07,4.07,0,0,0-1.29-2.7,4.22,4.22,0,0,0-2.85-1,3.74,3.74,0,0,0-3,1.16,4.58,4.58,0,0,0-1.18,2.55Z"
-              style="fill:#fff"
-            ></path>
-            <polyline
-              points="99.99 56.48 102.29 56.48 102.29 73.11 108.71 73.11 108.71 75.33 99.99 75.33 99.99 56.48"
-              style="fill:#fff"
-            ></polyline>
-          </svg>
-        </a>
-      </h1>
+      <transition name="loaded-logo" appear>
+        <h1 class="p-head__logo">
+          <a href="">
+            <svg
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 133.76 133.76"
+            >
+              <title>株式会社KADeL</title>
+              <rect width="133.76" height="133.76" style="fill:#221f20"></rect>
+              <polyline
+                points="41.68 56.48 44.73 56.48 36.28 65.68 44.66 75.33 41.35 75.33 34.06 66.72 34.06 75.33 31.76 75.33 31.76 56.48 34.06 56.48 34.06 65.11 41.68 56.48"
+                style="fill:#fff"
+              ></polyline>
+              <path
+                d="M58.94,71h-8.5l-1.65,4.38H46.26l7.43-18.85h2l7.42,18.85H60.59L58.94,71M54.69,59.6l-3.45,9.27h6.91Z"
+                style="fill:#fff"
+              ></path>
+              <path
+                d="M66,56.48h6a8.57,8.57,0,0,1,6.08,2.63,9.76,9.76,0,0,1,0,13.47,9,9,0,0,1-6.64,2.75H66V56.48m5.4,16.63a6.39,6.39,0,0,0,5-2.16,7.49,7.49,0,0,0,1.93-5.25,6.78,6.78,0,0,0-2-5,7.1,7.1,0,0,0-5.08-2H68.29v14.4Z"
+                style="fill:#fff"
+              ></path>
+              <path
+                d="M96.08,72.83a7.23,7.23,0,0,1-5.64,2.81,6.49,6.49,0,0,1-5.07-2.11,7.16,7.16,0,0,1,0-9.44,6.16,6.16,0,0,1,4.68-2,6,6,0,0,1,4.72,2.1,8.11,8.11,0,0,1,1.83,5.54H85.91a4.4,4.4,0,0,0,1.5,2.69,4.28,4.28,0,0,0,3,1.12,5.13,5.13,0,0,0,4-2.08l1.64,1.36M94.19,67.9a4.07,4.07,0,0,0-1.29-2.7,4.22,4.22,0,0,0-2.85-1,3.74,3.74,0,0,0-3,1.16,4.58,4.58,0,0,0-1.18,2.55Z"
+                style="fill:#fff"
+              ></path>
+              <polyline
+                points="99.99 56.48 102.29 56.48 102.29 73.11 108.71 73.11 108.71 75.33 99.99 75.33 99.99 56.48"
+                style="fill:#fff"
+              ></polyline>
+            </svg>
+          </a>
+        </h1>
+      </transition>
     </div>
 
     <section class="p-main">
-      <div class="p-main__text js-hero_text">
-        <h2>想い描いた、<br class="for-sp" />理想の住まいをかたちに</h2>
-        <h3>KADeLの注文住宅</h3>
-        <a href="#smooth" class="p-main__scrollBtn">
-          SCROLL
-          <span></span>
-        </a>
-      </div>
+      <transition name="loaded-text" appear @after-enter="afterTransitionEnter">
+        <div
+          class="p-main__text"
+          v-bind:class="{ 'is-loadedWidth': isLoadedWidth }"
+        >
+          <transition name="mobile-load-h2" appear>
+            <h2>想い描いた、<br class="for-sp" />理想の住まいをかたちに</h2>
+          </transition>
+          <transition name="mobile-load-h3" appear>
+            <h3>KADeLの注文住宅</h3>
+          </transition>
+          <a href="#smooth" class="p-main__scrollBtn">
+            SCROLL
+            <span></span>
+          </a>
+        </div>
+      </transition>
       <figure class="p-main__figure"></figure>
     </section>
 
@@ -468,7 +479,8 @@
     </section>
 
     <section
-      class="p-mainBlock p-mainBlock--award common-fadein js-changeStart js-fadein"
+      class="p-mainBlock p-mainBlock--award common-fadein js-fadein"
+      id="js-background"
     >
       <h2 class="p-mainBlock__mark p-mainBlock--award__mark">
         AWARDS<span class="mod-small">受賞歴</span>
@@ -814,6 +826,31 @@ export default {
     },
     afterEnter() {
       this.isProcess = false;
+    },
+    afterTransitionEnter() {
+      this.isLoadedWidth = true;
+    },
+    observing() {
+      const options = {
+        background: {
+          root: null,
+          rootMargin: '-25% 0px',
+          threshold: 0
+        }
+      };
+      const targets = {
+        background: document.getElementById('js-background')
+      };
+      const changeBackGround = entry =>
+        entry[0].isIntersecting
+          ? (this.isInAwards = true)
+          : (this.isInAwards = false);
+
+      const backGroundObserver = new IntersectionObserver(
+        changeBackGround,
+        options.background
+      );
+      backGroundObserver.observe(targets.background);
     }
   },
   computed: {
@@ -823,19 +860,20 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      // vue起動時、ビュー全体がレンダリングされてから$nextTickでaddEvent mount → vue描画 → addEvent → ブラウザに表示(ここで制御がブラウザに移る)
+      // ビュー全体(子コンポーネントも含め)がレンダリングされてから$nextTickでaddEvent mount → vue描画 → addEvent → ブラウザに表示(ここで制御がブラウザに移る)
       window.addEventListener('resize', this.onResize);
     });
-    window.onresize = () => {
-      this.windowWidth = window.innerWidth;
-    };
+    console.log('mounted');
+    this.observing();
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.onResize);
   },
   data() {
     return {
+      isLoadedWidth: false,
       isProcess: false,
+      isInAwards: false,
       pointerNone: false,
       windowWidth: window.innerWidth,
       design: {
@@ -1149,37 +1187,136 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Yu Gothic',
     YuGothic, 'Hiragino Kaku Gothic ProN', メイリオ, sans-serif;
-  padding-top: 50px;
+  padding-top: 30px;
   color: rgb(38, 38, 38);
   font-size: 14px;
   font-weight: 300;
   letter-spacing: 0.1em;
   line-height: 1.7;
   background-color: #fff;
-  transition: background-color 0.85s ease-in-out, color 0.85s ease-in-out;
-  border: 10px solid #fff;
+  transition: color 0.85s ease-in-out, background-color 0.85s ease-in-out;
   position: relative;
   z-index: 1500;
-  @include mq(kadel-gt-md) {
+  @include mq(kadel-sm) {
     padding-top: 60px;
-    border: 20px solid #fff;
+    border-right: 10px solid #fff;
+    border-left: 10px solid #fff;
+  }
+  @include mq(kadel-gt-md) {
+    padding-top: 50px;
+    border-right: 20px solid #fff;
+    border-left: 20px solid #fff;
     &:before {
       background-color: #fff;
       content: '';
       display: block;
       height: 20px;
-      position: fixed;
       top: 0;
       width: 100%;
-      z-index: 999;
+      z-index: 10;
+    }
+  }
+
+  &.is-black {
+    background-color: #000;
+    color: #fff;
+    .is-current {
+      border-color: #fff;
+    }
+    .p-mainBlock__mark {
+      border-color: #fff;
+    }
+    .p-mainBlock__tabWrap {
+      border-color: #000;
+    }
+    .p-mainBlock__navBtn.is-current {
+      background-color: #fff;
+      border: none;
     }
   }
 
   /* トランジション用スタイル */
+  .loaded-logo {
+    &-enter-active {
+      transition: opacity 2s cubic-bezier(0.86, 0, 0.07, 1);
+      transition-delay: 0.8s;
+    }
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-to {
+      opacity: 1;
+    }
+  }
+
+  .loaded-text {
+    &-leave,
+    &-leave-active,
+    &-leave-to {
+      width: 0;
+    }
+    &-enter-active {
+      transition: width 1.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        opacity 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition-delay: 1s;
+    }
+    &-enter {
+      width: 0;
+      opacity: 0;
+    }
+    &-enter-to {
+      width: 17.64706%;
+      opacity: 1;
+    }
+  }
+
+  .mobile-load-h2 {
+    &-leave,
+    &-leave-active,
+    &-leave-to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter-active {
+      transition: opacity 1.3s ease, transform 1.3s ease;
+      transition-delay: 1.8s;
+    }
+    &-enter-to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-load-h3 {
+    &-leave,
+    &-leave-active,
+    &-leave-to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter-active {
+      transition: opacity 1.1s ease, transform 1.1s ease;
+      transition-delay: 1.75s;
+    }
+    &-enter-to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .text {
     &-leave-active,
     &-enter-active {
       transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+      transition-delay: 1s;
     }
     &-leave-active {
       position: absolute;
@@ -1314,10 +1451,6 @@ export default {
     list-style: none !important;
   }
 
-  .add-bg-b {
-    background-color: #000;
-    color: #fff;
-  }
   .p-head {
     position: relative;
     &__logo {
@@ -1326,23 +1459,14 @@ export default {
       top: 10px;
       width: 80px;
       z-index: 10;
-      // opacity: 0;
-      transition: opacity 2s cubic-bezier(0.86, 0, 0.07, 1);
-      transition-delay: 0.8s;
-
       & > a:hover {
         opacity: 0.7;
       }
-
       @include mq(kadel-gt-md) {
         right: 0;
         top: 0;
         width: 104px;
       }
-    }
-
-    .header-logo.add-load {
-      opacity: 1;
     }
   }
 
@@ -1352,25 +1476,15 @@ export default {
 
   .common-fadein {
     // opacity: 0;
-    transform: translateY(50px);
+    // transform: translateY(50px);
     transition: transform 1.15s, opacity 1.15s;
   }
 
   .common-fadein-delay {
     // opacity: 0;
-    transform: translateY(50px);
+    // transform: translateY(50px);
     transition: transform 1.15s, opacity 1.15s;
     transition-delay: 0.2s;
-  }
-
-  .common-fadein.add-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .common-fadein-delay.add-in {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .modal-bg {
@@ -1448,11 +1562,6 @@ export default {
     }
   }
 
-  .add-current-tab {
-    border-bottom: solid 1px #000;
-    opacity: 1;
-  }
-
   /* ---------------------------
             p-main
   ------------------------------ */
@@ -1460,13 +1569,7 @@ export default {
     @include mq(kadel-gt-md) {
       display: flex;
       flex-direction: row-reverse;
-      height: calc(
-        100vh - 40px
-      ); //CSS変数をサポートしていない場合のフォールバック値
-      height: calc(
-        (var(--vh, 1vh) * 100) - 40px
-      ); //setPropertyHeight()で取得した変数vhを利用
-      margin: 0 0 20px;
+      height: calc(100vh - 90px);
       width: 100%;
     }
 
@@ -1476,6 +1579,7 @@ export default {
           center/cover;
         transition: width 1.4s cubic-bezier(0.86, 0, 0.07, 1);
         width: 100%;
+        transform: translate3D(0, 0, 0);
       }
     }
 
@@ -1486,10 +1590,10 @@ export default {
       -ms-writing-mode: tb-rl;
       writing-mode: vertical-rl;
       position: relative;
-      width: 100%;
       @include mq(kadel-sm) {
         align-items: center;
-        height: 100%;
+        width: 100%;
+        height: calc(100vh - 70px);
         background: url('../assets/images/kadel/hero_img-sp.jpg') no-repeat
           center/cover;
         color: #fff;
@@ -1497,11 +1601,6 @@ export default {
       @include mq(kadel-gt-md) {
         justify-content: flex-end;
         padding-top: 120px;
-        // opacity: 0;
-        width: 0;
-        transition: width 1.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-          opacity 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        transition-delay: 1s;
       }
 
       > h2 {
@@ -1509,10 +1608,6 @@ export default {
         line-height: 1.5;
         @include mq(kadel-sm) {
           letter-spacing: 1.4px;
-          transition: opacity 1.3s ease, transform 1.3s ease;
-          transition-delay: 0.8s;
-          // opacity: 0;
-          transform: translateY(-20px);
         }
       }
 
@@ -1522,23 +1617,17 @@ export default {
           padding-top: 6em;
           margin-left: -1.5em;
           margin-right: 0.5em;
-          transition: opacity 1.1s ease, transform 1.1s ease;
-          transition-delay: 0.75s;
-          // opacity: 0;
-          transform: translateY(-20px);
         }
         @include mq(kadel-gt-md) {
           text-align: right;
           margin: 0 1em 0 1.5em;
         }
       }
+    }
 
-      @include mq(kadel-sm) {
-        > h2.add-load,
-        > h3.add-load {
-          opacity: 1;
-          transform: translateY(0);
-        }
+    &__text.is-loadedWidth {
+      @include mq(kadel-gt-md) {
+        width: 17.6%;
       }
     }
 
@@ -1614,13 +1703,6 @@ export default {
             -webkit-transform: translateY(100%);
           }
         }
-      }
-    }
-
-    &__text.add-load {
-      @include mq(kadel-gt-md) {
-        opacity: 1;
-        width: 17.6%;
       }
     }
   }
@@ -1888,7 +1970,6 @@ export default {
         line-height: 2;
         letter-spacing: 1px;
         margin-top: 16px;
-        transition-delay: 1s;
         @include mq(kadel-lt-lg) {
           padding-left: 0.5em;
         }
@@ -2104,19 +2185,6 @@ export default {
             }
           }
         }
-        .add-current-nav-w {
-          background-color: #fff;
-          &:before {
-            color: #fff;
-            opacity: 1;
-          }
-          &:hover {
-            background: #fff;
-            &:before {
-              color: #fff;
-            }
-          }
-        }
       }
     }
 
@@ -2135,7 +2203,6 @@ export default {
           opacity: 1;
         }
       }
-
       &:before {
         position: absolute;
         left: 0;
@@ -2144,9 +2211,8 @@ export default {
         display: block;
         font-size: 14px;
         font-weight: 400;
-        // opacity: 0;
+        opacity: 0;
       }
-
       &:nth-of-type(1):before {
         content: '01';
       }
@@ -2158,6 +2224,12 @@ export default {
       }
       &:nth-of-type(4):before {
         content: '04';
+      }
+      &.is-current {
+        background-color: #262626;
+        &:before {
+          opacity: 1;
+        }
       }
     }
 
@@ -2464,7 +2536,7 @@ export default {
     background: url('../assets/images/kadel/staff_img01.jpg') no-repeat left
       320px top 720px;
     background-position: left top;
-    margin: 130px auto 110px;
+    margin: 130px auto 0;
     padding-left: 0;
     padding-top: 120px;
     @include mq(kadel-sm) {
