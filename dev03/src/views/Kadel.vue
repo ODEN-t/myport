@@ -104,7 +104,7 @@
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--design__desc">
         従来の規格型住宅では表現できない<br />ご家族のためだけに考えられた<br
-          class="for-sp"
+          class="for-tb"
         />世界にたったひとつの住まいを
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--design__tabWrap for-lg">
@@ -125,7 +125,7 @@
       <div class="p-mainBlock__wrap p-mainBlock--design__wrap">
         <div class="p-mainBlock__content p-mainBlock--design__content">
           <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">
+            <h3 class="p-mainBlock__concept for-tb">
               理想をかたちに
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
@@ -160,7 +160,7 @@
 
         <div class="p-mainBlock__content p-mainBlock--design__content">
           <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">
+            <h3 class="p-mainBlock__concept for-tb">
               繊細な住宅設計
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
@@ -209,7 +209,7 @@
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--passive__desc">
         エアコンなどの設備に頼らず、<br
-          class="for-sp"
+          class="for-tb"
         />自然の力を利用した<br />木造モダン建築で快適な暮らしを
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--passive__tabWrap for-lg">
@@ -230,7 +230,7 @@
       <div class="p-mainBlock__wrap">
         <div class="p-mainBlock__content p-mainBlock--passive__content">
           <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">
+            <h3 class="p-mainBlock__concept for-tb">
               パッシブデザイン
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
@@ -276,7 +276,7 @@
 
         <div class="p-mainBlock__content p-mainBlock--passive__content">
           <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">
+            <h3 class="p-mainBlock__concept for-tb">
               四季と共に生きる
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
@@ -309,7 +309,7 @@
 
         <div class="p-mainBlock__content p-mainBlock--passive__content">
           <div class="p-mainBlock__textBlock p-mainBlock--passive__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">
+            <h3 class="p-mainBlock__concept for-tb">
               土地を活かす
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
@@ -348,13 +348,13 @@
         <span>Support</span>
       </span>
       <h2 class="p-mainBlock__title p-mainBlock--support__title">
-        プロフェッショナルによる<br class="for-sp" />サポート
+        プロフェッショナルによる<br class="for-tb" />サポート
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--support__desc">
         各分野のプロフェッショナルが<br
-          class="for-sp"
+          class="for-tb"
         />それぞれの知識と技術を活かし、<br />お客様の理想の生活を<br
-          class="for-sp"
+          class="for-tb"
         />サポートいたします。
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--support__tabWrap for-lg">
@@ -375,7 +375,7 @@
       <div class="p-mainBlock__wrap">
         <div class="p-mainBlock__content p-mainBlock--support__content">
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">土地探し</h3>
+            <h3 class="p-mainBlock__concept for-tb">土地探し</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[0]">
                 KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br
@@ -410,7 +410,7 @@
 
         <div class="p-mainBlock__content p-mainBlock--support__content">
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">インテリア</h3>
+            <h3 class="p-mainBlock__concept for-tb">インテリア</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[1]">
                 KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。<br />そのため、空間デザインの専門家による家具や照明などのコーディネートから<br
@@ -443,7 +443,7 @@
 
         <div class="p-mainBlock__content p-mainBlock--support__content">
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
-            <h3 class="p-mainBlock__concept for-sp">長期保証</h3>
+            <h3 class="p-mainBlock__concept for-tb">長期保証</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[2]">
                 お客様に快適に生活していただくためにKADeLでは、<br />「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、<br />最長20年の建物保証や完成保証にも対応しています。<br />また細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、<br />万全のサポートシステムで末永くご家族の暮らしをケアいたします。
@@ -485,38 +485,38 @@
         <dt class="p-mainBlock__awardYear">2007</dt>
         <dd class="p-mainBlock__awardName">
           第9回「あたたかな住空間デザイン」コンペティション
-          住宅デザイン部門・新築の部<br class="for-sp" />
+          住宅デザイン部門・新築の部<br class="for-tb" />
           特別賞受賞
         </dd>
         <dt class="p-mainBlock__awardYear">2009</dt>
         <dd class="p-mainBlock__awardName">
-          ２１世紀の環境グランドデザインコンテスト<br class="for-sp" />
+          ２１世紀の環境グランドデザインコンテスト<br class="for-tb" />
           総合部門入選 ゴールドメンバー賞受賞
         </dd>
         <dt class="p-mainBlock__awardYear">2011</dt>
         <dd class="p-mainBlock__awardName">
-          住まいの環境デザイン・アワード2011<br class="for-sp" />
+          住まいの環境デザイン・アワード2011<br class="for-tb" />
           特別賞受賞
         </dd>
         <dt class="p-mainBlock__awardYear">2013</dt>
         <dd class="p-mainBlock__awardName">
-          LIXIL MEMBERS CONTEST 2013<br class="for-sp" />
+          LIXIL MEMBERS CONTEST 2013<br class="for-tb" />
           準グランプリ受賞
         </dd>
         <dt class="p-mainBlock__awardYear">2015</dt>
         <dd class="p-mainBlock__awardName">
-          LIXIL MEMBERS CONTEST 2015<br class="for-sp" />
+          LIXIL MEMBERS CONTEST 2015<br class="for-tb" />
           新築部門 関西地域最優秀賞受賞
         </dd>
         <dt class="p-mainBlock__awardYear">2015-2018</dt>
         <dd class="p-mainBlock__awardName">
-          LIXIL MEMBERS CONTEST 2015-2018<br class="for-sp" />
+          LIXIL MEMBERS CONTEST 2015-2018<br class="for-tb" />
           敢闘賞 8作品
         </dd>
         <dt class="p-mainBlock__awardYear">2018</dt>
         <dd class="p-mainBlock__awardName">
-          WOODONE 2018 空間デザイン<br class="for-sp" />施工例コンテスト<br
-            class="for-sp"
+          WOODONE 2018 空間デザイン<br class="for-tb" />施工例コンテスト<br
+            class="for-tb"
           />
           最優秀賞／伊東豊雄賞 受賞
         </dd>
@@ -1353,7 +1353,7 @@ export default {
 
     &__text.is-loadedWidth {
       @include mq(kadel-gt-md) {
-        width: 17.6%;
+        width: 17.64706%;
       }
     }
 
@@ -1725,6 +1725,8 @@ export default {
     &__scrollImage {
       @include mq(kadel-lt-lg) {
         display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
         margin-top: 24px;
         overflow-x: scroll;
         padding-bottom: 16px;
@@ -1739,14 +1741,26 @@ export default {
           background-color: #262626;
         }
 
+        > li:not(:last-child) {
+          margin-right: 10px;
+        }
+
         img {
           height: 130px;
           width: auto;
-          margin-right: 10px;
         }
       }
       @include mq(kadel-md) {
-        width: 85vw;
+        > li {
+          width: 100%;
+          min-width: 100%;
+          height: 130px;
+        }
+
+        img {
+          height: 130px;
+          width: 100%;
+        }
       }
     }
 
@@ -2361,22 +2375,29 @@ export default {
 
   /* ディスプレイスタイル */
   .for-pc {
+    // min-width: 769px displayBlock
     @include mq(kadel-sm) {
-      // min-width: 769px
       display: none !important;
     }
   }
 
   .for-sp {
+    // max-width: 768px displayBlock
     @include mq(kadel-gt-md) {
-      // max-width: 768px
+      display: none !important;
+    }
+  }
+
+  .for-tb {
+    // max-width: 1024px displayBlock
+    @include mq(kadel-lg) {
       display: none !important;
     }
   }
 
   .for-lg {
+    // min-width: 1025px displayBlock
     @include mq(kadel-lt-lg) {
-      // min-width: 1025px
       display: none !important;
     }
   }
@@ -2395,24 +2416,26 @@ export default {
     }
   }
 
-  .loaded-title-area {
-    &-leave,
-    &-leave-active,
-    &-leave-to {
-      width: 0;
-    }
-    &-enter-active {
-      transition: width 1.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      transition-delay: 1s;
-    }
-    &-enter {
-      width: 0;
-      opacity: 0;
-    }
-    &-enter-to {
-      width: 17.64706%;
-      opacity: 1;
+  @include mq(kadel-gt-md) {
+    .loaded-title-area {
+      &-leave,
+      &-leave-active,
+      &-leave-to {
+        width: 0;
+      }
+      &-enter-active {
+        transition: width 1.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+          opacity 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition-delay: 1s;
+      }
+      &-enter {
+        width: 0;
+        opacity: 0;
+      }
+      &-enter-to {
+        width: 17.64706%;
+        opacity: 1;
+      }
     }
   }
 
