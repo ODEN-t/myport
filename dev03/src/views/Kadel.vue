@@ -3,62 +3,64 @@
     <div class="p-head">
       <transition name="loaded-logo" appear>
         <h1 class="p-head__logo">
-          <a href="">
-            <svg
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 133.76 133.76"
-            >
-              <title>株式会社KADeL</title>
-              <rect width="133.76" height="133.76" style="fill:#221f20"></rect>
-              <polyline
-                points="41.68 56.48 44.73 56.48 36.28 65.68 44.66 75.33 41.35 75.33 34.06 66.72 34.06 75.33 31.76 75.33 31.76 56.48 34.06 56.48 34.06 65.11 41.68 56.48"
-                style="fill:#fff"
-              ></polyline>
-              <path
-                d="M58.94,71h-8.5l-1.65,4.38H46.26l7.43-18.85h2l7.42,18.85H60.59L58.94,71M54.69,59.6l-3.45,9.27h6.91Z"
-                style="fill:#fff"
-              ></path>
-              <path
-                d="M66,56.48h6a8.57,8.57,0,0,1,6.08,2.63,9.76,9.76,0,0,1,0,13.47,9,9,0,0,1-6.64,2.75H66V56.48m5.4,16.63a6.39,6.39,0,0,0,5-2.16,7.49,7.49,0,0,0,1.93-5.25,6.78,6.78,0,0,0-2-5,7.1,7.1,0,0,0-5.08-2H68.29v14.4Z"
-                style="fill:#fff"
-              ></path>
-              <path
-                d="M96.08,72.83a7.23,7.23,0,0,1-5.64,2.81,6.49,6.49,0,0,1-5.07-2.11,7.16,7.16,0,0,1,0-9.44,6.16,6.16,0,0,1,4.68-2,6,6,0,0,1,4.72,2.1,8.11,8.11,0,0,1,1.83,5.54H85.91a4.4,4.4,0,0,0,1.5,2.69,4.28,4.28,0,0,0,3,1.12,5.13,5.13,0,0,0,4-2.08l1.64,1.36M94.19,67.9a4.07,4.07,0,0,0-1.29-2.7,4.22,4.22,0,0,0-2.85-1,3.74,3.74,0,0,0-3,1.16,4.58,4.58,0,0,0-1.18,2.55Z"
-                style="fill:#fff"
-              ></path>
-              <polyline
-                points="99.99 56.48 102.29 56.48 102.29 73.11 108.71 73.11 108.71 75.33 99.99 75.33 99.99 56.48"
-                style="fill:#fff"
-              ></polyline>
-            </svg>
-          </a>
+          <svg
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 133.76 133.76"
+          >
+            <title>株式会社KADeL</title>
+            <rect width="133.76" height="133.76" style="fill:#221f20"></rect>
+            <polyline
+              points="41.68 56.48 44.73 56.48 36.28 65.68 44.66 75.33 41.35 75.33 34.06 66.72 34.06 75.33 31.76 75.33 31.76 56.48 34.06 56.48 34.06 65.11 41.68 56.48"
+              style="fill:#fff"
+            ></polyline>
+            <path
+              d="M58.94,71h-8.5l-1.65,4.38H46.26l7.43-18.85h2l7.42,18.85H60.59L58.94,71M54.69,59.6l-3.45,9.27h6.91Z"
+              style="fill:#fff"
+            ></path>
+            <path
+              d="M66,56.48h6a8.57,8.57,0,0,1,6.08,2.63,9.76,9.76,0,0,1,0,13.47,9,9,0,0,1-6.64,2.75H66V56.48m5.4,16.63a6.39,6.39,0,0,0,5-2.16,7.49,7.49,0,0,0,1.93-5.25,6.78,6.78,0,0,0-2-5,7.1,7.1,0,0,0-5.08-2H68.29v14.4Z"
+              style="fill:#fff"
+            ></path>
+            <path
+              d="M96.08,72.83a7.23,7.23,0,0,1-5.64,2.81,6.49,6.49,0,0,1-5.07-2.11,7.16,7.16,0,0,1,0-9.44,6.16,6.16,0,0,1,4.68-2,6,6,0,0,1,4.72,2.1,8.11,8.11,0,0,1,1.83,5.54H85.91a4.4,4.4,0,0,0,1.5,2.69,4.28,4.28,0,0,0,3,1.12,5.13,5.13,0,0,0,4-2.08l1.64,1.36M94.19,67.9a4.07,4.07,0,0,0-1.29-2.7,4.22,4.22,0,0,0-2.85-1,3.74,3.74,0,0,0-3,1.16,4.58,4.58,0,0,0-1.18,2.55Z"
+              style="fill:#fff"
+            ></path>
+            <polyline
+              points="99.99 56.48 102.29 56.48 102.29 73.11 108.71 73.11 108.71 75.33 99.99 75.33 99.99 56.48"
+              style="fill:#fff"
+            ></polyline>
+          </svg>
         </h1>
       </transition>
     </div>
 
     <section class="p-main">
-      <transition name="loaded-text" appear @after-enter="afterTransitionEnter">
+      <transition
+        name="loaded-title-area"
+        appear
+        @after-enter="afterTransitionEnter"
+      >
         <div
           class="p-main__text"
           v-bind:class="{ 'is-loadedWidth': isLoadedWidth }"
         >
-          <transition name="mobile-load-h2" appear>
+          <transition name="loaded-title-mobile" appear>
             <h2>想い描いた、<br class="for-sp" />理想の住まいをかたちに</h2>
           </transition>
-          <transition name="mobile-load-h3" appear>
+          <transition name="loaded-subtitle-mobile" appear>
             <h3>KADeLの注文住宅</h3>
           </transition>
-          <a href="#smooth" class="p-main__scrollBtn">
+          <div class="p-main__scrollBtn" @click="smoothScroll">
             SCROLL
             <span></span>
-          </a>
+          </div>
         </div>
       </transition>
       <figure class="p-main__figure"></figure>
     </section>
 
-    <section class="p-30th">
-      <div class="p-30th__text common-fadein js-fadein">
+    <section class="p-30th" id="smooth">
+      <div class="p-30th__text p-fadeIn js-fadeIn">
         <h2>
           目に見えない光や風、<br />熱や空気をデザインする<br />KADeLの「環境共生住宅」
         </h2>
@@ -77,13 +79,13 @@
         <p>それが「環境共生住宅」でした。</p>
       </div>
       <ul class="p-30th__images" id="smooth">
-        <li class="common-fadein js-fadein">
+        <li class="p-fadeIn js-fadeIn">
           <img
             src="../assets/images/kadel/lede_img01.jpg"
             alt="KADeL カデル 30周年 環境共生住宅"
           />
         </li>
-        <li class="common-fadein-delay js-fadein">
+        <li class="p-fadeIn p-fadeIn--delay js-fadeIn">
           <img
             src="../assets/images/kadel/lede_img02.jpg"
             alt="KADeL カデル 30周年 環境共生住宅"
@@ -92,7 +94,7 @@
       </ul>
     </section>
 
-    <section class="p-mainBlock p-mainBlock--design common-fadein">
+    <section class="p-mainBlock p-mainBlock--design p-fadeIn js-fadeIn">
       <span class="p-mainBlock__mark p-mainBlock--design__mark">
         <span>KADeL</span>
         <span>Design</span>
@@ -112,7 +114,7 @@
             :key="tab"
             @click="changeTab(index, design)"
             v-bind:class="[
-              { handlePointer: isProcess },
+              { 'is-noPointer': isProcess },
               index == design.currentTab ? 'is-current' : ''
             ]"
           >
@@ -126,7 +128,7 @@
             <h3 class="p-mainBlock__concept for-sp">
               理想をかたちに
             </h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="design.show[0]">
                 数多くの賞を受賞する建築デザイナーが<br />お聞かせいただいたご家族のたくさんの想いとご希望を<br
                   class="for-pc"
@@ -140,10 +142,10 @@
             <li
               v-for="imageSet in design.slide1"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: design.show[0] }"
+              v-bind:class="{ 'is-lowLayer': design.show[0] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -161,7 +163,7 @@
             <h3 class="p-mainBlock__concept for-sp">
               繊細な住宅設計
             </h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || design.show[1]">
                 「暮らしやすい間取り」「快適な家事動線」<br />綿密なヒアリングをもとに実際の暮らしを<br
                   class="for-sp"
@@ -179,10 +181,10 @@
             <li
               v-for="imageSet in design.slide2"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: design.show[1] }"
+              v-bind:class="{ 'is-lowLayer': design.show[1] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -197,7 +199,7 @@
       </div>
     </section>
 
-    <section class="p-mainBlock p-mainBlock--passive common-fadein js-fadein">
+    <section class="p-mainBlock p-mainBlock--passive p-fadeIn js-fadeIn">
       <span class="p-mainBlock__mark p-mainBlock--passive__mark">
         <span>KADeL</span>
         <span>環境共生住宅</span>
@@ -217,7 +219,7 @@
             :key="tab"
             @click="changeTab(index, passive)"
             v-bind:class="[
-              { handlePointer: isProcess },
+              { 'is-noPointer': isProcess },
               index == passive.currentTab ? 'is-current' : ''
             ]"
           >
@@ -231,7 +233,7 @@
             <h3 class="p-mainBlock__concept for-sp">
               パッシブデザイン
             </h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || passive.show[0]">
                 パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、<br
                   class="for-pc"
@@ -240,7 +242,7 @@
                 />冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。
               </p>
             </transition>
-            <transition name="passiveImage">
+            <transition name="passive-image">
               <figure v-show="passive.currentTab == 0">
                 <img
                   class="passiveImage"
@@ -256,10 +258,10 @@
             <li
               v-for="imageSet in passive.slide1"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: passive.show[0] }"
+              v-bind:class="{ 'is-lowLayer': passive.show[0] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -277,7 +279,7 @@
             <h3 class="p-mainBlock__concept for-sp">
               四季と共に生きる
             </h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || passive.show[1]">
                 自然と共に暮らす環境共生住宅は、<br />偏西風や太陽高度など、季節や時間によって変化する自然環境を利用した、<br />夏涼冬暖で一年を通して快適な設計となっています。
               </p>
@@ -289,10 +291,10 @@
             <li
               v-for="imageSet in passive.slide2"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: passive.show[1] }"
+              v-bind:class="{ 'is-lowLayer': passive.show[1] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -310,7 +312,7 @@
             <h3 class="p-mainBlock__concept for-sp">
               土地を活かす
             </h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || passive.show[2]">
                 家づくりとは、敷地を丁寧に読み解くところからはじまります。<br />狭小地、三角地、傾斜地など、土地の個性を活かした住まいを設計いたします。<br />また周辺環境を考慮し、堀や坪庭などを有効活用したプライバシーへの配慮、<br />騒音、防犯などの対策も万全にしています。
               </p>
@@ -322,10 +324,10 @@
             <li
               v-for="imageSet in passive.slide3"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: passive.show[2] }"
+              v-bind:class="{ 'is-lowLayer': passive.show[2] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -340,7 +342,7 @@
       </div>
     </section>
 
-    <section class="p-mainBlock p-mainBlock--support common-fadein js-fadein">
+    <section class="p-mainBlock p-mainBlock--support p-fadeIn js-fadeIn">
       <span class="p-mainBlock__mark p-mainBlock--support__mark">
         <span>KADeL</span>
         <span>Support</span>
@@ -362,7 +364,7 @@
             :key="tab"
             @click="changeTab(index, support)"
             v-bind:class="[
-              { handlePointer: isProcess },
+              { 'is-noPointer': isProcess },
               index == support.currentTab ? 'is-current' : ''
             ]"
           >
@@ -371,12 +373,10 @@
         </slot>
       </div>
       <div class="p-mainBlock__wrap">
-        <div
-          class="p-mainBlock__content p-mainBlock--support__content add-active"
-        >
+        <div class="p-mainBlock__content p-mainBlock--support__content">
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
             <h3 class="p-mainBlock__concept for-sp">土地探し</h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[0]">
                 KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br
                   class="for-pc"
@@ -392,10 +392,10 @@
             <li
               v-for="imageSet in support.slide1"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: support.show[0] }"
+              v-bind:class="{ 'is-lowLayer': support.show[0] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -408,12 +408,10 @@
           </ul>
         </div>
 
-        <div
-          class="p-mainBlock__content p-mainBlock--support__content add-active"
-        >
+        <div class="p-mainBlock__content p-mainBlock--support__content">
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
             <h3 class="p-mainBlock__concept for-sp">インテリア</h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[1]">
                 KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。<br />そのため、空間デザインの専門家による家具や照明などのコーディネートから<br
                   class="for-pc"
@@ -427,10 +425,10 @@
             <li
               v-for="imageSet in support.slide2"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: support.show[1] }"
+              v-bind:class="{ 'is-lowLayer': support.show[1] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -443,12 +441,10 @@
           </ul>
         </div>
 
-        <div
-          class="p-mainBlock__content p-mainBlock--support__content add-active"
-        >
+        <div class="p-mainBlock__content p-mainBlock--support__content">
           <div class="p-mainBlock__textBlock p-mainBlock--support__textBlock">
             <h3 class="p-mainBlock__concept for-sp">長期保証</h3>
-            <transition name="text" v-on:after-enter="afterEnter">
+            <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[2]">
                 お客様に快適に生活していただくためにKADeLでは、<br />「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、<br />最長20年の建物保証や完成保証にも対応しています。<br />また細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、<br />万全のサポートシステムで末永くご家族の暮らしをケアいたします。
               </p>
@@ -460,10 +456,10 @@
             <li
               v-for="imageSet in support.slide3"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: support.show[2] }"
+              v-bind:class="{ 'is-lowLayer': support.show[2] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -479,7 +475,7 @@
     </section>
 
     <section
-      class="p-mainBlock p-mainBlock--award common-fadein js-fadein"
+      class="p-mainBlock p-mainBlock--award p-fadeIn js-fadeIn"
       id="js-background"
     >
       <h2 class="p-mainBlock__mark p-mainBlock--award__mark">
@@ -561,10 +557,10 @@
             <li
               v-for="imageSet in awards.slide1"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: awards.show[0] }"
+              v-bind:class="{ 'is-lowLayer': awards.show[0] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -581,7 +577,7 @@
           <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
             <transition name="contest-title">
               <h3
-                class="js-contest-name p-mainBlock__contestTitle"
+                class="p-mainBlock__contestTitle"
                 v-show="checkMq || awards.show[1]"
               >
                 LIXIL MEMBERS CONTEST 2015<span
@@ -611,10 +607,10 @@
             <li
               v-for="imageSet in awards.slide2"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: awards.show[1] }"
+              v-bind:class="{ 'is-lowLayer': awards.show[1] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -631,7 +627,7 @@
           <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
             <transition name="contest-title">
               <h3
-                class="js-contest-name p-mainBlock__contestTitle"
+                class="p-mainBlock__contestTitle"
                 v-show="checkMq || awards.show[2]"
               >
                 LIXIL MEMBERS CONTEST 2013<span>準グランプリ受賞</span>
@@ -659,10 +655,10 @@
             <li
               v-for="imageSet in awards.slide3"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: awards.show[2] }"
+              v-bind:class="{ 'is-lowLayer': awards.show[2] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -679,7 +675,7 @@
           <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
             <transition name="contest-title">
               <h3
-                class="js-contest-name p-mainBlock__contestTitle"
+                class="p-mainBlock__contestTitle"
                 v-show="checkMq || awards.show[3]"
               >
                 住まいの環境デザイン・アワード2011<span>新築部門 敢闘賞</span>
@@ -707,10 +703,10 @@
             <li
               v-for="imageSet in awards.slide4"
               :key="imageSet.img"
-              v-bind:class="{ handleLayer: awards.show[3] }"
+              v-bind:class="{ 'is-lowLayer': awards.show[3] }"
             >
               <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="image">
+                <transition name="slide-image">
                   <img
                     :src="require('@/' + imageSet.img)"
                     :alt="imageSet.alt"
@@ -731,16 +727,16 @@
           :key="nav"
           @click="changeTab(index, awards)"
           v-bind:class="[
-            { handlePointer: isProcess },
+            { 'is-noPointer': isProcess },
             index == awards.currentTab ? 'is-current' : ''
           ]"
         ></li>
       </ul>
     </section>
 
-    <section class="p-staff js-changeEnd">
+    <section class="p-staff">
       <h2>スタッフ<span>Staff</span></h2>
-      <p class="common-fadein js-fadein">
+      <p class="p-fadeIn js-fadeIn">
         お客さまをの家づくりをお手伝いさせていただく<br
           class="for-pc"
         />スタッフを一部ご紹介いたします。<br />その他土地探しのプロや営業として<br
@@ -748,7 +744,7 @@
         />サポートさせていただく<br />スタッフ約25名が在籍しております。
       </p>
       <ul class="p-staff__list">
-        <li class="common-fadein js-fadein">
+        <li class="p-fadeIn js-fadeIn">
           <div class="p-staff__text">
             <h3>黒瀬 信幸<span>副社長</span></h3>
             <p>
@@ -762,7 +758,7 @@
             />
           </figure>
         </li>
-        <li class="common-fadein js-fadein">
+        <li class="p-fadeIn js-fadeIn">
           <div class="p-staff__text">
             <h3>秋山 かず子<span>本社 心斎橋 統括所長</span></h3>
             <p>
@@ -776,7 +772,7 @@
             />
           </figure>
         </li>
-        <li class="common-fadein js-fadein">
+        <li class="p-fadeIn js-fadeIn">
           <div class="p-staff__text">
             <h3>西尾 真一<span>本社 所長</span></h3>
             <p>
@@ -792,15 +788,6 @@
         </li>
       </ul>
     </section>
-
-    <div class="modal-bg js-modal-bg"></div>
-    <div class="modal js-modal">
-      <div class="outer">
-        <figure class="image-holder">
-          <button type="button" class="close">×</button>
-        </figure>
-      </div>
-    </div>
   </main>
 </template>
 
@@ -808,6 +795,18 @@
 export default {
   name: 'Kadel',
   methods: {
+    smoothScroll() {
+      let target = document.getElementById('smooth');
+      const headerHeight = document.getElementById('header').clientHeight;
+      let offsetTop = window.pageYOffset; // documentを上端からのスクロール量
+      let rectTop = target.getBoundingClientRect().top; // viewport左上端からのdocumentを全体とした相対位置
+      let top = rectTop + offsetTop - headerHeight - 20;
+
+      window.scrollTo({
+        top, // 変数名は top で固定されている
+        behavior: 'smooth'
+      });
+    },
     changeTab: function(index, section) {
       this.section = section;
       if (this.section.currentTab == index) return false;
@@ -836,21 +835,45 @@ export default {
           root: null,
           rootMargin: '-25% 0px',
           threshold: 0
+        },
+        fadeIn: {
+          root: null,
+          rootMargin: '-30% 0px',
+          threshold: 0
         }
       };
       const targets = {
-        background: document.getElementById('js-background')
+        background: document.getElementById('js-background'),
+        fadeIn: document.querySelectorAll('.js-fadeIn')
       };
+
       const changeBackGround = entry =>
         entry[0].isIntersecting
           ? (this.isInAwards = true)
           : (this.isInAwards = false);
 
+      const scrollFadeIn = entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-onScreen');
+            scrollFadeInObserver.unobserve(entry.target);
+          }
+        });
+      };
+
       const backGroundObserver = new IntersectionObserver(
         changeBackGround,
         options.background
       );
+      const scrollFadeInObserver = new IntersectionObserver(
+        scrollFadeIn,
+        options.fadeIn
+      );
+
       backGroundObserver.observe(targets.background);
+      targets.fadeIn.forEach(target => {
+        scrollFadeInObserver.observe(target);
+      });
     }
   },
   computed: {
@@ -863,7 +886,6 @@ export default {
       // ビュー全体(子コンポーネントも含め)がレンダリングされてから$nextTickでaddEvent mount → vue描画 → addEvent → ブラウザに表示(ここで制御がブラウザに移る)
       window.addEventListener('resize', this.onResize);
     });
-    console.log('mounted');
     this.observing();
   },
   beforeDestroy() {
@@ -1194,6 +1216,7 @@ export default {
   letter-spacing: 0.1em;
   line-height: 1.7;
   background-color: #fff;
+  padding-bottom: 40px;
   transition: color 0.85s ease-in-out, background-color 0.85s ease-in-out;
   position: relative;
   z-index: 1500;
@@ -1217,230 +1240,9 @@ export default {
     }
   }
 
-  &.is-black {
-    background-color: #000;
-    color: #fff;
-    .is-current {
-      border-color: #fff;
-    }
-    .p-mainBlock__mark {
-      border-color: #fff;
-    }
-    .p-mainBlock__tabWrap {
-      border-color: #000;
-    }
-    .p-mainBlock__navBtn.is-current {
-      background-color: #fff;
-      border: none;
-    }
-  }
-
-  /* トランジション用スタイル */
-  .loaded-logo {
-    &-enter-active {
-      transition: opacity 2s cubic-bezier(0.86, 0, 0.07, 1);
-      transition-delay: 0.8s;
-    }
-    &-enter {
-      opacity: 0;
-    }
-    &-enter-to {
-      opacity: 1;
-    }
-  }
-
-  .loaded-text {
-    &-leave,
-    &-leave-active,
-    &-leave-to {
-      width: 0;
-    }
-    &-enter-active {
-      transition: width 1.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      transition-delay: 1s;
-    }
-    &-enter {
-      width: 0;
-      opacity: 0;
-    }
-    &-enter-to {
-      width: 17.64706%;
-      opacity: 1;
-    }
-  }
-
-  .mobile-load-h2 {
-    &-leave,
-    &-leave-active,
-    &-leave-to {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    &-enter {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    &-enter-active {
-      transition: opacity 1.3s ease, transform 1.3s ease;
-      transition-delay: 1.8s;
-    }
-    &-enter-to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .mobile-load-h3 {
-    &-leave,
-    &-leave-active,
-    &-leave-to {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    &-enter {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    &-enter-active {
-      transition: opacity 1.1s ease, transform 1.1s ease;
-      transition-delay: 1.75s;
-    }
-    &-enter-to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .text {
-    &-leave-active,
-    &-enter-active {
-      transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
-      transition-delay: 1s;
-    }
-    &-leave-active {
-      position: absolute;
-      opacity: 0;
-    }
-    &-leave-to {
-      transform: translateX(-100%);
-    }
-    &-enter {
-      transform: translateX(100%);
-      opacity: 1;
-    }
-  }
-
-  .image {
-    &-leave-active,
-    &-enter-active {
-      transition: transform 1s ease-in-out;
-    }
-    &-leave {
-      transform: translateX(0);
-    }
-    &-leave-active {
-      transform: translateX(-50%);
-    }
-    &-leave-to {
-      transform: translateX(-100%);
-    }
-    &-enter {
-      transform: scale(1.2);
-    }
-    &-enter-active {
-      transform: scale(1.1);
-    }
-    &-enter-to {
-      transform: scale(1);
-    }
-  }
-
-  .passiveImage {
-    &-enter {
-      opacity: 0;
-    }
-    &-enter-active {
-      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      transition-delay: 1.6s;
-    }
-    &-enter-to {
-      opacity: 1;
-    }
-  }
-
-  .contest {
-    &-title {
-      &-leave-active {
-        transition: opacity 0.1s cubic-bezier(0.23, 1, 0.32, 1);
-      }
-      &-enter-active {
-        transition: opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-        transition-delay: 1s;
-      }
-      &-leave-to {
-        opacity: 0;
-      }
-      &-enter {
-        opacity: 0;
-      }
-      &-enter-active {
-        opacity: 0;
-      }
-      &-enter-to {
-        opacity: 1;
-      }
-    }
-
-    &-data {
-      &-leave-active {
-        transition: transform 0.1s cubic-bezier(0.23, 1, 0.32, 1),
-          opacity 0.1s cubic-bezier(0.23, 1, 0.32, 1);
-      }
-      &-enter-active {
-        transition: transform 1.5s cubic-bezier(0.23, 1, 0.32, 1),
-          opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-        transition-delay: 1.2s;
-      }
-      &-leave {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      &-leave-to {
-        opacity: 0;
-      }
-      &-enter {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      &-enter-to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-
-  .handleLayer {
-    @include mq(kadel-lg) {
-      position: relative;
-      z-index: -1;
-    }
-  }
-
-  .handlePointer {
-    pointer-events: none;
-  }
-
-  .is-current {
-    border-bottom: 1px solid #000;
-  }
-
-  .p-mainBlock__imageBlock li {
-    @include mq(kadel-lg) {
-      overflow: hidden;
-    }
-  }
-
+  /* -----------------
+        共通
+  ------------------- */
   h1,
   h2,
   h3 {
@@ -1451,6 +1253,22 @@ export default {
     list-style: none !important;
   }
 
+  .p-fadeIn {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 1.15s, opacity 1.15s;
+    &--delay {
+      transition-delay: 0.2s;
+    }
+    &.is-onScreen {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* -----------------
+        p-head
+  ------------------- */
   .p-head {
     position: relative;
     &__logo {
@@ -1470,101 +1288,9 @@ export default {
     }
   }
 
-  .p-mainBlock__mark.add-border-w {
-    border: solid 1px #fff;
-  }
-
-  .common-fadein {
-    // opacity: 0;
-    // transform: translateY(50px);
-    transition: transform 1.15s, opacity 1.15s;
-  }
-
-  .common-fadein-delay {
-    // opacity: 0;
-    // transform: translateY(50px);
-    transition: transform 1.15s, opacity 1.15s;
-    transition-delay: 0.2s;
-  }
-
-  .modal-bg {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.5);
-    width: 100%;
-    z-index: 1050;
-    cursor: zoom-out;
-  }
-
-  .modal {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    @include mq(kadel-lg) {
-      padding: 0 8px;
-    }
-
-    .outer {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: zoom-out;
-
-      .image-holder {
-        position: relative;
-        display: inline-block;
-        z-index: 1060;
-      }
-
-      img {
-        display: block;
-        width: auto;
-        height: auto;
-        padding: 40px 0;
-        @include mq(kadel-lt-lg) {
-          max-width: 95%;
-          margin: 0 auto;
-        }
-        @include mq(kadel-lg) {
-          max-width: 100%;
-        }
-      }
-
-      .close {
-        position: absolute;
-        right: 2.5%;
-        padding: 0;
-        border-style: none;
-        background-color: transparent;
-        font-size: 28px;
-        color: #000;
-        opacity: 0.65;
-        height: 44px;
-        line-height: 44px;
-        user-select: none;
-        outline: 0;
-        cursor: zoom-out;
-        @include mq(kadel-lg) {
-          right: 0;
-        }
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  /* ---------------------------
-            p-main
-  ------------------------------ */
+  /* -----------------
+        p-main
+  ------------------- */
   .p-main {
     @include mq(kadel-gt-md) {
       display: flex;
@@ -1641,6 +1367,7 @@ export default {
       padding-bottom: 168px;
       z-index: 900;
       color: #fff;
+      cursor: pointer;
       @include mq(kadel-gt-md) {
         color: #262626;
       }
@@ -1707,6 +1434,9 @@ export default {
     }
   }
 
+  /* -----------------
+        p-30th
+  ------------------- */
   .p-30th {
     margin-top: 80px;
     @include mq(kadel-gt-md) {
@@ -1809,6 +1539,9 @@ export default {
     }
   }
 
+  /* -----------------
+      p-mainBlock
+  ------------------- */
   .p-mainBlock {
     margin-top: 80px;
     @include mq(kadel-lg) {
@@ -1949,7 +1682,6 @@ export default {
 
     &__content {
       @include mq(kadel-lg) {
-        // overflow: hidden;
         position: absolute;
         width: 100%;
         height: auto;
@@ -1984,6 +1716,9 @@ export default {
       overflow: hidden;
       li {
         opacity: 1;
+        @include mq(kadel-lg) {
+          overflow: hidden;
+        }
       }
     }
 
@@ -2090,12 +1825,6 @@ export default {
           padding-left: 8px;
         }
       }
-
-      > .add-border-w {
-        &:before {
-          background-color: #fff;
-        }
-      }
     }
 
     &__contestList {
@@ -2171,20 +1900,6 @@ export default {
         display: flex;
         justify-content: center;
         margin: 64px auto 0;
-
-        .add-current-nav {
-          background-color: #000;
-          &:before {
-            color: #000;
-            opacity: 1;
-          }
-          &:hover {
-            background: #000;
-            &:before {
-              color: #000;
-            }
-          }
-        }
       }
     }
 
@@ -2350,7 +2065,6 @@ export default {
         &__imageBlock {
           width: 44.8%;
           > li {
-            overflow: hidden;
             &:nth-child(1) {
               width: 37.3%;
               margin-bottom: 10px;
@@ -2532,6 +2246,9 @@ export default {
     }
   }
 
+  /* -----------------
+        p-staff
+  ------------------- */
   .p-staff {
     background: url('../assets/images/kadel/staff_img01.jpg') no-repeat left
       320px top 720px;
@@ -2590,10 +2307,13 @@ export default {
       > li {
         display: flex;
         flex-direction: column-reverse;
-        margin-bottom: 40px;
         @include mq(kadel-gt-md) {
           flex-direction: row-reverse;
         }
+      }
+
+      > li:not(:last-child) {
+        margin-bottom: 40px;
       }
     }
 
@@ -2639,23 +2359,245 @@ export default {
     }
   }
 
-  // min-width: 769px
+  /* ディスプレイスタイル */
   .for-pc {
     @include mq(kadel-sm) {
+      // min-width: 769px
       display: none !important;
     }
   }
-  // max-width: 768px
+
   .for-sp {
     @include mq(kadel-gt-md) {
+      // max-width: 768px
       display: none !important;
     }
   }
-  // min-width: 1025px
+
   .for-lg {
     @include mq(kadel-lt-lg) {
+      // min-width: 1025px
       display: none !important;
     }
+  }
+
+  /* トランジションスタイル */
+  .loaded-logo {
+    &-enter-active {
+      transition: opacity 2s cubic-bezier(0.86, 0, 0.07, 1);
+      transition-delay: 0.8s;
+    }
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-to {
+      opacity: 1;
+    }
+  }
+
+  .loaded-title-area {
+    &-leave,
+    &-leave-active,
+    &-leave-to {
+      width: 0;
+    }
+    &-enter-active {
+      transition: width 1.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        opacity 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition-delay: 1s;
+    }
+    &-enter {
+      width: 0;
+      opacity: 0;
+    }
+    &-enter-to {
+      width: 17.64706%;
+      opacity: 1;
+    }
+  }
+
+  .loaded-title-mobile {
+    &-leave,
+    &-leave-active,
+    &-leave-to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter-active {
+      transition: opacity 1.3s ease, transform 1.3s ease;
+      transition-delay: 1.8s;
+    }
+    &-enter-to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .loaded-subtitle-mobile {
+    &-leave,
+    &-leave-active,
+    &-leave-to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &-enter-active {
+      transition: opacity 1.1s ease, transform 1.1s ease;
+      transition-delay: 1.75s;
+    }
+    &-enter-to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .slide-text {
+    &-leave-active,
+    &-enter-active {
+      transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+      transition-delay: 1s;
+    }
+    &-leave-active {
+      position: absolute;
+      opacity: 0;
+    }
+    &-leave-to {
+      transform: translateX(-100%);
+    }
+    &-enter {
+      transform: translateX(100%);
+      opacity: 1;
+    }
+  }
+
+  .slide-image {
+    &-leave-active,
+    &-enter-active {
+      transition: transform 1s ease-in-out;
+    }
+    &-leave {
+      transform: translateX(0);
+    }
+    &-leave-active {
+      transform: translateX(-50%);
+    }
+    &-leave-to {
+      transform: translateX(-100%);
+    }
+    &-enter {
+      transform: scale(1.2);
+    }
+    &-enter-active {
+      transform: scale(1.1);
+    }
+    &-enter-to {
+      transform: scale(1);
+    }
+  }
+
+  .passive-image {
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      transition-delay: 1.6s;
+    }
+    &-enter-to {
+      opacity: 1;
+    }
+  }
+
+  .contest {
+    &-title {
+      &-leave-active {
+        transition: opacity 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      &-enter-active {
+        transition: opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        transition-delay: 1s;
+      }
+      &-leave-to {
+        opacity: 0;
+      }
+      &-enter {
+        opacity: 0;
+      }
+      &-enter-active {
+        opacity: 0;
+      }
+      &-enter-to {
+        opacity: 1;
+      }
+    }
+
+    &-data {
+      &-leave-active {
+        transition: transform 0.1s cubic-bezier(0.23, 1, 0.32, 1),
+          opacity 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      &-enter-active {
+        transition: transform 1.5s cubic-bezier(0.23, 1, 0.32, 1),
+          opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        transition-delay: 1.2s;
+      }
+      &-leave {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      &-leave-to {
+        opacity: 0;
+      }
+      &-enter {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      &-enter-to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  /* 状態変化スタイル */
+  &.is-black {
+    background-color: #000;
+    color: #fff;
+    .is-current {
+      border-color: #fff;
+    }
+    .p-mainBlock__mark {
+      border-color: #fff;
+    }
+    .p-mainBlock__tabWrap {
+      border-color: #000;
+    }
+    .p-mainBlock__navBtn.is-current {
+      background-color: #fff;
+      border: none;
+    }
+  }
+
+  .is-lowLayer {
+    @include mq(kadel-lg) {
+      position: relative;
+      z-index: -1;
+    }
+  }
+
+  .is-noPointer {
+    pointer-events: none;
+  }
+
+  .is-current {
+    border-bottom: 1px solid #000;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ isInKv: isInKv }">
+  <header class="header" :class="{ isInKv: isInKv }" id="header">
     <nav class="p-nav">
       <router-link class="p-nav__title" to="/">
         T.K

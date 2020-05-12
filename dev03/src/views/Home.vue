@@ -1,13 +1,9 @@
 <template>
   <main class="home">
-    <section class="p-head js-head" id="smooth">
+    <section class="p-head js-head">
       <div class="p-head__wrap">
         <div class="p-head__background"></div>
         <h1>My Portforio</h1>
-        <div class="p-head__scroll" @click="smoothScroll">
-          SCROLL
-          <span></span>
-        </div>
       </div>
     </section>
     <section class="p-contents">
@@ -385,16 +381,6 @@ export default {
 
       const observer = new IntersectionObserver(whenIntersect, options);
       observer.observe(target);
-    },
-    smoothScroll() {
-      let target = document.getElementById('smooth');
-      let offsetTop = window.pageYOffset;
-      let rectTop = target.getBoundingClientRect().bottom;
-      let top = rectTop + offsetTop;
-      window.scrollTo({
-        top, // 変数名は top で固定されている
-        behavior: 'smooth'
-      });
     }
   }
 };
