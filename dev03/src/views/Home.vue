@@ -1,13 +1,9 @@
 <template>
   <main class="home">
-    <section class="p-head js-head" id="smooth">
+    <section class="p-head js-head">
       <div class="p-head__wrap">
         <div class="p-head__background"></div>
         <h1>My Portforio</h1>
-        <div class="p-head__scroll" @click="smoothScroll">
-          SCROLL
-          <span></span>
-        </div>
       </div>
     </section>
     <section class="p-contents">
@@ -154,7 +150,7 @@ export default {
     return {
       size: 'medium',
       color: 'primary',
-      isScrolled: '',
+      isInKv: '',
       dataBlock: {
         basicProfile: [
           {
@@ -380,21 +376,11 @@ export default {
 
       const whenIntersect = entry =>
         entry[0].isIntersecting
-          ? this.emitToHeader('changeBg-event', this.isScrolled, false)
-          : this.emitToHeader('changeBg-event', this.isScrolled, true);
+          ? this.emitToHeader('changeBg-event', this.isInKv, true)
+          : this.emitToHeader('changeBg-event', this.isInKv, false);
 
       const observer = new IntersectionObserver(whenIntersect, options);
       observer.observe(target);
-    },
-    smoothScroll() {
-      let target = document.getElementById('smooth');
-      let offsetTop = window.pageYOffset;
-      let rectTop = target.getBoundingClientRect().bottom;
-      let top = rectTop + offsetTop;
-      window.scrollTo({
-        top, // 変数名は top で固定されている
-        behavior: 'smooth'
-      });
     }
   }
 };
@@ -402,7 +388,6 @@ export default {
 
 <style lang="scss">
 .home {
-  scroll-behavior: smooth;
   .js-fadeIn {
     opacity: 0;
     transform: translateY(50px);
@@ -470,6 +455,7 @@ export default {
       color: #eff0f3;
       writing-mode: vertical-lr;
       letter-spacing: 0.2em;
+      cursor: pointer;
       &:hover {
         opacity: 0.7;
       }

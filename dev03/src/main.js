@@ -5,7 +5,9 @@ require('@/styles/global.scss');
 
 Vue.config.productionTip = false;
 
-new Vue({
+let app = new Vue({
   router,
   render: h => h(App)
 }).$mount('#app');
+
+global.vm = app;

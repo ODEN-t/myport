@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ isScrolled: isScrolled }">
+  <header class="header" :class="{ isInKv: isInKv }" id="header">
     <nav class="p-nav">
       <router-link class="p-nav__title" to="/">
         T.K
@@ -27,15 +27,15 @@ export default {
   name: 'Header',
   data() {
     return {
-      isScrolled: ''
+      isInKv: ''
     };
   },
   mounted() {
     EventBus.$on('changeBg-event', this.changeHeaderState);
   },
   methods: {
-    changeHeaderState(isScrolled) {
-      this.isScrolled = isScrolled;
+    changeHeaderState(isInKv) {
+      this.isInKv = isInKv;
     }
   }
 };
@@ -49,9 +49,7 @@ export default {
   height: 50px;
   z-index: 9999;
   transition: all 0.2s linear;
-  @include mq {
-    height: 60px;
-  }
+  background-color: #0d0d0d;
 
   .p-nav {
     display: flex;
@@ -61,11 +59,9 @@ export default {
     padding: 0 20px;
     @include mq(md) {
       padding: 0 25px;
-      height: 60px;
     }
     @include mq {
       padding: 0 50px;
-      height: 60px;
     }
 
     &__title {
@@ -78,15 +74,11 @@ export default {
       @include mq(gt-md) {
         font-size: 23px;
         letter-spacing: 8px;
-        height: 60px;
       }
     }
 
     &__list {
       height: 50px;
-      @include mq {
-        height: 60px;
-      }
 
       > li {
         display: inline-block;
@@ -110,13 +102,12 @@ export default {
       @include mq(gt-md) {
         font-size: 17px;
         letter-spacing: 2px;
-        height: 60px;
       }
     }
   }
 }
 
-.header.isScrolled {
-  background-color: #0d0d0d;
+.header.isInKv {
+  background-color: transparent;
 }
 </style>

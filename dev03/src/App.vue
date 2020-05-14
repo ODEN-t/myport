@@ -21,7 +21,12 @@ export default {
 
 <style lang="scss">
 @import './styles/reset.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Noto+Sans+JP&display=swap');
 #app {
-  @include font_family;
+  font-family: 'lato_noto', 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN',
+    'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック',
+    'MS PGothic', 'sans-serif';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
