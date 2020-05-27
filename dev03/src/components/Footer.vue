@@ -20,7 +20,6 @@
 
   &__content {
     text-align: center;
-
     > p {
       font-size: 18px;
       letter-spacing: 0.1em;
@@ -28,7 +27,6 @@
         font-size: 24px;
       }
     }
-
     > small {
       display: inline-block;
       margin-top: 10px;
