@@ -6,7 +6,8 @@
         <h1>My Portforio</h1>
       </div>
     </section>
-    <section class="p-contents">
+
+    <!-- <section class="p-contents">
       <div class="p-contents__wrap js-fadeIn">
         <h2>Profile</h2>
         <div class="p-contents__card">
@@ -72,7 +73,8 @@
           </dl>
         </div>
       </div>
-    </section>
+    </section> -->
+
     <section class="p-contents p-contents--bgWhite">
       <div class="p-contents__wrap js-fadeIn">
         <h2>Skills</h2>
