@@ -7,7 +7,7 @@
       </div>
     </section>
 
-    <!-- <section class="p-contents">
+    <section class="p-contents">
       <div class="p-contents__wrap js-fadeIn">
         <h2>Profile</h2>
         <div class="p-contents__card">
@@ -73,12 +73,12 @@
           </dl>
         </div>
       </div>
-    </section> -->
+    </section>
 
-    <section class="p-contents p-contents--bgWhite">
+    <section class="p-contents p-contents--bgMain">
       <div class="p-contents__wrap js-fadeIn">
         <h2>Skills</h2>
-        <div class="p-contents__card p-contents__card--bgGray">
+        <div class="p-contents__card">
           <h3>Rate</h3>
           <dl class="p-contents__dataList">
             <div
@@ -106,7 +106,7 @@
             </div>
           </dl>
         </div>
-        <div class="p-contents__card p-contents__card--bgGray">
+        <div class="p-contents__card">
           <h3>What I can do</h3>
           <dl class="p-contents__dataList">
             <div
@@ -191,7 +191,7 @@ export default {
           },
           {
             dt: 'Tools',
-            dd: 'Git、 GitHub Pages、NPM、 Webpack、 Gulp'
+            dd: 'git、 npm、 webpack、 gulp'
           },
           {
             dt: 'Language',
@@ -217,7 +217,7 @@ export default {
           },
           {
             dt: '2019. 5 - 2020. 4',
-            dd: '株式会社キューにて大手ECサイトの保守・運用業務に携わる'
+            dd: '某社にて大手ECサイトの保守・運用業務に携わる'
           }
         ],
         carrerDetails: [
@@ -445,79 +445,18 @@ export default {
         background-position: 50% 80%;
       }
     }
-
-    &__scroll {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      font-size: 12px;
-      font-weight: 400;
-      padding-bottom: 120px;
-      z-index: 4;
-      color: #eff0f3;
-      writing-mode: vertical-lr;
-      letter-spacing: 0.2em;
-      cursor: pointer;
-      &:hover {
-        opacity: 0.7;
-      }
-
-      > span {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        content: '';
-        height: 100px;
-        width: 1px;
-        overflow: hidden;
-
-        &:after {
-          content: '';
-          display: block;
-          height: 100px;
-          width: 1px;
-          position: absolute;
-          background-color: #eff0f3;
-          animation-duration: 2.6s;
-          animation-iteration-count: infinite;
-          animation-name: scrollLine;
-          animation-timing-function: cubic-bezier(0.97, 0.02, 0.59, 0.98);
-        }
-
-        @keyframes scrollLine {
-          0% {
-            -webkit-transform: translateY(-100%);
-          }
-          5% {
-            -webkit-transform: translateY(-100%);
-          }
-          25% {
-            -webkit-transform: translateY(0);
-          }
-          55% {
-            -webkit-transform: translateY(1%);
-          }
-          95% {
-            -webkit-transform: translateY(100%);
-          }
-          100% {
-            -webkit-transform: translateY(100%);
-          }
-        }
-      }
-    }
   }
 
   .p-contents {
     width: 100%;
-    background-color: #eff0f3;
+    background-color: $background;
 
-    &--bgWhite {
-      background-color: #fffffe;
+    &--bgMain {
+      background-color: $main;
     }
 
     &__wrap {
-      color: #0d0d0d;
+      color: $headLine;
       padding: 3em 1.5em;
       @include mq {
         max-width: 1300px;
@@ -540,7 +479,7 @@ export default {
     }
 
     &__card {
-      background-color: #fffffe;
+      background-color: #ffffff;
       padding: 1.5em;
       margin-top: 1.5em;
       border-radius: 3px;
@@ -551,7 +490,7 @@ export default {
       }
 
       > h3 {
-        color: #0d0d0d;
+        color: $headLine;
         font-size: 20px;
         letter-spacing: 2px;
         line-height: 1.7;
@@ -567,15 +506,11 @@ export default {
           margin-top: 1em;
         }
       }
-
-      &--bgGray {
-        background-color: #eff0f3;
-      }
     }
 
     &__dataList {
       width: 100%;
-      color: #2a2a2a;
+      color: $paragraph;
       margin-top: 0.5em;
       @include mq(gt-md) {
         margin-top: 1em;

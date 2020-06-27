@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  publicPath: '/myport/',
+  publicPath: '/',
   assetsDir: '',
   outputDir: 'dist',
   devServer: {

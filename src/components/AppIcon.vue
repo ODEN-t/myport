@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /* default */
 .svg-icon {
   width: 1.2em;
@@ -62,6 +62,6 @@ export default {
 
 /* colors */
 .svg-icon.is-primary {
-  fill: #d9376e;
+  fill: $tertiary;
 }
 </style>
