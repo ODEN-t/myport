@@ -1,9 +1,0 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Noto+Sans+JP&display=swap');
-
-$font-families: (
-  'lato_noto': "'Lato', 'Noto Sans JP','ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;"
-);
-
-@mixin font_family($font_family: lato_noto) {
-  font-family: #{map-get($font-families, $font-family)};
-};
