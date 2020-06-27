@@ -5,7 +5,6 @@ module.exports = {
   assetsDir: '',
   outputDir: 'dist',
   devServer: {
-    port: 9999,
     open: true
   },
   css: {
