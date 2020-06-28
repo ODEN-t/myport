@@ -28,8 +28,8 @@ footer,header,hgroup,menu,nav,section {
   display:block;
 }
 
-nav ul {
-  list-style:none !important;
+nav, ul {
+  list-style: none;
 }
 
 blockquote, q {

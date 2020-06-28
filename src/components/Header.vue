@@ -4,18 +4,6 @@
       <router-link class="p-nav__title" to="/">
         T.K
       </router-link>
-      <ul class="p-nav__list">
-        <li>
-          <router-link to="kadel" id="" class="p-nav__anchor">
-            kadel
-          </router-link>
-        </li>
-        <li>
-          <a href="" id="" class="p-nav__anchor">
-            テスト
-          </a>
-        </li>
-      </ul>
     </nav>
   </header>
 </template>
@@ -61,7 +49,7 @@ export default {
       padding: 0 25px;
     }
     @include mq {
-      padding: 0 50px;
+      padding: 0 1.5em;
     }
 
     &__title {
@@ -74,34 +62,6 @@ export default {
       @include mq(gt-md) {
         font-size: 23px;
         letter-spacing: 8px;
-      }
-    }
-
-    &__list {
-      height: 50px;
-
-      > li {
-        display: inline-block;
-      }
-
-      > li:not(:last-child) {
-        padding-right: 20px;
-        @include mq(gt-md) {
-          padding-right: 30px;
-        }
-      }
-    }
-
-    &__anchor {
-      font-size: 14px;
-      color: #eff0f3;
-      letter-spacing: 1px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      @include mq(gt-md) {
-        font-size: 17px;
-        letter-spacing: 2px;
       }
     }
   }

@@ -130,6 +130,32 @@
     <section class="p-contents p-contents--works">
       <div class="p-contents__wrap">
         <h2>Works</h2>
+        <ul class="p-contents__workList">
+          <li class="p-contents__workCards">
+            <router-link to="kadel">
+              <img src="../assets/images/home/screen-kadel-min.png" alt="" />
+              <div class="p-contents__workCards__textBox">
+                <p>
+                  Webページの見た目(HTML・CSS)はdevToolで確認しながらコーディングし、動き(JavaScript)は見本の動きを見て自身で考え実装しました。
+                </p>
+                <span class="p-contents__workCards__tag">LP写経</span>
+                <span class="p-contents__workCards__tag">Vue.js</span>
+              </div>
+            </router-link>
+          </li>
+          <li class="p-contents__workCards">
+            <router-link to="kadel">
+              <img src="../assets/images/home/screen-kadel-min.png" alt="" />
+              <div class="p-contents__workCards__textBox">
+                <p>
+                  Webページの見た目(HTML・CSS)はdevToolで確認しながらコーディングし、動き(JavaScript)は見本の動きを見て自身で考え実装しました。
+                </p>
+                <span class="p-contents__workCards__tag">LP写経</span>
+                <span class="p-contents__workCards__tag">Vue.js</span>
+              </div>
+            </router-link>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
@@ -416,7 +442,7 @@ export default {
       > h1 {
         font-size: 34px;
         text-align: center;
-        letter-spacing: 5px;
+        letter-spacing: 0.1em;
         color: #eff0f3;
         position: absolute;
         top: 50%;
@@ -470,7 +496,7 @@ export default {
       > h2 {
         width: 100%;
         font-size: 24px;
-        letter-spacing: 2px;
+        letter-spacing: 0.1em;
         text-align: center;
         @include mq(gt-md) {
           font-size: 40px;
@@ -548,7 +574,7 @@ export default {
       }
 
       &--letterSpaceWide {
-        letter-spacing: 2px;
+        letter-spacing: 0.13em;
       }
       &--widthWide {
         width: 100%;
@@ -583,6 +609,51 @@ export default {
 
     svg[class^='svg-'] {
       padding: 0 0.2em;
+    }
+
+    &__workList {
+      display: flex;
+      margin-top: 3em;
+    }
+
+    &__workCards {
+      background-color: #ffffff;
+      width: calc(33% - 0.75em);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 200ms ease;
+
+      &:not(:last-child) {
+        margin-right: calc(0.75em * 3 / 2);
+      }
+
+      &:hover {
+        box-shadow: 0 5px 15px -10px #000;
+        transform: translate(0px, -4px);
+      }
+
+      &__textBox {
+        padding: 0.5em 0.5em 1em;
+        > p {
+          font-size: 14px;
+          color: $paragraph;
+          margin-bottom: 0.5em;
+          line-height: 1.6;
+        }
+      }
+
+      &__tag {
+        font-size: 12px;
+        font-weight: 600;
+        background: $secondary;
+        color: #fff;
+        padding: 0.4em;
+        border-radius: 3px;
+      }
+
+      &__tag:not(:first-of-type) {
+        margin-left: 0.5em;
+      }
     }
   }
 }
