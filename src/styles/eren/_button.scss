@@ -1,0 +1,176 @@
+/*
+
+  * DOM構造
+  <li class="c-squareButton">
+    <a class="c-squareButton_inner" href="">
+      <span class="c-squareButton_label">トップ</span>
+      <svg class="c-squareButton_leftArrow"><use xlink:href="#arrow"></svg>
+    </a>
+  </li>
+
+  * スタイルを上書く場合は各projectファイルで p- で上書く
+
+*/
+
+.c-squareButton { //c-squareButton と c-squareButton_innerをセットで使用
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: solid .26667vw #fff;
+  border-width: .26667vw;
+  background-color: #000;
+  overflow: hidden;
+  cursor: pointer;
+  @media screen and (min-width: 800px) {
+    border: solid .06944vw #fff;
+    border-width: .06944vw;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    display: block;
+    background-color: #02d0d0;
+    transition: transform .4s cubic-bezier(.19,1,.22,1);
+    backface-visibility: hidden;
+    z-index: 0;
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  &__label {  //テキストに付与するクラス
+    position: relative;
+    color: #fff;
+    font-size: 5.06667vw;
+    letter-spacing: .16em;
+    text-indent: .16em;
+    transition: color .4s cubic-bezier(.19,1,.22,1);
+    transform: scaleX(.85);
+    z-index: 2;
+    @media screen and (min-width: 800px) {
+      font-size: .90278vw;
+    }
+    @media screen and (min-width: 800px) and (max-width: 1100px) {
+      font-size: 1.40541vw;
+    }
+    @media screen and (min-width: 1600px) {
+      font-size: 14.44444px;
+    }
+  }
+
+  &__squareIcon { //svgアイコンに付与するクラス
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 6.93333vw; //正方形
+    height: 6.93333vw;
+    fill: #fff;
+    margin: auto;
+    z-index: 2;
+    @media screen and (min-width: 800px) {
+      width: 1.45833vw;
+      height: 1.45833vw;
+    }
+    @media screen and (min-width: 1600px) {
+      width: 23.33333px;
+      height: 23.33333px;
+    }
+  }
+
+  &__leftArrow { //svg leftArrowに付与するクラス
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: 3.2vw;
+    width: 5.33333vw;
+    height: 3.06667vw;
+    fill: #e50013;
+    margin: auto;
+    display: block;
+    z-index: 2;
+  }
+  
+  &:hover {
+    .c-squareButton__label {
+      color: #e50013;
+      transition-duration: .1s;
+    }
+    .c-squareButton__squareIcon {
+      fill: #e50013;
+      transition-duration: .1s;
+    }
+  }
+}
+
+.c-squareButton--vText { // テキストをPCのみ縦にする
+  @extend .c-squareButton;
+  .c-squareButton__label {
+    @media screen and (min-width: 800px) {
+      writing-mode: vertical-rl !important;
+      text-align: center !important;
+      letter-spacing: .2em !important;
+      text-indent: .2em !important;
+    }
+  }
+}
+
+.c-squareButton--animeH { // 横ホバーアニメーション
+  @extend .c-squareButton;
+  &:before, &:after {
+    width: 101%;
+    height: 51%;
+    transform: scaleX(0);
+  }
+  &:before {
+    top: 0;
+    left: 0;
+    transform-origin: center left;
+  }
+  &:after {
+    top: auto;
+    bottom: 0;
+    transform-origin: center right;
+  }
+  &:hover {
+    &:before, &:after {
+      transform: scaleX(1);
+    }
+  }  
+}
+
+.c-squareButton--animeV { // 縦ホバーアニメーション
+  @extend .c-squareButton;
+  &:before, &:after {
+    width: 51%;
+    height: 102%;
+    transform: scaleY(0);
+    transform-origin: top center;
+    top: 0;
+    left: 0;
+  }
+  
+  &:after {
+    transform-origin: bottom center;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: auto; 
+  }
+  &:hover {
+    &:before, &:after {
+      transform: scaleY(1);
+    }
+  }
+}

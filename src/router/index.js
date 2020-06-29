@@ -18,6 +18,11 @@ const routes = [
     path: '/kadel',
     name: 'Kadel',
     component: () => import('../views/Kadel.vue')
+  },
+  {
+    path: '/eren',
+    name: 'Eren',
+    component: () => import('../views/Eren.vue')
   }
 ];
 

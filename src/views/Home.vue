@@ -340,7 +340,7 @@ export default {
           },
           {
             dt: 'Sass（CSS）',
-            dd: 'レスポンシブ化、アニメーション、flocssを用いたCSS設計'
+            dd: 'レスポンシブ化、アニメーション、CSS設計'
           },
           {
             dt: 'PHP',

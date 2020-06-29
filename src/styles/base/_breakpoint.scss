@@ -10,7 +10,12 @@ $breakpoints: (
   'kadel-md': 'screen and (min-width: 769px) and (max-width: 1024px)',
   'kadel-lg': 'screen and (min-width: 1025px)',
   'kadel-gt-md': 'screen and (min-width: 769px)',
-  'kadel-lt-lg':'screen and (max-width: 1024px)'
+  'kadel-lt-lg':'screen and (max-width: 1024px)',
+  /* eren */
+  'eren-sm': 'screen and (max-width: 799px)', /* s-h */
+  'eren-gt-sm': 'screen and (min-width: 800px)', /* m-h */
+  'eren-md': 'screen and (min-width: 800px) and (max-width: 1100px)', /* l-h */
+  'eren-lg': 'screen and (min-width: 1600px)' /* xl-h */
 );
 
 @mixin mq($breakpoint: lg) {
