@@ -645,10 +645,13 @@ export default {
       &__textBox {
         padding: 0.5em 0.5em 1em;
         > p {
-          font-size: 16px;
+          font-size: 14px;
           color: $paragraph;
           margin-bottom: 0.5em;
           line-height: 1.6;
+          @include mq {
+            font-size: 16px;
+          }
         }
       }
 
