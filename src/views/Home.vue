@@ -143,18 +143,6 @@
               </div>
             </router-link>
           </li>
-          <li class="p-contents__workCards">
-            <router-link to="kadel">
-              <img src="../assets/images/home/screen-kadel-min.png" alt="" />
-              <div class="p-contents__workCards__textBox">
-                <p>
-                  Webページの見た目(HTML・CSS)はdevToolで確認しながらコーディングし、動き(JavaScript)は見本の動きを見て自身で考え実装しました。
-                </p>
-                <span class="p-contents__workCards__tag">LP写経</span>
-                <span class="p-contents__workCards__tag">Vue.js</span>
-              </div>
-            </router-link>
-          </li>
         </ul>
       </div>
     </section>
@@ -340,19 +328,19 @@ export default {
           },
           {
             dt: 'Sass（CSS）',
-            dd: 'レスポンシブ化、アニメーション、flocssを用いたCSS設計'
+            dd: 'レスポンシブ化、アニメーション、CSS設計'
           },
           {
             dt: 'PHP',
             dd: '研修の基礎知識のみ、実務経験なし'
           },
           {
-            dt: 'JavaScript（jQuery）',
-            dd: 'DOM操作、関数化、非同期処理、jQueryプラグインの利用'
+            dt: 'JavaScript',
+            dd: 'DOM操作、関数化、非同期処理、プラグインの利用'
           },
           {
             dt: 'Vue',
-            dd: '基礎'
+            dd: '基礎、実務経験なし'
           },
           {
             dt: 'WordPress',
@@ -495,7 +483,7 @@ export default {
 
       > h2 {
         width: 100%;
-        font-size: 24px;
+        font-size: 30px;
         letter-spacing: 0.1em;
         text-align: center;
         @include mq(gt-md) {
@@ -511,18 +499,17 @@ export default {
       border-radius: 3px;
       @include mq {
         width: calc(50% - 0.75em);
-        padding: 2.5em;
         margin-top: 2.5em;
       }
 
       > h3 {
         color: $headLine;
-        font-size: 20px;
+        font-size: 22px;
         letter-spacing: 2px;
         line-height: 1.7;
         font-weight: 700;
         @include mq(gt-md) {
-          font-size: 22px;
+          font-size: 26px;
         }
       }
 
@@ -568,9 +555,13 @@ export default {
     }
 
     &__dataTitle {
+      font-size: 16px;
       font-weight: 700;
       @include mq(gt-md) {
         width: 35%;
+      }
+      @include mq {
+        font-size: 17px;
       }
 
       &--letterSpaceWide {
@@ -589,6 +580,10 @@ export default {
     }
 
     &__data {
+      font-size: 14px;
+      @include mq {
+        font-size: 16px;
+      }
       @include mq(gt-md) {
         width: 65%;
       }
@@ -613,29 +608,44 @@ export default {
 
     &__workList {
       display: flex;
-      margin-top: 3em;
+      flex-wrap: wrap;
+      margin-top: 1.5em;
+      @include mq {
+        margin-top: 2.5em;
+      }
     }
 
     &__workCards {
       background-color: #ffffff;
-      width: calc(33% - 0.75em);
+      width: 100%;
       border-radius: 8px;
       overflow: hidden;
       transition: transform 200ms ease;
-
-      &:not(:last-child) {
-        margin-right: calc(0.75em * 3 / 2);
-      }
-
       &:hover {
         box-shadow: 0 5px 15px -10px #000;
         transform: translate(0px, -4px);
+      }
+      @include mq(sm) {
+        &:not(:first-of-type) {
+          margin-top: 1.5em;
+        }
+      }
+      @include mq(md) {
+        width: calc(50% - 0.75em);
+      }
+      @include mq(gt-md) {
+        &:not(:last-child) {
+          margin-right: calc(0.75em * 3 / 2);
+        }
+      }
+      @include mq {
+        width: calc(33% - 0.75em);
       }
 
       &__textBox {
         padding: 0.5em 0.5em 1em;
         > p {
-          font-size: 14px;
+          font-size: 16px;
           color: $paragraph;
           margin-bottom: 0.5em;
           line-height: 1.6;

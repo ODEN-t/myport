@@ -1,4 +1,4 @@
-f# my portforio
+# my portforio
 
 ## Project setup
 ```
