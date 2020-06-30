@@ -25,20 +25,31 @@
           </symbol>
         </defs>
       </svg>
-      <div class="p-loading js-loading">
-        <div class="p-loading__wrap js-loadingWrap">
+      <div class="p-loading js-loading" :class="{ 'is-loaded': isLoaded }">
+        <div
+          class="p-loading__wrap js-loadingWrap"
+          :style="{ transform: `translate(-50%, ${center}px)` }"
+        >
           <div class="p-loadingInner">
             <div
               class="p-loadingInner__item p-loadingInner__item--item1 js-scaleItem"
+              :style="{ transform: `scaleX(${scaleX})` }"
+              :class="{ 'is-loaded': isLoaded }"
             ></div>
             <div
               class="p-loadingInner__item p-loadingInner__item--item2 js-scaleItem"
+              :style="{ transform: `scaleX(${scaleX})` }"
+              :class="{ 'is-loaded': isLoaded }"
             ></div>
             <div
               class="p-loadingInner__item p-loadingInner__item--item3 js-scaleItem"
+              :style="{ transform: `scaleX(${scaleX})` }"
+              :class="{ 'is-loaded': isLoaded }"
             ></div>
             <div
               class="p-loadingInner__item p-loadingInner__item--item4 js-scaleItem"
+              :style="{ transform: `scaleX(${scaleX})` }"
+              :class="{ 'is-loaded': isLoaded }"
             ></div>
           </div>
         </div>
@@ -131,7 +142,10 @@
         </div>
       </div>
       <main>
-        <section class="p-kv js-kv js-fadeIn is-onScreenItem">
+        <section
+          class="p-kv js-kv js-fadeIn is-onScreenItem"
+          :class="{ 'is-onScreen': isOnScreen }"
+        >
           <ul class="p-kv__characters js-charaList is-step1">
             <li class="p-character p-character--item3 u-blockS-h">
               <div class="p-character__inner"></div>
@@ -745,187 +759,46 @@
 <script>
 export default {
   name: 'Eren',
-  data() {
-    return {
-      mediaQuery = window.matchMedia('(min-width: 800px)'),
-      termPosition: {
-        start: this.setPosition(2),
-        end: this.setPosition(6)
-      },
-      steps: {
-        step1: this.setPosition(2),
-        step2:
-          this.setPosition(2) + (this.setPosition(5) - this.setPosition(2)) / 3,
-        step3:
-          this.setPosition(2) +
-          ((this.setPosition(5) - this.setPosition(2)) / 3) * 2,
-        step4: this.setPosition(5)
-      }
-    };
-  },
+
   methods: {
-    wait(ms) {
+    wait: function(ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
         }, ms);
       });
     },
-    setPosition(itemNum) {
-      const itemList = document.querySelector('.js-charaList');
-      let itemWidth = itemList.children[0].clientWidth;
-      let sideMargin = (window.innerWidth - itemWidth) / 2;
-      let position = -(itemWidth * itemNum) + sideMargin;
-      return position;
+    toCenter: function() {
+      const elem = document.querySelector('.js-loadingWrap');
+      this.center =
+        (window.innerHeight - elem.clientHeight) / 2 - elem.offsetTop;
     },
-    textFadeIn() {
-      const targets = document.querySelectorAll('.js-fadeIn');
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2 //要素の見えている割合が２０％越えるとコールバック
-      };
-
-      const addWhenIntersect = entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-onScreen');
-            observer.unobserve(entry.target); //add後、監視停止
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(addWhenIntersect, options);
-      targets.forEach(target => {
-        observer.observe(target);
-      });
-    },
-    toggle() {
-      const kv = document.querySelector('.js-kv');
-      kv.classList.toggle('is-closed');
-    },
-    changeOrder() {
-      const charcterList = document.querySelector('.js-charaList');
-      let firstCharcter = Array.from(charcterList.children).shift();
-      charcterList.appendChild(firstCharcter);
-    },
-    loop() {
-      let xAxis = this.termPosition.start;
-      const endPoint = this.termPosition.end;
-      const resetPoint = this.termPosition.start;
-      const loopSteps = this.steps;
-
-      if (!this.mediaQuery.matches) {
-        setInterval(() => {
-          charcterList.style.transform = `translateX(${(xAxis -= 1.5)}px)`;
-          let translateX = charcterList.style.transform.replace(
-            /[^-^0-9^]/g,
-            ''
-          ); //返り値から数字のみ抽出
-          if (xAxis < endPoint) xAxis = resetPoint;
-          if (translateX > loopSteps.step2) {
-            if (!charcterList.classList.contains('is-step1')) {
-              charcterList.classList.remove('is-step4');
-              charcterList.classList.add('is-step1');
-              this.toggle();
-              this.wait(800).finally(function() {
-                this.changeOrder();
-                this.toggle();
-              });
-            }
-          }
-          if (loopSteps.step2 > translateX && translateX > loopSteps.step3) {
-            if (!charcterList.classList.contains('is-step2')) {
-              charcterList.classList.remove('is-step1');
-              charcterList.classList.add('is-step2');
-              this.toggle();
-              wait(800).finally(function() {
-                this.changeOrder();
-                this.toggle();
-              });
-            }
-          }
-          if (loopSteps.step3 > translateX && translateX > loopSteps.step4) {
-            if (!charcterList.classList.contains('is-step3')) {
-              charcterList.classList.remove('is-step2');
-              charcterList.classList.add('is-step3');
-              this.toggle();
-              wait(800).finally(function() {
-                this.changeOrder();
-                this.toggle();
-              });
-            }
-          }
-          if (loopSteps.step4 > translateX) {
-            if (!charcterList.classList.contains('is-step4')) {
-              charcterList.classList.remove('is-step3');
-              charcterList.classList.add('is-step4');
-              this.toggle();
-              wait(800).finally(function() {
-                this.changeOrder();
-                this.toggle();
-              });
-            }
-          }
-        }, 30);
-      }
-    },
-    setInitPosition() {
-      if (window.innerWidth < 800)
-        document.querySelector(
-          '.js-charaList'
-      ).style.transform = `translateX(${setPosition(2)}px)`;
-    },
-    loading() {
+    loading: function() {
       const images = document.querySelectorAll('img');
-      const loadingWrap = document.querySelector('.js-loadingWrap');
-      let rect = loadingWrap.getBoundingClientRect();
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      let offsetTop = rect.top + scrollTop;
-      let toCenter =
-        (window.innerHeight -
-          document.querySelector('.js-loadingWrap').clientHeight) /
-          2 -
-        offsetTop;
       let originImageSrc = [];
-      let scaleX = 0;
-      const guages = document.querySelectorAll('.js-scaleItem');
-      const loading = document.querySelector('.js-loading');
-      const kv = document.querySelector('.js-kv');
 
-      loadingWrap.style.transform = `translate(-50%, ${toCenter}px)`;
-
-      //全imgのsrcを空にしてoriginImageSrcに退避
-      for (var i = 0; i < images.length; i++) {
+      for (let i = 0; i < images.length; i++) {
         originImageSrc.push(images[i].src);
         images[i].src = '';
       }
 
-      //imgをロードする毎にscaleXの数値を加算
       images.forEach(img => {
         img.addEventListener(
           'load',
           () => {
-            scaleX += 1 / images.length;
-            guages.forEach(guage => {
-              guage.style.transform = `scaleX(${scaleX})`;
-            });
-            if (scaleX >= 1) {
+            this.scaleX += 1 / images.length;
+            if (this.scaleX >= 1) {
               this.wait(1000)
                 .then(() => {
-                  guages.forEach(guage => {
-                    guage.classList.add('is-loaded');
-                  });
-                  loading.classList.add('is-loaded');
+                  this.isLoaded = true;
                   return this.wait(1200);
                 })
                 .then(() => {
-                  kv.classList.add('is-onScreen');
-                  textFadeIn();
+                  this.isOnScreen = true;
                   return this.wait(2000);
                 })
                 .finally(() => {
-                  loop.execute(mediaQuery);
+                  console.log('loop開始');
                 });
             }
           },
@@ -933,397 +806,26 @@ export default {
         );
       });
 
-      //全imgのsrcを代入
       for (let i = 0; i < images.length; i++) {
         images[i].src = originImageSrc[i];
       }
-    },
-    startLoop() {
-      this.setInitPosition();
-      this.loading();
-    },
-    stickyAndTabs = () => {
-  const header = document.querySelector('.js-header');
-  const tabs = document.querySelectorAll('.js-tab');
-  const pages = document.querySelectorAll('.js-pages');
-  const contentsWrapClassList = document.querySelector('.p-story').classList;
-  let calcPosition = () => {
-    let storyOffsetTop = document.querySelector('.js-story').offsetTop;
-    let headerHeight = document.querySelector('.js-header').clientHeight;
-    return (storyOffsetTop - headerHeight) * 0.935;
-  };
-
-  for (let i = 0; i < tabs.length; i++) {
-    tabs[i].addEventListener('click', function() {
-      if (!this.classList.contains('is-active')) {
-        pages.forEach(page => {
-          page.classList.toggle('is-active');
-        });
-        tabs.forEach(tab => {
-          tab.classList.toggle('is-active');
-        });
-        window.scroll({
-          top: calcPosition(),
-          behavior: 'smooth'
-        });
-      }
-      contentsWrapClassList.contains('is-prologue')
-        ? contentsWrapClassList.replace('is-prologue', 'is-main')
-        : contentsWrapClassList.replace('is-main', 'is-prologue');
-    });
-  }
-
-  window.addEventListener('resize', () => {
-    calcPosition();
-  });
-
-  window.addEventListener('scroll', () => {
-    window.scrollY > calcPosition()
-      ? header.classList.add('is-hide')
-      : header.classList.remove('is-hide');
-  });
-};
-  }
-};
-
-// const mediaQuery = window.matchMedia('(min-width: 800px)');
-// const wait = ms => {
-//   return new Promise(resolve => {
-//     setTimeout(() => {
-//       resolve();
-//     }, ms);
-//   });
-// };
-
-// const setPosition = itemNum => {
-//   const itemList = document.querySelector('.js-charaList');
-//   let itemWidth = itemList.children[0].clientWidth;
-//   let sideMargin = (window.innerWidth - itemWidth) / 2;
-//   let position = -(itemWidth * itemNum) + sideMargin;
-//   return position;
-// };
-
-//テキストフェードイン
-// const textFadeIn = () => {
-//   const targets = document.querySelectorAll('.js-fadeIn');
-//   const options = {
-//     root: null,
-//     rootMargin: '0px',
-//     threshold: 0.2 //要素の見えている割合が２０％越えるとコールバック
-//   };
-
-//   const addWhenIntersect = entries => {
-//     entries.forEach(entry => {
-//       if (entry.isIntersecting) {
-//         entry.target.classList.add('is-onScreen');
-//         observer.unobserve(entry.target); //add後、監視停止
-//       }
-//     });
-//   };
-
-//   const observer = new IntersectionObserver(addWhenIntersect, options);
-//   targets.forEach(target => {
-//     observer.observe(target);
-//   });
-// };
-
-//KVループ・キャラ入れ替え
-// const loop = {
-//   termPosition: {
-//     start: setPosition(2),
-//     end: setPosition(6)
-//   },
-//   steps: {
-//     step1: setPosition(2),
-//     step2: setPosition(2) + (setPosition(5) - setPosition(2)) / 3,
-//     step3: setPosition(2) + ((setPosition(5) - setPosition(2)) / 3) * 2,
-//     step4: setPosition(5)
-//   },
-//   execute() {
-//     let xAxis = this.termPosition.start;
-//     const endPoint = this.termPosition.end;
-//     const resetPoint = this.termPosition.start;
-//     const loopSteps = this.steps;
-//     const charcterList = document.querySelector('.js-charaList');
-//     const toggle = () => {
-//       const kv = document.querySelector('.js-kv');
-//       kv.classList.toggle('is-closed');
-//     };
-//     const changeOrder = () => {
-//       let firstCharcter = Array.from(charcterList.children).shift();
-//       charcterList.appendChild(firstCharcter);
-//     };
-
-//     if (!mediaQuery.matches) {
-//       setInterval(() => {
-//         charcterList.style.transform = `translateX(${(xAxis -= 1.5)}px)`;
-//         let translateX = charcterList.style.transform.replace(/[^-^0-9^]/g, ''); //返り値から数字のみ抽出
-//         if (xAxis < endPoint) xAxis = resetPoint;
-//         if (translateX > loopSteps.step2) {
-//           if (!charcterList.classList.contains('is-step1')) {
-//             charcterList.classList.remove('is-step4');
-//             charcterList.classList.add('is-step1');
-//             toggle();
-//             wait(800).finally(function() {
-//               changeOrder();
-//               toggle();
-//             });
-//           }
-//         }
-//         if (loopSteps.step2 > translateX && translateX > loopSteps.step3) {
-//           if (!charcterList.classList.contains('is-step2')) {
-//             charcterList.classList.remove('is-step1');
-//             charcterList.classList.add('is-step2');
-//             toggle();
-//             wait(800).finally(function() {
-//               changeOrder();
-//               toggle();
-//             });
-//           }
-//         }
-//         if (loopSteps.step3 > translateX && translateX > loopSteps.step4) {
-//           if (!charcterList.classList.contains('is-step3')) {
-//             charcterList.classList.remove('is-step2');
-//             charcterList.classList.add('is-step3');
-//             toggle();
-//             wait(800).finally(function() {
-//               changeOrder();
-//               toggle();
-//             });
-//           }
-//         }
-//         if (loopSteps.step4 > translateX) {
-//           if (!charcterList.classList.contains('is-step4')) {
-//             charcterList.classList.remove('is-step3');
-//             charcterList.classList.add('is-step4');
-//             toggle();
-//             wait(800).finally(function() {
-//               changeOrder();
-//               toggle();
-//             });
-//           }
-//         }
-//       }, 30);
-//     }
-//   }
-// };
-
-// ロード & ループスタート
-// const animationSequence = {
-//   setInitPosition() {
-//     if (window.innerWidth < 800)
-//       document.querySelector(
-//         '.js-charaList'
-//       ).style.transform = `translateX(${setPosition(2)}px)`;
-//   },
-//   loading() {
-//     const images = document.querySelectorAll('img');
-//     const loadingWrap = document.querySelector('.js-loadingWrap');
-//     let rect = loadingWrap.getBoundingClientRect();
-//     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//     let offsetTop = rect.top + scrollTop;
-//     let toCenter =
-//       (window.innerHeight -
-//         document.querySelector('.js-loadingWrap').clientHeight) /
-//         2 -
-//       offsetTop;
-//     let originImageSrc = [];
-//     let scaleX = 0;
-//     const guages = document.querySelectorAll('.js-scaleItem');
-//     const loading = document.querySelector('.js-loading');
-//     const kv = document.querySelector('.js-kv');
-
-//     loadingWrap.style.transform = `translate(-50%, ${toCenter}px)`;
-
-//     //全imgのsrcを空にしてoriginImageSrcに退避
-//     for (var i = 0; i < images.length; i++) {
-//       originImageSrc.push(images[i].src);
-//       images[i].src = '';
-//     }
-
-//     //imgをロードする毎にscaleXの数値を加算
-//     images.forEach(img => {
-//       img.addEventListener(
-//         'load',
-//         () => {
-//           scaleX += 1 / images.length;
-//           guages.forEach(guage => {
-//             guage.style.transform = `scaleX(${scaleX})`;
-//           });
-//           if (scaleX >= 1) {
-//             wait(1000)
-//               .then(() => {
-//                 guages.forEach(guage => {
-//                   guage.classList.add('is-loaded');
-//                 });
-//                 loading.classList.add('is-loaded');
-//                 return wait(1200);
-//               })
-//               .then(() => {
-//                 kv.classList.add('is-onScreen');
-//                 textFadeIn();
-//                 return wait(2000);
-//               })
-//               .finally(() => {
-//                 loop.execute(mediaQuery);
-//               });
-//           }
-//         },
-//         { once: true }
-//       );
-//     });
-
-//     //全imgのsrcを代入
-//     for (let i = 0; i < images.length; i++) {
-//       images[i].src = originImageSrc[i];
-//     }
-//   },
-//   startLoop() {
-//     this.setInitPosition();
-//     this.loading();
-//   }
-// };
-
-// スティッキー と タブ切り替え
-// const stickyAndTabs = () => {
-//   const header = document.querySelector('.js-header');
-//   const tabs = document.querySelectorAll('.js-tab');
-//   const pages = document.querySelectorAll('.js-pages');
-//   const contentsWrapClassList = document.querySelector('.p-story').classList;
-//   let calcPosition = () => {
-//     let storyOffsetTop = document.querySelector('.js-story').offsetTop;
-//     let headerHeight = document.querySelector('.js-header').clientHeight;
-//     return (storyOffsetTop - headerHeight) * 0.935;
-//   };
-
-//   for (let i = 0; i < tabs.length; i++) {
-//     tabs[i].addEventListener('click', function() {
-//       if (!this.classList.contains('is-active')) {
-//         pages.forEach(page => {
-//           page.classList.toggle('is-active');
-//         });
-//         tabs.forEach(tab => {
-//           tab.classList.toggle('is-active');
-//         });
-//         window.scroll({
-//           top: calcPosition(),
-//           behavior: 'smooth'
-//         });
-//       }
-//       contentsWrapClassList.contains('is-prologue')
-//         ? contentsWrapClassList.replace('is-prologue', 'is-main')
-//         : contentsWrapClassList.replace('is-main', 'is-prologue');
-//     });
-//   }
-
-//   window.addEventListener('resize', () => {
-//     calcPosition();
-//   });
-
-//   window.addEventListener('scroll', () => {
-//     window.scrollY > calcPosition()
-//       ? header.classList.add('is-hide')
-//       : header.classList.remove('is-hide');
-//   });
-// };
-
-// モーダル開閉,スクロール禁止・解除
-const modalAction = {
-  targets: {
-    modal: document.querySelector('.js-modal'),
-    modalBackground: document.querySelector('.js-modalBg'),
-    clickTarget: document.querySelector('.js-relation')
-  },
-  lock(e) {
-    e.preventDefault();
-  },
-  scrollOff() {
-    document.addEventListener('mousewheel', this.lock, { passive: false });
-    document.addEventListener('touchmove', this.lock, { passive: false });
-  },
-  scrollOn() {
-    document.removeEventListener('mousewheel', this.lock, { passive: false });
-    document.removeEventListener('touchmove', this.lock, { passive: false });
-  },
-  open() {
-    // クリック時 this は .js-relation
-    modalAction.targets.modal.classList.add('is-opened');
-    modalAction.targets.modalBackground.classList.add('is-opened');
-    modalAction.scrollOff();
-  },
-  close(e) {
-    const target = e.target.getAttribute('data-modal');
-    if (target === 'modalClose') {
-      this.targets.modal.classList.remove('is-opened');
-      this.targets.modalBackground.classList.remove('is-opened');
-      this.scrollOn();
     }
   },
-  modalControl() {
-    if (mediaQuery.matches) {
-      // this は MediaQueryList
-      modalAction.targets.clickTarget.addEventListener(
-        'click',
-        modalAction.open
-      );
-      window.addEventListener('click', e => {
-        modalAction.close(e);
-      });
-    } else {
-      modalAction.targets.modal.classList.remove('is-opened');
-      modalAction.targets.modalBackground.classList.remove('is-opened');
-      modalAction.targets.clickTarget.removeEventListener(
-        'click',
-        modalAction.open
-      );
-      window.removeEventListener('click', e => {
-        modalAction.close(e);
-      });
-      modalAction.scrollOn();
-    }
+
+  mounted() {
+    this.toCenter();
+    this.loading();
   },
-  execute() {
-    mediaQuery.addListener(this.modalControl);
-    this.modalControl(mediaQuery);
+
+  data() {
+    return {
+      center: 0,
+      scaleX: 0,
+      isLoaded: false,
+      isOnScreen: false
+    };
   }
 };
-
-// min-width:800px → menu縦アニメーション else → menu横アニメーション
-const btnAnimeContorl = mediaQuery => {
-  const menuNavs = document.querySelectorAll('.js-menuNav');
-  mediaQuery.matches
-    ? menuNavs.forEach(menuNav => {
-        menuNav.classList.replace(
-          'c-squareButton--animeH',
-          'c-squareButton--animeV'
-        );
-      })
-    : menuNavs.forEach(menuNav => {
-        menuNav.classList.replace(
-          'c-squareButton--animeV',
-          'c-squareButton--animeH'
-        );
-      });
-};
-
-/**
- * イベント登録・関数実行
- */
-// window.addEventListener('beforeunload', function() {
-//   window.scrollTo(0, 0);
-// });
-
-// mobile menu
-document.querySelector('.js-menuBtn').addEventListener('click', function() {
-  this.classList.toggle('is-open');
-  document.querySelector('.js-menu').classList.toggle('is-open');
-});
-
-modalAction.execute();
-stickyAndTabs();
-animationSequence.startLoop();
-mediaQuery.addListener(btnAnimeContorl);
-btnAnimeContorl(mediaQuery);
 </script>
 
 <style lang="scss">
