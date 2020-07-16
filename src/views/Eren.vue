@@ -795,6 +795,7 @@ export default {
                 })
                 .then(() => {
                   this.isOnScreen = true;
+                  this.textFadeIn();
                   return this.wait(2000);
                 })
                 .finally(() => {
@@ -809,6 +810,28 @@ export default {
       for (let i = 0; i < images.length; i++) {
         images[i].src = originImageSrc[i];
       }
+    },
+    textFadeIn: function() {
+      const targets = document.querySelectorAll('.js-fadeIn');
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2 //要素の見えている割合が２０％越えるとコールバック
+      };
+
+      const addWhenIntersect = entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-onScreen');
+            observer.unobserve(entry.target); //add後、監視停止
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(addWhenIntersect, options);
+      targets.forEach(target => {
+        observer.observe(target);
+      });
     }
   },
 
