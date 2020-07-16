@@ -7,7 +7,7 @@
       </div>
     </section>
 
-    <section class="p-contents">
+    <!-- <section class="p-contents">
       <div class="p-contents__wrap js-fadeIn">
         <h2>Profile</h2>
         <div class="p-contents__card">
@@ -73,7 +73,7 @@
           </dl>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="p-contents p-contents--bgMain">
       <div class="p-contents__wrap js-fadeIn">
@@ -142,6 +142,19 @@
                 <span class="p-contents__workCards__tag">Vue.js</span>
               </div>
             </router-link>
+          </li>
+          <li class="p-contents__workCards p-contents__workCards--textContent">
+            <h4>大手ECサイトのLP作成</h4>
+            <h5>言語</h5>
+            <p>
+              HTML, CSS, JavaScript(jQuery), bem・SassでのCSS管理,
+              jQueryプラグインの利用(owlcarousel, slick, magnificPopup)
+            </p>
+            <h5>ツール</h5>
+            <p>
+              git, bitbacket, gulp, webpack, nvm, npm, zsh, JIRAでのタスク管理,
+              illustrator, photoshop
+            </p>
           </li>
         </ul>
       </div>
@@ -666,6 +679,30 @@ export default {
 
       &__tag:not(:first-of-type) {
         margin-left: 0.5em;
+      }
+    }
+
+    &__workCards--textContent {
+      padding: 1em;
+
+      > p {
+        font-size: 16px;
+        color: $paragraph;
+        margin-bottom: 1.5em;
+        line-height: 1.8;
+        @include mq {
+          font-size: 16px;
+        }
+      }
+
+      > h4 {
+        font-size: 20px;
+        margin-bottom: 2em;
+      }
+
+      > h5 {
+        font-size: 18px;
+        margin-bottom: 0.5em;
       }
     }
   }
