@@ -1,93 +1,43 @@
 <template>
   <main class="KADeL" v-bind:class="{ 'is-black': isInAwards }">
-    <div class="p-head">
-      <transition name="loaded-logo" appear>
-        <h1 class="p-head__logo">
-          <svg
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 133.76 133.76"
-          >
-            <title>株式会社KADeL</title>
-            <rect width="133.76" height="133.76" style="fill:#221f20"></rect>
-            <polyline
-              points="41.68 56.48 44.73 56.48 36.28 65.68 44.66 75.33 41.35 75.33 34.06 66.72 34.06 75.33 31.76 75.33 31.76 56.48 34.06 56.48 34.06 65.11 41.68 56.48"
-              style="fill:#fff"
-            ></polyline>
-            <path
-              d="M58.94,71h-8.5l-1.65,4.38H46.26l7.43-18.85h2l7.42,18.85H60.59L58.94,71M54.69,59.6l-3.45,9.27h6.91Z"
-              style="fill:#fff"
-            ></path>
-            <path
-              d="M66,56.48h6a8.57,8.57,0,0,1,6.08,2.63,9.76,9.76,0,0,1,0,13.47,9,9,0,0,1-6.64,2.75H66V56.48m5.4,16.63a6.39,6.39,0,0,0,5-2.16,7.49,7.49,0,0,0,1.93-5.25,6.78,6.78,0,0,0-2-5,7.1,7.1,0,0,0-5.08-2H68.29v14.4Z"
-              style="fill:#fff"
-            ></path>
-            <path
-              d="M96.08,72.83a7.23,7.23,0,0,1-5.64,2.81,6.49,6.49,0,0,1-5.07-2.11,7.16,7.16,0,0,1,0-9.44,6.16,6.16,0,0,1,4.68-2,6,6,0,0,1,4.72,2.1,8.11,8.11,0,0,1,1.83,5.54H85.91a4.4,4.4,0,0,0,1.5,2.69,4.28,4.28,0,0,0,3,1.12,5.13,5.13,0,0,0,4-2.08l1.64,1.36M94.19,67.9a4.07,4.07,0,0,0-1.29-2.7,4.22,4.22,0,0,0-2.85-1,3.74,3.74,0,0,0-3,1.16,4.58,4.58,0,0,0-1.18,2.55Z"
-              style="fill:#fff"
-            ></path>
-            <polyline
-              points="99.99 56.48 102.29 56.48 102.29 73.11 108.71 73.11 108.71 75.33 99.99 75.33 99.99 56.48"
-              style="fill:#fff"
-            ></polyline>
-          </svg>
-        </h1>
-      </transition>
-    </div>
-
     <section class="p-main">
-      <transition
-        name="loaded-title-area"
-        appear
-        @after-enter="afterTransitionEnter"
-      >
-        <div
-          class="p-main__text"
-          v-bind:class="{ 'is-loadedWidth': isLoadedWidth }"
-        >
-          <transition name="loaded-title-mobile" appear>
-            <h2>想い描いた、<br class="for-sp" />理想の住まいをかたちに</h2>
-          </transition>
-          <transition name="loaded-subtitle-mobile" appear>
-            <h3>KADeLの注文住宅</h3>
-          </transition>
-          <div class="p-main__scrollBtn" @click="smoothScroll">
-            SCROLL
-            <span></span>
-          </div>
-        </div>
-      </transition>
+      <div class="p-main__text">
+        <h1>
+          <span class="air">Air</span>で堪能する<br />ヨーロッパ旅行・ツアー
+        </h1>
+      </div>
+      <div class="p-main__scrollBtn" @click="smoothScroll">
+        SCROLL
+        <span></span>
+      </div>
       <figure class="p-main__figure"></figure>
     </section>
 
     <section class="p-30th" id="smooth">
       <div class="p-30th__text p-fadeIn js-fadeIn">
         <h2>
-          目に見えない光や風、<br />熱や空気をデザインする<br />KADeLの「環境共生住宅」
+          水の都ヴェネチアと、<br />オランダを象徴する<br />風車とチューリップ
         </h2>
-        <h3>30th anniversary</h3>
+        <h3>自然を堪能する</h3>
         <p>
-          住宅が大好きで、人生をかけて<br
-            class="for-sp"
-          />住宅を追求していきたい<br />そんな情熱を持った建築デザイナーが<br />お客様の意向を丁寧に汲み取りながら<br />プロとしての提案がしっかりできる会社を<br
-            class="for-sp"
-          />作りたいと考え<br
-            class="for-pc"
-          />立ち上げたのがKADeLです。<br />KADeL設立より設計の力を信じて30年、<br
-            class="for-sp"
-          />そして辿り着いた住まい。
+          テキストテキストテキストテキストテキストテキスト
+          テキストテキストテキストテキストテキストテキスト
+          テキストテキストテキストテキストテキストテキスト
+          テキストテキストテキストテキストテキストテキスト
+          テキストテキストテキストテキストテキストテキスト
+          テキストテキストテキストテキストテキストテキスト
         </p>
-        <p>それが「環境共生住宅」でした。</p>
       </div>
       <ul class="p-30th__images" id="smooth">
         <li class="p-fadeIn js-fadeIn">
           <img
-            src="../assets/images/kadel/lede_img01.jpg"
+            src="../assets/images/town/venice-2845272_1920.jpg"
             alt="KADeL カデル 30周年 環境共生住宅"
           />
         </li>
         <li class="p-fadeIn p-fadeIn--delay js-fadeIn">
           <img
-            src="../assets/images/kadel/lede_img02.jpg"
+            src="../assets/images/town/windmill-858143_1920.jpg"
             alt="KADeL カデル 30周年 環境共生住宅"
           />
         </li>
@@ -905,19 +855,19 @@ export default {
         slide1: [
           {
             id: 'Design1-1',
-            img: 'assets/images/kadel/design_block01_img01.jpg',
-            alt: 'KADeL カデル 想い描いた理想をかたちに 囲炉裏の住宅',
+            img: 'assets/images/town/canal-min.jpg',
+            alt: '',
             modal: 'assets/images/kadel/popup/design_block01_img01-l.jpg'
           },
           {
             id: 'Design1-2',
-            img: 'assets/images/kadel/design_block01_img02.jpg',
+            img: 'assets/images/town/arc-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 瓦の家',
             modal: 'assets/images/kadel/popup/design_block01_img02-l.jpg'
           },
           {
             id: 'Design1-3',
-            img: 'assets/images/kadel/design_block01_img03.jpg',
+            img: 'assets/images/town/iam-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
             modal: 'assets/images/kadel/popup/design_block01_img03-l.jpg'
           }
@@ -1206,9 +1156,9 @@ export default {
 
 <style lang="scss">
 .KADeL {
-  @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Yu Gothic',
-    YuGothic, 'Hiragino Kaku Gothic ProN', メイリオ, sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Red+Rose:wght@300;400;700&display=swap');
+  font-family: 'Red Rose', cursive, 'Noto Sans JP', sans-serif,
+    'Hiragino Kaku Gothic ProN', メイリオ;
   padding-top: 30px;
   color: rgb(38, 38, 38);
   font-size: 14px;
@@ -1217,7 +1167,6 @@ export default {
   line-height: 1.7;
   background-color: #fff;
   padding-bottom: 40px;
-  transition: color 0.85s ease-in-out, background-color 0.85s ease-in-out;
   position: relative;
   z-index: 1500;
   @include mq(kadel-sm) {
@@ -1253,6 +1202,10 @@ export default {
     list-style: none !important;
   }
 
+  .en {
+    font-size: 1.15em;
+  }
+
   .p-fadeIn {
     opacity: 0;
     transform: translateY(50px);
@@ -1267,31 +1220,10 @@ export default {
   }
 
   /* -----------------
-        p-head
-  ------------------- */
-  .p-head {
-    position: relative;
-    &__logo {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      width: 80px;
-      z-index: 10;
-      & > a:hover {
-        opacity: 0.7;
-      }
-      @include mq(kadel-gt-md) {
-        right: 0;
-        top: 0;
-        width: 104px;
-      }
-    }
-  }
-
-  /* -----------------
         p-main
   ------------------- */
   .p-main {
+    position: relative;
     @include mq(kadel-gt-md) {
       display: flex;
       flex-direction: row-reverse;
@@ -1299,77 +1231,50 @@ export default {
       width: 100%;
     }
 
+    &__text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      transform: translateY(-50%);
+
+      > h1 {
+        color: #fff;
+        font-size: calc(43 / 1025 * 100vw);
+        font-weight: 500;
+        letter-spacing: 3px;
+      }
+
+      .air {
+        font-size: 2em;
+      }
+    }
+
     &__figure {
       @include mq(kadel-gt-md) {
-        background: url('../assets/images/kadel/hero_img.jpg') no-repeat
+        background: url('../assets/images/town/paris.jpg') no-repeat
           center/cover;
         transition: width 1.4s cubic-bezier(0.86, 0, 0.07, 1);
         width: 100%;
         transform: translate3D(0, 0, 0);
-      }
-    }
-
-    &__text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      -ms-writing-mode: tb-rl;
-      writing-mode: vertical-rl;
-      position: relative;
-      @include mq(kadel-sm) {
-        align-items: center;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: url('../assets/images/kadel/hero_img-sp.jpg') no-repeat
-          center/cover;
-        color: #fff;
-      }
-      @include mq(kadel-gt-md) {
-        justify-content: flex-end;
-        padding-top: 120px;
-      }
-
-      > h2 {
-        font-size: 32px;
-        line-height: 1.5;
-        @include mq(kadel-sm) {
-          letter-spacing: 1.4px;
-        }
-      }
-
-      > h3 {
-        font-size: 20px;
-        @include mq(kadel-sm) {
-          padding-top: 6em;
-          margin-left: -1.5em;
-          margin-right: 0.5em;
-        }
-        @include mq(kadel-gt-md) {
-          text-align: right;
-          margin: 0 1em 0 1.5em;
-        }
-      }
-    }
-
-    &__text.is-loadedWidth {
-      @include mq(kadel-gt-md) {
-        width: 17.64706%;
+        z-index: -1;
       }
     }
 
     &__scrollBtn {
       position: absolute;
       bottom: 0;
-      right: 0;
-      font-size: 12px;
-      font-weight: 400;
-      font-family: 'Ubuntu Condensed', sans-serif;
+      right: 1em;
+      font-size: calc(14 / 1025 * 100vw);
+      font-weight: 600;
       padding-bottom: 168px;
       z-index: 900;
       color: #fff;
       cursor: pointer;
+      writing-mode: vertical-rl;
       @include mq(kadel-gt-md) {
-        color: #262626;
+        color: #fff;
       }
 
       &:hover {
@@ -1406,7 +1311,7 @@ export default {
           );
           animation-timing-function: cubic-bezier(0.97, 0.02, 0.59, 0.98);
           @include mq(kadel-gt-md) {
-            background-color: #262626;
+            background-color: #fff;
           }
         }
 
