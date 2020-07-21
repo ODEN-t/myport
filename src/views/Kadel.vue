@@ -45,17 +45,11 @@
     </section>
 
     <section class="p-mainBlock p-mainBlock--design p-fadeIn js-fadeIn">
-      <span class="p-mainBlock__mark p-mainBlock--design__mark">
-        <span>KADeL</span>
-        <span>Design</span>
-      </span>
       <h2 class="p-mainBlock__title p-mainBlock--design__title">
-        想い描いた理想を<br />かたちに
+        大自然を満喫する
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--design__desc">
-        従来の規格型住宅では表現できない<br />ご家族のためだけに考えられた<br
-          class="for-tb"
-        />世界にたったひとつの住まいを
+        テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--design__tabWrap for-lg">
         <slot v-for="(tab, index) in design.tabs">
@@ -76,13 +70,13 @@
         <div class="p-mainBlock__content p-mainBlock--design__content">
           <div class="p-mainBlock__textBlock p-mainBlock--design__textBlock">
             <h3 class="p-mainBlock__concept for-tb">
-              理想をかたちに
+              アムステルダム
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="design.show[0]">
-                数多くの賞を受賞する建築デザイナーが<br />お聞かせいただいたご家族のたくさんの想いとご希望を<br
+                テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト<br
                   class="for-pc"
-                />自由な設計とプラスアルファなご提案で<br />理想の住まいへとかたちにいたします。
+                />テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -115,13 +109,7 @@
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || design.show[1]">
-                「暮らしやすい間取り」「快適な家事動線」<br />綿密なヒアリングをもとに実際の暮らしを<br
-                  class="for-sp"
-                />しっかりと配慮し、<br
-                  class="for-pc"
-                />ご家族の笑顔であふれる<br
-                  class="for-sp"
-                />快適な住まいを設計いたします。
+                テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -150,17 +138,11 @@
     </section>
 
     <section class="p-mainBlock p-mainBlock--passive p-fadeIn js-fadeIn">
-      <span class="p-mainBlock__mark p-mainBlock--passive__mark">
-        <span>KADeL</span>
-        <span>環境共生住宅</span>
-      </span>
       <h2 class="p-mainBlock__title p-mainBlock--passive__title">
-        環境と共に生きる
+        中世の街並と歴史を満喫する
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--passive__desc">
-        エアコンなどの設備に頼らず、<br
-          class="for-tb"
-        />自然の力を利用した<br />木造モダン建築で快適な暮らしを
+        テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--passive__tabWrap for-lg">
         <slot v-for="(tab, index) in passive.tabs">
@@ -185,21 +167,10 @@
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || passive.show[0]">
-                パッシブデザインとは日本建築を下敷きにした自然のエネルギーを生かした建築計画で、<br
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト<br
                   class="for-pc"
-                />目に見えない光や風・熱・空気をデザインすることで快適な暮らしを実現することができます。<br />パッシブデザインを取り入れることで、地球環境だけでなく、大切なご家族の健康面にも効果的です。<br />また、断熱性能が高い「環境共生住宅」では、部屋感の温度差がほとんどなく、<br
-                  class="for-pc"
-                />冷暖房にかかるコストを大幅に削減できるなど家計への負担も軽減されるため、経済面にも非常に効果的です。
+                />テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
-            </transition>
-            <transition name="passive-image">
-              <figure v-show="passive.currentTab == 0">
-                <img
-                  class="passiveImage"
-                  src="@/assets/images/kadel/passive_block01_img01.png"
-                  alt="KADeL カデル 環境共生住宅 パッシブデザイン イメージ"
-                />
-              </figure>
             </transition>
           </div>
           <ul
@@ -231,7 +202,9 @@
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || passive.show[1]">
-                自然と共に暮らす環境共生住宅は、<br />偏西風や太陽高度など、季節や時間によって変化する自然環境を利用した、<br />夏涼冬暖で一年を通して快適な設計となっています。
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-pc"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -264,7 +237,9 @@
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || passive.show[2]">
-                家づくりとは、敷地を丁寧に読み解くところからはじまります。<br />狭小地、三角地、傾斜地など、土地の個性を活かした住まいを設計いたします。<br />また周辺環境を考慮し、堀や坪庭などを有効活用したプライバシーへの配慮、<br />騒音、防犯などの対策も万全にしています。
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-pc"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -293,12 +268,8 @@
     </section>
 
     <section class="p-mainBlock p-mainBlock--support p-fadeIn js-fadeIn">
-      <span class="p-mainBlock__mark p-mainBlock--support__mark">
-        <span>KADeL</span>
-        <span>Support</span>
-      </span>
       <h2 class="p-mainBlock__title p-mainBlock--support__title">
-        プロフェッショナルによる<br class="for-tb" />サポート
+        美しい街でのひと時を満喫する
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--support__desc">
         各分野のプロフェッショナルが<br
@@ -850,24 +821,24 @@ export default {
       windowWidth: window.innerWidth,
       design: {
         show: [true, false], // tab, imageの初期値
-        tabs: ['理想をかたちに', '繊細な住宅設計'],
+        tabs: ['雄大な大自然', 'ビーチリゾート'],
         currentTab: 0,
         slide1: [
           {
             id: 'Design1-1',
-            img: 'assets/images/town/canal-min.jpg',
+            img: 'assets/images/airtravel/alps_switzerland-min.jpg',
             alt: '',
             modal: 'assets/images/kadel/popup/design_block01_img01-l.jpg'
           },
           {
             id: 'Design1-2',
-            img: 'assets/images/town/arc-min.jpg',
-            alt: 'KADeL カデル 想い描いた理想をかたちに 瓦の家',
+            img: 'assets/images/airtravel/strokkur_iceland-min.jpg',
+            alt: 'オランダ アムステルダム ',
             modal: 'assets/images/kadel/popup/design_block01_img02-l.jpg'
           },
           {
             id: 'Design1-3',
-            img: 'assets/images/town/iam-min.jpg',
+            img: 'assets/images/airtravel/plitviceLakes_croatia-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
             modal: 'assets/images/kadel/popup/design_block01_img03-l.jpg'
           }
@@ -875,19 +846,19 @@ export default {
         slide2: [
           {
             id: 'Design2-1',
-            img: 'assets/images/kadel/design_block02_img01.jpg',
+            img: 'assets/images/airtravel/beach_sicily-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 眺望の家',
             modal: 'assets/images/kadel/popup/design_block02_img01-l.jpg'
           },
           {
             id: 'Design2-2',
-            img: 'assets/images/kadel/design_block02_img02.jpg',
+            img: 'assets/images/airtravel/beach_mallorca-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 中庭を囲むロの字型の家',
             modal: 'assets/images/kadel/popup/design_block02_img02-l.jpg'
           },
           {
             id: 'Design2-3',
-            img: 'assets/images/kadel/design_block02_img03.jpg',
+            img: 'assets/images/airtravel/beach_zakynthos-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 大きな土庇と縁側の家',
             modal: 'assets/images/kadel/popup/design_block02_img03-l.jpg'
           }
@@ -895,24 +866,24 @@ export default {
       },
       passive: {
         show: [true, false, false], // tab, imageの初期値
-        tabs: ['パッシブデザイン', '四季と共に生きる', '土地を活かす'],
+        tabs: ['歴史を感じる街並', '宮殿・大聖堂', '美術館・博物館'],
         currentTab: 0,
         slide1: [
           {
             id: 'Passive1-1',
-            img: 'assets/images/kadel/passive_block01_img01.jpg',
+            img: 'assets/images/airtravel/town_czech-min.jpg',
             alt: 'KADeL 環境と共に生きる 瓦の家',
             modal: 'assets/images/kadel/popup/passive_block01_img01-l.jpg'
           },
           {
             id: 'Passive1-2',
-            img: 'assets/images/kadel/passive_block01_img02.jpg',
+            img: 'assets/images/airtravel/town_germany-min.jpg',
             alt: 'KADeL 環境と共に生きる 集う家',
             modal: 'assets/images/kadel/popup/passive_block01_img02-l.jpg'
           },
           {
             id: 'Passive1-3',
-            img: 'assets/images/kadel/passive_block01_img03.jpg',
+            img: 'assets/images/airtravel/town_belgium-min.jpg',
             alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
           }
@@ -920,47 +891,47 @@ export default {
         slide2: [
           {
             id: 'Passive2-1',
-            img: 'assets/images/kadel/passive_block02_img01.jpg',
+            img: 'assets/images/airtravel/palace_germany-min.jpg',
             alt: 'KADeL 環境と共に生きる 紀美野町の平屋',
-            modal: 'assets/images/kadel/popup/passive_block02_img01-l.jpg'
+            modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
           },
           {
             id: 'Passive2-2',
-            img: 'assets/images/kadel/passive_block02_img02.jpg',
+            img: 'assets/images/airtravel/palace_british-min.jpg',
             alt: 'KADeL 環境と共に生きる とおり庭の家',
-            modal: 'assets/images/kadel/popup/passive_block02_img02-l.jpg'
+            modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
           },
           {
             id: 'Passive2-3',
-            img: 'assets/images/kadel/passive_block02_img03.jpg',
+            img: 'assets/images/airtravel/catedral_france-min.jpg',
             alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
-            modal: 'assets/images/kadel/popup/passive_block02_img03-l.jpg'
+            modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
           }
         ],
         slide3: [
           {
             id: 'Passive3-1',
-            img: 'assets/images/kadel/passive_block03_img01.jpg',
+            img: 'assets/images/airtravel/museum_british-min.jpg',
             alt: 'KADeL 環境と共に生きる 瓦の家',
-            modal: 'assets/images/kadel/popup/passive_block03_img01-l.jpg'
+            modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
           },
           {
             id: 'Passive3-2',
-            img: 'assets/images/kadel/passive_block03_img02.jpg',
+            img: 'assets/images/airtravel/museum_france-min.jpg',
             alt: 'KADeL 環境と共に生きる 囲炉裏の住宅',
-            modal: 'assets/images/kadel/popup/passive_block03_img02-l.jpg'
+            modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
           },
           {
             id: 'Passive3-3',
-            img: 'assets/images/kadel/passive_block03_img03.jpg',
+            img: 'assets/images/airtravel/museum_vatican-min.jpg',
             alt: 'KADeL 環境と共に生きる 3角敷地に3角な3階建の家',
-            modal: 'assets/images/kadel/popup/passive_block03_img03-l.jpg'
+            modal: 'assets/images/kadel/popup/passive_block01_img03-l.jpg'
           }
         ]
       },
       support: {
         show: [true, false, false], // tab, imageの初期値
-        tabs: ['土地探し', 'インテリア', '長期保証'],
+        tabs: ['地中海を望む街並み', 'カフェ文化', 'グルメ巡り'],
         currentTab: 0,
         slide1: [
           {
@@ -1454,62 +1425,6 @@ export default {
       margin-top: 160px;
     }
 
-    &__mark {
-      width: 120px;
-      height: 120px;
-      position: relative;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-      text-align: center;
-      border: solid 1px #000;
-      font-family: 'Ubuntu Condensed', sans-serif;
-      transition: border 0.85s ease-in-out;
-      @include mq(kadel-lt-lg) {
-        margin: 0 auto;
-      }
-      @include mq(kadel-lg) {
-        width: 140px;
-        height: 140px;
-      }
-
-      > span {
-        display: block;
-        width: 100%;
-        font-size: 18px;
-        font-weight: 400;
-        @include mq(kadel-lg) {
-          font-size: 20px;
-        }
-      }
-
-      &:before,
-      &:after {
-        content: '';
-        height: 20px;
-        width: 1px;
-        background-color: #262626;
-        display: block;
-      }
-
-      &:before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate3D(-50%, -50%, 0) rotate(45deg);
-      }
-
-      &:after {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate3D(-50%, -50%, 0) rotate(-45deg);
-      }
-    }
-
     &__title {
       position: relative;
       font-size: 24px;
@@ -1543,7 +1458,7 @@ export default {
       }
 
       @include mq(kadel-lg) {
-        font-size: 1.1vw;
+        font-size: calc(14 / 1025 * 100vw);
         line-height: 2;
         cursor: pointer;
         padding: 0 24px;
@@ -1558,7 +1473,6 @@ export default {
       @include mq(kadel-lg) {
         border-bottom: 1px solid #d5d5d5;
         display: flex;
-        font-size: 1.1vw;
         line-height: 2;
         padding-right: 80px;
         position: absolute;
@@ -1576,7 +1490,7 @@ export default {
       }
       @include mq(kadel-lg) {
         position: absolute;
-        font-size: 1.4vw;
+        font-size: calc(15 / 1025 * 100vw);
         margin-top: 6.7%;
       }
     }
@@ -1611,7 +1525,7 @@ export default {
           padding-left: 0.5em;
         }
         @include mq(kadel-lg) {
-          font-size: 1vw;
+          font-size: calc(13 / 1025 * 100vw);
           margin: 0;
         }
       }
@@ -1878,8 +1792,7 @@ export default {
 
         &__title {
           position: absolute;
-          left: 40px;
-          top: 172px;
+          top: -6px;
           &:after {
             position: absolute;
             bottom: -8px;
@@ -1888,19 +1801,18 @@ export default {
         }
 
         &__tabWrap {
-          margin-left: 23.5%;
-          margin-top: 42.9%;
+          margin-top: 46.9%;
+          margin-left: 24.1%;
         }
 
         &__desc {
-          margin-left: 23.5%;
-          margin-top: 32.3%;
+          margin-left: 24%;
+          margin-top: 38.3%;
         }
 
         &__wrap {
           margin-left: auto;
-          margin-top: -70px;
-          width: 76.4%;
+          width: 76.5%;
         }
 
         &__content {
@@ -1909,7 +1821,7 @@ export default {
 
         &__textBlock {
           position: absolute;
-          top: 86%;
+          top: 79%;
         }
 
         &__imageBlock > li {
@@ -1917,15 +1829,13 @@ export default {
           line-height: 0;
           &:nth-child(1) {
             width: 100%;
-            margin-bottom: 10px;
           }
           &:nth-child(2) {
-            width: 31.1%;
+            width: 31%;
             margin-top: 0.9%;
           }
           &:nth-child(3) {
-            width: 21.9%;
-            margin-right: 32.1%;
+            width: 31%;
             margin-top: 0.9%;
           }
         }
@@ -1933,18 +1843,9 @@ export default {
     }
 
     &--passive {
-      &__mark > span:last-child {
-        font-size: 16px;
-      }
       @include mq(kadel-lg) {
-        height: 56.673vw;
+        height: 66.373vw;
         margin-top: 11.7%;
-
-        &__mark {
-          position: absolute;
-          left: 47.7%;
-          margin-top: 3.9%;
-        }
 
         &__title {
           position: absolute;
@@ -1958,6 +1859,7 @@ export default {
         &__tabWrap {
           margin-left: 47.7%;
           margin-top: 32.3%;
+          padding-right: 39px;
         }
 
         &__desc {
@@ -1973,29 +1875,24 @@ export default {
         }
 
         &__textBlock {
-          padding-left: 2.9%;
-          padding-top: 36.7%;
-          width: 55.1%;
-          > figure {
-            width: 46%;
-          }
+          position: absolute;
+          top: 55%;
+          left: 49%;
         }
 
         &__imageBlock {
-          width: 44.8%;
+          display: flex;
           > li {
+            padding: 0 1em;
             &:nth-child(1) {
-              width: 37.3%;
-              margin-bottom: 10px;
+              order: 3;
             }
             &:nth-child(2) {
-              width: 37.3%;
-              margin-top: 1.6%;
+              order: 2;
             }
             &:nth-child(3) {
-              width: 60.6%;
-              margin-left: 39%;
-              margin-top: -22.9%;
+              order: 1;
+              width: 100%;
             }
           }
         }
