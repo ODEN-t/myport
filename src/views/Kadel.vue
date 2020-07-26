@@ -1,10 +1,14 @@
 <template>
-  <main class="KADeL" v-bind:class="{ 'is-black': isInAwards }">
+  <main class="KADeL">
     <section class="p-main">
       <div class="p-main__text">
         <h1>
-          <span class="air">Air</span>で堪能する<br />ヨーロッパ旅行・ツアー
+          <span class="air">Air Travel</span><br />ヨーロッパ旅行・ツアー特集
         </h1>
+        <p>
+          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<br />
+          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+        </p>
       </div>
       <div class="p-main__scrollBtn" @click="smoothScroll">
         SCROLL
@@ -31,13 +35,13 @@
       <ul class="p-30th__images" id="smooth">
         <li class="p-fadeIn js-fadeIn">
           <img
-            src="../assets/images/town/venice-2845272_1920.jpg"
+            src="../assets/images/airtravel/town_venice.jpg"
             alt="KADeL カデル 30周年 環境共生住宅"
           />
         </li>
         <li class="p-fadeIn p-fadeIn--delay js-fadeIn">
           <img
-            src="../assets/images/town/windmill-858143_1920.jpg"
+            src="../assets/images/airtravel/windmill-858143_1920.jpg"
             alt="KADeL カデル 30周年 環境共生住宅"
           />
         </li>
@@ -272,11 +276,7 @@
         美しい街でのひと時を満喫する
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--support__desc">
-        各分野のプロフェッショナルが<br
-          class="for-tb"
-        />それぞれの知識と技術を活かし、<br />お客様の理想の生活を<br
-          class="for-tb"
-        />サポートいたします。
+        テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--support__tabWrap for-lg">
         <slot v-for="(tab, index) in support.tabs">
@@ -299,11 +299,9 @@
             <h3 class="p-mainBlock__concept for-tb">土地探し</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[0]">
-                KADeLの母体でもある、土地を扱うプロ「富国ハウジング」と建築デザインのプロ<br
+                テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト<br
                   class="for-pc"
-                />「KADeL」が、それぞれの目線からお手伝いさせていただきます。<br />関西全域にある不動産会社とのネットワークを活かし、<br
-                  class="for-pc"
-                />お客様の想い描く理想の暮らしの実現を土地探しから実現いたします。
+                />テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -334,9 +332,9 @@
             <h3 class="p-mainBlock__concept for-tb">インテリア</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[1]">
-                KADeLでは、インテリアが入って初めて空間デザインの完成と考えています。<br />そのため、空間デザインの専門家による家具や照明などのコーディネートから<br
+                テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト<br
                   class="for-pc"
-                />選び方、配置の仕方などのアドバイスまで承っています。
+                />テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -367,7 +365,9 @@
             <h3 class="p-mainBlock__concept for-tb">長期保証</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || support.show[2]">
-                お客様に快適に生活していただくためにKADeLでは、<br />「地盤保証20年」「住宅瑕疵担保責任保険10年」「防蟻保証5年」に加え、<br />最長20年の建物保証や完成保証にも対応しています。<br />また細やかな対応でサポートする「短期保証」や専任の各担当による「随時点検サービス」など、<br />万全のサポートシステムで末永くご家族の暮らしをケアいたします。
+                テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-pc"
+                />テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -395,110 +395,145 @@
       </div>
     </section>
 
-    <section
-      class="p-mainBlock p-mainBlock--award p-fadeIn js-fadeIn"
-      id="js-background"
-    >
-      <h2 class="p-mainBlock__mark p-mainBlock--award__mark">
-        AWARDS<span class="mod-small">受賞歴</span>
-      </h2>
-      <dl class="p-mainBlock__awardList">
-        <dt class="p-mainBlock__awardYear">2007</dt>
-        <dd class="p-mainBlock__awardName">
-          第9回「あたたかな住空間デザイン」コンペティション
-          住宅デザイン部門・新築の部<br class="for-tb" />
-          特別賞受賞
-        </dd>
-        <dt class="p-mainBlock__awardYear">2009</dt>
-        <dd class="p-mainBlock__awardName">
-          ２１世紀の環境グランドデザインコンテスト<br class="for-tb" />
-          総合部門入選 ゴールドメンバー賞受賞
-        </dd>
-        <dt class="p-mainBlock__awardYear">2011</dt>
-        <dd class="p-mainBlock__awardName">
-          住まいの環境デザイン・アワード2011<br class="for-tb" />
-          特別賞受賞
-        </dd>
-        <dt class="p-mainBlock__awardYear">2013</dt>
-        <dd class="p-mainBlock__awardName">
-          LIXIL MEMBERS CONTEST 2013<br class="for-tb" />
-          準グランプリ受賞
-        </dd>
-        <dt class="p-mainBlock__awardYear">2015</dt>
-        <dd class="p-mainBlock__awardName">
-          LIXIL MEMBERS CONTEST 2015<br class="for-tb" />
-          新築部門 関西地域最優秀賞受賞
-        </dd>
-        <dt class="p-mainBlock__awardYear">2015-2018</dt>
-        <dd class="p-mainBlock__awardName">
-          LIXIL MEMBERS CONTEST 2015-2018<br class="for-tb" />
-          敢闘賞 8作品
-        </dd>
-        <dt class="p-mainBlock__awardYear">2018</dt>
-        <dd class="p-mainBlock__awardName">
-          WOODONE 2018 空間デザイン<br class="for-tb" />施工例コンテスト<br
-            class="for-tb"
-          />
-          最優秀賞／伊東豊雄賞 受賞
-        </dd>
-      </dl>
+    <section class="p-mainBlock p-mainBlock--award p-fadeIn js-fadeIn">
+      <div class="p-mainBlock__popular">
+        <h3>当店人気の観光都市</h3>
+        <ul class="p-mainBlock__popularList">
+          <li v-for="imageSet in popular.imgList" :key="imageSet.id">
+            <img
+              :src="require('@/' + imageSet.img)"
+              :alt="imageSet.alt"
+              :key="imageSet.cityId"
+            />
+            <div class="p-mainBlock__popularCity">
+              <img
+                :src="require('@/' + imageSet.flag)"
+                :alt="imageSet.alt"
+                :key="imageSet.countryId"
+              />
+              <h4>{{ imageSet.city }}</h4>
+            </div>
+            <p>
+              テキストテキストテキストテキストテキストテキストテキストテキストテキスト
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-      <div class="p-mainBlock__wrap p-mainBlock--award__wrap">
-        <div class="p-mainBlock__content p-mainBlock--award__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
+    <section class="p-mainBlock p-mainBlock--tours">
+      <h3>Air Travel で行くツアー・観光</h3>
+      <div class="p-mainBlock__wrap p-mainBlock--tours__wrap">
+        <div class="p-mainBlock__content p-mainBlock--tours__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--tours__textBlock">
             <transition name="contest-title">
               <h3
-                class=" p-mainBlock__contestTitle"
+                class=" p-mainBlock__tourName"
                 v-show="checkMq || awards.show[0]"
               >
-                LIXIL MEMBERS CONTEST 2017<br class="for-sp" /><span
-                  >新築部門 敢闘賞</span
-                >
+                ヴェネツィア <span class="en">&</span> ローマ<span class="en"
+                  >7</span
+                >日間ツアー
               </h3>
             </transition>
             <transition name="contest-data" v-on:after-enter="afterEnter">
               <dl
-                class="p-mainBlock__contestList"
+                class="p-mainBlock__tourInfoList"
                 v-show="checkMq || awards.show[0]"
               >
-                <dt>住まい</dt>
-                <dd>自然環境を取り込むフィルターの家</dd>
-                <dt>地域</dt>
-                <dd>OSAKA</dd>
-                <dt>敷地面積</dt>
-                <dd>約202.71㎡ (約61.31坪)</dd>
-                <dt>延床面積</dt>
-                <dd>約148.88㎡（約45.03坪）</dd>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>ツアー費用</dt>
+                  <dd class="price">
+                    <span class="en">133,000</span>円
+                    <span class="en">〜 163,000</span>円
+                  </dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>注意事項</dt>
+                  <dd class="attention">
+                    <span>
+                      ※ テキストテキストテキストテキストテキストテキストテキスト
+                    </span>
+                    <span>
+                      ※ テキストテキストテキストテキストテキストテキストテキスト
+                    </span>
+                  </dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>ツアー日数</dt>
+                  <dd><span class="en">7</span>日間</dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>ツアー期間</dt>
+                  <dd><span class="en">2020/3/1 〜 2020/11/20</span></dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>出発地</dt>
+                  <dd>羽田空港(発着)</dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>訪問都市</dt>
+                  <dd>ローマ・ヴェネチア</dd>
+                </div>
               </dl>
             </transition>
           </div>
-          <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
-          >
-            <li
-              v-for="imageSet in awards.slide1"
-              :key="imageSet.img"
-              v-bind:class="{ 'is-lowLayer': awards.show[0] }"
+          <div class="p-mainBlock__tourFlex">
+            <ul
+              class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--tours__imageBlock"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || awards.show[0]"
-                  />
-                </transition>
-              </a>
-            </li>
-          </ul>
+              <li
+                v-for="imageSet in awards.slide1"
+                :key="imageSet.img"
+                v-bind:class="{ 'is-lowLayer': awards.show[0] }"
+              >
+                <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
+                  <transition name="slide-image">
+                    <img
+                      :src="require('@/' + imageSet.img)"
+                      :alt="imageSet.alt"
+                      :key="imageSet.id"
+                      v-show="checkMq || awards.show[0]"
+                    />
+                  </transition>
+                </a>
+              </li>
+            </ul>
+            <div class="p-mainBlock__countryInfo">
+              <h4>イタリア基本情報</h4>
+              <dl>
+                <dt>国旗 / 正式名称</dt>
+                <dd><img :src="require('@/' + popular.imgList[0].flag)" /></dd>
+                <dt>首都</dt>
+                <dd>ローマ</dd>
+                <dt>言語</dt>
+                <dd>イタリア語</dd>
+                <dt>為替</dt>
+                <dd></dd>
+                <dt>現在の天気</dt>
+                <dd>{{ dateTime(date.current.Italy) }}</dd>
+                <dd>{{ temp(tempature.current.Italy) }}</dd>
+                <dt>週間天気予報</dt>
+                <dd>{{ dateTime(date.daily.Italy[0]) }}</dd>
+                <dd>{{ dateTime(date.daily.Italy[1]) }}</dd>
+                <dd>{{ dateTime(date.daily.Italy[2]) }}</dd>
+                <dd>{{ dateTime(date.daily.Italy[3]) }}</dd>
+                <dd>{{ temp(tempature.daily.Italy.min[0]) }}</dd>
+                <dd>{{ temp(tempature.daily.Italy.min[1]) }}</dd>
+                <dd>{{ temp(tempature.daily.Italy.min[2]) }}</dd>
+                <dd>{{ temp(tempature.daily.Italy.max[0]) }}</dd>
+                <dd>{{ temp(tempature.daily.Italy.max[1]) }}</dd>
+                <dd>{{ temp(tempature.daily.Italy.max[2]) }}</dd>
+              </dl>
+            </div>
+          </div>
         </div>
 
-        <div class="p-mainBlock__content p-mainBlock--award__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
+        <div class="p-mainBlock__content p-mainBlock--tours__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--tours__textBlock">
             <transition name="contest-title">
               <h3
-                class="p-mainBlock__contestTitle"
+                class="p-mainBlock__tourName"
                 v-show="checkMq || awards.show[1]"
               >
                 LIXIL MEMBERS CONTEST 2015<span
@@ -508,7 +543,7 @@
             </transition>
             <transition name="contest-data" v-on:after-enter="afterEnter">
               <dl
-                class="p-mainBlock__contestList"
+                class="p-mainBlock__tourInfo"
                 v-show="checkMq || awards.show[1]"
               >
                 <dt>住まい</dt>
@@ -523,7 +558,7 @@
             </transition>
           </div>
           <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--tours__imageBlock"
           >
             <li
               v-for="imageSet in awards.slide2"
@@ -544,11 +579,11 @@
           </ul>
         </div>
 
-        <div class="p-mainBlock__content p-mainBlock--award__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
+        <div class="p-mainBlock__content p-mainBlock--tours__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--tours__textBlock">
             <transition name="contest-title">
               <h3
-                class="p-mainBlock__contestTitle"
+                class="p-mainBlock__tourName"
                 v-show="checkMq || awards.show[2]"
               >
                 LIXIL MEMBERS CONTEST 2013<span>準グランプリ受賞</span>
@@ -556,7 +591,7 @@
             </transition>
             <transition name="contest-data" v-on:after-enter="afterEnter">
               <dl
-                class="p-mainBlock__contestList"
+                class="p-mainBlock__tourInfo"
                 v-show="checkMq || awards.show[2]"
               >
                 <dt>住まい</dt>
@@ -571,7 +606,7 @@
             </transition>
           </div>
           <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--tours__imageBlock"
           >
             <li
               v-for="imageSet in awards.slide3"
@@ -592,11 +627,11 @@
           </ul>
         </div>
 
-        <div class="p-mainBlock__content p-mainBlock--award__content">
-          <div class="p-mainBlock__textBlock p-mainBlock--award__textBlock">
+        <div class="p-mainBlock__content p-mainBlock--tours__content">
+          <div class="p-mainBlock__textBlock p-mainBlock--tours__textBlock">
             <transition name="contest-title">
               <h3
-                class="p-mainBlock__contestTitle"
+                class="p-mainBlock__tourName"
                 v-show="checkMq || awards.show[3]"
               >
                 住まいの環境デザイン・アワード2011<span>新築部門 敢闘賞</span>
@@ -604,7 +639,7 @@
             </transition>
             <transition name="contest-data" v-on:after-enter="afterEnter">
               <dl
-                class="p-mainBlock__contestList"
+                class="p-mainBlock__tourInfo"
                 v-show="checkMq || awards.show[3]"
               >
                 <dt>住まい</dt>
@@ -619,7 +654,7 @@
             </transition>
           </div>
           <ul
-            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--award__imageBlock"
+            class="p-mainBlock__scrollImage p-mainBlock__imageBlock p-mainBlock--tours__imageBlock"
           >
             <li
               v-for="imageSet in awards.slide4"
@@ -713,6 +748,8 @@
 </template>
 
 <script>
+// import axios from 'axios';
+
 export default {
   name: 'Kadel',
   methods: {
@@ -752,26 +789,10 @@ export default {
     },
     observing() {
       const options = {
-        background: {
-          root: null,
-          rootMargin: '-25% 0px',
-          threshold: 0
-        },
-        fadeIn: {
-          root: null,
-          rootMargin: '-30% 0px',
-          threshold: 0
-        }
+        root: null,
+        rootMargin: '-30% 0px',
+        threshold: 0
       };
-      const targets = {
-        background: document.getElementById('js-background'),
-        fadeIn: document.querySelectorAll('.js-fadeIn')
-      };
-
-      const changeBackGround = entry =>
-        entry[0].isIntersecting
-          ? (this.isInAwards = true)
-          : (this.isInAwards = false);
 
       const scrollFadeIn = entries => {
         entries.forEach(entry => {
@@ -782,17 +803,12 @@ export default {
         });
       };
 
-      const backGroundObserver = new IntersectionObserver(
-        changeBackGround,
-        options.background
-      );
       const scrollFadeInObserver = new IntersectionObserver(
         scrollFadeIn,
-        options.fadeIn
+        options
       );
 
-      backGroundObserver.observe(targets.background);
-      targets.fadeIn.forEach(target => {
+      document.querySelectorAll('.js-fadeIn').forEach(target => {
         scrollFadeInObserver.observe(target);
       });
     }
@@ -800,6 +816,17 @@ export default {
   computed: {
     checkMq: function() {
       return this.windowWidth < 1025 ? true : false;
+    },
+    dateTime: function() {
+      return function(unixtime) {
+        let datetime = new Date(unixtime * 1000);
+        return datetime.toLocaleDateString();
+      };
+    },
+    temp: function() {
+      return function(tempature) {
+        return Math.round(tempature * 10) / 10;
+      };
     }
   },
   mounted() {
@@ -808,15 +835,69 @@ export default {
       window.addEventListener('resize', this.onResize);
     });
     this.observing();
+    this.$axios
+      .get(
+        'https://api.openweathermap.org/data/2.5/onecall?lat=41.909986&lon=12.3959157&exclude=minutely,hourly&appid=7d889062a11be4f733c0707b520f4c70&lang=ja&units=metric'
+      )
+      .then(response => {
+        this.date.current.Italy = response.data.current.dt;
+        this.tempature.current.Italy = response.data.current.temp;
+        this.weather.current.Italy = response.data.current.weather;
+        response.data.daily.forEach(d => {
+          this.date.daily.Italy.push(d.dt);
+          this.weather.daily.Italy.push(d.weather[0]);
+          this.tempature.daily.Italy.min.push(d.temp.min);
+          this.tempature.daily.Italy.max.push(d.temp.max);
+        });
+      })
+      .catch(error => console.log(error));
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.onResize);
   },
   data() {
     return {
+      date: {
+        current: {
+          Italy: null,
+          France: null,
+          Germany: null
+        },
+        daily: {
+          Italy: [],
+          France: [],
+          Germany: []
+        }
+      },
+      weather: {
+        current: {
+          Italy: null,
+          France: [],
+          Germany: []
+        },
+        daily: {
+          Italy: [],
+          France: [],
+          Germany: []
+        }
+      },
+      tempature: {
+        current: {
+          Italy: null,
+          France: null,
+          Germany: null
+        },
+        daily: {
+          Italy: {
+            min: [],
+            max: []
+          },
+          France: null,
+          Germany: null
+        }
+      },
       isLoadedWidth: false,
       isProcess: false,
-      isInAwards: false,
       pointerNone: false,
       windowWidth: window.innerWidth,
       design: {
@@ -931,25 +1012,25 @@ export default {
       },
       support: {
         show: [true, false, false], // tab, imageの初期値
-        tabs: ['地中海を望む街並み', 'カフェ文化', 'グルメ巡り'],
+        tabs: ['美しい街並', 'カフェ文化', 'グルメ巡り'],
         currentTab: 0,
         slide1: [
           {
             id: 'Support1-1',
-            img: 'assets/images/kadel/support_block01_img01.jpg',
+            img: 'assets/images/airtravel/town_portugal-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに とおり庭の家',
             modal: 'assets/images/kadel/popup/support_block01_img01-l.jpg'
           },
           {
             id: 'Support1-2',
-            img: 'assets/images/kadel/support_block01_img02.jpg',
+            img: 'assets/images/airtravel/town_greece-min.jpg',
             alt:
               'KADeL カデル 想い描いた理想をかたちに A型スリットからつづくコートハウス',
             modal: 'assets/images/kadel/popup/support_block01_img02-l.jpg'
           },
           {
             id: 'Support1-3',
-            img: 'assets/images/kadel/support_block01_img03.jpg',
+            img: 'assets/images/airtravel/town_denmark-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 集う家',
             modal: 'assets/images/kadel/popup/support_block01_img03-l.jpg'
           }
@@ -957,20 +1038,20 @@ export default {
         slide2: [
           {
             id: 'Support2-1',
-            img: 'assets/images/kadel/support_block02_img01.jpg',
+            img: 'assets/images/airtravel/cafe_germany-min.jpg',
             alt: 'KADeL カデル プロフェッショナルによるサポート 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/support_block02_img01-l.jpg'
           },
           {
             id: 'Support2-2',
-            img: 'assets/images/kadel/support_block02_img02.jpg',
+            img: 'assets/images/airtravel/cafe_france-min.jpg',
             alt:
               'KADeL カデル プロフェッショナルによるサポート 自然環境を取り込むフィルターの家',
             modal: 'assets/images/kadel/popup/support_block02_img02-l.jpg'
           },
           {
             id: 'Support2-3',
-            img: 'assets/images/kadel/support_block02_img03.jpg',
+            img: 'assets/images/airtravel/cafe_viena-min.jpg',
             alt: 'KADeL カデル プロフェッショナルによるサポート terrace',
             modal: 'assets/images/kadel/popup/support_block02_img03-l.jpg'
           }
@@ -978,21 +1059,97 @@ export default {
         slide3: [
           {
             id: 'Support3-1',
-            img: 'assets/images/kadel/support_block03_img01.jpg',
+            img: 'assets/images/airtravel/food_france-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 都市に住まう大家族の家',
             modal: 'assets/images/kadel/popup/support_block03_img01-l.jpg'
           },
           {
             id: 'Support3-2',
-            img: 'assets/images/kadel/support_block03_img02.jpg',
+            img: 'assets/images/airtravel/food_italy-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 旗竿地の白い家',
             modal: 'assets/images/kadel/popup/support_block03_img02-l.jpg'
           },
           {
             id: 'Support3-3',
-            img: 'assets/images/kadel/support_block03_img03.jpg',
+            img: 'assets/images/airtravel/food_spain-min.jpg',
             alt: 'KADeL カデル 想い描いた理想をかたちに 凛椛 Organic',
             modal: 'assets/images/kadel/popup/support_block03_img03-l.jpg'
+          }
+        ]
+      },
+      popular: {
+        imgList: [
+          {
+            cityId: 'rome',
+            countryId: 'italy',
+            img: 'assets/images/airtravel/rome-min.jpg',
+            flag: 'assets/images/airtravel/Italy.png',
+            alt: '',
+            city: 'ローマ'
+          },
+          {
+            id: 'viene',
+            countryId: 'france',
+            img: 'assets/images/airtravel/viena-min.jpg',
+            flag: 'assets/images/airtravel/Austria.png',
+            alt: '',
+            city: 'ウィーン'
+          },
+          {
+            id: 'zurich',
+            countryId: 'switzerland',
+            img: 'assets/images/airtravel/zurich-min.jpg',
+            flag: 'assets/images/airtravel/Switzerland.png',
+            alt: '',
+            city: 'チューリッヒ'
+          },
+          {
+            id: 'warsaw',
+            countryId: 'poland',
+            img: 'assets/images/airtravel/warsaw-min.jpg',
+            flag: 'assets/images/airtravel/Poland.png',
+            alt: '',
+            city: 'ポーランド'
+          },
+          {
+            id: 'budapest',
+            countryId: 'hungary',
+            img: 'assets/images/airtravel/budapest-min.jpg',
+            flag: 'assets/images/airtravel/Hungary.png',
+            alt: '',
+            city: 'ブダペスト'
+          },
+          {
+            id: 'amsterdam',
+            countryId: 'netherlands',
+            img: 'assets/images/airtravel/amsterdam-min.jpg',
+            flag: 'assets/images/airtravel/Netherlands.png',
+            alt: '',
+            city: 'アムステルダム'
+          },
+          {
+            id: 'split',
+            countryId: 'croatia',
+            img: 'assets/images/airtravel/split-min.jpg',
+            flag: 'assets/images/airtravel/Croatia.png',
+            alt: '',
+            city: 'スプリト'
+          },
+          {
+            id: 'paris',
+            countryId: 'france',
+            img: 'assets/images/airtravel/paris-min.jpg',
+            flag: 'assets/images/airtravel/France.png',
+            alt: '',
+            city: 'パリ'
+          },
+          {
+            id: 'munich',
+            countryId: 'croatia',
+            img: 'assets/images/airtravel/munich-min.jpg',
+            flag: 'assets/images/airtravel/Germany.png',
+            alt: '',
+            city: 'ミュンヘン'
           }
         ]
       },
@@ -1002,28 +1159,28 @@ export default {
         slide1: [
           {
             id: 'Awards1-1',
-            img: 'assets/images/kadel/awards_slide01_img01.jpg',
+            img: 'assets/images/airtravel/tours_rome1-min.jpg',
             alt:
               'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
             modal: 'assets/images/kadel/popup/awards_slide01_img01-l.jpg'
           },
           {
             id: 'Awards1-2',
-            img: 'assets/images/kadel/awards_slide01_img02.jpg',
+            img: 'assets/images/airtravel/tours_rome2-min.jpg',
             alt:
               'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
             modal: 'assets/images/kadel/popup/awards_slide01_img02-l.jpg'
           },
           {
             id: 'Awards1-3',
-            img: 'assets/images/kadel/awards_slide01_img03.jpg',
+            img: 'assets/images/airtravel/tours_venice1-min.jpg',
             alt:
               'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
             modal: 'assets/images/kadel/popup/awards_slide01_img03-l.jpg'
           },
           {
             id: 'Awards1-4',
-            img: 'assets/images/kadel/awards_slide01_img04.jpg',
+            img: 'assets/images/airtravel/tours_venice2-min.jpg',
             alt:
               'LIXIL MEMBERS CONTEST2017 新築部門 敢闘賞受賞 大阪府 自然環境を取り込むフィルターの家',
             modal: 'assets/images/kadel/popup/awards_slide01_img04-l.jpg'
@@ -1127,9 +1284,10 @@ export default {
 
 <style lang="scss">
 .KADeL {
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Red+Rose:wght@300;400;700&display=swap');
-  font-family: 'Red Rose', cursive, 'Noto Sans JP', sans-serif,
-    'Hiragino Kaku Gothic ProN', メイリオ;
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap');
+  font-family: 'Roboto', 'Noto Sans JP', sans-serif, 'Hiragino Kaku Gothic ProN',
+    メイリオ;
   padding-top: 30px;
   color: rgb(38, 38, 38);
   font-size: 14px;
@@ -1174,7 +1332,7 @@ export default {
   }
 
   .en {
-    font-size: 1.15em;
+    font-size: 1.05em;
   }
 
   .p-fadeIn {
@@ -1207,24 +1365,33 @@ export default {
       top: 50%;
       left: 0;
       right: 0;
+      color: #fff;
       text-align: center;
       transform: translateY(-50%);
 
       > h1 {
-        color: #fff;
-        font-size: calc(43 / 1025 * 100vw);
-        font-weight: 500;
+        font-family: 'Red Rose', 'Noto Sans JP', sans-serif,
+          'Hiragino Kaku Gothic ProN', メイリオ;
+        font-size: calc(38 / 1025 * 100vw);
+        font-weight: 700;
         letter-spacing: 3px;
       }
 
       .air {
         font-size: 2em;
+        font-style: italic;
+      }
+
+      > p {
+        font-size: calc(18 / 1025 * 100vw);
+        font-weight: 500;
+        margin-top: 50px;
       }
     }
 
     &__figure {
       @include mq(kadel-gt-md) {
-        background: url('../assets/images/town/paris.jpg') no-repeat
+        background: url('../assets/images/airtravel/paris.jpg') no-repeat
           center/cover;
         transition: width 1.4s cubic-bezier(0.86, 0, 0.07, 1);
         width: 100%;
@@ -1450,6 +1617,7 @@ export default {
 
     &__concept {
       display: flex;
+      font-weight: 400;
       @include mq(kadel-lt-lg) {
         margin-top: 40px;
         padding-bottom: 7px;
@@ -1539,6 +1707,9 @@ export default {
           overflow: hidden;
         }
       }
+      img {
+        backface-visibility: hidden;
+      }
     }
 
     &__scrollImage {
@@ -1583,156 +1754,139 @@ export default {
       }
     }
 
-    .passiveImage {
-      @include mq(kadel-lt-lg) {
-        width: 46%;
-        margin-top: 16px;
+    &__popular {
+      > h3 {
+        font-size: calc(30 / 1025 * 100vw);
+        font-weight: 500;
       }
     }
 
-    &__awardList {
-      width: 90%;
-      margin: 72px auto 96px;
-      @include mq(kadel-lg) {
-        max-width: 1018px;
-        margin: 88px auto 96px;
-        display: inline-block;
-        overflow: hidden;
+    &__popularList {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: calc(50 / 1025 * 100vw);
+
+      > li {
+        width: 28%;
         text-align: left;
+
+        > p {
+          font-size: calc(14 / 1025 * 100vw);
+          margin-top: 0.5em;
+        }
+      }
+
+      > li:nth-child(n + 4) {
+        margin-top: calc(40 / 1025 * 100vw);
       }
     }
 
-    &__awardYear {
+    &__popularCity {
+      display: flex;
+      margin-top: 0.5em;
+
+      > h4 {
+        font-size: calc(20 / 1025 * 100vw);
+        font-weight: 400;
+        padding-left: 0.5em;
+      }
+
+      img {
+        width: auto;
+      }
+    }
+
+    &__tourName {
       font-size: 18px;
-      line-height: 3.1;
-      @include mq(kadel-lg) {
-        float: left;
-        line-height: 3;
-        text-align: right;
-        width: 7em;
-      }
-    }
-
-    &__awardName {
-      font-size: 14px;
-      line-height: 2.28;
-      margin-bottom: 24px;
-      @include mq(kadel-lg) {
-        font-size: 18px;
-        line-height: 3;
-        margin-left: 8.5em;
-        margin-bottom: 0;
-      }
-    }
-
-    &__contestTitle {
-      font-size: 18px;
-      font-family: 'Ubuntu Condensed', sans-serif;
+      font-weight: 600;
       position: relative;
-      margin-top: 32px;
-      margin-bottom: 1em;
       @include mq(kadel-lg) {
-        font-size: 18px;
-        padding-left: 80px;
-        margin: 0 0 10px 8px;
-      }
-
-      &:before {
-        content: '';
-        display: block;
-        width: 64px;
-        height: 2px;
-        background-color: #000;
-        position: absolute;
-        top: -8px;
-        left: 0;
-        @include mq(kadel-lg) {
-          top: 50%;
-        }
-      }
-
-      > span {
-        font-size: 14px;
-        font-weight: 600;
-        @include mq(kadel-lg) {
-          padding-left: 8px;
-        }
+        font-size: calc(25 / 1025 * 100vw);
+        margin-top: 1em;
       }
     }
 
-    &__contestList {
+    &__tourInfoList {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 1em;
+      background-color: #fff0ed;
+    }
+
+    &__tourInfo {
       @include mq(kadel-lg) {
         display: flex;
-        flex-wrap: wrap;
-        width: 100%;
+        flex-direction: column;
+        width: fit-content;
       }
 
       > dt {
         font-size: 12px;
-        font-weight: 600;
+        font-weight: 500;
         margin-top: 16px;
-        color: #a9a9a9;
         @include mq(kadel-lg) {
+          font-size: calc(18 / 1025 * 100vw);
           margin: 0;
-          order: -1;
-          &:nth-of-type(1) {
-            width: 40%;
-          }
-          &:nth-of-type(2) {
-            width: 10%;
-          }
-          &:nth-of-type(3),
-          &:nth-of-type(4) {
-            width: 25%;
-          }
         }
       }
 
       > dd {
-        font-weight: 600;
-        font-size: 14px;
-        letter-spacing: 2px;
-        margin-top: 0.5em;
-        @include mq(kadel-lg) {
-          font-size: 14px;
-          &:nth-of-type(1) {
-            width: 40%;
-          }
-          &:nth-of-type(2) {
-            width: 10%;
-          }
-          &:nth-of-type(3),
-          &:nth-of-type(4) {
-            width: 25%;
-          }
-        }
-      }
-
-      > dd:first-of-type {
-        font-size: 18.2px;
-        font-weight: 600;
-        margin-top: 0;
-        @include mq(kadel-lg) {
-          font-size: 20px;
-        }
-      }
-
-      > dd:nth-of-type(2) {
-        font-size: 16px;
         font-weight: 400;
-        font-family: 'Ubuntu Condensed', sans-serif;
-        margin-top: 0.4em;
+        font-size: 14px;
+        @include mq(kadel-lg) {
+          font-size: calc(16 / 1025 * 100vw);
+        }
       }
+
+      .price {
+        color: red;
+        font-size: calc(27 / 1025 * 100vw) !important;
+        font-weight: 600;
+      }
+
+      .attention {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .attention > span {
+        color: #000;
+        font-size: 14px;
+        font-weight: 400;
+        padding-left: 1em;
+      }
+    }
+
+    &__tourInfo:first-of-type {
+      width: 40%;
+      margin-bottom: 1em;
+    }
+
+    &__tourInfo:nth-of-type(2) {
+      width: 60%;
+      margin-bottom: 1em;
+    }
+
+    &__tourFlex {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__countryInfo {
+      width: 25.5%;
+      background: antiquewhite;
     }
 
     &__nav {
       display: none;
       @include mq(kadel-lg) {
         font-size: 14px;
-        font-family: 'Ubuntu Condensed', sans-serif;
         display: flex;
         justify-content: center;
-        margin: 64px auto 0;
+        margin: 370px auto 0;
       }
     }
 
@@ -1783,7 +1937,7 @@ export default {
 
     &--design {
       @include mq(kadel-lg) {
-        height: 65.204vw;
+        height: 63.3vw;
         margin-top: 160px;
 
         &__mark {
@@ -1844,28 +1998,27 @@ export default {
 
     &--passive {
       @include mq(kadel-lg) {
-        height: 66.373vw;
+        height: 59.6vw;
         margin-top: 11.7%;
 
         &__title {
           position: absolute;
-          left: 47.7%;
-          margin-top: 17%;
+          left: 43.3%;
+          margin-top: 20%;
           &:after {
             right: 0;
           }
         }
 
         &__tabWrap {
-          margin-left: 47.7%;
-          margin-top: 32.3%;
-          padding-right: 39px;
+          margin-left: 43.4%;
+          margin-top: 35.3%;
         }
 
         &__desc {
           position: absolute;
-          left: 47.7%;
-          margin-top: 23.5%;
+          left: 43.3%;
+          margin-top: 27.5%;
         }
 
         &__content {
@@ -1876,8 +2029,8 @@ export default {
 
         &__textBlock {
           position: absolute;
-          top: 55%;
-          left: 49%;
+          top: 65%;
+          left: 43.3%;
         }
 
         &__imageBlock {
@@ -1895,13 +2048,17 @@ export default {
               width: 100%;
             }
           }
+          > li a {
+            display: block;
+            overflow: hidden;
+          }
         }
       }
     }
 
     &--support {
       @include mq(kadel-lg) {
-        height: 66.062vw;
+        height: 57.6vw;
         margin-top: 11.7%;
 
         &__mark {
@@ -1958,35 +2115,15 @@ export default {
       }
     }
 
-    &--award {
-      text-align: center;
+    &--tours {
       margin-top: 120px;
       @include mq(kadel-lg) {
-        margin-top: 200px;
+        margin-top: 150px;
       }
 
-      &__mark {
-        width: 140px;
-        height: 140px;
-        flex-direction: column;
-        font-size: 22px;
-        margin: 0 auto;
-        &:before,
-        &:after {
-          display: none;
-        }
-        @include mq(kadel-lg) {
-          width: 160px;
-          height: 160px;
-          font-size: 28px;
-        }
-      }
-
-      &__mark > span {
-        font-size: 14px;
-        @include mq(kadel-lg) {
-          font-size: 16px;
-        }
+      > h3 {
+        font-size: calc(30 / 1025 * 100vw);
+        font-weight: 500;
       }
 
       &__wrap {
@@ -2014,7 +2151,6 @@ export default {
       }
 
       &__textBlock {
-        margin-left: 1.47%;
         padding-left: 12px;
         @include mq(kadel-lg) {
           display: flex;
@@ -2022,16 +2158,17 @@ export default {
           justify-content: space-between;
           align-items: flex-end;
           position: absolute;
-          padding-top: 38.9%;
+          padding-top: 53%;
           padding-left: 0;
-          width: 75.7%;
           z-index: -1;
         }
       }
 
       &__imageBlock {
-        width: 97%;
-        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 73.5%;
         @include mq(kadel-lt-lg) {
           img {
             height: 170px;
@@ -2046,16 +2183,12 @@ export default {
           > li {
             line-height: 0;
           }
-          > li:nth-child(1) {
-            float: left;
-            width: 78%;
-          }
-          > li:nth-child(2),
-          li:nth-child(3),
-          li:nth-child(4) {
-            float: right;
-            width: 20.4%;
+          > li:first-child {
+            width: 100%;
             margin-bottom: 1.5%;
+          }
+          > li:nth-child(n + 2) {
+            width: calc(100% / 3 - 1.1%);
           }
         }
       }
