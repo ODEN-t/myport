@@ -454,9 +454,6 @@
                     <span>
                       ※ テキストテキストテキストテキストテキストテキストテキスト
                     </span>
-                    <span>
-                      ※ テキストテキストテキストテキストテキストテキストテキスト
-                    </span>
                   </dd>
                 </div>
                 <div class="p-mainBlock__tourInfo">
@@ -501,29 +498,50 @@
             </ul>
             <div class="p-mainBlock__countryInfo">
               <h4>イタリア基本情報</h4>
-              <dl>
+              <dl class="infoList">
                 <dt>国旗 / 正式名称</dt>
-                <dd><img :src="require('@/' + popular.imgList[0].flag)" /></dd>
+                <dd>
+                  <div class="nationBlock">
+                    <img :src="require('@/' + popular.imgList[0].flag)" />
+                    <span>イタリア共和国</span>
+                  </div>
+                </dd>
                 <dt>首都</dt>
                 <dd>ローマ</dd>
                 <dt>言語</dt>
                 <dd>イタリア語</dd>
-                <dt>為替</dt>
-                <dd></dd>
                 <dt>現在の天気</dt>
-                <dd>{{ dateTime(date.current.Italy) }}</dd>
-                <dd>{{ temp(tempature.current.Italy) }}</dd>
+                <dd>
+                  <div class="currentWthBlock">
+                    <img :src="weatherIcon(weather.current.Italy.icon)" />
+                    <p class="desc">{{ weather.current.Italy.description }}</p>
+                    <p>
+                      気温<span class="degree"
+                        >{{ temp(tempature.current.Italy) }}℃</span
+                      >
+                    </p>
+                    <p>
+                      湿度<span class="degree">{{ humidity.Italy }}%</span>
+                    </p>
+                  </div>
+                </dd>
                 <dt>週間天気予報</dt>
-                <dd>{{ dateTime(date.daily.Italy[0]) }}</dd>
-                <dd>{{ dateTime(date.daily.Italy[1]) }}</dd>
-                <dd>{{ dateTime(date.daily.Italy[2]) }}</dd>
-                <dd>{{ dateTime(date.daily.Italy[3]) }}</dd>
-                <dd>{{ temp(tempature.daily.Italy.min[0]) }}</dd>
-                <dd>{{ temp(tempature.daily.Italy.min[1]) }}</dd>
-                <dd>{{ temp(tempature.daily.Italy.min[2]) }}</dd>
-                <dd>{{ temp(tempature.daily.Italy.max[0]) }}</dd>
-                <dd>{{ temp(tempature.daily.Italy.max[1]) }}</dd>
-                <dd>{{ temp(tempature.daily.Italy.max[2]) }}</dd>
+                <dd class="dailyWthWrap">
+                  <div v-for="i of 7" :key="i" class="dailyWthBlock">
+                    <p class="date">{{ dateTime(date.daily.Italy[i]) }}</p>
+                    <img :src="weatherIcon(weather.daily.Italy.icon[i])" />
+                    <p class="desc">{{ weather.daily.Italy.description[i] }}</p>
+                    <div class="temp">
+                      <p class="temp__low">
+                        {{ temp(tempature.daily.Italy.min[i]) }}
+                      </p>
+                      <span class="temp__line">|</span>
+                      <p class="temp__high">
+                        {{ temp(tempature.daily.Italy.max[i]) }}
+                      </p>
+                    </div>
+                  </div>
+                </dd>
               </dl>
             </div>
           </div>
@@ -536,24 +554,45 @@
                 class="p-mainBlock__tourName"
                 v-show="checkMq || awards.show[1]"
               >
-                LIXIL MEMBERS CONTEST 2015<span
-                  >新築部門 関西地域最優秀賞受賞</span
-                >
+                ぐるっとドイツ周遊<span class="en">10</span>日間
               </h3>
             </transition>
             <transition name="contest-data" v-on:after-enter="afterEnter">
               <dl
-                class="p-mainBlock__tourInfo"
+                class="p-mainBlock__tourInfoList"
                 v-show="checkMq || awards.show[1]"
               >
-                <dt>住まい</dt>
-                <dd>囲炉裏の住宅</dd>
-                <dt>地域</dt>
-                <dd>OSAKA</dd>
-                <dt>敷地面積</dt>
-                <dd>約175.57㎡ (約53.10坪)</dd>
-                <dt>延床面積</dt>
-                <dd>約125.23㎡（約37.88坪）</dd>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>ツアー費用</dt>
+                  <dd class="price">
+                    <span class="en">155,000</span>円
+                    <span class="en">〜 193,000</span>円
+                  </dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>注意事項</dt>
+                  <dd class="attention">
+                    <span>
+                      ※ テキストテキストテキストテキストテキストテキストテキスト
+                    </span>
+                  </dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>ツアー日数</dt>
+                  <dd><span class="en">10</span>日間</dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>ツアー期間</dt>
+                  <dd><span class="en">2020/3/1 〜 2021/4/20</span></dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>出発地</dt>
+                  <dd>成田空港(発着)</dd>
+                </div>
+                <div class="p-mainBlock__tourInfo">
+                  <dt>訪問都市</dt>
+                  <dd>ベルリン・ミュンヘン etc</dd>
+                </div>
               </dl>
             </transition>
           </div>
@@ -820,12 +859,17 @@ export default {
     dateTime: function() {
       return function(unixtime) {
         let datetime = new Date(unixtime * 1000);
-        return datetime.toLocaleDateString();
+        return datetime.toLocaleDateString('ja-JP').slice(5);
       };
     },
     temp: function() {
       return function(tempature) {
         return Math.round(tempature * 10) / 10;
+      };
+    },
+    weatherIcon: function() {
+      return function(iconID) {
+        return 'http://openweathermap.org/img/wn/' + iconID + '@2x.png';
       };
     }
   },
@@ -842,10 +886,14 @@ export default {
       .then(response => {
         this.date.current.Italy = response.data.current.dt;
         this.tempature.current.Italy = response.data.current.temp;
-        this.weather.current.Italy = response.data.current.weather;
+        this.weather.current.Italy.description =
+          response.data.current.weather[0].description;
+        this.weather.current.Italy.icon = response.data.current.weather[0].icon;
+        this.humidity.Italy = response.data.current.humidity;
         response.data.daily.forEach(d => {
           this.date.daily.Italy.push(d.dt);
-          this.weather.daily.Italy.push(d.weather[0]);
+          this.weather.daily.Italy.description.push(d.weather[0].description);
+          this.weather.daily.Italy.icon.push(d.weather[0].icon);
           this.tempature.daily.Italy.min.push(d.temp.min);
           this.tempature.daily.Italy.max.push(d.temp.max);
         });
@@ -869,14 +917,25 @@ export default {
           Germany: []
         }
       },
+      humidity: {
+        Italy: null,
+        France: null,
+        Germany: null
+      },
       weather: {
         current: {
-          Italy: null,
+          Italy: {
+            description: null,
+            icon: null
+          },
           France: [],
           Germany: []
         },
         daily: {
-          Italy: [],
+          Italy: {
+            description: [],
+            icon: []
+          },
           France: [],
           Germany: []
         }
@@ -1189,28 +1248,28 @@ export default {
         slide2: [
           {
             id: 'Awards2-1',
-            img: 'assets/images/kadel/awards_slide02_img01.jpg',
+            img: 'assets/images/airtravel/tours_dresden-min.jpg',
             alt:
               'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/awards_slide02_img01-l.jpg'
           },
           {
             id: 'Awards2-2',
-            img: 'assets/images/kadel/awards_slide02_img02.jpg',
+            img: 'assets/images/airtravel/tours_brandenburg-gate-min.jpg',
             alt:
               'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/awards_slide02_img02-l.jpg'
           },
           {
             id: 'Awards2-3',
-            img: 'assets/images/kadel/awards_slide02_img03.jpg',
+            img: 'assets/images/airtravel/tours_cologne-min.jpg',
             alt:
               'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/awards_slide02_img03-l.jpg'
           },
           {
             id: 'Awards2-4',
-            img: 'assets/images/kadel/awards_slide02_img04.jpg',
+            img: 'assets/images/airtravel/tours_munich-min.jpg',
             alt:
               'KADeL カデル LIXIL MEMBERS CONTEST2015 新築部門 関西地域最優秀賞受賞 大阪府 囲炉裏の住宅',
             modal: 'assets/images/kadel/popup/awards_slide02_img04-l.jpg'
@@ -1802,8 +1861,7 @@ export default {
       font-weight: 600;
       position: relative;
       @include mq(kadel-lg) {
-        font-size: calc(25 / 1025 * 100vw);
-        margin-top: 1em;
+        font-size: calc(20 / 1025 * 100vw);
       }
     }
 
@@ -1822,62 +1880,151 @@ export default {
         flex-direction: column;
         width: fit-content;
       }
-
       > dt {
         font-size: 12px;
-        font-weight: 500;
-        margin-top: 16px;
-        @include mq(kadel-lg) {
-          font-size: calc(18 / 1025 * 100vw);
-          margin: 0;
-        }
-      }
-
-      > dd {
-        font-weight: 400;
-        font-size: 14px;
+        font-weight: 600;
         @include mq(kadel-lg) {
           font-size: calc(16 / 1025 * 100vw);
         }
       }
-
+      > dd {
+        font-weight: 400;
+        font-size: 14px;
+        @include mq(kadel-lg) {
+          font-size: calc(15 / 1025 * 100vw);
+        }
+      }
       .price {
         color: red;
-        font-size: calc(27 / 1025 * 100vw) !important;
+        font-size: calc(20 / 1025 * 100vw) !important;
         font-weight: 600;
       }
-
       .attention {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .attention > span {
         color: #000;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 400;
         padding-left: 1em;
       }
     }
 
     &__tourInfo:first-of-type {
-      width: 40%;
-      margin-bottom: 1em;
+      width: 50%;
+      margin-bottom: 1.5em;
     }
 
     &__tourInfo:nth-of-type(2) {
-      width: 60%;
-      margin-bottom: 1em;
+      width: 50%;
+      margin-bottom: 1.5em;
     }
 
     &__tourFlex {
       display: flex;
       justify-content: space-between;
+      height: 51vw;
     }
 
     &__countryInfo {
       width: 25.5%;
       background: antiquewhite;
+      padding: 1em;
+      overflow-y: scroll;
+
+      > h4 {
+        font-size: calc(20 / 1025 * 100vw);
+      }
+
+      .infoList {
+        margin-top: 1em;
+
+        > dt {
+          font-size: calc(15 / 1025 * 100vw);
+          font-weight: 600;
+          line-height: 2.2;
+        }
+
+        > dd {
+          font-size: calc(14 / 1025 * 100vw);
+          font-weight: 400;
+        }
+        > dd:not(:last-of-type) {
+          margin-bottom: 1em;
+        }
+      }
+
+      .nationBlock {
+        display: flex;
+        align-items: center;
+
+        > img {
+          width: auto;
+        }
+
+        > span {
+          padding-left: 0.5em;
+        }
+      }
+
+      .currentWthBlock {
+        > img {
+          width: auto;
+          margin: 0 auto;
+        }
+        > p {
+          font-size: calc(14 / 1025 * 100vw);
+          font-weight: 400;
+          line-height: 1.7;
+          text-align: center;
+        }
+        .desc {
+          margin-bottom: 1em;
+        }
+        .degree {
+          font-size: calc(18 / 1025 * 100vw);
+          font-weight: 700;
+          padding-left: 0.5em;
+        }
+      }
+
+      .dailyWthWrap {
+        display: flex;
+        overflow-x: scroll;
+      }
+
+      .dailyWthBlock {
+        padding: 0.8em;
+        text-align: center;
+
+        .date {
+          font-size: calc(16 / 1025 * 100vw);
+          font-weight: 500;
+        }
+        > img {
+          width: auto;
+        }
+        .desc {
+          font-size: calc(14 / 1025 * 100vw);
+          font-weight: 400;
+          margin-bottom: 1em;
+        }
+        .temp {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: calc(15 / 1025 * 100vw);
+          font-weight: 500;
+          &__high {
+            width: 45%;
+            color: red;
+          }
+          &__low {
+            width: 45%;
+            color: blue;
+          }
+          &__line {
+            color: gray;
+          }
+        }
+      }
     }
 
     &__nav {
@@ -1886,7 +2033,8 @@ export default {
         font-size: 14px;
         display: flex;
         justify-content: center;
-        margin: 370px auto 0;
+        margin: 3em auto 0;
+        text-align: center;
       }
     }
 
@@ -2129,7 +2277,7 @@ export default {
       &__wrap {
         text-align: left;
         @include mq(kadel-lg) {
-          height: 45.941vw;
+          height: 73.5vw;
         }
       }
 
@@ -2158,17 +2306,15 @@ export default {
           justify-content: space-between;
           align-items: flex-end;
           position: absolute;
-          padding-top: 53%;
+          padding-top: 54.9%;
           padding-left: 0;
           z-index: -1;
         }
       }
 
       &__imageBlock {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
         width: 73.5%;
+        font-size: 0;
         @include mq(kadel-lt-lg) {
           img {
             height: 170px;
@@ -2181,7 +2327,7 @@ export default {
         }
         @include mq(kadel-lg) {
           > li {
-            line-height: 0;
+            display: inline-block;
           }
           > li:first-child {
             width: 100%;
@@ -2189,6 +2335,9 @@ export default {
           }
           > li:nth-child(n + 2) {
             width: calc(100% / 3 - 1.1%);
+          }
+          > li:nth-child(n + 3) {
+            margin-left: calc(3.3% / 2);
           }
         }
       }
