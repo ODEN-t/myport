@@ -3,7 +3,7 @@
     <section class="p-main">
       <div class="p-main__text">
         <h1>
-          <span class="air">Air Travel</span><br />ヨーロッパ旅行・ツアー特集
+          <span class="air">Air Travel</span><br />ヨーロッパ旅行・ツアー特集a
         </h1>
       </div>
       <div class="p-main__scrollBtn" @click="smoothScroll">
