@@ -132,7 +132,7 @@
         <h2>Works</h2>
         <ul class="p-contents__workList">
           <li class="p-contents__workCards">
-            <router-link to="kadel">
+            <router-link to="airtravel">
               <img src="../assets/images/home/screen-kadel-min.png" alt="" />
               <div class="p-contents__workCards__textBox">
                 <p>

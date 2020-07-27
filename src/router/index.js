@@ -15,9 +15,9 @@ const routes = [
     component: () => import('../views/Info.vue')
   },
   {
-    path: '/kadel',
-    name: 'Kadel',
-    component: () => import('../views/Kadel.vue')
+    path: '/airtravel',
+    name: 'AirTravel',
+    component: () => import('../views/AirTravel.vue')
   }
 ];
 
