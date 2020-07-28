@@ -177,6 +177,8 @@ export default {
   },
   data: function() {
     return {
+      title: 'My Portforio',
+      description: 'T.Kのポートフォリオサイトです。Web制作がメインです。',
       size: 'medium',
       color: 'primary',
       isInKv: '',
@@ -410,6 +412,15 @@ export default {
 
       const observer = new IntersectionObserver(whenIntersect, options);
       observer.observe(target);
+    }
+  },
+  head: {
+    meta: function() {
+      return [
+        { property: 'og:title', content: this.title },
+        { property: 'og:description', content: this.description },
+        { name: 'description', content: this.description }
+      ];
     }
   }
 };

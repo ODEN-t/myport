@@ -7,6 +7,15 @@ module.exports = {
   devServer: {
     open: true
   },
+  pages: {
+    index: {
+      // 最初に実行されるファイル名
+      entry: 'src/main.js',
+      // タイトルの設定
+      // <title><%= htmlWebpackPlugin.options.title %></title>
+      title: 'My Portforio'
+    }
+  },
   css: {
     loaderOptions: {
       scss: {

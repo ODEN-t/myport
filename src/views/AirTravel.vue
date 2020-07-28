@@ -87,16 +87,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': nature.show[0] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || nature.show[0]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || nature.show[0]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -122,16 +120,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': nature.show[1] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || nature.show[1]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || nature.show[1]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -184,16 +180,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': history.show[0] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || history.show[0]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || history.show[0]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -219,16 +213,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': history.show[1] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || history.show[1]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || history.show[1]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -254,16 +246,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': history.show[2] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || history.show[2]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || history.show[2]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -312,16 +302,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': chill.show[0] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || chill.show[0]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || chill.show[0]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -345,16 +333,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': chill.show[1] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || chill.show[1]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || chill.show[1]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -378,16 +364,14 @@
               :key="imageSet.img"
               v-bind:class="{ 'is-lowLayer': chill.show[2] }"
             >
-              <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                <transition name="slide-image">
-                  <img
-                    :src="require('@/' + imageSet.img)"
-                    :alt="imageSet.alt"
-                    :key="imageSet.id"
-                    v-show="checkMq || chill.show[2]"
-                  />
-                </transition>
-              </a>
+              <transition name="slide-image">
+                <img
+                  :src="require('@/' + imageSet.img)"
+                  :alt="imageSet.alt"
+                  :key="imageSet.id"
+                  v-show="checkMq || chill.show[2]"
+                />
+              </transition>
             </li>
           </ul>
         </div>
@@ -487,16 +471,14 @@
                 :key="imageSet.img"
                 v-bind:class="{ 'is-lowLayer': tours.show[0] }"
               >
-                <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                  <transition name="slide-image">
-                    <img
-                      :src="require('@/' + imageSet.img)"
-                      :alt="imageSet.alt"
-                      :key="imageSet.id"
-                      v-show="checkMq || tours.show[0]"
-                    />
-                  </transition>
-                </a>
+                <transition name="slide-image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || tours.show[0]"
+                  />
+                </transition>
               </li>
             </ul>
             <div class="p-mainBlock__countryInfo for-lg">
@@ -526,6 +508,8 @@
                   <dd>ローマ</dd>
                   <dt>言語</dt>
                   <dd>イタリア語</dd>
+                  <dt>時差</dt>
+                  <dd>7時間</dd>
                   <dt>現在の天気</dt>
                   <dd>
                     <div class="currentWthBlock">
@@ -631,16 +615,14 @@
                 :key="imageSet.img"
                 v-bind:class="{ 'is-lowLayer': tours.show[1] }"
               >
-                <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                  <transition name="slide-image">
-                    <img
-                      :src="require('@/' + imageSet.img)"
-                      :alt="imageSet.alt"
-                      :key="imageSet.id"
-                      v-show="checkMq || tours.show[1]"
-                    />
-                  </transition>
-                </a>
+                <transition name="slide-image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || tours.show[1]"
+                  />
+                </transition>
               </li>
             </ul>
             <div class="p-mainBlock__countryInfo for-lg">
@@ -670,6 +652,8 @@
                   <dd>ベルリン</dd>
                   <dt>言語</dt>
                   <dd>ドイツ語</dd>
+                  <dt>時差</dt>
+                  <dd>7時間</dd>
                   <dt>現在の天気</dt>
                   <dd>
                     <div class="currentWthBlock">
@@ -775,16 +759,14 @@
                 :key="imageSet.img"
                 v-bind:class="{ 'is-lowLayer': tours.show[2] }"
               >
-                <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                  <transition name="slide-image">
-                    <img
-                      :src="require('@/' + imageSet.img)"
-                      :alt="imageSet.alt"
-                      :key="imageSet.id"
-                      v-show="checkMq || tours.show[2]"
-                    />
-                  </transition>
-                </a>
+                <transition name="slide-image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || tours.show[2]"
+                  />
+                </transition>
               </li>
             </ul>
             <div class="p-mainBlock__countryInfo for-lg">
@@ -814,6 +796,8 @@
                   <dd>パリ</dd>
                   <dt>言語</dt>
                   <dd>フランス語</dd>
+                  <dt>時差</dt>
+                  <dd>7時間</dd>
                   <dt>現在の天気</dt>
                   <dd>
                     <div class="currentWthBlock">
@@ -921,16 +905,14 @@
                 :key="imageSet.img"
                 v-bind:class="{ 'is-lowLayer': tours.show[3] }"
               >
-                <a :href="require('@/' + imageSet.modal)" :key="imageSet.modal">
-                  <transition name="slide-image">
-                    <img
-                      :src="require('@/' + imageSet.img)"
-                      :alt="imageSet.alt"
-                      :key="imageSet.id"
-                      v-show="checkMq || tours.show[3]"
-                    />
-                  </transition>
-                </a>
+                <transition name="slide-image">
+                  <img
+                    :src="require('@/' + imageSet.img)"
+                    :alt="imageSet.alt"
+                    :key="imageSet.id"
+                    v-show="checkMq || tours.show[3]"
+                  />
+                </transition>
               </li>
             </ul>
             <div class="p-mainBlock__countryInfo for-lg">
@@ -951,7 +933,7 @@
                   <dt>国旗 / 正式名称</dt>
                   <dd>
                     <div class="nationBlock">
-                      <img :src="require('@/' + popular.imgList[5].flag)" />
+                      <img :src="require('@/' + popular.imgList[8].flag2)" />
                       <span>スペイン王国</span>
                     </div>
                   </dd>
@@ -959,6 +941,8 @@
                   <dd>マドリード</dd>
                   <dt>言語</dt>
                   <dd>スペイン語</dd>
+                  <dt>時差</dt>
+                  <dd>7時間</dd>
                   <dt>現在の天気</dt>
                   <dd>
                     <div class="currentWthBlock">
@@ -1201,6 +1185,9 @@ export default {
   },
   data() {
     return {
+      title: 'Air Travel のヨーロッパ観光・ツアー特集',
+      description:
+        'ヨーロッパのみで味わえる文化、芸術、歴史の魅力を存分に味わえるあなただけの旅を提供します。',
       current: {
         rome: [],
         berlin: [],
@@ -1533,6 +1520,7 @@ export default {
             countryId: 'germany',
             img: 'assets/images/airtravel/munich-min.jpg',
             flag: 'assets/images/airtravel/Germany.png',
+            flag2: 'assets/images/airtravel/Spain.png',
             alt: 'ミュンヘン 市街地',
             altFlag: 'ドイツ国旗',
             city: 'ミュンヘン'
@@ -1546,109 +1534,109 @@ export default {
           {
             id: 'Tours1-1',
             img: 'assets/images/airtravel/tours_italy_colosseum-min.jpg',
-            alt: 'イタリア ローマ コロッセオ',
-            modal: 'assets/images/kadel/popup/awards_slide01_img01-l.jpg'
+            alt: 'イタリア ローマ コロッセオ'
           },
           {
             id: 'Tours1-2',
             img: 'assets/images/airtravel/tours_italy_stpeters-min.jpg',
-            alt: 'イタリア ローマ サン・ピエトロ大聖堂',
-            modal: 'assets/images/kadel/popup/awards_slide01_img02-l.jpg'
+            alt: 'イタリア ローマ サン・ピエトロ大聖堂'
           },
           {
             id: 'Tours1-3',
             img: 'assets/images/airtravel/tours_italy_santamaria-min.jpg',
-            alt: 'イタリア ヴェネツィア サンタ・マリア・デッラ・サルーテ聖堂',
-            modal: 'assets/images/kadel/popup/awards_slide01_img03-l.jpg'
+            alt: 'イタリア ヴェネツィア サンタ・マリア・デッラ・サルーテ聖堂'
           },
           {
             id: 'Tours1-4',
             img: 'assets/images/airtravel/tours_italy_grand-canal-min.jpg',
-            alt: 'イタリア ヴェネツィア 運河',
-            modal: 'assets/images/kadel/popup/awards_slide01_img04-l.jpg'
+            alt: 'イタリア ヴェネツィア 運河'
           }
         ],
         slide2: [
           {
             id: 'Tours2-1',
             img: 'assets/images/airtravel/tours_germany_dresden-min.jpg',
-            alt: 'ドイツ ドレスデン',
-            modal: 'assets/images/kadel/popup/awards_slide02_img01-l.jpg'
+            alt: 'ドイツ ドレスデン'
           },
           {
             id: 'Tours2-2',
             img:
               'assets/images/airtravel/tours_germany_brandenburg-gate-min.jpg',
-            alt: 'ドイツ ベルリン ブランデンブルク門',
-            modal: 'assets/images/kadel/popup/awards_slide02_img02-l.jpg'
+            alt: 'ドイツ ベルリン ブランデンブルク門'
           },
           {
             id: 'Tours2-3',
             img: 'assets/images/airtravel/tours_germany_cologne-min.jpg',
-            alt: 'ドイツ ケルン ケルン大聖堂',
-            modal: 'assets/images/kadel/popup/awards_slide02_img03-l.jpg'
+            alt: 'ドイツ ケルン ケルン大聖堂'
           },
           {
             id: 'Tours2-4',
             img: 'assets/images/airtravel/tours_germany_munich-min.jpg',
-            alt: 'ドイツ ミュンヘン',
-            modal: 'assets/images/kadel/popup/awards_slide02_img04-l.jpg'
+            alt: 'ドイツ ミュンヘン'
           }
         ],
         slide3: [
           {
             id: 'Tours3-1',
             img: 'assets/images/airtravel/tours_paris_tuileries-min.jpg',
-            alt: 'フランス パリ テュイルリー宮殿',
-            modal: 'assets/images/kadel/popup/awards_slide03_img01-l.jpg'
+            alt: 'フランス パリ テュイルリー宮殿'
           },
           {
             id: 'Tours3-2',
             img: 'assets/images/airtravel/tours_paris_louvre-museum-min.jpg',
-            alt: 'フランス パリ ルーブル美術館',
-            modal: 'assets/images/kadel/popup/awards_slide03_img02-l.jpg'
+            alt: 'フランス パリ ルーブル美術館'
           },
           {
             id: 'Tours3-3',
             img: 'assets/images/airtravel/tours_paris_triumphal-arch-min.jpg',
-            alt: 'フランス パリ エトワール凱旋門',
-            modal: 'assets/images/kadel/popup/awards_slide03_img03-l.jpg'
+            alt: 'フランス パリ エトワール凱旋門'
           },
           {
             id: 'Tours3-4',
             img: 'assets/images/airtravel/tours_paris_eiffel-tower-min.jpg',
-            alt: 'フランス パリ エッフェル塔',
-            modal: 'assets/images/kadel/popup/awards_slide03_img04-l.jpg'
+            alt: 'フランス パリ エッフェル塔'
           }
         ],
         slide4: [
           {
             id: 'Tours4-1',
             img: 'assets/images/airtravel/tours_spain_granvia-min.jpg',
-            alt: 'スペイン マドリード グランビア',
-            modal: 'assets/images/kadel/popup/awards_slide04_img01-l.jpg'
+            alt: 'スペイン マドリード グランビア'
           },
           {
             id: 'Tours4-2',
             img: 'assets/images/airtravel/tours_spain_triumphal-arch-min.jpg',
-            alt: 'スペイン バルセロナ 凱旋門',
-            modal: 'assets/images/kadel/popup/awards_slide04_img02-l.jpg'
+            alt: 'スペイン バルセロナ 凱旋門'
           },
           {
             id: 'Tours4-3',
             img: 'assets/images/airtravel/tours_spain_toro-min.jpg',
-            alt: 'スペイン マドリード 闘牛',
-            modal: 'assets/images/kadel/popup/awards_slide04_img03-l.jpg'
+            alt: 'スペイン マドリード 闘牛'
           },
           {
             id: 'Tours4-4',
             img: 'assets/images/airtravel/tours_spain_park-guell-min.jpg',
-            alt: 'スペイン バルセロナ グエル公園',
-            modal: 'assets/images/kadel/popup/awards_slide04_img04-l.jpg'
+            alt: 'スペイン バルセロナ グエル公園'
           }
         ]
       }
     };
+  },
+  head: {
+    title: function() {
+      return {
+        inner: this.title,
+        separator: '|',
+        complement: 'My Portforio'
+      };
+    },
+    meta: function() {
+      return [
+        { property: 'og:title', content: this.title + ' | My Portforio' },
+        { property: 'og:description', content: this.description },
+        { name: 'description', content: this.description }
+      ];
+    }
   }
 };
 </script>
@@ -2528,17 +2516,15 @@ export default {
         &__imageBlock {
           display: flex;
           > li {
-            padding: 0 1em;
+            margin: 0 1em;
+            overflow: hidden;
             &:first-child {
               width: 40%;
             }
             &:not(:first-child) {
               width: 30%;
+              height: fit-content;
             }
-          }
-          > li a {
-            display: block;
-            overflow: hidden;
           }
         }
       }
@@ -2693,9 +2679,8 @@ export default {
       }
 
       &__wrap {
-        margin-top: 1em;
-        text-align: left;
         @include mq(air-lg) {
+          text-align: left;
           margin-top: 2.5em;
           height: calc(768 / 1025 * 100vw);
         }
@@ -2714,7 +2699,7 @@ export default {
 
       &__content:not(:first-of-type) {
         @include mq(air-lt-lg) {
-          margin-top: 40px;
+          margin-top: 2.5em;
         }
       }
 
@@ -2735,18 +2720,12 @@ export default {
 
         @include mq(air-sm) {
           > li {
-            height: calc(170 / 320 * 100vw);
+            height: calc(145 / 320 * 100vw);
           }
         }
         @include mq(air-md) {
           > li {
-            width: 95%;
             height: calc(300 / 769 * 100vw);
-          }
-        }
-        @include mq(air-lt-lg) {
-          > li {
-            width: 95%;
           }
         }
         @include mq(air-lg) {
