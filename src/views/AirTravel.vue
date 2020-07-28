@@ -3,7 +3,7 @@
     <section class="p-main">
       <div class="p-main__text">
         <h1>
-          <span class="air">Air Travel</span><br />ヨーロッパ旅行・ツアー特集a
+          <span class="air">Air Travel</span><br />ヨーロッパ旅行・ツアー特集
         </h1>
       </div>
       <div class="p-main__scrollBtn" @click="smoothScroll">
@@ -16,13 +16,10 @@
     <section class="p-head" id="smooth">
       <div class="p-head__text p-fadeIn js-fadeIn">
         <h2>
-          水の都ヴェネツィアと<br />アムステルダムを象徴する<br />風車とチューリップ
+          ヨーロッパのみで味わえる<br />文化、芸術、歴史の魅力を<br />存分に味わえる旅にする
         </h2>
-        <h3>ヨーロッパの風情ある古都をAir Travelで巡る</h3>
+        <h3>Air Travelで行くヨーロッパ旅行</h3>
         <p>
-          テキストテキストテキストテキストテキストテキスト
-          テキストテキストテキストテキストテキストテキスト
-          テキストテキストテキストテキストテキストテキスト
           テキストテキストテキストテキストテキストテキスト
           テキストテキストテキストテキストテキストテキスト
           テキストテキストテキストテキストテキストテキスト
@@ -49,7 +46,9 @@
         大自然を満喫する
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--nature__desc">
-        テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
+        テキストテキストテキストテキストテキストテキスト<br
+          class="for-lg"
+        />テキストテキストテキストテキストテキストテキスト
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--nature__tabWrap for-lg">
         <slot v-for="(tab, index) in nature.tabs">
@@ -70,13 +69,13 @@
         <div class="p-mainBlock__content p-mainBlock--nature__content">
           <div class="p-mainBlock__textBlock p-mainBlock--nature__textBlock">
             <h3 class="p-mainBlock__concept for-tb">
-              アムステルダム
+              雄大な大自然
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="nature.show[0]">
-                テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト<br
-                  class="for-pc"
-                />テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -105,11 +104,13 @@
         <div class="p-mainBlock__content p-mainBlock--nature__content">
           <div class="p-mainBlock__textBlock p-mainBlock--nature__textBlock">
             <h3 class="p-mainBlock__concept for-tb">
-              繊細な住宅設計
+              ビーチリゾート
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || nature.show[1]">
-                テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -142,7 +143,9 @@
         中世の街並と歴史を満喫する
       </h2>
       <p class="p-mainBlock__desc p-mainBlock--history__desc">
-        テキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキスト
+        テキストテキストテキストテキストテキストテキスト<br
+          class="for-lg"
+        />テキストテキストテキストテキストテキストテキスト
       </p>
       <div class="p-mainBlock__tabWrap p-mainBlock--history__tabWrap for-lg">
         <slot v-for="(tab, index) in history.tabs">
@@ -163,13 +166,13 @@
         <div class="p-mainBlock__content p-mainBlock--history__content">
           <div class="p-mainBlock__textBlock p-mainBlock--history__textBlock">
             <h3 class="p-mainBlock__concept for-tb">
-              パッシブデザイン
+              歴史を感じる街並
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || history.show[0]">
-                テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト<br
-                  class="for-pc"
-                />テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -198,13 +201,13 @@
         <div class="p-mainBlock__content p-mainBlock--history__content">
           <div class="p-mainBlock__textBlock p-mainBlock--history__textBlock">
             <h3 class="p-mainBlock__concept for-tb">
-              四季と共に生きる
+              宮殿・大聖堂
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || history.show[1]">
-                テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト<br
-                  class="for-pc"
-                />テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -233,13 +236,13 @@
         <div class="p-mainBlock__content p-mainBlock--history__content">
           <div class="p-mainBlock__textBlock p-mainBlock--history__textBlock">
             <h3 class="p-mainBlock__concept for-tb">
-              土地を活かす
+              美術館・博物館
             </h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || history.show[2]">
-                テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト<br
-                  class="for-pc"
-                />テキストテキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -292,12 +295,12 @@
       <div class="p-mainBlock__wrap">
         <div class="p-mainBlock__content p-mainBlock--chill__content">
           <div class="p-mainBlock__textBlock p-mainBlock--chill__textBlock">
-            <h3 class="p-mainBlock__concept for-tb">土地探し</h3>
+            <h3 class="p-mainBlock__concept for-tb">美しい街並</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || chill.show[0]">
-                テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト<br
-                  class="for-pc"
-                />テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -325,12 +328,12 @@
 
         <div class="p-mainBlock__content p-mainBlock--chill__content">
           <div class="p-mainBlock__textBlock p-mainBlock--chill__textBlock">
-            <h3 class="p-mainBlock__concept for-tb">インテリア</h3>
+            <h3 class="p-mainBlock__concept for-tb">カフェ文化</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || chill.show[1]">
-                テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト<br
-                  class="for-pc"
-                />テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -358,12 +361,12 @@
 
         <div class="p-mainBlock__content p-mainBlock--chill__content">
           <div class="p-mainBlock__textBlock p-mainBlock--chill__textBlock">
-            <h3 class="p-mainBlock__concept for-tb">長期保証</h3>
+            <h3 class="p-mainBlock__concept for-tb">グルメ廻り</h3>
             <transition name="slide-text" v-on:after-enter="afterEnter">
               <p v-show="checkMq || chill.show[2]">
-                テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト<br
-                  class="for-pc"
-                />テキストテキストテキストテキストテキストテキストテキスト<br />テキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキストテキスト<br
+                  class="for-lg"
+                />テキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
             </transition>
           </div>
@@ -392,7 +395,7 @@
     </section>
 
     <section class="p-mainBlock p-mainBlock--popular p-fadeIn js-fadeIn">
-      <h3>人気の観光都市</h3>
+      <h2 class="p-mainBlock__title">人気の観光都市</h2>
       <ul class="p-mainBlock--popular__list">
         <li v-for="imageSet in popular.imgList" :key="imageSet.id">
           <img
@@ -416,7 +419,9 @@
     </section>
 
     <section class="p-mainBlock p-mainBlock--tours">
-      <h3>Air Travel で行くツアー・観光</h3>
+      <h2 class="p-mainBlock__title">
+        <span class="en">Air Travel</span> で行くツアー
+      </h2>
       <div class="p-mainBlock__wrap p-mainBlock--tours__wrap">
         <!-- イタリア -->
         <div class="p-mainBlock__content p-mainBlock--tours__content">
@@ -494,7 +499,7 @@
                 </a>
               </li>
             </ul>
-            <div class="p-mainBlock__countryInfo">
+            <div class="p-mainBlock__countryInfo for-lg">
               <transition name="country-name">
                 <h4
                   v-show="checkMq || tours.show[0]"
@@ -638,7 +643,7 @@
                 </a>
               </li>
             </ul>
-            <div class="p-mainBlock__countryInfo">
+            <div class="p-mainBlock__countryInfo for-lg">
               <transition name="country-name">
                 <h4
                   v-show="checkMq || tours.show[1]"
@@ -782,7 +787,7 @@
                 </a>
               </li>
             </ul>
-            <div class="p-mainBlock__countryInfo">
+            <div class="p-mainBlock__countryInfo for-lg">
               <transition name="country-name">
                 <h4
                   v-show="checkMq || tours.show[2]"
@@ -860,7 +865,7 @@
                 class="p-mainBlock__tourName"
                 v-show="checkMq || tours.show[3]"
               >
-                マドリード<span class="en">&</span>バルセロナ<span class="en"
+                マドリード <span class="en">&</span> バルセロナ<span class="en"
                   >7</span
                 >日間ツアー
               </h3>
@@ -928,7 +933,7 @@
                 </a>
               </li>
             </ul>
-            <div class="p-mainBlock__countryInfo">
+            <div class="p-mainBlock__countryInfo for-lg">
               <transition name="country-name">
                 <h4
                   v-show="checkMq || tours.show[3]"
@@ -1017,7 +1022,7 @@
 
 <script>
 export default {
-  name: 'Kadel',
+  name: 'AirTravel',
   methods: {
     createIcon(iconID) {
       return 'http://openweathermap.org/img/wn/' + iconID + '@2x.png';
@@ -1651,7 +1656,7 @@ export default {
 <style lang="scss">
 .AirTravel {
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Vollkorn:wght@400;500;600;700&display=swap');
   font-family: 'Roboto', 'Noto Sans JP', sans-serif, 'Hiragino Kaku Gothic ProN',
     メイリオ;
   color: #333333;
@@ -1664,12 +1669,12 @@ export default {
   padding-bottom: 80px;
   position: relative;
   z-index: 1500;
-  @include mq(kadel-sm) {
+  @include mq(air-sm) {
     padding-top: 60px;
     border-right: 10px solid #fff;
     border-left: 10px solid #fff;
   }
-  @include mq(kadel-gt-md) {
+  @include mq(air-gt-md) {
     padding-top: 50px;
     border-right: 20px solid #fff;
     border-left: 20px solid #fff;
@@ -1723,33 +1728,39 @@ export default {
   ------------------- */
   .p-main {
     position: relative;
-    @include mq(kadel-gt-md) {
+    height: calc(100vh - 70px);
+    width: 100%;
+    @include mq(air-gt-md) {
       display: flex;
       flex-direction: row-reverse;
       height: calc(100vh - 90px);
-      width: 100%;
     }
 
     &__text {
       position: absolute;
-      top: 17%;
+      top: 15%;
       left: 0;
       right: 4%;
-      color: #fff;
+      color: #000;
+      @include mq(air-gt-md) {
+        top: 11%;
+        right: 13%;
+      }
 
       > h1 {
-        font-family: 'Red Rose', 'Noto Sans JP', sans-serif,
-          'Hiragino Kaku Gothic ProN', メイリオ;
-        font-size: calc(38 / 1025 * 100vw);
-        font-weight: 700;
-        letter-spacing: 3px;
+        font-family: 'Vollkorn', 'Noto Serif JP', serif;
+        font-size: calc(20 / 320 * 100vw);
+        font-weight: 600;
         text-align: right;
-        text-shadow: 3px 1px 1px #000;
+        line-height: 1.5;
+        @include mq(air-gt-md) {
+          font-size: calc(38 / 1025 * 100vw);
+          letter-spacing: 3px;
+        }
       }
 
       .air {
         font-size: 2em;
-        font-style: italic;
       }
 
       > p {
@@ -1760,8 +1771,13 @@ export default {
     }
 
     &__figure {
-      @include mq(kadel-gt-md) {
-        background: url('../assets/images/airtravel/main-min.jpg') no-repeat
+      background: url('../assets/images/airtravel/mobile/main-min.jpg')
+        no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      @include mq(air-gt-md) {
+        background: url('../assets/images/airtravel/test.jpg') no-repeat
           center/cover;
         width: 100%;
         transform: translate3D(0, 0, 0);
@@ -1773,15 +1789,16 @@ export default {
       position: absolute;
       bottom: 0;
       right: 1em;
-      font-size: calc(14 / 1025 * 100vw);
+      font-size: calc(12 / 320 * 100vw);
+      font-family: 'Vollkorn', 'Noto Serif JP', serif;
       font-weight: 600;
       padding-bottom: 168px;
       z-index: 900;
       color: #fff;
       cursor: pointer;
       writing-mode: vertical-rl;
-      @include mq(kadel-gt-md) {
-        color: #fff;
+      @include mq(air-gt-md) {
+        font-size: calc(14 / 1025 * 100vw);
       }
 
       &:hover {
@@ -1817,7 +1834,7 @@ export default {
             0.98
           );
           animation-timing-function: cubic-bezier(0.97, 0.02, 0.59, 0.98);
-          @include mq(kadel-gt-md) {
+          @include mq(air-gt-md) {
             background-color: #fff;
           }
         }
@@ -1850,8 +1867,8 @@ export default {
         p-head
   ------------------- */
   .p-head {
-    margin-top: 80px;
-    @include mq(kadel-gt-md) {
+    margin-top: 5.5em;
+    @include mq(air-gt-md) {
       display: flex;
       justify-content: space-between;
       flex-direction: row-reverse;
@@ -1859,16 +1876,19 @@ export default {
     }
 
     &__text {
-      @include mq(kadel-gt-md) {
+      @include mq(air-gt-md) {
         width: 50%;
         margin-top: 10.8em;
         padding-top: 2.5em;
         text-align: right;
       }
       > h2 {
-        font-size: 7vw;
+        font-size: calc(22 / 320 * 100vw);
         text-align: center;
-        @include mq(kadel-gt-md) {
+        @include mq(air-md) {
+          font-size: calc(26 / 769 * 100vw);
+        }
+        @include mq(air-gt-md) {
           font-size: calc(30 / 1025 * 100vw);
           font-weight: 500;
           line-height: 1.5;
@@ -1878,39 +1898,48 @@ export default {
       }
       > h3 {
         position: relative;
-        font-size: calc(18 / 1025 * 100vw);
-        font-weight: 600;
-        @include mq(kadel-sm) {
-          margin: 80px 0 32px;
+        font-size: calc(19 / 320 * 100vw);
+        font-weight: 500;
+        @include mq(air-sm) {
+          margin: 4em 0 2em;
           text-align: center;
         }
-        @include mq(kadel-gt-md) {
+        @include mq(air-md) {
+          font-size: calc(19 / 769 * 100vw);
+          margin-bottom: 1em;
+        }
+        @include mq(air-lg) {
+          font-size: calc(18 / 1025 * 100vw);
           margin-bottom: 2em;
         }
         &:before {
           content: '';
           display: block;
           position: absolute;
-          top: -40px;
+          top: -3em;
           width: 1px;
           height: 40px;
           background-color: #262626;
-          @include mq(kadel-sm) {
+          @include mq(air-sm) {
             left: 50%;
           }
-          @include mq(kadel-gt-md) {
+          @include mq(air-gt-md) {
             top: 50%;
-            width: calc(100% - 23em);
+            width: calc(100% - 17em);
             height: 1px;
           }
         }
       }
 
       > p {
-        font-size: 16px;
+        font-size: calc(16 / 320 * 100vw);
         text-align: center;
         line-height: 2.3;
-        @include mq(kadel-gt-md) {
+        @include mq(air-md) {
+          text-align: right;
+          font-size: calc(17 / 769 * 100vw);
+        }
+        @include mq(air-lg) {
           font-size: calc(15 / 1025 * 100vw);
           text-align: right;
         }
@@ -1920,7 +1949,7 @@ export default {
     &__images {
       display: flex;
       margin-top: 80px;
-      @include mq(kadel-gt-md) {
+      @include mq(air-gt-md) {
         width: 50%;
         margin-top: 0;
       }
@@ -1930,12 +1959,12 @@ export default {
         &:nth-child(2) {
           margin-top: 80px;
         }
-        @include mq(kadel-sm) {
+        @include mq(air-sm) {
           &:nth-child(1) {
             margin-right: 10px;
           }
         }
-        @include mq(kadel-gt-md) {
+        @include mq(air-gt-md) {
           width: 47%;
           margin-right: 3%;
           &:nth-child(2) {
@@ -1950,22 +1979,25 @@ export default {
       p-mainBlock
   ------------------- */
   .p-mainBlock {
-    margin-top: 80px;
-    @include mq(kadel-lg) {
+    margin-top: 6em;
+    @include mq(air-lg) {
       position: relative;
       margin-top: 11.7%;
     }
 
     &__title {
       position: relative;
-      font-size: calc(24 / 1025 * 100vw);
+      font-size: calc(20 / 320 * 100vw);
       font-weight: 600;
       line-height: 1.7;
-      @include mq(kadel-lt-lg) {
-        text-align: center;
-        margin-top: 40px;
+      @include mq(air-md) {
+        font-size: calc(25 / 769 * 100vw);
       }
-      @include mq(kadel-lg) {
+      @include mq(air-lt-lg) {
+        text-align: center;
+      }
+      @include mq(air-lg) {
+        font-size: calc(24 / 1025 * 100vw);
         &:after {
           background: #262626;
           content: '';
@@ -1982,13 +2014,18 @@ export default {
     &__concept {
       display: flex;
       font-weight: 400;
-      @include mq(kadel-lt-lg) {
-        margin-top: 40px;
-        padding-bottom: 7px;
-        font-size: 18px;
+      @include mq(air-sm) {
+        font-size: calc(18 / 320 * 100vw);
+      }
+      @include mq(air-md) {
+        font-size: calc(21 / 769 * 100vw);
+      }
+      @include mq(air-lt-lg) {
+        margin-top: 2em;
+        padding-bottom: 0.4em;
         border-bottom: solid 1px #d5d5d5;
       }
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         font-size: calc(14 / 1025 * 100vw);
         line-height: 2;
         cursor: pointer;
@@ -2001,7 +2038,7 @@ export default {
     }
 
     &__tabWrap {
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         position: absolute;
         display: flex;
         line-height: 2;
@@ -2012,14 +2049,15 @@ export default {
     }
 
     &__desc {
-      font-size: 18px;
-      line-height: 2;
-      @include mq(kadel-lt-lg) {
-        text-align: center;
-        letter-spacing: 1.4px;
-        margin-top: 40px;
+      font-size: calc(15 / 320 * 100vw);
+      margin-top: 1.5em;
+      @include mq(air-md) {
+        font-size: calc(17 / 769 * 100vw);
       }
-      @include mq(kadel-lg) {
+      @include mq(air-lt-lg) {
+        text-align: center;
+      }
+      @include mq(air-lg) {
         position: absolute;
         font-size: calc(15 / 1025 * 100vw);
         margin-top: 6.7%;
@@ -2031,7 +2069,7 @@ export default {
     }
 
     &__content {
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         position: absolute;
         width: 100%;
         height: auto;
@@ -2044,18 +2082,21 @@ export default {
     }
 
     &__textBlock {
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         overflow: hidden;
       }
       > p {
-        font-size: 14px;
+        font-size: calc(14 / 320 * 100vw);
         line-height: 2;
         letter-spacing: 1px;
-        margin-top: 16px;
-        @include mq(kadel-lt-lg) {
+        margin-top: 1em;
+        @include mq(air-md) {
+          font-size: calc(17 / 769 * 100vw);
+        }
+        @include mq(air-lt-lg) {
           padding-left: 0.5em;
         }
-        @include mq(kadel-lg) {
+        @include mq(air-lg) {
           font-size: calc(13 / 1025 * 100vw);
           margin: 0;
         }
@@ -2066,23 +2107,20 @@ export default {
       overflow: hidden;
       li {
         opacity: 1;
-        @include mq(kadel-lg) {
+        @include mq(air-lg) {
           overflow: hidden;
         }
-      }
-      img {
-        backface-visibility: hidden;
       }
     }
 
     &__scrollImage {
-      @include mq(kadel-lt-lg) {
+      @include mq(air-lt-lg) {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
-        margin-top: 24px;
+        margin-top: 1.5em;
+        padding-bottom: 1.3em;
         overflow-x: scroll;
-        padding-bottom: 16px;
 
         &::-webkit-scrollbar {
           background-color: #acacac;
@@ -2095,35 +2133,41 @@ export default {
         }
 
         > li:not(:last-child) {
-          margin-right: 10px;
+          margin-right: 0.7em;
         }
 
         img {
-          height: 130px;
+          height: 100%;
           width: auto;
         }
       }
-      @include mq(kadel-md) {
+      @include mq(air-sm) {
         > li {
-          width: 100%;
-          min-width: 100%;
-          height: 130px;
+          height: calc(130 / 320 * 100vw);
         }
-
-        img {
-          height: 130px;
-          width: 100%;
+      }
+      @include mq(air-md) {
+        > li {
+          height: calc(260 / 769 * 100vw);
         }
       }
     }
 
     &__tourName {
       position: relative;
-      font-size: 18px;
-      font-weight: 600;
-      padding-left: 3em;
-      @include mq(kadel-lg) {
+      font-size: calc(15 / 320 * 100vw);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      padding-left: 1.5em;
+      margin-top: 0.7em;
+      @include mq(air-md) {
+        font-size: calc(25 / 769 * 100vw);
+        padding-left: 3.5em;
+      }
+      @include mq(air-lg) {
         font-size: calc(20 / 1025 * 100vw);
+        margin-top: 0;
+        padding-left: 3.5em;
       }
       &:before {
         position: absolute;
@@ -2132,66 +2176,101 @@ export default {
         background-color: #262626;
         top: 50%;
         left: 0;
-        width: 2.5em;
-        height: 2px;
+        width: 1em;
+        height: 1.5px;
+        @include mq(air-gt-md) {
+          height: 2px;
+          width: 2.5em;
+        }
       }
     }
 
     &__tourInfoList {
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
       padding: 1em;
+      @include mq(air-gt-md) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
     }
 
     &__tourInfo {
-      @include mq(kadel-lg) {
+      @include mq(air-sm) {
+        &:not(:first-of-type) {
+          margin-top: 1em;
+        }
+      }
+      @include mq(air-lg) {
         display: flex;
         flex-direction: column;
         width: fit-content;
       }
       > dt {
-        font-size: 12px;
+        font-size: calc(14 / 320 * 100vw);
         font-weight: 600;
-        @include mq(kadel-lg) {
+        @include mq(air-md) {
+          font-size: calc(17 / 769 * 100vw);
+        }
+        @include mq(air-lg) {
           font-size: calc(16 / 1025 * 100vw);
         }
       }
       > dd {
         font-weight: 400;
-        font-size: 14px;
-        @include mq(kadel-lg) {
+        font-size: calc(13 / 320 * 100vw);
+        @include mq(air-md) {
+          font-size: calc(16 / 769 * 100vw);
+        }
+        @include mq(air-lg) {
           font-size: calc(15 / 1025 * 100vw);
         }
       }
       .price {
         color: red;
-        font-size: calc(20 / 1025 * 100vw);
+        font-size: calc(15 / 320 * 100vw);
         font-weight: 600;
+        @include mq(air-md) {
+          font-size: calc(24 / 769 * 100vw);
+        }
+        @include mq(air-lg) {
+          font-size: calc(20 / 1025 * 100vw);
+        }
       }
       .attention {
         color: #000;
-        font-size: calc(12 / 1025 * 100vw);
+        font-size: calc(12 / 320 * 100vw);
         font-weight: 400;
-        padding-left: 1em;
+        @include mq(air-md) {
+          font-size: calc(13 / 769 * 100vw);
+        }
+        @include mq(air-gt-md) {
+          font-size: calc(12 / 1025 * 100vw);
+          padding-left: 1em;
+        }
       }
     }
 
     &__tourInfo:first-of-type {
-      width: 50%;
-      margin-bottom: 1.5em;
+      @include mq(air-gt-md) {
+        width: 50%;
+        margin-bottom: 1.5em;
+      }
     }
 
     &__tourInfo:nth-of-type(2) {
-      width: 50%;
-      margin-bottom: 1.5em;
+      @include mq(air-gt-md) {
+        width: 50%;
+        margin-bottom: 1.5em;
+      }
     }
 
     &__tourFlex {
-      display: flex;
-      justify-content: space-between;
-      height: calc(523 / 1025 * 100vw);
+      @include mq(air-lg) {
+        display: flex;
+        justify-content: space-between;
+        height: calc(523 / 1025 * 100vw);
+      }
     }
 
     &__tourWrap {
@@ -2300,7 +2379,7 @@ export default {
 
     &__nav {
       display: none;
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         font-size: calc(14 / 1025 * 100vw);
         display: flex;
         justify-content: center;
@@ -2355,7 +2434,7 @@ export default {
     }
 
     &--nature {
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         height: calc(670 / 1025 * 100vw);
 
         &__title {
@@ -2411,7 +2490,7 @@ export default {
     }
 
     &--history {
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         height: calc(605 / 1025 * 100vw);
 
         &__title {
@@ -2466,7 +2545,7 @@ export default {
     }
 
     &--chill {
-      @include mq(kadel-lg) {
+      @include mq(air-lg) {
         height: calc(610 / 1025 * 100vw);
 
         &__title {
@@ -2520,20 +2599,9 @@ export default {
     }
 
     &--popular {
-      > h3 {
-        position: relative;
-        font-size: calc(24 / 1025 * 100vw);
-        font-weight: 600;
-        margin-left: 1.4%;
-        &:after {
-          background: #262626;
-          content: '';
-          display: block;
-          height: 1px;
-          width: 44%;
-          position: absolute;
-          bottom: -8px;
-          z-index: 11;
+      > h2:after {
+        @include mq(air-lg) {
+          width: 60%;
         }
       }
 
@@ -2541,28 +2609,56 @@ export default {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        margin-top: 2.5em;
+        margin-top: 1em;
+        @include mq(air-lg) {
+          margin-top: 2.5em;
+        }
 
         > li {
-          width: 30.5%;
+          width: 100%;
           text-align: left;
           padding: 0.5em;
           border-radius: 3px;
           box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
           transition: all 0.25s ease-out;
           cursor: pointer;
+          @include mq(air-md) {
+            width: 48%;
+          }
+          @include mq(air-lg) {
+            width: 30.5%;
+          }
           &:hover {
             box-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
           }
 
           > p {
-            font-size: calc(14 / 1025 * 100vw);
+            font-size: calc(14 / 320 * 100vw);
             margin-top: 0.5em;
+            @include mq(air-md) {
+              font-size: calc(14 / 769 * 100vw);
+            }
+            @include mq(air-lg) {
+              font-size: calc(14 / 1025 * 100vw);
+            }
           }
         }
 
-        > li:nth-child(n + 4) {
-          margin-top: 2em;
+        @include mq(air-sm) {
+          > li:not(:first-child) {
+            margin-top: 1em;
+          }
+        }
+        @include mq(air-md) {
+          > li:nth-child(n + 3) {
+            margin-top: 2em;
+          }
+        }
+
+        @include mq(air-lg) {
+          > li:nth-child(n + 4) {
+            margin-top: 2em;
+          }
         }
       }
 
@@ -2573,9 +2669,15 @@ export default {
         line-height: 30px;
         align-items: center;
         > h4 {
-          font-size: calc(18 / 1025 * 100vw);
+          font-size: calc(15 / 320 * 100vw);
           font-weight: 500;
           padding-left: 0.5em;
+          @include mq(air-md) {
+            font-size: calc(18 / 769 * 100vw);
+          }
+          @include mq(air-lg) {
+            font-size: calc(18 / 1025 * 100vw);
+          }
         }
         img {
           width: auto;
@@ -2584,75 +2686,72 @@ export default {
     }
 
     &--tours {
-      > h3 {
-        position: relative;
-        font-size: calc(24 / 1025 * 100vw);
-        font-weight: 600;
-        &:after {
-          background: #262626;
-          content: '';
-          display: block;
-          height: 1px;
-          width: 44%;
-          position: absolute;
-          bottom: -8px;
-          z-index: 11;
+      > h2:after {
+        @include mq(air-lg) {
+          width: 60%;
         }
       }
 
       &__wrap {
-        margin-top: 2.5em;
+        margin-top: 1em;
         text-align: left;
-        @include mq(kadel-lg) {
+        @include mq(air-lg) {
+          margin-top: 2.5em;
           height: calc(768 / 1025 * 100vw);
         }
       }
 
       &__content {
         opacity: 1;
-        @include mq(kadel-lt-lg) {
+        @include mq(air-lt-lg) {
           display: flex;
           flex-direction: column-reverse;
         }
-        @include mq(kadel-lg) {
+        @include mq(air-lg) {
           position: absolute;
         }
       }
 
       &__content:not(:first-of-type) {
-        @include mq(kadel-lt-lg) {
+        @include mq(air-lt-lg) {
           margin-top: 40px;
         }
       }
 
       &__textBlock {
-        padding-left: 12px;
-        @include mq(kadel-lg) {
+        @include mq(air-lg) {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
           align-items: flex-end;
           position: absolute;
           padding-top: 54.9%;
-          padding-left: 0;
           z-index: -1;
         }
       }
 
       &__imageBlock {
-        width: 73.5%;
-        font-size: 0;
-        @include mq(kadel-lt-lg) {
-          img {
-            height: 170px;
+        width: 100%;
+
+        @include mq(air-sm) {
+          > li {
+            height: calc(170 / 320 * 100vw);
           }
         }
-        @include mq(kadel-md) {
-          img {
-            width: auto;
+        @include mq(air-md) {
+          > li {
+            width: 95%;
+            height: calc(300 / 769 * 100vw);
           }
         }
-        @include mq(kadel-lg) {
+        @include mq(air-lt-lg) {
+          > li {
+            width: 95%;
+          }
+        }
+        @include mq(air-lg) {
+          font-size: 0;
+          width: 73.5%;
           > li {
             display: inline-block;
           }
@@ -2674,28 +2773,28 @@ export default {
   /* ディスプレイスタイル */
   .for-pc {
     // min-width: 769px displayBlock
-    @include mq(kadel-sm) {
+    @include mq(air-sm) {
       display: none !important;
     }
   }
 
   .for-sp {
     // max-width: 768px displayBlock
-    @include mq(kadel-gt-md) {
+    @include mq(air-gt-md) {
       display: none !important;
     }
   }
 
   .for-tb {
     // max-width: 1024px displayBlock
-    @include mq(kadel-lg) {
+    @include mq(air-lg) {
       display: none !important;
     }
   }
 
   .for-lg {
     // min-width: 1025px displayBlock
-    @include mq(kadel-lt-lg) {
+    @include mq(air-lt-lg) {
       display: none !important;
     }
   }
@@ -2866,14 +2965,14 @@ export default {
   }
 
   .is-lowLayer {
-    @include mq(kadel-lg) {
+    @include mq(air-lg) {
       position: relative;
       z-index: -1;
     }
   }
 
   .is-highLayer {
-    @include mq(kadel-lg) {
+    @include mq(air-lg) {
       position: relative;
       z-index: 1;
     }

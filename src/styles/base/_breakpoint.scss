@@ -5,12 +5,12 @@ $breakpoints: (
   'lg': 'screen and (min-width: 1024px)',
   'gt-md': 'screen and (min-width: 600px)',  /* greater than md */
   'lt-lg': 'screen and (max-width: 1023px)',  /* less than lg */
-  /* kadel */
-  'kadel-sm': 'screen and (max-width: 768px)',
-  'kadel-md': 'screen and (min-width: 769px) and (max-width: 1024px)',
-  'kadel-lg': 'screen and (min-width: 1025px)',
-  'kadel-gt-md': 'screen and (min-width: 769px)',
-  'kadel-lt-lg':'screen and (max-width: 1024px)'
+  /* airTravel */
+  'air-sm': 'screen and (max-width: 768px)',
+  'air-md': 'screen and (min-width: 769px) and (max-width: 1024px)',
+  'air-lg': 'screen and (min-width: 1025px)',
+  'air-gt-md': 'screen and (min-width: 769px)',
+  'air-lt-lg':'screen and (max-width: 1024px)'
 );
 
 @mixin mq($breakpoint: lg) {
