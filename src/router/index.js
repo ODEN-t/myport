@@ -10,14 +10,9 @@ const routes = [
     component: () => import('../views/Home.vue')
   },
   {
-    path: '/info',
-    name: 'Info',
-    component: () => import('../views/Info.vue')
-  },
-  {
-    path: '/kadel',
-    name: 'Kadel',
-    component: () => import('../views/Kadel.vue')
+    path: '/airtravel',
+    name: 'AirTravel',
+    component: () => import('../views/AirTravel.vue')
   }
 ];
 
