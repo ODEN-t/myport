@@ -133,13 +133,18 @@
         <ul class="p-contents__workList">
           <li class="p-contents__workCards">
             <router-link to="airtravel">
-              <img src="../assets/images/home/screen-kadel-min.png" alt="" />
+              <img
+                src="../assets/images/home/thumbnail_airtravel-min.png"
+                alt=""
+              />
               <div class="p-contents__workCards__textBox">
                 <p>
-                  Webページの見た目(HTML・CSS)はdevToolで確認しながらコーディングし、動き(JavaScript)は見本の動きを見て自身で考え実装しました。
+                  架空の旅行会社のヨーロッパ旅行の特集ページを作成しました。魅力が伝わるように写真を多く使用しました。
                 </p>
-                <span class="p-contents__workCards__tag">LP写経</span>
                 <span class="p-contents__workCards__tag">Vue.js</span>
+                <span class="p-contents__workCards__tag"
+                  >OpenWeatherMap API</span
+                >
               </div>
             </router-link>
           </li>
