@@ -1777,7 +1777,7 @@ export default {
       width: 100%;
       height: 100%;
       @include mq(air-gt-md) {
-        background: url('../assets/images/airtravel/test.jpg') no-repeat
+        background: url('../assets/images/airtravel/main-min.jpg') no-repeat
           center/cover;
         width: 100%;
         transform: translate3D(0, 0, 0);
