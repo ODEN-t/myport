@@ -150,6 +150,7 @@
           </li>
           <li class="p-contents__workCards p-contents__workCards--textContent">
             <h4>大手ECサイトのLP作成</h4>
+            <router-link to="minigame">aaaaaaaaa</router-link>
             <h5>言語</h5>
             <p>
               HTML, CSS, JavaScript(jQuery), bem・SassでのCSS管理,
