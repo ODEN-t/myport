@@ -6,11 +6,11 @@
     </p>
     <div class="carGame">
       <div class="btnWrap">
-        <div name="btn" class="c-button" @click="carForward">
-          <span class="c-button_inner">前進する</span>
+        <div name="btn" class="buttonCTA btn-flat" @click="carForward">
+          <span>前進</span>
         </div>
-        <div name="btn" class="c-button" @click="carBack">
-          <span class="c-button_inner">バックする</span>
+        <div name="btn" class="buttonCTA btn-flat" @click="carBack">
+          <span>バック</span>
         </div>
       </div>
       <div class="carGame__carParts">
@@ -101,11 +101,14 @@ export default {
   height: 100%;
   overflow: hidden;
   &__carParts {
-    height: calc(100% - calc(28 / 1024 * 100vw) - calc(17 / 1024 * 100vw));
+    height: calc(100% - calc(18 / 320 * 100vw) - 0.5em - 3%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
+    @include mq {
+      height: calc(100% - calc(28 / 1024 * 100vw) - calc(17 / 1024 * 100vw));
+    }
 
     .battery {
       position: absolute;
@@ -118,10 +121,13 @@ export default {
     .car {
       position: absolute;
       left: 50%;
-      bottom: -10.5%;
+      bottom: -5.1%;
       transform: translateX(-50%);
       width: 40%;
       z-index: 10;
+      @include mq {
+        bottom: -10.5%;
+      }
     }
     .townBg {
       background-image: url('../assets/images/minigame/town-min.png');
@@ -137,54 +143,34 @@ export default {
       }
     }
   }
-}
 
-.btnWrap {
-  position: absolute;
-  top: 22%;
-  left: 50%;
-  transform: translate(-50%);
-  display: flex;
-}
+  .btnWrap {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 22%;
+    left: 0;
+    z-index: 20;
+    @include mq(sm) {
+      right: 0;
+    }
+    @include mq {
+      top: 22%;
+      left: 50%;
+      transform: translate(-50%);
+    }
 
-.c-button.is-prevent {
-  pointer-events: none;
-}
+    .buttonCTA:first-of-type {
+      margin-right: 1em;
+    }
+  }
 
-.c-button:first-child {
-  margin-right: 30px;
-}
+  .buttonCTA.is-prevent {
+    pointer-events: none;
+  }
 
-.showresult,
-.init {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.showresult.is-active,
-.init.is-active {
-  z-index: 50;
-  opacity: 1;
-}
-
-.showresult > p,
-.init > p {
-  color: #fff;
-  font-size: calc(35 / 720 * 100vw);
-}
-
-.reload-btn {
-  margin-top: calc(15 / 720 * 100vw);
+  .buttonCTA:first-child {
+    margin-right: 30px;
+  }
 }
 </style>

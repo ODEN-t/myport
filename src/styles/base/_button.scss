@@ -1,0 +1,93 @@
+.buttonCTA,
+button {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 0.6em 3.5em;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.3em;
+  color: #212529;
+  border-radius: 0.5rem;
+  @include mq {
+    font-size: 16px;
+  }
+
+  &.btn-flat {
+    overflow: hidden;
+    color: #000;
+    border-radius: 0;
+    background: #fff;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: calc(-150% + 50px);
+      width: 150%;
+      height: 500%;
+      content: '';
+      -webkit-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+      -webkit-transform: rotate(45deg) translateX(0) translateY(0);
+      transform: rotate(45deg) translateX(0) translateY(0);
+      background: #fff100;
+    }
+    &:after {
+      position: absolute;
+      top: -400%;
+      right: calc(-150% + 50px);
+      width: 150%;
+      height: 500%;
+      content: '';
+      -webkit-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+      -webkit-transform: rotate(45deg) translateX(0) translateY(0);
+      transform: rotate(45deg) translateX(0) translateY(0);
+      background: #fff100;
+    }
+    &:hover {
+      &:before {
+        -webkit-transform: rotate(45deg) translateX(0) translateY(-50%);
+        transform: rotate(45deg) translateX(0) translateY(-50%);
+      }
+      &:after {
+        -webkit-transform: rotate(45deg) translateX(0) translateY(50%);
+        transform: rotate(45deg) translateX(0) translateY(50%);
+      }
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &--red {
+      &:before {
+        background: #FF0033	;
+      }
+      &:after {
+        background: #FF0033	;
+      }
+    }
+  }
+
+  &.btn-flat {
+    &.mod-white {
+      color: #000;
+      background: #fff;
+    }
+    &--red.mod-white {
+      color: #000;
+      background: #fff;
+    }
+  }
+}
