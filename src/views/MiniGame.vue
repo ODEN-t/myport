@@ -52,7 +52,7 @@ export default {
   .gameFrame {
     position: relative;
     width: 100%;
-    @include mq(sm) {
+    @include mq(lt-lg) {
       margin-top: 5%;
     }
     @include mq {
@@ -150,12 +150,19 @@ export default {
   .showresult > p,
   .init > p {
     color: #fff;
-    font-size: calc(55 / 1024 * 100vw);
+    font-size: calc(30 / 320 * 100vw);
     font-weight: 600;
+    letter-spacing: 6px;
+    @include mq(md) {
+      font-size: calc(40 / 1024 * 100vw);
+    }
+    @include mq {
+      font-size: calc(36 / 1024 * 100vw);
+    }
   }
 
   .showresult > .buttonCTA {
-    margin-top: 1em;
+    margin-top: 1.5em;
   }
 }
 </style>

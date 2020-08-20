@@ -309,10 +309,11 @@ export default {
 .bingoGame {
   .bingoCard {
     position: relative;
-    width: 74%;
-    margin: 1em auto;
+    width: 72%;
+    margin: calc(17 / 320 * 100vw) auto;
     background: #fff;
     border: solid 5px #cf0404;
+    z-index: 10;
     @include mq {
       width: 45%;
       margin-top: 3%;
@@ -394,17 +395,21 @@ export default {
 
   .lottery {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include mq(sm) {
+    @include mq(lt-lg) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       bottom: 3%;
       left: 2%;
       right: 0;
     }
     @include mq {
-      top: calc(150 / 1024 * 100vw);
-      right: calc(39 / 1024 * 100vw);
+      top: 43%;
+      left: 52.6%;
+      text-align: center;
+    }
+    @media screen and (min-width: 1200px) {
+      left: 55.6%;
     }
   }
 
@@ -418,13 +423,9 @@ export default {
     color: #cf0404;
     font-weight: 700;
     @include mq {
-      right: 8%;
-      top: 22%;
-      font-size: calc(16 / 1024 * 100vw);
-      background: #fff;
-      color: #000;
-      padding: 0.6em;
-      border-radius: 4px;
+      bottom: 62%;
+      left: 83%;
+      font-size: calc(20 / 1024 * 100vw);
     }
   }
 
@@ -435,7 +436,10 @@ export default {
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    margin-right: 1em;
+    margin-right: calc(15 / 320 * 100vw);
+    @include mq(md) {
+      margin-right: calc(35 / 600 * 100vw);
+    }
     @include mq {
       width: calc(100 / 1024 * 100vw);
       height: calc(100 / 1024 * 100vw);

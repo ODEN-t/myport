@@ -6,11 +6,11 @@
     </p>
     <div class="carGame">
       <div class="btnWrap">
-        <div name="btn" class="buttonCTA btn-flat" @click="carForward">
-          <span>前進</span>
-        </div>
-        <div name="btn" class="buttonCTA btn-flat" @click="carBack">
+        <div name="btn" class="buttonCTA-round" @click="carBack">
           <span>バック</span>
+        </div>
+        <div name="btn" class="buttonCTA-round" @click="carForward">
+          <span>前進</span>
         </div>
       </div>
       <div class="carGame__carParts">
@@ -31,8 +31,8 @@
       </div>
       <div id="showresult" class="showresult">
         <p id="result"></p>
-        <div class="c-button reload-btn" @click="carReload">
-          <span class="c-button_inner c-button_inner__reload">もう一度</span>
+        <div class="buttonCTA btn-flat" @click="carReload">
+          <span>もう一度</span>
         </div>
       </div>
     </div>
@@ -112,21 +112,25 @@ export default {
 
     .battery {
       position: absolute;
-      top: 37%;
+      top: 42%;
       width: 20%;
       z-index: 5;
       right: 0;
       transform: translateX(-50%);
+      @include mq {
+        top: 45%;
+        right: -4%;
+      }
     }
     .car {
       position: absolute;
       left: 50%;
-      bottom: -5.1%;
+      bottom: -7%;
       transform: translateX(-50%);
-      width: 40%;
+      width: 50%;
       z-index: 10;
       @include mq {
-        bottom: -10.5%;
+        bottom: -11.1%;
       }
     }
     .townBg {
@@ -147,30 +151,15 @@ export default {
   .btnWrap {
     position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     top: 22%;
+    right: 0;
     left: 0;
     z-index: 20;
-    @include mq(sm) {
-      right: 0;
-    }
-    @include mq {
-      top: 22%;
-      left: 50%;
-      transform: translate(-50%);
-    }
-
-    .buttonCTA:first-of-type {
-      margin-right: 1em;
-    }
   }
 
-  .buttonCTA.is-prevent {
+  .buttonCTA-round.is-prevent {
     pointer-events: none;
-  }
-
-  .buttonCTA:first-child {
-    margin-right: 30px;
   }
 }
 </style>
