@@ -80,8 +80,8 @@ export default class DriveGame {
   }
   done() {
     setTimeout(() => {
-      document.getElementById('result').textContent = 'ドライブ終了';
-      document.getElementById('showresult').classList.add('is-active');
+      document.querySelector('.resultText-car').textContent = 'ドライブ終了';
+      document.querySelector('.result-car').classList.add('is-active');
     }, 1000);
   }
 }

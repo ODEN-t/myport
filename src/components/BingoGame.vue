@@ -35,7 +35,7 @@
       </div>
       <span class="restNum">残り<br />{{ restNum }} 回</span>
     </div>
-    <div :class="{ 'is-active': isActive }" class="showresult">
+    <div :class="{ 'is-active': isActive }" class="result">
       <p>{{ result }}</p>
       <div @click="reload" class="buttonCTA btn-flat btn-flat--red mod-white">
         <span>再挑戦</span>

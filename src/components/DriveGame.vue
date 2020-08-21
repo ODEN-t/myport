@@ -29,8 +29,8 @@
       <div id="init" class="init">
         <p>初期化中。。。</p>
       </div>
-      <div id="showresult" class="showresult">
-        <p id="result"></p>
+      <div class="result result-car">
+        <p class="resultText-car"></p>
         <div class="buttonCTA btn-flat" @click="carReload">
           <span>もう一度</span>
         </div>
@@ -78,7 +78,7 @@ export default {
       this.storage.car.back();
     },
     carReload: function() {
-      document.getElementById('showresult').classList.remove('is-active');
+      document.querySelector('.result').classList.remove('is-active');
       this.storage.car = null;
       this.storage.car = new DriveGame(
         this.initParam().speed,

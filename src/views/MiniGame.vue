@@ -11,7 +11,9 @@
       </div>
     </section>
     <section class="gameFrame gameFrame--odd">
-      <div class="gameFrame__content a"></div>
+      <div class="gameFrame__content gameFrame__content--bgNatural">
+        <FlagGame></FlagGame>
+      </div>
     </section>
     <section class="gameFrame gameFrame--even">
       <div class="gameFrame__content b"></div>
@@ -28,12 +30,14 @@
 <script>
 import DriveGame from '../components/DriveGame.vue';
 import BingoGame from '../components/BingoGame.vue';
+import FlagGame from '../components/FlagGame.vue';
 
 export default {
   name: 'MiniGame',
   components: {
     DriveGame,
-    BingoGame
+    BingoGame,
+    FlagGame
   }
 };
 </script>
@@ -76,6 +80,11 @@ export default {
       &--bgBlack {
         background: #000;
       }
+      &--bgNatural {
+        background: url('../assets/images/minigame/bg_natural_umi.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
 
     &--odd {
@@ -98,7 +107,7 @@ export default {
     height: 100%;
     padding: 3%;
     position: relative;
-
+    overflow: hidden;
     &__title {
       font-size: calc(18 / 320 * 100vw);
       line-height: 1.2;
@@ -124,7 +133,7 @@ export default {
     }
   }
 
-  .showresult,
+  .result,
   .init {
     position: absolute;
     top: 0;
@@ -141,13 +150,20 @@ export default {
     transition: opacity 0.5s ease-in-out;
   }
 
-  .showresult.is-active,
+  .result {
+    &-car.is-active,
+    &-flag.is-active {
+      z-index: 50;
+      opacity: 1;
+    }
+  }
+
   .init.is-active {
     z-index: 50;
     opacity: 1;
   }
 
-  .showresult > p,
+  .result > p,
   .init > p {
     color: #fff;
     font-size: calc(30 / 320 * 100vw);
@@ -161,7 +177,7 @@ export default {
     }
   }
 
-  .showresult > .buttonCTA {
+  .result > .buttonCTA {
     margin-top: 1.5em;
   }
 }
