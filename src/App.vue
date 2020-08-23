@@ -20,7 +20,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/reset.css';
 @import url('https://fonts.googleapis.com/css?family=Lato|Noto+Sans+JP&display=swap');
 #app {
   font-family: 'lato_noto', 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN',

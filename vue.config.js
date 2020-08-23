@@ -19,7 +19,10 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        prependData: '@import "./src/styles/global.scss";'
+        prependData: `
+        @import "@/styles/base/_colors.scss";
+        @import "@/styles/base/_breakpoint.scss";
+        `
       }
     }
   },

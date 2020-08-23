@@ -13,6 +13,11 @@ const routes = [
     path: '/airtravel',
     name: 'AirTravel',
     component: () => import('../views/AirTravel.vue')
+  },
+  {
+    path: '/minigame',
+    name: 'MiniGame',
+    component: () => import('../views/MiniGame.vue')
   }
 ];
 
