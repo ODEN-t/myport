@@ -125,12 +125,15 @@ export default {
     .car {
       position: absolute;
       left: 50%;
-      bottom: -7%;
+      bottom: -8%;
       transform: translateX(-50%);
       width: 50%;
       z-index: 10;
+      @include mq(md) {
+        bottom: -9%;
+      }
       @include mq {
-        bottom: -11.1%;
+        bottom: -13.1%;
       }
     }
     .townBg {

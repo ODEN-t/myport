@@ -35,7 +35,7 @@
       </div>
       <span class="restNum">残り<br />{{ restNum }} 回</span>
     </div>
-    <div :class="{ 'is-active': isActive }" class="result">
+    <div :class="{ 'is-active': isActive }" class="result result-bingo">
       <p>{{ result }}</p>
       <div @click="reload" class="buttonCTA btn-flat btn-flat--red mod-white">
         <span>再挑戦</span>
@@ -315,7 +315,7 @@ export default {
     border: solid 5px #cf0404;
     z-index: 10;
     @include mq {
-      width: 45%;
+      width: 43%;
       margin-top: 3%;
       margin-left: 5%;
     }

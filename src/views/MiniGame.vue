@@ -1,7 +1,7 @@
 <template>
   <main class="miniGame">
     <section class="gameFrame gameFrame--odd">
-      <div class="gameFrame__content a">
+      <div class="gameFrame__content">
         <DriveGame></DriveGame>
       </div>
     </section>
@@ -16,13 +16,9 @@
       </div>
     </section>
     <section class="gameFrame gameFrame--even">
-      <div class="gameFrame__content b"></div>
-    </section>
-    <section class="gameFrame gameFrame--odd">
-      <div class="gameFrame__content a"></div>
-    </section>
-    <section class="gameFrame gameFrame--even">
-      <div class="gameFrame__content b"></div>
+      <div class="gameFrame__content gameFrame__content--bgWashi">
+        <SayingGame></SayingGame>
+      </div>
     </section>
   </main>
 </template>
@@ -31,13 +27,15 @@
 import DriveGame from '../components/DriveGame.vue';
 import BingoGame from '../components/BingoGame.vue';
 import FlagGame from '../components/FlagGame.vue';
+import SayingGame from '../components/SayingGame.vue';
 
 export default {
   name: 'MiniGame',
   components: {
     DriveGame,
     BingoGame,
-    FlagGame
+    FlagGame,
+    SayingGame
   }
 };
 </script>
@@ -56,6 +54,7 @@ export default {
   .gameFrame {
     position: relative;
     width: 100%;
+    border: solid 2px #f5f5f5;
     @include mq(lt-lg) {
       margin-top: 5%;
     }
@@ -77,12 +76,17 @@ export default {
       right: 0;
       bottom: 0;
       left: 0;
+      background: lightblue;
       &--bgBlack {
         background: #000;
       }
       &--bgNatural {
         background: url('../assets/images/minigame/bg_natural_umi.jpg');
         background-size: cover;
+        background-repeat: no-repeat;
+      }
+      &--bgWashi {
+        background: url('../assets/images/minigame/washi.jpg');
         background-repeat: no-repeat;
       }
     }
@@ -96,9 +100,6 @@ export default {
       @include mq {
         margin: 1.5% 3% 1.5% 1.5%;
       }
-    }
-    .a {
-      background: lightblue;
     }
   }
 
@@ -153,7 +154,9 @@ export default {
 
   .result {
     &-car.is-active,
-    &-flag.is-active {
+    &-flag.is-active,
+    &-bingo.is-active,
+    &-saying.is-active {
       z-index: 50;
       opacity: 1;
     }

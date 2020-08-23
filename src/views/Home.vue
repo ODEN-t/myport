@@ -148,19 +148,19 @@
               </div>
             </router-link>
           </li>
-          <li class="p-contents__workCards p-contents__workCards--textContent">
-            <h4>大手ECサイトのLP作成</h4>
-            <router-link to="minigame">aaaaaaaaa</router-link>
-            <h5>言語</h5>
-            <p>
-              HTML, CSS, JavaScript(jQuery), bem・SassでのCSS管理,
-              jQueryプラグインの利用(owlcarousel, slick, magnificPopup)
-            </p>
-            <h5>ツール</h5>
-            <p>
-              git, bitbacket, gulp, webpack, nvm, npm, zsh, JIRAでのタスク管理,
-              illustrator, photoshop
-            </p>
+          <li class="p-contents__workCards">
+            <router-link to="minigame">
+              <img
+                src="../assets/images/home/thumbnail_minigame-min.png"
+                alt=""
+              />
+              <div class="p-contents__workCards__textBox">
+                <p>
+                  JavaScriptを使用して簡単なミニゲームを作成しました。
+                </p>
+                <span class="p-contents__workCards__tag">Vue.js</span>
+              </div>
+            </router-link>
           </li>
         </ul>
       </div>

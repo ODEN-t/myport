@@ -18,11 +18,6 @@ const routes = [
     path: '/minigame',
     name: 'MiniGame',
     component: () => import('../views/MiniGame.vue')
-  },
-  {
-    path: '/test',
-    name: 'DriveGame',
-    component: () => import('../components/DriveGame.vue')
   }
 ];
 

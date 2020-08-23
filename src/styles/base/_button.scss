@@ -22,7 +22,6 @@ button {
   border-radius: 0.5rem;
   @include mq(gt-md) {
     min-width: 11em;
-    padding: 0.8em 3.6em;
     font-size: 16px;
   }
 
