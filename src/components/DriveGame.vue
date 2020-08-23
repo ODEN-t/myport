@@ -27,7 +27,7 @@
         <div class="townBg"></div>
       </div>
       <div id="init" class="init">
-        <p>初期化中。。。</p>
+        <p>初期化中..</p>
       </div>
       <div class="result result-car">
         <p class="resultText-car"></p>

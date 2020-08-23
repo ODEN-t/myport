@@ -124,6 +124,7 @@ export default {
     &__leadText {
       font-size: calc(13 / 320 * 100vw);
       text-align: center;
+      line-height: 1.5;
       @include mq {
         font-size: calc(15 / 1024 * 100vw);
       }

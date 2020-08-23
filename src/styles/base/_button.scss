@@ -2,10 +2,11 @@
 button {
   font-size: 13px;
   font-weight: 600;
+  min-width: 10em;
   line-height: 1.5;
   position: relative;
   display: inline-block;
-  padding: 0.6em 3.9em;
+  padding: 0.6em 2.8em;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -16,11 +17,12 @@ button {
   text-align: center;
   vertical-align: middle;
   text-decoration: none;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   color: #212529;
   border-radius: 0.5rem;
   @include mq(gt-md) {
-    padding: 0.8em 5.2em;
+    min-width: 11em;
+    padding: 0.8em 3.6em;
     font-size: 16px;
   }
 

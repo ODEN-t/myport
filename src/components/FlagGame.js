@@ -6,22 +6,16 @@ export default class FlagGame {
     this.correct = '';
     this.count = 0;
   }
-  changeAngle(node) {
-    let angle = node.dataset.angle;
+  changeAngle(angle) {
+    let angleData = angle.dataset.angle;
     document
       .getElementById('flag')
-      .classList.remove(
-        'r0',
-        'r30',
-        'r60',
-        'r90',
-        'r120',
-        'r150',
-        'r180',
-        'active'
-      );
-    document.getElementById('flag').classList.add(angle);
-    node.classList.add('active');
+      .classList.remove('r0', 'r30', 'r60', 'r90', 'r120', 'r150', 'r180');
+    document.getElementById('flag').classList.add(angleData);
+    document.getElementsByName('angles').forEach(a => {
+      a.classList.remove('is-active');
+    });
+    angle.classList.add('is-active');
   }
   order() {
     let max = 3 - this.now,
@@ -42,12 +36,10 @@ export default class FlagGame {
   judgment() {
     if (this.count >= 9) this.clear();
     this.now == this.correct ? this.count++ : this.wrong();
-    console.log('judge');
   }
   wrong() {
-    console.log('wrong');
     setTimeout(() => {
-      document.querySelector('.resultText-flag').textContent = '残念 ..';
+      document.querySelector('.resultText-flag').textContent = '残念..';
       document.querySelector('.result-flag').classList.add('is-active');
     }, 1000);
   }
@@ -70,6 +62,10 @@ export default class FlagGame {
         'r180',
         'active'
       );
+    document.getElementsByName('angles').forEach(a => {
+      a.classList.remove('is-active');
+    });
+    document.querySelector('.square-90').classList.add('is-active');
     document.getElementById('flag').classList.add('r90');
     document.querySelector('.resultText-flag').textContent = '';
     document.querySelector('.result-flag').classList.remove('is-active');
