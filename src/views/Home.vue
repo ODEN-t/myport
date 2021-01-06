@@ -170,13 +170,13 @@
 </template>
 
 <script>
-import AppIcon from '../components/AppIcon';
+// import AppIcon from '../components/AppIcon';
 import EventBus from '../lib/EventBus';
 export default {
   name: 'Home',
-  components: {
-    AppIcon
-  },
+  // components: {
+  //   AppIcon
+  // },
   mounted: function() {
     this.textFadein();
     this.headerBgChange();
@@ -248,16 +248,16 @@ export default {
           },
           {
             dt: '2019. 5 - 2020. 4',
-            dd: "某社にて大手ECサイトの保守・運用業務に携わる",
+            dd: '某社にて大手ECサイトの保守・運用業務に携わる'
           },
           {
             dt: '2020. 5 - 2020. 9',
-            dd: "自社開発にてクイズアプリの画面作成業務に携わる",
+            dd: '自社開発にてクイズアプリの画面作成業務に携わる'
           },
           {
             dt: '2020. 10 - 現在',
-            dd: '某社にて業務システムのテスターとして携わる',
-          },
+            dd: '某社にて業務システムのテスターとして携わる'
+          }
         ],
         carrerDetails: [
           {
@@ -268,7 +268,7 @@ export default {
               '・CMSを利用したサイト更新、NL管理、アプリ更新',
               '・HTML、CSS、JSでのクイズ作成',
               '・Springフレームワークで作成された業務システムのテストデータの作成と実施',
-              '・上記業務システムのバッチ処理、オンライン処理の資料作成',
+              '・上記業務システムのバッチ処理、オンライン処理の資料作成'
             ]
           }
         ],
@@ -468,7 +468,7 @@ export default {
       }
     }
     &__background {
-      background-image: url("../assets/images/home/mobile/oceanside-min.jpg");
+      background-image: url('../assets/images/home/mobile/oceanside-min.jpg');
       background-repeat: no-repeat;
       width: 100%;
       height: 100%;
@@ -476,7 +476,7 @@ export default {
       background-position: 30%;
       filter: brightness(0.7);
       @include mq(gt-md) {
-        background-image: url("../assets/images/home/oceanside-min.jpg");
+        background-image: url('../assets/images/home/oceanside-min.jpg');
         background-position: 50% 80%;
       }
     }
@@ -607,7 +607,7 @@ export default {
         }
       }
     }
-    svg[class^="svg-"] {
+    svg[class^='svg-'] {
       padding: 0 0.2em;
     }
     &__workList {
