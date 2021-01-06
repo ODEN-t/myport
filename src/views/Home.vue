@@ -75,7 +75,7 @@
       </div>
     </section>
 
-    <section class="p-contents p-contents--bgMain">
+    <!-- <section class="p-contents p-contents--bgMain">
       <div class="p-contents__wrap js-fadeIn">
         <h2>Skills</h2>
         <div class="p-contents__card">
@@ -126,7 +126,8 @@
           </dl>
         </div>
       </div>
-    </section>
+    </section> -->
+
     <section class="p-contents p-contents--works">
       <div class="p-contents__wrap">
         <h2>Works</h2>
@@ -155,9 +156,7 @@
                 alt=""
               />
               <div class="p-contents__workCards__textBox">
-                <p>
-                  JavaScriptを使用して簡単なミニゲームを作成しました。
-                </p>
+                <p>JavaScriptを使用して簡単なミニゲームを作成しました。</p>
                 <span class="p-contents__workCards__tag">Vue.js</span>
               </div>
             </router-link>
@@ -169,266 +168,268 @@
 </template>
 
 <script>
-import AppIcon from '../components/AppIcon';
-import EventBus from '../lib/EventBus';
+import AppIcon from "../components/AppIcon";
+import EventBus from "../lib/EventBus";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    AppIcon
+    AppIcon,
   },
-  mounted: function() {
+  mounted: function () {
     this.textFadein();
     this.headerBgChange();
   },
-  data: function() {
+  data: function () {
     return {
-      title: 'My Portforio',
-      description: 'T.Kのポートフォリオサイトです。Web制作がメインです。',
-      size: 'medium',
-      color: 'primary',
-      isInKv: '',
+      title: "My Portforio",
+      description: "T.Kのポートフォリオサイトです。Web制作がメインです。",
+      size: "medium",
+      color: "primary",
+      isInKv: "",
       dataBlock: {
         basicProfile: [
           {
-            dt: 'Name',
-            dd: 'T.K'
+            dt: "Name",
+            dd: "T.K",
           },
           {
-            dt: 'Sex',
-            dd: '男'
+            dt: "Sex",
+            dd: "男",
           },
           {
-            dt: 'Age',
-            dd: '28（1991. 11. 30 〜）'
+            dt: "Age",
+            dd: "29（1991. 11. 30 〜）",
           },
           {
-            dt: 'Education',
-            dd: '立命館大学国際関係学部国際関係学科卒業'
+            dt: "Education",
+            dd: "立命館大学国際関係学部国際関係学科卒業",
           },
           {
-            dt: 'Certifications',
-            dd: 'DELE B1（スペイン語の資格）'
+            dt: "Certifications",
+            dd: "DELE B1（スペイン語の資格）",
           },
           {
-            dt: 'Tel',
-            dd: '080 - 1480 - 4979'
+            dt: "Tel",
+            dd: "080 - 1480 - 4979",
           },
           {
-            dt: 'Mail',
-            dd: 'xxzera@gmail.com'
-          }
+            dt: "Mail",
+            dd: "xxzera@gmail.com",
+          },
         ],
         development: [
           {
-            dt: 'OS',
-            dd: 'Mac OS'
+            dt: "OS",
+            dd: "Mac OS, Windows",
           },
           {
-            dt: 'Tools',
-            dd: 'git、 npm、 webpack、 gulp'
+            dt: "Tools",
+            dd: "git, npm, webpack, gulp, maven",
           },
           {
-            dt: 'Language',
-            dd: 'HTML / Sass、 JavaScript（jQuery）'
+            dt: "Language",
+            dd: "HTML / Sass, JavaScript, Java",
           },
           {
-            dt: 'Framework',
-            dd: 'Vue.js'
+            dt: "Framework",
+            dd: "Vue.js, Spring",
           },
           {
-            dt: 'Library',
-            dd: 'jQuery.js'
-          }
+            dt: "Library",
+            dd: "jQuery",
+          },
         ],
         carrerSummary: [
           {
-            dt: '2016. 4 - 2018. 8',
-            dd: 'スズキ株式会社にて営業職として従事（BtoB / BtoC)'
+            dt: "2016. 4 - 2018. 8",
+            dd: "スズキ株式会社にて営業職として従事（BtoB / BtoC)",
           },
           {
-            dt: '2019. 2 - 2019. 4',
-            dd: '株式会社アウトソーシングデザイナーに入社し研修を受ける'
+            dt: "2019. 2 - 2019. 4",
+            dd: "株式会社アウトソーシングデザイナーに入社し研修を受ける",
           },
           {
-            dt: '2019. 5 - 2020. 4',
-            dd: '某社にて大手ECサイトの保守・運用業務に携わる'
-          }
+            dt: "2019. 5 - 2020. 4",
+            dd: "某社にて大手ECサイトの保守・運用業務に携わる",
+          },
+          {
+            dt: "2019. 6 - 2020. 9",
+            dd: "自社開発にてクイズアプリの画面作成業務に携わる",
+          },
+          {
+            dt: "2020. 10 - 現在",
+            dd: "某社にて業務システムのテスターとして携わる",
+          },
         ],
         carrerDetails: [
           {
-            dt: '研修内容',
+            dt: "業務内容",
             dd: [
-              '・PHP5におけるオブジェクト指向プログラムの基礎と応用',
-              '・JavaScriptを用いた動的なWebサイトの構築',
-              '・MySQLの基礎と応用、PHPからの実行',
-              '・illustrator、photoshopの基礎・応用'
-            ]
+              "・カンプを元にLPの新規作成、更新",
+              "・サイト内コンポーネントの保守",
+              "・CMSを利用したサイト更新、NL管理、アプリ更新",
+              "・HTML、CSS、JSでのクイズ作成",
+              "・Springフレームワークで作成された業務システムのテストデータの作成と実施",
+              "・上記業務システムのバッチ処理、オンライン処理の資料作成",
+            ],
           },
-          {
-            dt: '業務内容',
-            dd: [
-              '・カンプを元にLPの新規作成、更新',
-              '・サイト内コンポーネントの保守',
-              '・CMSを利用したサイト更新、NL管理、アプリ更新'
-            ]
-          }
         ],
         skillRate: [
           {
-            dt: 'HTML',
+            dt: "HTML",
             dd: [
-              'star-full',
-              'star-full',
-              'star-full',
-              'star-full',
-              'star-empty'
+              "star-full",
+              "star-full",
+              "star-full",
+              "star-full",
+              "star-empty",
             ],
-            svgDescription: 'HTMLのスキル, 星の数'
+            svgDescription: "HTMLのスキル, 星の数",
           },
           {
-            dt: 'Sass（CSS）',
+            dt: "Sass（CSS）",
             dd: [
-              'star-full',
-              'star-full',
-              'star-full',
-              'star-full',
-              'star-empty'
+              "star-full",
+              "star-full",
+              "star-full",
+              "star-full",
+              "star-empty",
             ],
-            svgDescription: 'Sass（CSS）のスキル, 星の数'
+            svgDescription: "Sass（CSS）のスキル, 星の数",
           },
           {
-            dt: 'PHP',
+            dt: "PHP",
             dd: [
-              'star-full',
-              'star-full',
-              'star-empty',
-              'star-empty',
-              'star-empty'
+              "star-full",
+              "star-full",
+              "star-empty",
+              "star-empty",
+              "star-empty",
             ],
-            svgDescription: 'PHPのスキル, 星の数'
+            svgDescription: "PHPのスキル, 星の数",
           },
           {
-            dt: 'JavaScript',
+            dt: "JavaScript",
             dd: [
-              'star-full',
-              'star-full',
-              'star-full',
-              'star-half',
-              'star-empty'
+              "star-full",
+              "star-full",
+              "star-full",
+              "star-half",
+              "star-empty",
             ],
-            svgDescription: 'JavaScriptのスキル, 星の数'
+            svgDescription: "JavaScriptのスキル, 星の数",
           },
           {
-            dt: 'Vue.js',
+            dt: "Vue.js",
             dd: [
-              'star-full',
-              'star-full',
-              'star-half',
-              'star-empty',
-              'star-empty'
+              "star-full",
+              "star-full",
+              "star-half",
+              "star-empty",
+              "star-empty",
             ],
-            svgDescription: 'Vue.jsのスキル, 星の数'
+            svgDescription: "Vue.jsのスキル, 星の数",
           },
           {
-            dt: 'WordPress',
+            dt: "WordPress",
             dd: [
-              'star-full',
-              'star-full',
-              'star-empty',
-              'star-empty',
-              'star-empty'
+              "star-full",
+              "star-full",
+              "star-empty",
+              "star-empty",
+              "star-empty",
             ],
-            svgDescription: 'WordPressのスキル, 星の数'
-          }
+            svgDescription: "WordPressのスキル, 星の数",
+          },
         ],
         skillRateContents: [
           {
-            dt: 'HTML',
-            dd: '基本的マークアップ、SVGの利用'
+            dt: "HTML",
+            dd: "基本的マークアップ、SVGの利用",
           },
           {
-            dt: 'Sass（CSS）',
-            dd: 'レスポンシブ化、アニメーション、CSS設計'
+            dt: "Sass（CSS）",
+            dd: "レスポンシブ化、アニメーション、CSS設計",
           },
           {
-            dt: 'PHP',
-            dd: '研修の基礎知識のみ、実務経験なし'
+            dt: "PHP",
+            dd: "研修の基礎知識のみ、実務経験なし",
           },
           {
-            dt: 'JavaScript',
-            dd: 'DOM操作、関数化、非同期処理、プラグインの利用'
+            dt: "JavaScript",
+            dd: "DOM操作、関数化、非同期処理、プラグインの利用",
           },
           {
-            dt: 'Vue',
-            dd: '基礎、実務経験なし'
+            dt: "Vue",
+            dd: "基礎、実務経験なし",
           },
           {
-            dt: 'WordPress',
-            dd: 'テーマを用いたサイト構築、DB連携、サイトの更新'
-          }
+            dt: "WordPress",
+            dd: "テーマを用いたサイト構築、DB連携、サイトの更新",
+          },
         ],
         works: [
           {
-            path: '',
-            alt: 'title',
-            description: ''
-          }
-        ]
-      }
+            path: "",
+            alt: "title",
+            description: "",
+          },
+        ],
+      },
     };
   },
   methods: {
-    textFadein: function() {
-      const targets = document.querySelectorAll('.js-fadeIn');
+    textFadein: function () {
+      const targets = document.querySelectorAll(".js-fadeIn");
       const options = {
         root: null,
-        rootMargin: '-50% 0px',
-        threshold: 0
+        rootMargin: "-50% 0px",
+        threshold: 0,
       };
 
-      const whenIntersect = entries => {
-        entries.forEach(entry => {
+      const whenIntersect = (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-onScreen');
+            entry.target.classList.add("is-onScreen");
             observer.unobserve(entry.target); //add後、監視停止
           }
         });
       };
 
       const observer = new IntersectionObserver(whenIntersect, options);
-      targets.forEach(target => observer.observe(target));
+      targets.forEach((target) => observer.observe(target));
     },
     emitToHeader(eventName, targetData, enterData) {
       let changedData = (targetData = enterData);
       EventBus.$emit(eventName, changedData); // EventBusを通じて兄弟コンポーネント Header.vue に変更を通知
     },
     headerBgChange() {
-      const target = document.querySelector('.js-head');
+      const target = document.querySelector(".js-head");
       const options = {
         root: null,
-        rootMargin: '',
-        threshold: 0
+        rootMargin: "",
+        threshold: 0,
       };
 
-      const whenIntersect = entry =>
+      const whenIntersect = (entry) =>
         entry[0].isIntersecting
-          ? this.emitToHeader('changeBg-event', this.isInKv, true)
-          : this.emitToHeader('changeBg-event', this.isInKv, false);
+          ? this.emitToHeader("changeBg-event", this.isInKv, true)
+          : this.emitToHeader("changeBg-event", this.isInKv, false);
 
       const observer = new IntersectionObserver(whenIntersect, options);
       observer.observe(target);
-    }
+    },
   },
   head: {
-    meta: function() {
+    meta: function () {
       return [
-        { property: 'og:title', content: this.title },
-        { property: 'og:description', content: this.description },
-        { name: 'description', content: this.description }
+        { property: "og:title", content: this.title },
+        { property: "og:description", content: this.description },
+        { name: "description", content: this.description },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -477,7 +478,7 @@ export default {
     }
 
     &__background {
-      background-image: url('../assets/images/home/mobile/oceanside-min.jpg');
+      background-image: url("../assets/images/home/mobile/oceanside-min.jpg");
       background-repeat: no-repeat;
       width: 100%;
       height: 100%;
@@ -485,7 +486,7 @@ export default {
       background-position: 30%;
       filter: brightness(0.7);
       @include mq(gt-md) {
-        background-image: url('../assets/images/home/oceanside-min.jpg');
+        background-image: url("../assets/images/home/oceanside-min.jpg");
         background-position: 50% 80%;
       }
     }
@@ -632,7 +633,7 @@ export default {
       }
     }
 
-    svg[class^='svg-'] {
+    svg[class^="svg-"] {
       padding: 0 0.2em;
     }
 
