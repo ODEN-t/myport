@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import AppIcon from '../components/AppIcon';
+// import AppIcon from '../components/AppIcon';
 import EventBus from '../lib/EventBus';
 export default {
   name: 'Home',
-  components: {
-    AppIcon
-  },
+  // components: {
+  //   AppIcon
+  // },
   mounted: function() {
     this.textFadein();
     this.headerBgChange();
@@ -147,7 +147,7 @@ export default {
       }
     }
     &__background {
-      background-image: url("../assets/images/home/mobile/oceanside-min.jpg");
+      background-image: url('../assets/images/home/mobile/oceanside-min.jpg');
       background-repeat: no-repeat;
       width: 100%;
       height: 100%;
@@ -155,7 +155,7 @@ export default {
       background-position: 30%;
       filter: brightness(0.7);
       @include mq(gt-md) {
-        background-image: url("../assets/images/home/oceanside-min.jpg");
+        background-image: url('../assets/images/home/oceanside-min.jpg');
         background-position: 50% 80%;
       }
     }
@@ -286,7 +286,7 @@ export default {
         }
       }
     }
-    svg[class^="svg-"] {
+    svg[class^='svg-'] {
       padding: 0 0.2em;
     }
     &__workList {
